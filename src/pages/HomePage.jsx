@@ -9,6 +9,8 @@ import {
   ChevronDown, 
   Award
 } from 'lucide-react';
+import PlacementsSection from '../components/home/PlacementsSection';
+import LatestNewsSection from '../components/home/LatestNewsSection';
 
 export default function HomePage() {
   const scrollToPrincipal = (e) => {
@@ -466,6 +468,12 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* 3. CAMPUS PLACEMENTS STATISTICS */}
+      <PlacementsSection />
+
+      {/* 4. LATEST NEWS & UPDATES */}
+      <LatestNewsSection />
 
       {/* Scoped CSS for Animations and Responsive Layout */}
       <style>{`
