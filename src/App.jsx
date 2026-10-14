@@ -53,10 +53,6 @@ export default function App() {
     }
   }, [location.pathname, currentUser.role, quickSwitchRole]);
 
-  const isHomePage = location.pathname === '/' || 
-    location.pathname === '/index.html' || 
-    location.pathname === '/index-2.html' || 
-    location.pathname === '/index.php';
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
@@ -193,7 +189,7 @@ export default function App() {
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </main>
-          {!isHomePage && <Footer />}
+          <Footer />
           <LoginModal />
         </>
       )}
