@@ -187,36 +187,38 @@ export default function Navbar() {
       <div style={{ padding: '0.6rem 1rem', borderBottom: isHomePage ? 'none' : '1px solid #f1f5f9', background: '#ffffff' }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem' }}>
           {/* College Identity */}
-          <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', textDecoration: 'none', minWidth: 0 }}>
+          <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', textDecoration: 'none', minWidth: 0, flex: '1 1 auto' }}>
             <img 
               src="/college_assets/tec_crest.png" 
               alt="Tirumala Engineering College Emblem" 
-              style={{ width: '44px', height: '44px', objectFit: 'contain', flexShrink: 0 }}
+              style={{ width: '42px', height: '42px', objectFit: 'contain', flexShrink: 0 }}
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
               }}
             />
-            <div style={{ minWidth: 0 }}>
+            <div style={{ minWidth: 0, overflow: 'hidden' }}>
               <div style={{ 
                 fontFamily: 'var(--font-heading)', 
                 fontWeight: 900, 
-                fontSize: 'clamp(0.92rem, 3.2vw, 1.3rem)', 
+                fontSize: 'clamp(0.82rem, 3.2vw, 1.3rem)', 
                 color: '#0e2154', 
                 letterSpacing: '-0.02em', 
                 lineHeight: 1.15,
-                whiteSpace: 'normal'
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis'
               }}>
                 TIRUMALA ENGINEERING COLLEGE
               </div>
               <div style={{ 
-                fontSize: 'clamp(0.62rem, 1.8vw, 0.72rem)', 
+                fontSize: 'clamp(0.58rem, 1.8vw, 0.72rem)', 
                 color: '#64748b', 
                 fontWeight: 700, 
                 display: 'flex', 
                 alignItems: 'center', 
                 gap: '0.35rem', 
                 marginTop: '0.15rem',
-                flexWrap: 'wrap'
+                whiteSpace: 'nowrap'
               }}>
                 <span style={{ color: '#d97706' }}>NARASARAOPET</span>
                 <span>•</span>
@@ -227,47 +229,63 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Clean Portal Action */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }} className="header-actions">
+          {/* Clean Portal Action & Mobile Toggle */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexShrink: 0 }} className="header-actions">
             <button 
               onClick={() => handleOpenLogin('student')}
-              className="btn btn-outline-primary btn-sm"
-              style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontWeight: 700, whiteSpace: 'nowrap', padding: '0.4rem 0.75rem' }}
+              className="btn btn-outline-primary btn-sm portal-login-btn"
+              style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontWeight: 700, whiteSpace: 'nowrap', padding: '0.4rem 0.65rem', fontSize: '0.8rem' }}
               title="Access College Management Portals"
             >
               <LogIn size={14} />
-              <span>Portal Login</span>
+              <span className="portal-btn-label">Portal Login</span>
             </button>
 
-            {/* Mobile menu toggle for inner pages */}
-            {!isHomePage && (
-              <button 
-                className="mobile-nav-toggle"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                style={{ display: 'none', background: 'none', border: 'none', color: '#0e2154', cursor: 'pointer', padding: '0.4rem' }}
-              >
-                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            )}
+            {/* Mobile menu toggle */}
+            <button 
+              className="mobile-nav-toggle"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              style={{ display: 'none', background: 'none', border: 'none', color: '#0e2154', cursor: 'pointer', padding: '0.35rem' }}
+              aria-label="Toggle navigation menu"
+            >
+              {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Main Desktop Dropdown Navigation Bar (Hidden on Homepage) */}
-      {!isHomePage && (
-        <nav style={{ background: '#0e2154', borderBottom: '2px solid #f59e0b' }} className="desktop-navbar-strip">
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+      {/* Main Desktop Dropdown Navigation Bar (Floating over campus hero on Homepage) */}
+      <nav 
+        style={{
+          position: isHomePage ? 'absolute' : 'relative',
+          top: isHomePage ? '100%' : 'auto',
+          left: 0,
+          right: 0,
+          width: '100%',
+          zIndex: 850,
+          background: isHomePage ? 'rgba(8, 20, 50, 0.52)' : '#0e2154',
+          backdropFilter: isHomePage ? 'blur(10px)' : 'none',
+          WebkitBackdropFilter: isHomePage ? 'blur(10px)' : 'none',
+          borderBottom: isHomePage ? '1px solid rgba(255, 255, 255, 0.16)' : '2px solid #f59e0b',
+          boxShadow: isHomePage ? '0 8px 24px rgba(0, 0, 0, 0.15)' : 'none'
+        }} 
+        className="desktop-navbar-strip"
+      >
+        <div style={{ maxWidth: '1380px', margin: '0 auto', padding: '0 0.75rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'nowrap', gap: '0.15rem' }}>
             <Link 
               to="/" 
               style={{ 
                 color: location.pathname === '/' ? '#fbbf24' : '#ffffff', 
-                padding: '0.65rem 1rem', 
-                fontSize: '0.85rem', 
+                padding: '0.45rem 0.65rem', 
+                fontSize: '0.8rem', 
                 fontWeight: 700, 
                 textDecoration: 'none',
-                background: location.pathname === '/' ? 'rgba(255,255,255,0.1)' : 'transparent',
-                display: 'block'
+                background: location.pathname === '/' ? 'rgba(255,255,255,0.14)' : 'transparent',
+                borderRadius: '6px',
+                display: 'block',
+                whiteSpace: 'nowrap',
+                textShadow: isHomePage ? '0 1px 2px rgba(0,0,0,0.6)' : 'none'
               }}
             >
               Home
@@ -288,19 +306,22 @@ export default function Navbar() {
                     to={menu.path}
                     style={{
                       color: isMenuActive ? '#fbbf24' : '#ffffff',
-                      padding: '0.65rem 0.85rem',
-                      fontSize: '0.82rem',
-                      fontWeight: 700,
+                      padding: '0.45rem 0.55rem',
+                      fontSize: '0.8rem',
+                      fontWeight: 600,
                       textDecoration: 'none',
                       display: 'flex',
                       alignItems: 'center',
                       gap: '0.2rem',
-                      background: isMenuOpen ? 'rgba(255,255,255,0.12)' : 'transparent',
-                      transition: 'all 0.15s ease'
+                      background: isMenuOpen ? 'rgba(255,255,255,0.18)' : 'transparent',
+                      borderRadius: '6px',
+                      transition: 'all 0.15s ease',
+                      whiteSpace: 'nowrap',
+                      textShadow: isHomePage ? '0 1px 2px rgba(0,0,0,0.6)' : 'none'
                     }}
                   >
                     <span>{menu.title}</span>
-                    <ChevronDown size={12} style={{ opacity: 0.8 }} />
+                    <ChevronDown size={11} style={{ opacity: 0.85 }} />
                   </Link>
 
                   {/* Dropdown Menu Container */}
@@ -312,11 +333,11 @@ export default function Navbar() {
                       background: '#ffffff',
                       minWidth: '260px',
                       borderRadius: '0 0 10px 10px',
-                      boxShadow: '0 15px 30px rgba(0,0,0,0.2)',
+                      boxShadow: '0 15px 35px rgba(0,0,0,0.25), 0 0 1px rgba(0,0,0,0.1)',
                       border: '1px solid #e2e8f0',
                       borderTop: '3px solid #f59e0b',
                       zIndex: 1000,
-                      padding: '0.5rem 0'
+                      padding: '0.4rem 0'
                     }}>
                       {menu.dropdown.map((sub, sIdx) => (
                         <Link
@@ -355,39 +376,86 @@ export default function Navbar() {
 
             <Link 
               to="/nirf" 
-              style={{ color: location.pathname === '/nirf' ? '#fbbf24' : '#ffffff', padding: '0.65rem 0.85rem', fontSize: '0.82rem', fontWeight: 700, textDecoration: 'none' }}
+              style={{ 
+                color: location.pathname === '/nirf' ? '#fbbf24' : '#ffffff', 
+                padding: '0.45rem 0.55rem', 
+                fontSize: '0.8rem', 
+                fontWeight: 600, 
+                textDecoration: 'none',
+                borderRadius: '6px',
+                whiteSpace: 'nowrap',
+                textShadow: isHomePage ? '0 1px 2px rgba(0,0,0,0.6)' : 'none'
+              }}
             >
               NIRF
             </Link>
 
             <Link 
               to="/gallery" 
-              style={{ color: location.pathname === '/gallery' ? '#fbbf24' : '#ffffff', padding: '0.65rem 0.85rem', fontSize: '0.82rem', fontWeight: 700, textDecoration: 'none' }}
+              style={{ 
+                color: location.pathname === '/gallery' ? '#fbbf24' : '#ffffff', 
+                padding: '0.45rem 0.55rem', 
+                fontSize: '0.8rem', 
+                fontWeight: 600, 
+                textDecoration: 'none',
+                borderRadius: '6px',
+                whiteSpace: 'nowrap',
+                textShadow: isHomePage ? '0 1px 2px rgba(0,0,0,0.6)' : 'none'
+              }}
             >
               Gallery
             </Link>
 
             <Link 
               to="/feedback" 
-              style={{ color: location.pathname === '/feedback' ? '#fbbf24' : '#ffffff', padding: '0.65rem 0.85rem', fontSize: '0.82rem', fontWeight: 700, textDecoration: 'none' }}
+              style={{ 
+                color: location.pathname === '/feedback' ? '#fbbf24' : '#ffffff', 
+                padding: '0.45rem 0.55rem', 
+                fontSize: '0.8rem', 
+                fontWeight: 600, 
+                textDecoration: 'none',
+                borderRadius: '6px',
+                whiteSpace: 'nowrap',
+                textShadow: isHomePage ? '0 1px 2px rgba(0,0,0,0.6)' : 'none'
+              }}
             >
               Feedback
             </Link>
 
             <Link 
               to="/contact" 
-              style={{ color: location.pathname === '/contact' ? '#fbbf24' : '#ffffff', padding: '0.65rem 0.85rem', fontSize: '0.82rem', fontWeight: 700, textDecoration: 'none' }}
+              style={{ 
+                color: location.pathname === '/contact' ? '#fbbf24' : '#ffffff', 
+                padding: '0.45rem 0.55rem', 
+                fontSize: '0.8rem', 
+                fontWeight: 600, 
+                textDecoration: 'none',
+                borderRadius: '6px',
+                whiteSpace: 'nowrap',
+                textShadow: isHomePage ? '0 1px 2px rgba(0,0,0,0.6)' : 'none'
+              }}
             >
               Contact
             </Link>
           </div>
         </div>
       </nav>
-      )}
 
-      {/* Mobile Menu Drawer (Hidden on Homepage) */}
-      {!isHomePage && mobileMenuOpen && (
-        <div style={{ background: '#ffffff', borderTop: '1px solid #e2e8f0', padding: '1rem', maxHeight: '80vh', overflowY: 'auto' }}>
+      {/* Mobile Menu Drawer */}
+      {mobileMenuOpen && (
+        <div style={{ 
+          position: 'absolute',
+          top: '100%',
+          left: 0,
+          right: 0,
+          background: '#ffffff', 
+          borderTop: '1px solid #e2e8f0', 
+          padding: '1rem', 
+          maxHeight: '80vh', 
+          overflowY: 'auto',
+          boxShadow: '0 15px 30px rgba(0,0,0,0.25)',
+          zIndex: 1000
+        }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             <Link to="/" onClick={() => setMobileMenuOpen(false)} style={{ padding: '0.5rem', fontWeight: 700, color: '#0e2154', textDecoration: 'none' }}>
               Home
@@ -432,9 +500,13 @@ export default function Navbar() {
       )}
 
       <style>{`
-        @media (max-width: 992px) {
+        @media (max-width: 1180px) {
           .desktop-navbar-strip { display: none !important; }
           .mobile-nav-toggle { display: block !important; }
+        }
+        @media (max-width: 480px) {
+          .portal-btn-label { display: none !important; }
+          .portal-login-btn { padding: 0.4rem 0.55rem !important; }
         }
       `}</style>
     </header>
