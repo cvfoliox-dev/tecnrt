@@ -1,0 +1,317 @@
+- generic [ref=f8e3]:
+  - generic [ref=f8e4]:
+    - generic [ref=f8e5]:
+      - generic [ref=f8e6]: "EAPCET Code: TMLN"
+      - generic [ref=f8e10]: "|"
+      - generic [ref=f8e11]: TEC Narasaraopet — Integrated Portal Reviewer Suite
+    - generic [ref=f8e12]:
+      - generic [ref=f8e13]: "Live View:"
+      - button "Public Site" [active] [ref=f8e14] [cursor=pointer]
+      - button "Student (Sai Vardhan)" [ref=f8e18] [cursor=pointer]
+      - button "Faculty (Mahesh Babu)" [ref=f8e22] [cursor=pointer]
+      - button "HOD (CSE Dept)" [ref=f8e26] [cursor=pointer]
+      - button "Principal (Dr. V. Narayana)" [ref=f8e31] [cursor=pointer]
+  - banner [ref=f8e1015]:
+    - generic [ref=f8e1017]:
+      - generic [ref=f8e1018]:
+        - generic [ref=f8e1019]: Jonnalagadda, Narasaraopet, Palnadu Dt, AP - 522601
+        - generic [ref=f8e1023]: 08647 - 218164, 218255
+      - generic [ref=f8e1028]:
+        - generic [ref=f8e1029]: "EAPCET CODE: TMLN"
+        - generic [ref=f8e1030]: NAAC 'A' Grade • NBA Accredited • UGC Autonomous
+    - generic [ref=f8e1032]:
+      - link "TIRUMALA ENGINEERING COLLEGE NARASARAOPET • ESTD. 2008 • AUTONOMOUS" [ref=f8e1033] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f8e1038]:
+          - generic [ref=f8e1039]: TIRUMALA ENGINEERING COLLEGE
+          - generic [ref=f8e1040]:
+            - generic [ref=f8e1041]: NARASARAOPET
+            - generic [ref=f8e1042]: •
+            - generic [ref=f8e1043]: ESTD. 2008
+            - generic [ref=f8e1044]: •
+            - generic [ref=f8e1045]: AUTONOMOUS
+      - generic [ref=f8e1046]:
+        - link "Admissions 2026" [ref=f8e1047] [cursor=pointer]:
+          - /url: /admissions/procedure
+        - button "Portal Login" [ref=f8e1048] [cursor=pointer]
+    - navigation [ref=f8e1052]:
+      - generic [ref=f8e1054]:
+        - link "Home" [ref=f8e1055] [cursor=pointer]:
+          - /url: /
+        - link "About TEC" [ref=f8e1057] [cursor=pointer]:
+          - /url: /about/society
+        - link "Administration" [ref=f8e1062] [cursor=pointer]:
+          - /url: /administration/governing
+        - link "Admissions" [ref=f8e1067] [cursor=pointer]:
+          - /url: /admissions/procedure
+        - link "Academics" [ref=f8e1072] [cursor=pointer]:
+          - /url: /academics/calendar
+        - link "Departments" [ref=f8e1077] [cursor=pointer]:
+          - /url: /departments/cse
+        - link "Exam Cell" [ref=f8e1082] [cursor=pointer]:
+          - /url: /examination/notifications
+        - link "Placements" [ref=f8e1087] [cursor=pointer]:
+          - /url: /placements/overview
+        - link "IQAC" [ref=f8e1092] [cursor=pointer]:
+          - /url: /iqac/about
+        - link "Amenities" [ref=f8e1097] [cursor=pointer]:
+          - /url: /amenities/library
+        - link "NIRF" [ref=f8e1101] [cursor=pointer]:
+          - /url: /nirf
+        - link "Gallery" [ref=f8e1102] [cursor=pointer]:
+          - /url: /gallery
+        - link "Feedback" [ref=f8e1103] [cursor=pointer]:
+          - /url: /feedback
+        - link "Contact" [ref=f8e1104] [cursor=pointer]:
+          - /url: /contact
+  - main [ref=f8e1105]:
+    - generic [ref=f8e1106]:
+      - generic [ref=f8e1108]:
+        - generic [ref=f8e1114]:
+          - generic [ref=f8e1115]: TEC PORTAL
+          - generic [ref=f8e1117]: Tirumala Engineering College, Narasaraopet (TMLN)
+        - generic [ref=f8e1118]:
+          - button "Notifications" [ref=f8e1120] [cursor=pointer]
+          - generic [ref=f8e1125]:
+            - generic [ref=f8e1126]: U
+            - generic [ref=f8e1127]: Active User
+          - button "College Website" [ref=f8e1129] [cursor=pointer]
+          - button "Sign Out" [ref=f8e1134] [cursor=pointer]
+      - generic [ref=f8e1139]:
+        - complementary [ref=f8e1140]:
+          - generic [ref=f8e1141]: Student Navigation
+          - generic [ref=f8e1142]:
+            - button "Overview" [ref=f8e1143] [cursor=pointer]
+            - button "Student Profile" [ref=f8e1150] [cursor=pointer]
+            - button "Semester & Subjects" [ref=f8e1155] [cursor=pointer]
+            - button "Attendance" [ref=f8e1159] [cursor=pointer]
+            - button "Examinations & Supplies" [ref=f8e1165] [cursor=pointer]
+            - button "Fees & Payment" [ref=f8e1170] [cursor=pointer]
+            - button "Account Settings" [ref=f8e1174] [cursor=pointer]
+        - main [ref=f8e1179]:
+          - generic [ref=f8e1180]:
+            - generic [ref=f8e1181]:
+              - generic [ref=f8e1182]:
+                - generic [ref=f8e1183]:
+                  - generic [ref=f8e1184]: •
+                  - generic [ref=f8e1185]: "Roll No:"
+                - heading "Welcome back, !" [level=2] [ref=f8e1186]
+                - paragraph [ref=f8e1187]: Department of • Section • Tirumala Engineering College
+              - generic [ref=f8e1188]:
+                - button "View Attendance Log" [ref=f8e1189] [cursor=pointer]
+                - button "Fee Clearance" [ref=f8e1194] [cursor=pointer]
+            - generic [ref=f8e1197]:
+              - generic [ref=f8e1198]:
+                - generic [ref=f8e1200]:
+                  - text: Overall Attendance
+                  - generic [ref=f8e1201]: 88.5%
+                - generic [ref=f8e1207]:
+                  - generic [ref=f8e1208]: 212 / 240 classes
+                  - generic [ref=f8e1209]: Eligible
+              - generic [ref=f8e1210]:
+                - generic [ref=f8e1212]:
+                  - text: Academic Standing
+                  - generic [ref=f8e1213]: "8.64"
+                - generic [ref=f8e1218]:
+                  - generic [ref=f8e1219]: "Last Sem SGPA: 8.9"
+                  - generic [ref=f8e1220]: First Class with Dist.
+              - generic [ref=f8e1221]:
+                - generic [ref=f8e1223]:
+                  - text: Enrolled Subjects
+                  - generic [ref=f8e1224]: 6 Courses
+                - generic [ref=f8e1228]:
+                  - generic [ref=f8e1229]: 18.5 JNTUK R20 Credits
+                  - generic [ref=f8e1230]: VII Semester
+              - generic [ref=f8e1231]:
+                - generic [ref=f8e1233]:
+                  - text: Fee Obligations
+                  - generic [ref=f8e1234]: ₹15,000
+                - generic [ref=f8e1238]:
+                  - generic [ref=f8e1239]: "Due Date: Oct 30, 2026"
+                  - generic [ref=f8e1240]: Dues Pending
+            - generic [ref=f8e1241]:
+              - generic [ref=f8e1242]:
+                - generic [ref=f8e1243]:
+                  - generic [ref=f8e1244]:
+                    - heading "Current Enrolled Subjects" [level=3] [ref=f8e1245]
+                    - paragraph [ref=f8e1246]: Attendance & Mid Performance
+                  - button "All Subjects" [ref=f8e1247] [cursor=pointer]
+                - generic [ref=f8e1250]:
+                  - generic [ref=f8e1251]:
+                    - generic [ref=f8e1252]:
+                      - generic [ref=f8e1253]:
+                        - text: CS701PC
+                        - generic [ref=f8e1254]: Cloud Computing & Distributed Architecture
+                      - generic [ref=f8e1255]:
+                        - generic [ref=f8e1256]: 91.7%
+                        - generic [ref=f8e1257]: 44/48
+                    - generic [ref=f8e1260]:
+                      - generic [ref=f8e1261]: "Faculty: Prof. K. Vijaya Lakshmi"
+                      - generic [ref=f8e1262]: "Syllabus: 85%"
+                  - generic [ref=f8e1263]:
+                    - generic [ref=f8e1264]:
+                      - generic [ref=f8e1265]:
+                        - text: CS702PC
+                        - generic [ref=f8e1266]: Cryptography & Network Security
+                      - generic [ref=f8e1267]:
+                        - generic [ref=f8e1268]: 87%
+                        - generic [ref=f8e1269]: 40/46
+                    - generic [ref=f8e1272]:
+                      - generic [ref=f8e1273]: "Faculty: Dr. K. Srinivasa Rao"
+                      - generic [ref=f8e1274]: "Syllabus: 80%"
+                  - generic [ref=f8e1275]:
+                    - generic [ref=f8e1276]:
+                      - generic [ref=f8e1277]:
+                        - text: CS711PE
+                        - generic [ref=f8e1278]: Full Stack Web Development (MERN)
+                      - generic [ref=f8e1279]:
+                        - generic [ref=f8e1280]: 92%
+                        - generic [ref=f8e1281]: 46/50
+                    - generic [ref=f8e1284]:
+                      - generic [ref=f8e1285]: "Faculty: Sri Ch. Mahesh Babu"
+                      - generic [ref=f8e1286]: "Syllabus: 90%"
+                  - generic [ref=f8e1287]:
+                    - generic [ref=f8e1288]:
+                      - generic [ref=f8e1289]:
+                        - text: CS721PE
+                        - generic [ref=f8e1290]: Machine Learning Foundations
+                      - generic [ref=f8e1291]:
+                        - generic [ref=f8e1292]: 86.4%
+                        - generic [ref=f8e1293]: 38/44
+                    - generic [ref=f8e1296]:
+                      - generic [ref=f8e1297]: "Faculty: Smt. T. Anupama"
+                      - generic [ref=f8e1298]: "Syllabus: 80%"
+              - generic [ref=f8e1299]:
+                - generic [ref=f8e1300]:
+                  - generic [ref=f8e1301]:
+                    - heading "JNTUK Semester Exams" [level=3] [ref=f8e1302]
+                    - paragraph [ref=f8e1303]: B.Tech IV-I Regular (JNTUK R20)
+                  - button "Exam Details" [ref=f8e1304] [cursor=pointer]
+                - generic [ref=f8e1307]:
+                  - generic [ref=f8e1311]:
+                    - generic [ref=f8e1312]: Hall Ticket Released
+                    - generic [ref=f8e1313]: "Examination Center: TMLN Narasaraopet"
+                  - button "Download" [ref=f8e1314] [cursor=pointer]
+                - generic [ref=f8e1315]:
+                  - generic [ref=f8e1316]:
+                    - generic [ref=f8e1317]:
+                      - generic [ref=f8e1318]:
+                        - generic [ref=f8e1319]: 2026-11-16
+                        - generic [ref=f8e1320]: •
+                        - generic [ref=f8e1321]: 10:00 AM - 01:00 PM
+                      - generic [ref=f8e1322]: Cloud Computing & Distributed Architecture
+                    - generic [ref=f8e1323]: Block-B 204
+                  - generic [ref=f8e1325]:
+                    - generic [ref=f8e1326]:
+                      - generic [ref=f8e1327]:
+                        - generic [ref=f8e1328]: 2026-11-18
+                        - generic [ref=f8e1329]: •
+                        - generic [ref=f8e1330]: 10:00 AM - 01:00 PM
+                      - generic [ref=f8e1331]: Cryptography & Network Security
+                    - generic [ref=f8e1332]: Block-B 204
+                  - generic [ref=f8e1334]:
+                    - generic [ref=f8e1335]:
+                      - generic [ref=f8e1336]:
+                        - generic [ref=f8e1337]: 2026-11-21
+                        - generic [ref=f8e1338]: •
+                        - generic [ref=f8e1339]: 10:00 AM - 01:00 PM
+                      - generic [ref=f8e1340]: Full Stack Web Development (MERN)
+                    - generic [ref=f8e1341]: Block-B 204
+                  - generic [ref=f8e1343]:
+                    - generic [ref=f8e1344]:
+                      - generic [ref=f8e1345]:
+                        - generic [ref=f8e1346]: 2026-11-24
+                        - generic [ref=f8e1347]: •
+                        - generic [ref=f8e1348]: 10:00 AM - 01:00 PM
+                      - generic [ref=f8e1349]: Machine Learning Foundations
+                    - generic [ref=f8e1350]: Block-B 204
+  - contentinfo [ref=f8e1352]:
+    - generic [ref=f8e1353]:
+      - generic [ref=f8e1354]:
+        - generic [ref=f8e1355]:
+          - generic [ref=f8e1361]:
+            - generic [ref=f8e1362]: TIRUMALA
+            - generic [ref=f8e1363]: ENGINEERING COLLEGE
+          - paragraph [ref=f8e1364]: Established in 2008 by the founders of Tirumala Milk Products Pvt. Ltd. under Venkata Ramana Charitable Trust. An autonomous institution committed to rural empowerment.
+          - generic [ref=f8e1365]:
+            - generic [ref=f8e1366]: Jonnalagadda (V), Narasaraopet (M), Palnadu District, AP - 522601
+            - generic [ref=f8e1371]: 08647 - 218164, 218255
+            - generic [ref=f8e1375]: tecnrt@gmail.com / principal@tecnrt.org
+        - generic [ref=f8e1380]:
+          - heading "B.Tech Departments" [level=4] [ref=f8e1381]
+          - list [ref=f8e1382]:
+            - listitem [ref=f8e1383]:
+              - link "Computer Science & Engineering" [ref=f8e1384] [cursor=pointer]:
+                - /url: /departments/cse
+            - listitem [ref=f8e1388]:
+              - link "CSE (Artificial Intelligence & Machine Learning)" [ref=f8e1389] [cursor=pointer]:
+                - /url: /departments/aiml
+            - listitem [ref=f8e1393]:
+              - link "Electronics & Communication Engineering" [ref=f8e1394] [cursor=pointer]:
+                - /url: /departments/ece
+            - listitem [ref=f8e1398]:
+              - link "Electrical & Electronics Engineering" [ref=f8e1399] [cursor=pointer]:
+                - /url: /departments/eee
+            - listitem [ref=f8e1403]:
+              - link "Mechanical Engineering" [ref=f8e1404] [cursor=pointer]:
+                - /url: /departments/mech
+            - listitem [ref=f8e1408]:
+              - link "Civil Engineering" [ref=f8e1409] [cursor=pointer]:
+                - /url: /departments/civil
+            - listitem [ref=f8e1413]:
+              - link "Information Technology" [ref=f8e1414] [cursor=pointer]:
+                - /url: /departments/it
+            - listitem [ref=f8e1418]:
+              - link "Applied Science & Humanities (AS&H)" [ref=f8e1419] [cursor=pointer]:
+                - /url: /departments/ash
+        - generic [ref=f8e1423]:
+          - heading "Quick Links" [level=4] [ref=f8e1424]
+          - list [ref=f8e1425]:
+            - listitem [ref=f8e1426]:
+              - link "Society & Founders" [ref=f8e1427] [cursor=pointer]:
+                - /url: /about/society
+            - listitem [ref=f8e1431]:
+              - link "Admissions 2026" [ref=f8e1432] [cursor=pointer]:
+                - /url: /admissions/procedure
+            - listitem [ref=f8e1436]:
+              - link "₹60L Founders Scholarship" [ref=f8e1437] [cursor=pointer]:
+                - /url: /academics/scholarships
+            - listitem [ref=f8e1441]:
+              - link "Placement Statistics" [ref=f8e1442] [cursor=pointer]:
+                - /url: /placements/statistics
+            - listitem [ref=f8e1446]:
+              - link "Examcell Notifications" [ref=f8e1447] [cursor=pointer]:
+                - /url: /examination/notifications
+            - listitem [ref=f8e1451]:
+              - link "Central Library (Bee-Hive)" [ref=f8e1452] [cursor=pointer]:
+                - /url: /amenities/library
+            - listitem [ref=f8e1456]:
+              - link "NAAC 'A' & NBA Approvals" [ref=f8e1457] [cursor=pointer]:
+                - /url: /iqac/naac
+            - listitem [ref=f8e1461]:
+              - link "Stakeholder Feedback" [ref=f8e1462] [cursor=pointer]:
+                - /url: /feedback
+        - generic [ref=f8e1466]:
+          - heading "Campus Portals (PRD)" [level=4] [ref=f8e1467]
+          - generic [ref=f8e1468]:
+            - button "Student Portal Attendance, exams & fee payments" [ref=f8e1469] [cursor=pointer]:
+              - generic [ref=f8e1470]: Student Portal
+              - generic [ref=f8e1471]: Attendance, exams & fee payments
+            - button "Faculty Portal Spreadsheet validator & attendance" [ref=f8e1472] [cursor=pointer]:
+              - generic [ref=f8e1473]: Faculty Portal
+              - generic [ref=f8e1474]: Spreadsheet validator & attendance
+            - button "HOD Management Dept roster & attendance audit" [ref=f8e1475] [cursor=pointer]:
+              - generic [ref=f8e1476]: HOD Management
+              - generic [ref=f8e1477]: Dept roster & attendance audit
+            - button "Principal Suite College-wide audit trail & metrics" [ref=f8e1478] [cursor=pointer]:
+              - generic [ref=f8e1479]: Principal Suite
+              - generic [ref=f8e1480]: College-wide audit trail & metrics
+          - generic [ref=f8e1481]:
+            - generic [ref=f8e1482]: "EAMCET CODE: TMLN"
+            - generic [ref=f8e1483]: "Anti-Ragging Helpline: 9989706744"
+      - generic [ref=f8e1484]:
+        - generic [ref=f8e1485]: © 2026 Tirumala Engineering College, Narasaraopet. All rights reserved.Last Updated on 26-11-2025
+        - generic [ref=f8e1486]: Permanently Affiliated to JNTUK • AICTE Approved • Autonomous • NAAC 'A' Grade
+  - generic [ref=f8e1487]:
+    - generic [ref=f8e1490]: Switched to Tirumala Public Website
+    - button [ref=f8e1491] [cursor=pointer]

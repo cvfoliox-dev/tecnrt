@@ -1,0 +1,222 @@
+- generic [ref=f10e3]:
+  - generic [ref=f10e4]:
+    - generic [ref=f10e5]:
+      - generic [ref=f10e6]: "EAPCET Code: TMLN"
+      - generic [ref=f10e10]: "|"
+      - generic [ref=f10e11]: TEC Narasaraopet — Integrated Portal Reviewer Suite
+    - generic [ref=f10e12]:
+      - generic [ref=f10e13]: "Live View:"
+      - button "Public Site" [ref=f10e14] [cursor=pointer]
+      - button "Student (Sai Vardhan)" [ref=f10e18] [cursor=pointer]
+      - button "Faculty (Mahesh Babu)" [ref=f10e22] [cursor=pointer]
+      - button "HOD (CSE Dept)" [ref=f10e26] [cursor=pointer]
+      - button "Principal (Dr. V. Narayana)" [ref=f10e31] [cursor=pointer]
+  - banner [ref=f10e36]:
+    - generic [ref=f10e38]:
+      - generic [ref=f10e39]:
+        - generic [ref=f10e40]: Jonnalagadda, Narasaraopet, Palnadu Dt, AP - 522601
+        - generic [ref=f10e44]: 08647 - 218164, 218255
+      - generic [ref=f10e49]:
+        - generic [ref=f10e50]: "EAPCET CODE: TMLN"
+        - generic [ref=f10e51]: NAAC 'A' Grade • NBA Accredited • UGC Autonomous
+    - generic [ref=f10e53]:
+      - link "TIRUMALA ENGINEERING COLLEGE NARASARAOPET • ESTD. 2008 • AUTONOMOUS" [ref=f10e54] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f10e59]:
+          - generic [ref=f10e60]: TIRUMALA ENGINEERING COLLEGE
+          - generic [ref=f10e61]:
+            - generic [ref=f10e62]: NARASARAOPET
+            - generic [ref=f10e63]: •
+            - generic [ref=f10e64]: ESTD. 2008
+            - generic [ref=f10e65]: •
+            - generic [ref=f10e66]: AUTONOMOUS
+      - generic [ref=f10e67]:
+        - link "Admissions 2026" [ref=f10e68] [cursor=pointer]:
+          - /url: /admissions/procedure
+        - button "Portal Login" [ref=f10e69] [cursor=pointer]
+    - navigation [ref=f10e73]:
+      - generic [ref=f10e75]:
+        - link "Home" [ref=f10e76] [cursor=pointer]:
+          - /url: /
+        - link "About TEC" [ref=f10e78] [cursor=pointer]:
+          - /url: /about/society
+        - link "Administration" [ref=f10e83] [cursor=pointer]:
+          - /url: /administration/governing
+        - link "Admissions" [ref=f10e88] [cursor=pointer]:
+          - /url: /admissions/procedure
+        - link "Academics" [ref=f10e93] [cursor=pointer]:
+          - /url: /academics/calendar
+        - link "Departments" [ref=f10e98] [cursor=pointer]:
+          - /url: /departments/cse
+        - link "Exam Cell" [ref=f10e103] [cursor=pointer]:
+          - /url: /examination/notifications
+        - link "Placements" [ref=f10e108] [cursor=pointer]:
+          - /url: /placements/overview
+        - link "IQAC" [ref=f10e113] [cursor=pointer]:
+          - /url: /iqac/about
+        - link "Amenities" [ref=f10e118] [cursor=pointer]:
+          - /url: /amenities/library
+        - link "NIRF" [ref=f10e122] [cursor=pointer]:
+          - /url: /nirf
+        - link "Gallery" [ref=f10e123] [cursor=pointer]:
+          - /url: /gallery
+        - link "Feedback" [ref=f10e124] [cursor=pointer]:
+          - /url: /feedback
+        - link "Contact" [ref=f10e125] [cursor=pointer]:
+          - /url: /contact
+  - main [ref=f10e126]:
+    - generic [ref=f10e127]:
+      - generic [ref=f10e129]:
+        - generic [ref=f10e130]:
+          - link "Home" [ref=f10e131] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f10e132]: /
+          - generic [ref=f10e133]: About TEC
+        - heading "About Tirumala Engineering College" [level=1] [ref=f10e134]
+        - paragraph [ref=f10e135]: Established in 2008 by the visionary founders of Tirumala Milk Products Pvt. Ltd. under Venkata Ramana Charitable Trust.
+      - generic [ref=f10e137]:
+        - complementary [ref=f10e138]:
+          - generic [ref=f10e139]: About Navigation
+          - navigation [ref=f10e140]:
+            - link "Society & Founders" [ref=f10e141] [cursor=pointer]:
+              - /url: /about/society
+            - link "Management's Message" [ref=f10e142] [cursor=pointer]:
+              - /url: /about/management
+            - link "College Advisory Board" [ref=f10e143] [cursor=pointer]:
+              - /url: /about/advisory
+            - link "Principal's Desk" [ref=f10e144] [cursor=pointer]:
+              - /url: /about/principal
+            - link "Why TEC? (Uniqueness)" [ref=f10e145] [cursor=pointer]:
+              - /url: /about/why-tec
+            - link "Leadership & Key Persons" [ref=f10e146] [cursor=pointer]:
+              - /url: /about/key-persons
+            - link "Best Practices & Hallmarks" [ref=f10e147] [cursor=pointer]:
+              - /url: /about/best-practices
+            - link "MOUs & Collaborations" [ref=f10e148] [cursor=pointer]:
+              - /url: /about/mous
+            - link "SWOT & Strengths" [ref=f10e149] [cursor=pointer]:
+              - /url: /about/strengths
+            - link "Premier Persons Visited" [ref=f10e150] [cursor=pointer]:
+              - /url: /about/visitors
+            - link "Safety & Discipline Policy" [ref=f10e151] [cursor=pointer]:
+              - /url: /about/safety
+            - link "Campus Facilities" [ref=f10e152] [cursor=pointer]:
+              - /url: /about/facilities
+          - generic [ref=f10e153]:
+            - generic [ref=f10e154]: EAPCET / ECET CODE
+            - generic [ref=f10e155]: TMLN
+            - generic [ref=f10e156]: Autonomous Institution
+        - main [ref=f10e157]:
+          - generic [ref=f10e158]:
+            - generic [ref=f10e159]:
+              - text: INSTITUTIONAL HEAD
+              - heading "Principal's Desk & Profile" [level=2] [ref=f10e160]
+            - generic [ref=f10e161]:
+              - generic [ref=f10e162]:
+                - img "Dr. Y. V. Narayana" [ref=f10e163]
+                - generic [ref=f10e164]:
+                  - generic [ref=f10e165]: 08647 - 218164
+                  - generic [ref=f10e169]: principal@tecnrt.org
+              - generic [ref=f10e174]:
+                - heading "Dr. Y. V. Narayana" [level=3] [ref=f10e175]
+                - generic [ref=f10e176]: M.Tech, Ph.D, FIE
+                - generic [ref=f10e177]: Principal, Tirumala Engineering College • Fellow of Institution of Engineers (FIE)
+                - blockquote [ref=f10e178]: "\"The only place where success comes before work is in the dictionary. At TEC, we instill in our students the perseverance to turn aspirations into reality.\""
+                - heading "Principal's Message to Technocrats:" [level=4] [ref=f10e179]
+                - paragraph [ref=f10e180]: Welcome to Tirumala Engineering College! As an autonomous institution permanently affiliated to JNTUK and accredited by NAAC with 'A' Grade, our mission is to deliver comprehensive technical education that bridges classroom fundamentals with industrial applications. Our dedicated faculty, advanced laboratories, research cells, and proactive placement cell ensure that every student graduates with professional competence and ethical grounding.
+                - paragraph [ref=f10e181]: At TEC, we believe that education must transcend textbooks. Our campus buzzes with technical symposiums (Prayaga), Applied Robotics training in collaboration with European institutes, IEEE student branch activities, and round-the-clock digital library resources. We look forward to partnering with you on your journey towards technical leadership.
+            - generic [ref=f10e182]:
+              - heading "Key Institutional Milestones Achieved Under Dr. Y. V. Narayana's Tenure:" [level=4] [ref=f10e183]
+              - list [ref=f10e184]:
+                - listitem [ref=f10e185]: Conferred Autonomous Status by UGC and Affiliated University JNTUK.
+                - listitem [ref=f10e186]: Accredited with 'A' Grade by National Assessment and Accreditation Council (NAAC).
+                - listitem [ref=f10e187]: National Board of Accreditation (NBA) recognition for eligible B.Tech programmes.
+                - listitem [ref=f10e188]: Highest campus placement tally crossing 864+ selections in a single academic year.
+                - listitem [ref=f10e189]: Establishment of APSSDC Skill Hub and European standard Applied Robot Control (ARC) Lab.
+  - contentinfo [ref=f10e190]:
+    - generic [ref=f10e191]:
+      - generic [ref=f10e192]:
+        - generic [ref=f10e193]:
+          - generic [ref=f10e199]:
+            - generic [ref=f10e200]: TIRUMALA
+            - generic [ref=f10e201]: ENGINEERING COLLEGE
+          - paragraph [ref=f10e202]: Established in 2008 by the founders of Tirumala Milk Products Pvt. Ltd. under Venkata Ramana Charitable Trust. An autonomous institution committed to rural empowerment.
+          - generic [ref=f10e203]:
+            - generic [ref=f10e204]: Jonnalagadda (V), Narasaraopet (M), Palnadu District, AP - 522601
+            - generic [ref=f10e209]: 08647 - 218164, 218255
+            - generic [ref=f10e213]: tecnrt@gmail.com / principal@tecnrt.org
+        - generic [ref=f10e218]:
+          - heading "B.Tech Departments" [level=4] [ref=f10e219]
+          - list [ref=f10e220]:
+            - listitem [ref=f10e221]:
+              - link "Computer Science & Engineering" [ref=f10e222] [cursor=pointer]:
+                - /url: /departments/cse
+            - listitem [ref=f10e226]:
+              - link "CSE (Artificial Intelligence & Machine Learning)" [ref=f10e227] [cursor=pointer]:
+                - /url: /departments/aiml
+            - listitem [ref=f10e231]:
+              - link "Electronics & Communication Engineering" [ref=f10e232] [cursor=pointer]:
+                - /url: /departments/ece
+            - listitem [ref=f10e236]:
+              - link "Electrical & Electronics Engineering" [ref=f10e237] [cursor=pointer]:
+                - /url: /departments/eee
+            - listitem [ref=f10e241]:
+              - link "Mechanical Engineering" [ref=f10e242] [cursor=pointer]:
+                - /url: /departments/mech
+            - listitem [ref=f10e246]:
+              - link "Civil Engineering" [ref=f10e247] [cursor=pointer]:
+                - /url: /departments/civil
+            - listitem [ref=f10e251]:
+              - link "Information Technology" [ref=f10e252] [cursor=pointer]:
+                - /url: /departments/it
+            - listitem [ref=f10e256]:
+              - link "Applied Science & Humanities (AS&H)" [ref=f10e257] [cursor=pointer]:
+                - /url: /departments/ash
+        - generic [ref=f10e261]:
+          - heading "Quick Links" [level=4] [ref=f10e262]
+          - list [ref=f10e263]:
+            - listitem [ref=f10e264]:
+              - link "Society & Founders" [ref=f10e265] [cursor=pointer]:
+                - /url: /about/society
+            - listitem [ref=f10e269]:
+              - link "Admissions 2026" [ref=f10e270] [cursor=pointer]:
+                - /url: /admissions/procedure
+            - listitem [ref=f10e274]:
+              - link "₹60L Founders Scholarship" [ref=f10e275] [cursor=pointer]:
+                - /url: /academics/scholarships
+            - listitem [ref=f10e279]:
+              - link "Placement Statistics" [ref=f10e280] [cursor=pointer]:
+                - /url: /placements/statistics
+            - listitem [ref=f10e284]:
+              - link "Examcell Notifications" [ref=f10e285] [cursor=pointer]:
+                - /url: /examination/notifications
+            - listitem [ref=f10e289]:
+              - link "Central Library (Bee-Hive)" [ref=f10e290] [cursor=pointer]:
+                - /url: /amenities/library
+            - listitem [ref=f10e294]:
+              - link "NAAC 'A' & NBA Approvals" [ref=f10e295] [cursor=pointer]:
+                - /url: /iqac/naac
+            - listitem [ref=f10e299]:
+              - link "Stakeholder Feedback" [ref=f10e300] [cursor=pointer]:
+                - /url: /feedback
+        - generic [ref=f10e304]:
+          - heading "Campus Portals (PRD)" [level=4] [ref=f10e305]
+          - generic [ref=f10e306]:
+            - button "Student Portal Attendance, exams & fee payments" [ref=f10e307] [cursor=pointer]:
+              - generic [ref=f10e308]: Student Portal
+              - generic [ref=f10e309]: Attendance, exams & fee payments
+            - button "Faculty Portal Spreadsheet validator & attendance" [ref=f10e310] [cursor=pointer]:
+              - generic [ref=f10e311]: Faculty Portal
+              - generic [ref=f10e312]: Spreadsheet validator & attendance
+            - button "HOD Management Dept roster & attendance audit" [ref=f10e313] [cursor=pointer]:
+              - generic [ref=f10e314]: HOD Management
+              - generic [ref=f10e315]: Dept roster & attendance audit
+            - button "Principal Suite College-wide audit trail & metrics" [ref=f10e316] [cursor=pointer]:
+              - generic [ref=f10e317]: Principal Suite
+              - generic [ref=f10e318]: College-wide audit trail & metrics
+          - generic [ref=f10e319]:
+            - generic [ref=f10e320]: "EAMCET CODE: TMLN"
+            - generic [ref=f10e321]: "Anti-Ragging Helpline: 9989706744"
+      - generic [ref=f10e322]:
+        - generic [ref=f10e323]: © 2026 Tirumala Engineering College, Narasaraopet. All rights reserved.Last Updated on 26-11-2025
+        - generic [ref=f10e324]: Permanently Affiliated to JNTUK • AICTE Approved • Autonomous • NAAC 'A' Grade

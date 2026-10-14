@@ -1,0 +1,143 @@
+- generic [ref=f8e3]:
+  - generic [ref=f8e4]:
+    - generic [ref=f8e5]:
+      - generic [ref=f8e6]: "EAPCET Code: TMLN"
+      - generic [ref=f8e10]: "|"
+      - generic [ref=f8e11]: TEC Narasaraopet — Integrated Portal Reviewer Suite
+    - generic [ref=f8e12]:
+      - generic [ref=f8e13]: "Live View:"
+      - button "Public Site" [ref=f8e14] [cursor=pointer]
+      - button "Student (Sai Vardhan)" [ref=f8e18] [cursor=pointer]
+      - button "Faculty (Mahesh Babu)" [active] [ref=f8e22] [cursor=pointer]
+      - button "HOD (CSE Dept)" [ref=f8e26] [cursor=pointer]
+      - button "Principal (Dr. V. Narayana)" [ref=f8e31] [cursor=pointer]
+  - generic [ref=f8e294]:
+    - generic [ref=f8e296]:
+      - generic [ref=f8e302]:
+        - generic [ref=f8e303]:
+          - generic [ref=f8e304]: TEC PORTAL
+          - generic [ref=f8e305]: Faculty Workspace
+        - generic [ref=f8e306]: Tirumala Engineering College, Narasaraopet (TMLN)
+      - generic [ref=f8e307]:
+        - button "Notifications" [ref=f8e309] [cursor=pointer]
+        - generic [ref=f8e314]:
+          - generic [ref=f8e315]: S
+          - generic [ref=f8e316]:
+            - generic [ref=f8e317]: Sri Ch. Mahesh Babu
+            - generic [ref=f8e318]: Assistant Professor
+        - button "College Website" [ref=f8e319] [cursor=pointer]
+        - button "Sign Out" [ref=f8e324] [cursor=pointer]
+    - generic [ref=f8e329]:
+      - complementary [ref=f8e330]:
+        - generic [ref=f8e331]: Faculty Workspace
+        - generic [ref=f8e332]:
+          - button "Overview" [ref=f8e333] [cursor=pointer]
+          - button "My Timetable" [ref=f8e340] [cursor=pointer]
+          - button "My Subjects & Classes" [ref=f8e344] [cursor=pointer]
+          - button "Students Roster" [ref=f8e348] [cursor=pointer]
+          - button "Manual Attendance" [ref=f8e355] [cursor=pointer]
+          - button "Attendance Uploads (PRD)" [ref=f8e360] [cursor=pointer]
+          - button "Reports & Compliance" [ref=f8e365] [cursor=pointer]
+          - button "Account Settings" [ref=f8e370] [cursor=pointer]
+      - main [ref=f8e375]:
+        - generic [ref=f8e376]:
+          - generic [ref=f8e377]:
+            - generic [ref=f8e378]:
+              - generic [ref=f8e379]:
+                - generic [ref=f8e380]: "Staff ID: TEC-FAC-042"
+                - generic [ref=f8e381]: M.Tech (JNTUK), (Ph.D)
+              - heading "Welcome, Sri Ch. Mahesh Babu!" [level=2] [ref=f8e382]
+              - paragraph [ref=f8e383]: Assistant Professor • Department of CSE • Tirumala Engineering College
+            - generic [ref=f8e384]:
+              - button "Upload Attendance Sheet" [ref=f8e385] [cursor=pointer]
+              - button "Add Student Record" [ref=f8e389] [cursor=pointer]
+          - generic [ref=f8e392]:
+            - generic [ref=f8e396]:
+              - strong [ref=f8e397]: "Action Required:"
+              - text: Attendance spreadsheet for
+              - strong [ref=f8e398]: September 2026 (IV B.Tech CSE-A / CS711PE)
+              - text: is pending submission.
+            - button "Launch Upload Workflow" [ref=f8e399] [cursor=pointer]
+          - generic [ref=f8e400]:
+            - generic [ref=f8e401]:
+              - generic [ref=f8e403]:
+                - text: Teaching Load
+                - generic [ref=f8e404]: 2 Courses
+              - generic [ref=f8e408]:
+                - generic [ref=f8e409]: IV CSE-A & III CSE-B
+                - generic [ref=f8e410]: Active Term
+            - generic [ref=f8e411]:
+              - generic [ref=f8e413]:
+                - text: Students Taught
+                - generic [ref=f8e414]: 133 Students
+              - generic [ref=f8e421]:
+                - generic [ref=f8e422]: 68 in Sec A • 65 in Sec B
+                - generic [ref=f8e423]: Registered
+            - generic [ref=f8e424]:
+              - generic [ref=f8e426]:
+                - text: Pending Uploads
+                - generic [ref=f8e427]: 1 Sheet
+              - generic [ref=f8e432]:
+                - generic [ref=f8e433]: September 2026 Cycle
+                - generic [ref=f8e434]: Due this week
+            - generic [ref=f8e435]:
+              - generic [ref=f8e437]:
+                - text: Class Avg Attendance
+                - generic [ref=f8e438]: 87.2%
+              - generic [ref=f8e444]:
+                - generic [ref=f8e445]: CS711PE Web Development
+                - generic [ref=f8e446]: Satisfactory
+          - generic [ref=f8e447]:
+            - generic [ref=f8e448]:
+              - generic [ref=f8e449]:
+                - generic [ref=f8e450]:
+                  - heading "Teaching Schedule (Today)" [level=3] [ref=f8e451]
+                  - paragraph [ref=f8e452]: Assigned lecture slots & laboratory batches
+                - button "Full Timetable" [ref=f8e453] [cursor=pointer]
+              - generic [ref=f8e456]:
+                - generic [ref=f8e457]:
+                  - generic [ref=f8e463]:
+                    - generic [ref=f8e464]: Full Stack Web Development
+                    - generic [ref=f8e465]: IV CSE-A • Room B-204
+                  - generic [ref=f8e466]: 09:30 - 10:20 AM
+                - generic [ref=f8e468]:
+                  - generic [ref=f8e474]:
+                    - generic [ref=f8e475]: Web Technologies Tutorial
+                    - generic [ref=f8e476]: III CSE-B • Room B-102
+                  - generic [ref=f8e477]: 11:20 - 12:10 PM
+                - generic [ref=f8e479]:
+                  - generic [ref=f8e485]:
+                    - generic [ref=f8e486]: Full Stack Web Development
+                    - generic [ref=f8e487]: IV CSE-A • Room B-204
+                  - generic [ref=f8e488]: 10:20 - 11:10 AM
+                - generic [ref=f8e490]:
+                  - generic [ref=f8e496]:
+                    - generic [ref=f8e497]: Web Tech Lab Batch-1
+                    - generic [ref=f8e498]: III CSE-B • Room Computer Center 3
+                  - generic [ref=f8e499]: 01:40 - 04:10 PM
+            - generic [ref=f8e501]:
+              - generic [ref=f8e502]:
+                - generic [ref=f8e503]:
+                  - heading "Spreadsheet Submissions" [level=3] [ref=f8e504]
+                  - paragraph [ref=f8e505]: History of uploaded Excel / CSV files
+                - button "Upload Manager" [ref=f8e506] [cursor=pointer]
+              - generic [ref=f8e509]:
+                - generic [ref=f8e510]:
+                  - generic [ref=f8e511]:
+                    - generic [ref=f8e512]: CSE_IV_Year_SecA_Aug2026_CS711PE.xlsx
+                    - generic [ref=f8e513]: Processed & Verified
+                  - generic [ref=f8e514]:
+                    - generic [ref=f8e515]: IV B.Tech CSE-A • CS711PE - Full Stack Web Dev
+                    - generic [ref=f8e516]: 2026-09-01 16:30
+                  - generic [ref=f8e517]: "Audit Ref: AUD-2026-9901 • 68 students updated"
+                - generic [ref=f8e518]:
+                  - generic [ref=f8e519]:
+                    - generic [ref=f8e520]: CSE_IV_Year_SecA_Jul2026_CS711PE.csv
+                    - generic [ref=f8e521]: Processed with 1 Correction
+                  - generic [ref=f8e522]:
+                    - generic [ref=f8e523]: IV B.Tech CSE-A • CS711PE - Full Stack Web Dev
+                    - generic [ref=f8e524]: 2026-08-01 14:15
+                  - generic [ref=f8e525]: "Audit Ref: AUD-2026-8714 • 67 students updated"
+  - generic [ref=f8e526]:
+    - generic [ref=f8e530]: "Logged in as Faculty: Sri Ch. Mahesh Babu (CSE)"
+    - button [ref=f8e531] [cursor=pointer]

@@ -1,0 +1,183 @@
+- generic [ref=f8e3]:
+  - generic [ref=f8e4]:
+    - generic [ref=f8e5]:
+      - generic [ref=f8e6]: "EAPCET Code: TMLN"
+      - generic [ref=f8e10]: "|"
+      - generic [ref=f8e11]: TEC Narasaraopet — Integrated Portal Reviewer Suite
+    - generic [ref=f8e12]:
+      - generic [ref=f8e13]: "Live View:"
+      - button "Public Site" [ref=f8e14] [cursor=pointer]
+      - button "Student (Sai Vardhan)" [ref=f8e18] [cursor=pointer]
+      - button "Faculty (Mahesh Babu)" [ref=f8e22] [cursor=pointer]
+      - button "HOD (CSE Dept)" [ref=f8e26] [cursor=pointer]
+      - button "Principal (Dr. V. Narayana)" [active] [ref=f8e31] [cursor=pointer]
+  - generic [ref=f8e757]:
+    - generic [ref=f8e759]:
+      - generic [ref=f8e765]:
+        - generic [ref=f8e766]:
+          - generic [ref=f8e767]: TEC PORTAL
+          - generic [ref=f8e768]: Principal Executive
+        - generic [ref=f8e769]: Tirumala Engineering College, Narasaraopet (TMLN)
+      - generic [ref=f8e770]:
+        - button "Notifications" [ref=f8e772] [cursor=pointer]
+        - generic [ref=f8e777]:
+          - generic [ref=f8e778]: D
+          - generic [ref=f8e779]:
+            - generic [ref=f8e780]: Dr. V. Narayana
+            - generic [ref=f8e781]: Principal & Institutional Head
+        - button "College Website" [ref=f8e782] [cursor=pointer]
+        - button "Sign Out" [ref=f8e787] [cursor=pointer]
+    - generic [ref=f8e792]:
+      - complementary [ref=f8e793]:
+        - generic [ref=f8e794]: Principal Executive
+        - generic [ref=f8e795]:
+          - button "College Overview" [ref=f8e796] [cursor=pointer]
+          - button "Department Management" [ref=f8e803] [cursor=pointer]
+          - button "HOD Leadership" [ref=f8e809] [cursor=pointer]
+          - button "Faculty Overview" [ref=f8e815] [cursor=pointer]
+          - button "Student Overview" [ref=f8e822] [cursor=pointer]
+          - button "College-Wide Attendance" [ref=f8e827] [cursor=pointer]
+          - button "Academic & Accreditation" [ref=f8e833] [cursor=pointer]
+          - button "Administrative Audit Trail" [ref=f8e838] [cursor=pointer]
+          - button "Institutional Settings" [ref=f8e843] [cursor=pointer]
+      - main [ref=f8e848]:
+        - generic [ref=f8e849]:
+          - generic [ref=f8e850]:
+            - generic [ref=f8e851]:
+              - generic [ref=f8e852]:
+                - generic [ref=f8e853]: Principal Executive Suite
+                - generic [ref=f8e854]: "EAPCET Code: TMLN • JNTUK Permanent Affiliation"
+              - heading "Institutional Governance & Oversight" [level=2] [ref=f8e855]
+              - paragraph [ref=f8e856]:
+                - text: "Principal:"
+                - strong [ref=f8e857]: Dr. V. Narayana
+                - text: (M.Tech, Ph.D, FIE) • Tirumala Engineering College
+            - generic [ref=f8e858]:
+              - button "College Attendance Matrix" [ref=f8e859] [cursor=pointer]
+              - button "System Audit Trail" [ref=f8e864] [cursor=pointer]
+          - generic [ref=f8e868]:
+            - generic [ref=f8e869]:
+              - generic [ref=f8e871]:
+                - text: Total Student Body
+                - generic [ref=f8e872]: 3,450
+              - generic [ref=f8e877]:
+                - generic [ref=f8e878]: 8 B.Tech Branches + AS&H
+                - generic [ref=f8e879]: Active Scholars
+            - generic [ref=f8e880]:
+              - generic [ref=f8e882]:
+                - text: College Faculty Roster
+                - generic [ref=f8e883]: "185"
+              - generic [ref=f8e890]:
+                - generic [ref=f8e891]: Across 8 Engineering Depts
+                - generic [ref=f8e892]: Verified Staff
+            - generic [ref=f8e893]:
+              - generic [ref=f8e895]:
+                - text: College Attendance Avg
+                - generic [ref=f8e896]: 85.2%
+              - generic [ref=f8e902]:
+                - generic [ref=f8e903]: Mandatory JNTUK Benchmark
+                - generic [ref=f8e904]: Institutional Safe
+            - generic [ref=f8e905]:
+              - generic [ref=f8e907]:
+                - text: Campus Placements
+                - generic [ref=f8e908]: 88.4%
+              - generic [ref=f8e913]:
+                - generic [ref=f8e914]: 624 Offers (Highest 18.5 LPA)
+                - generic [ref=f8e915]: 2025-26 Batch
+          - generic [ref=f8e916]:
+            - generic [ref=f8e917]:
+              - generic [ref=f8e918]:
+                - generic [ref=f8e919]:
+                  - heading "Department Academic Standing" [level=3] [ref=f8e920]
+                  - paragraph [ref=f8e921]: Comparative attendance and enrollment metrics
+                - button "All Depts" [ref=f8e922] [cursor=pointer]
+              - generic [ref=f8e925]:
+                - generic [ref=f8e926]:
+                  - generic [ref=f8e927]:
+                    - generic [ref=f8e928]: Computer Science & Engineering (CSE)
+                    - generic [ref=f8e929]: "HOD: Dr. K. Srinivasa Rao • 720 Students"
+                  - generic [ref=f8e930]:
+                    - generic [ref=f8e931]: 86.4%
+                    - generic [ref=f8e932]: Avg Attendance
+                - generic [ref=f8e933]:
+                  - generic [ref=f8e934]:
+                    - generic [ref=f8e935]: CSE (Artificial Intelligence & Machine Learning) (AIML)
+                    - generic [ref=f8e936]: "HOD: Dr. M. Rama Krishna • 480 Students"
+                  - generic [ref=f8e937]:
+                    - generic [ref=f8e938]: 88.2%
+                    - generic [ref=f8e939]: Avg Attendance
+                - generic [ref=f8e940]:
+                  - generic [ref=f8e941]:
+                    - generic [ref=f8e942]: CSE (Artificial Intelligence & Data Science) (AIDS)
+                    - generic [ref=f8e943]: "HOD: Dr. S. Bhavani Shankar • 480 Students"
+                  - generic [ref=f8e944]:
+                    - generic [ref=f8e945]: 85.1%
+                    - generic [ref=f8e946]: Avg Attendance
+                - generic [ref=f8e947]:
+                  - generic [ref=f8e948]:
+                    - generic [ref=f8e949]: Information Technology (IT)
+                    - generic [ref=f8e950]: "HOD: Dr. T. Venkata Reddy • 240 Students"
+                  - generic [ref=f8e951]:
+                    - generic [ref=f8e952]: 83.9%
+                    - generic [ref=f8e953]: Avg Attendance
+                - generic [ref=f8e954]:
+                  - generic [ref=f8e955]:
+                    - generic [ref=f8e956]: Electronics & Communication Engineering (ECE)
+                    - generic [ref=f8e957]: "HOD: Dr. P. Venkateswarlu • 720 Students"
+                  - generic [ref=f8e958]:
+                    - generic [ref=f8e959]: 84.7%
+                    - generic [ref=f8e960]: Avg Attendance
+            - generic [ref=f8e961]:
+              - generic [ref=f8e962]:
+                - generic [ref=f8e963]:
+                  - heading "Institutional Audit Stream" [level=3] [ref=f8e964]
+                  - paragraph [ref=f8e965]: Real-time log of administrative and attendance actions
+                - button "Full Trail" [ref=f8e966] [cursor=pointer]
+              - generic [ref=f8e969]:
+                - generic [ref=f8e970]:
+                  - generic [ref=f8e971]:
+                    - generic [ref=f8e972]: ATTENDANCE_UPLOAD
+                    - generic [ref=f8e973]: 2026-09-01 16:30:24
+                  - generic [ref=f8e974]: Uploaded monthly attendance spreadsheet for CS711PE (68 records processed, 0 errors)
+                  - generic [ref=f8e975]:
+                    - generic [ref=f8e976]:
+                      - text: "Actor:"
+                      - strong [ref=f8e977]: Sri Ch. Mahesh Babu
+                      - text: (Faculty (CSE))
+                    - generic [ref=f8e978]: Success
+                - generic [ref=f8e979]:
+                  - generic [ref=f8e980]:
+                    - generic [ref=f8e981]: CORRECTION_APPROVAL
+                    - generic [ref=f8e982]: 2026-08-28 11:14:02
+                  - generic [ref=f8e983]: Approved attendance correction from 16 to 18 classes attended for Medical Leave certificate verification
+                  - generic [ref=f8e984]:
+                    - generic [ref=f8e985]:
+                      - text: "Actor:"
+                      - strong [ref=f8e986]: Dr. K. Srinivasa Rao
+                      - text: (HOD (CSE))
+                    - generic [ref=f8e987]: Approved
+                - generic [ref=f8e988]:
+                  - generic [ref=f8e989]:
+                    - generic [ref=f8e990]: ACADEMIC_OVERSIGHT
+                    - generic [ref=f8e991]: 2026-08-20 10:05:40
+                  - generic [ref=f8e992]: Reviewed mid-term institutional attendance summary and generated JNTUK compliance report
+                  - generic [ref=f8e993]:
+                    - generic [ref=f8e994]:
+                      - text: "Actor:"
+                      - strong [ref=f8e995]: Dr. V. Narayana
+                      - text: (Principal)
+                    - generic [ref=f8e996]: Completed
+                - generic [ref=f8e997]:
+                  - generic [ref=f8e998]:
+                    - generic [ref=f8e999]: STUDENT_CREATION
+                    - generic [ref=f8e1000]: 2026-08-10 14:22:15
+                  - generic [ref=f8e1001]: Authorized lateral entry enrollment for roll number 22TML05L01 (Transfer student)
+                  - generic [ref=f8e1002]:
+                    - generic [ref=f8e1003]:
+                      - text: "Actor:"
+                      - strong [ref=f8e1004]: Dr. K. Srinivasa Rao
+                      - text: (HOD (CSE))
+                    - generic [ref=f8e1005]: Created
+  - generic [ref=f8e1006]:
+    - generic [ref=f8e1010]: "Logged in as Principal: Dr. V. Narayana"
+    - button [ref=f8e1011] [cursor=pointer]

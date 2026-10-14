@@ -1,0 +1,362 @@
+- generic [ref=f7e3]:
+  - generic [ref=f7e4]:
+    - generic [ref=f7e5]:
+      - generic [ref=f7e6]: "EAPCET Code: TMLN"
+      - generic [ref=f7e10]: "|"
+      - generic [ref=f7e11]: TEC Narasaraopet — Integrated Portal Reviewer Suite
+    - generic [ref=f7e12]:
+      - generic [ref=f7e13]: "Live View:"
+      - button "Public Site" [ref=f7e14] [cursor=pointer]
+      - button "Student (Sai Vardhan)" [ref=f7e18] [cursor=pointer]
+      - button "Faculty (Mahesh Babu)" [ref=f7e22] [cursor=pointer]
+      - button "HOD (CSE Dept)" [ref=f7e26] [cursor=pointer]
+      - button "Principal (Dr. V. Narayana)" [ref=f7e31] [cursor=pointer]
+  - banner [ref=f7e36]:
+    - generic [ref=f7e38]:
+      - generic [ref=f7e39]:
+        - generic [ref=f7e40]: Jonnalagadda, Narasaraopet, Palnadu Dt, AP - 522601
+        - generic [ref=f7e44]: 08647 - 218164, 218255
+      - generic [ref=f7e49]:
+        - generic [ref=f7e50]: "EAPCET CODE: TMLN"
+        - generic [ref=f7e51]: NAAC 'A' Grade • NBA Accredited • UGC Autonomous
+    - generic [ref=f7e53]:
+      - link "TIRUMALA ENGINEERING COLLEGE NARASARAOPET • ESTD. 2008 • AUTONOMOUS" [ref=f7e54] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f7e59]:
+          - generic [ref=f7e60]: TIRUMALA ENGINEERING COLLEGE
+          - generic [ref=f7e61]:
+            - generic [ref=f7e62]: NARASARAOPET
+            - generic [ref=f7e63]: •
+            - generic [ref=f7e64]: ESTD. 2008
+            - generic [ref=f7e65]: •
+            - generic [ref=f7e66]: AUTONOMOUS
+      - generic [ref=f7e67]:
+        - link "Admissions 2026" [ref=f7e68] [cursor=pointer]:
+          - /url: /admissions/procedure
+        - button "Portal Login" [ref=f7e69] [cursor=pointer]
+    - navigation [ref=f7e73]:
+      - generic [ref=f7e75]:
+        - link "Home" [ref=f7e76] [cursor=pointer]:
+          - /url: /
+        - link "About TEC" [ref=f7e78] [cursor=pointer]:
+          - /url: /about/society
+        - link "Administration" [ref=f7e83] [cursor=pointer]:
+          - /url: /administration/governing
+        - link "Admissions" [ref=f7e88] [cursor=pointer]:
+          - /url: /admissions/procedure
+        - link "Academics" [ref=f7e93] [cursor=pointer]:
+          - /url: /academics/calendar
+        - link "Departments" [ref=f7e98] [cursor=pointer]:
+          - /url: /departments/cse
+        - link "Exam Cell" [ref=f7e103] [cursor=pointer]:
+          - /url: /examination/notifications
+        - link "Placements" [ref=f7e108] [cursor=pointer]:
+          - /url: /placements/overview
+        - link "IQAC" [ref=f7e113] [cursor=pointer]:
+          - /url: /iqac/about
+        - link "Amenities" [ref=f7e118] [cursor=pointer]:
+          - /url: /amenities/library
+        - link "NIRF" [ref=f7e122] [cursor=pointer]:
+          - /url: /nirf
+        - link "Gallery" [ref=f7e123] [cursor=pointer]:
+          - /url: /gallery
+        - link "Feedback" [ref=f7e124] [cursor=pointer]:
+          - /url: /feedback
+        - link "Contact" [ref=f7e125] [cursor=pointer]:
+          - /url: /contact
+  - main [ref=f7e126]:
+    - generic [ref=f7e127]:
+      - generic [ref=f7e129]:
+        - generic [ref=f7e130]:
+          - link "Home" [ref=f7e131] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f7e132]: /
+          - generic [ref=f7e133]: Contact Us
+        - heading "Contact & Department Directory" [level=1] [ref=f7e134]
+        - paragraph [ref=f7e135]:
+          - text: "Reach out to our administrative, admission, academic, and department heads. EAPCET Code:"
+          - strong [ref=f7e136]: TMLN
+          - text: .
+      - generic [ref=f7e137]:
+        - generic [ref=f7e138]:
+          - generic [ref=f7e139]:
+            - heading "Campus Address" [level=3] [ref=f7e144]
+            - paragraph [ref=f7e145]: Jonnalagadda Village, Narasaraopet Mandal, Palnadu District, Andhra Pradesh - 522601
+            - generic [ref=f7e146]: "EAMCET / EAPCET CODE: TMLN"
+          - generic [ref=f7e147]:
+            - heading "Telephonic Contacts" [level=3] [ref=f7e153]
+            - paragraph [ref=f7e154]:
+              - strong [ref=f7e155]: "Office:"
+              - text: 08647 - 218164, 218255
+              - strong [ref=f7e156]: "Admissions:"
+              - text: 9133300228, 8985298550
+              - strong [ref=f7e157]: "Fax:"
+              - text: 08647 - 219585
+          - generic [ref=f7e158]:
+            - heading "Official Emails" [level=3] [ref=f7e163]
+            - paragraph [ref=f7e164]:
+              - strong [ref=f7e165]: "General:"
+              - text: tecnrt@gmail.com
+              - strong [ref=f7e166]: "Principal:"
+              - text: principal@tecnrt.org
+              - strong [ref=f7e167]: "Secretary:"
+              - text: sectec@tecnrt.org
+              - strong [ref=f7e168]: "Alumni:"
+              - text: tecnrt.alumni@gmail.com
+        - generic [ref=f7e169]:
+          - heading "Transit & Proximity Distances to Campus" [level=3] [ref=f7e170]
+          - generic [ref=f7e174]:
+            - generic [ref=f7e175]:
+              - strong [ref=f7e176]: "Narasaraopet Bus Stand:"
+              - text: 5.0 Km
+            - generic [ref=f7e177]:
+              - strong [ref=f7e178]: "Railway Station:"
+              - text: 5.5 Km
+            - generic [ref=f7e179]:
+              - strong [ref=f7e180]: "State Bank of India:"
+              - text: 4.5 Km
+            - generic [ref=f7e181]:
+              - strong [ref=f7e182]: "Gannavaram Airport:"
+              - text: 111 Km
+        - generic [ref=f7e183]:
+          - generic [ref=f7e184]:
+            - generic [ref=f7e185]:
+              - heading "Comprehensive Institutional Directory" [level=2] [ref=f7e186]
+              - paragraph [ref=f7e187]: Direct contact phone numbers and email addresses of all campus cells and departments.
+            - textbox "Search department, name, phone..." [ref=f7e192]
+          - table [ref=f7e194]:
+            - rowgroup [ref=f7e195]:
+              - row [ref=f7e196]:
+                - columnheader "Department / Cell" [ref=f7e197]
+                - columnheader "Key Person / HOD" [ref=f7e198]
+                - columnheader "Phone Numbers" [ref=f7e199]
+                - columnheader "Official Email" [ref=f7e200]
+            - rowgroup [ref=f7e201]:
+              - row [ref=f7e202]:
+                - cell "Secretary & Correspondent" [ref=f7e203]
+                - cell "Sri R. Satyanarayana" [ref=f7e204]
+                - cell "9848157583" [ref=f7e205]
+                - cell "sectec@tecnrt.org" [ref=f7e206]
+              - row [ref=f7e207]:
+                - cell "Principal's Office" [ref=f7e208]
+                - cell "Dr. Y. V. Narayana" [ref=f7e209]
+                - cell "08647-218164 / 9248752999" [ref=f7e210]
+                - cell "principal@tecnrt.org" [ref=f7e211]
+              - row [ref=f7e212]:
+                - cell "Administrative Office (AO)" [ref=f7e213]
+                - cell "Administrative Officer" [ref=f7e214]
+                - cell "9133300228 / 9849803585" [ref=f7e215]
+                - cell "tec-ao@tecnrt.org" [ref=f7e216]
+              - row [ref=f7e217]:
+                - cell "Guntur City Office" [ref=f7e218]
+                - cell "City Coordinator" [ref=f7e219]
+                - cell "9885510039 / 9248752999" [ref=f7e220]
+                - cell "tecnrt@gmail.com" [ref=f7e221]
+              - row [ref=f7e222]:
+                - cell "Admissions Helpline" [ref=f7e223]
+                - cell "Admissions Officer" [ref=f7e224]
+                - cell "9133300228 / 8985298550" [ref=f7e225]
+                - cell "admissions@tecnrt.org" [ref=f7e226]
+              - row [ref=f7e227]:
+                - cell "Scholarship & Welfare Section" [ref=f7e228]
+                - cell "Scholarship In-Charge" [ref=f7e229]
+                - cell "9133300228 / 9642612013" [ref=f7e230]
+                - cell "scholarships@tecnrt.org" [ref=f7e231]
+              - row [ref=f7e232]:
+                - cell "Examination Section" [ref=f7e233]
+                - cell "Controller of Examinations" [ref=f7e234]
+                - cell "9121214725 / 9705518818" [ref=f7e235]
+                - cell "tec-ce@tecnrt.org" [ref=f7e236]
+              - row [ref=f7e237]:
+                - cell "Training & Placement Cell (TPO)" [ref=f7e238]
+                - cell "Head, Placements" [ref=f7e239]
+                - cell "7731004567 / 8008322338" [ref=f7e240]
+                - cell "placements@tecnrt.org" [ref=f7e241]
+              - row [ref=f7e242]:
+                - cell "Dept. of Computer Science & Engg" [ref=f7e243]
+                - cell "Dr. K. Sathish (HOD)" [ref=f7e244]
+                - cell "9290329777 / 9182933543" [ref=f7e245]
+                - cell "hod-cse@tecnrt.org" [ref=f7e246]
+              - row [ref=f7e247]:
+                - cell "Dept. of CSE (AI & ML)" [ref=f7e248]
+                - cell "Dr. M. Aparna (HOD)" [ref=f7e249]
+                - cell "9666576488" [ref=f7e250]
+                - cell "hod-aiml@tecnrt.org" [ref=f7e251]
+              - row [ref=f7e252]:
+                - cell "Dept. of Electronics & Comm." [ref=f7e253]
+                - cell "Dr. Jagadeesh Thati (HOD)" [ref=f7e254]
+                - cell "9248737444 / 8985298550" [ref=f7e255]
+                - cell "hod-ece@tecnrt.org" [ref=f7e256]
+              - row [ref=f7e257]:
+                - cell "Dept. of Electrical & Electronics" [ref=f7e258]
+                - cell "Dr. M. Manoj Kumar (HOD)" [ref=f7e259]
+                - cell "9985578967" [ref=f7e260]
+                - cell "hod-eee@tecnrt.org" [ref=f7e261]
+              - row [ref=f7e262]:
+                - cell "Dept. of Mechanical Engineering" [ref=f7e263]
+                - cell "Dr. S. Rama Rao (HOD)" [ref=f7e264]
+                - cell "9440256996" [ref=f7e265]
+                - cell "hod-mech@tecnrt.org" [ref=f7e266]
+              - row [ref=f7e267]:
+                - cell "Dept. of Civil Engineering" [ref=f7e268]
+                - cell "Mr. K. Midhun Kumar (HOD)" [ref=f7e269]
+                - cell "6300438435" [ref=f7e270]
+                - cell "hod-civil@tecnrt.org" [ref=f7e271]
+              - row [ref=f7e272]:
+                - cell "Dept. of Information Technology" [ref=f7e273]
+                - cell "Dr. Jajam NagaRaju (HOD)" [ref=f7e274]
+                - cell "9490468680" [ref=f7e275]
+                - cell "hod-it@tecnrt.org" [ref=f7e276]
+              - row [ref=f7e277]:
+                - cell "Dept. of Applied Science & Humanities" [ref=f7e278]
+                - cell "Mr. M. V. Vijaya Kumar (HOD)" [ref=f7e279]
+                - cell "9248413456 / 9989706744" [ref=f7e280]
+                - cell "hod-sh@tecnrt.org" [ref=f7e281]
+              - row [ref=f7e282]:
+                - cell "Central Library" [ref=f7e283]
+                - cell "Sk. Moulla (In-Charge)" [ref=f7e284]
+                - cell "9989343980" [ref=f7e285]
+                - cell "library@tecnrt.org" [ref=f7e286]
+              - row [ref=f7e287]:
+                - cell "Transport In-Charge" [ref=f7e288]
+                - cell "Transport Officer" [ref=f7e289]
+                - cell "9966552479 / 9390543208" [ref=f7e290]
+                - cell "transport@tecnrt.org" [ref=f7e291]
+              - row [ref=f7e292]:
+                - cell "Campus Security (24x7 Gate)" [ref=f7e293]
+                - cell "Chief Security Officer" [ref=f7e294]
+                - cell "9248752111" [ref=f7e295]
+                - cell "security@tecnrt.org" [ref=f7e296]
+              - row [ref=f7e297]:
+                - cell "IQAC Cell" [ref=f7e298]
+                - cell "Coordinator, IQAC" [ref=f7e299]
+                - cell "9248443456" [ref=f7e300]
+                - cell "iqac@tecnrt.org" [ref=f7e301]
+              - row [ref=f7e302]:
+                - cell "NSS Cell" [ref=f7e303]
+                - cell "NSS Program Officer" [ref=f7e304]
+                - cell "9052966526 / 9949311310" [ref=f7e305]
+                - cell "nsstec@tecnrt.org" [ref=f7e306]
+              - row [ref=f7e307]:
+                - cell "Physical Education (Sports)" [ref=f7e308]
+                - cell "Physical Director" [ref=f7e309]
+                - cell "9441947476" [ref=f7e310]
+                - cell "pdtec@tecnrt.org" [ref=f7e311]
+              - row [ref=f7e312]:
+                - cell "Alumni Association" [ref=f7e313]
+                - cell "Alumni Coordinator" [ref=f7e314]
+                - cell "9705518818" [ref=f7e315]
+                - cell "tecnrt.alumni@gmail.com" [ref=f7e316]
+        - generic [ref=f7e317]:
+          - heading "Send an Enquiry to Administrative Office" [level=3] [ref=f7e318]
+          - paragraph [ref=f7e319]: Fill out the form below and our counseling and administrative team will respond within 24 hours.
+          - generic [ref=f7e320]:
+            - generic [ref=f7e321]:
+              - generic [ref=f7e322]: Your Name *
+              - textbox "Full Name" [ref=f7e323]
+            - generic [ref=f7e324]:
+              - generic [ref=f7e325]: Email Address *
+              - textbox "name@example.com" [ref=f7e326]
+            - generic [ref=f7e327]:
+              - generic [ref=f7e328]: Phone Number *
+              - textbox "10-digit mobile number" [ref=f7e329]
+            - generic [ref=f7e330]:
+              - generic [ref=f7e331]: Subject of Enquiry
+              - combobox [ref=f7e332]:
+                - option "B.Tech Admissions 2026" [selected]
+                - option "Category-B / NRI Quota"
+                - option "Examination / Transcripts"
+                - option "Corporate Placement Drive"
+                - option "Hostel & Transport Accommodation"
+                - option "General Administration"
+            - generic [ref=f7e333]:
+              - generic [ref=f7e334]: Message
+              - textbox "Write your message or inquiry here..." [ref=f7e335]
+            - button "Submit Message" [ref=f7e337] [cursor=pointer]
+  - contentinfo [ref=f7e342]:
+    - generic [ref=f7e343]:
+      - generic [ref=f7e344]:
+        - generic [ref=f7e345]:
+          - generic [ref=f7e351]:
+            - generic [ref=f7e352]: TIRUMALA
+            - generic [ref=f7e353]: ENGINEERING COLLEGE
+          - paragraph [ref=f7e354]: Established in 2008 by the founders of Tirumala Milk Products Pvt. Ltd. under Venkata Ramana Charitable Trust. An autonomous institution committed to rural empowerment.
+          - generic [ref=f7e355]:
+            - generic [ref=f7e356]: Jonnalagadda (V), Narasaraopet (M), Palnadu District, AP - 522601
+            - generic [ref=f7e361]: 08647 - 218164, 218255
+            - generic [ref=f7e365]: tecnrt@gmail.com / principal@tecnrt.org
+        - generic [ref=f7e370]:
+          - heading "B.Tech Departments" [level=4] [ref=f7e371]
+          - list [ref=f7e372]:
+            - listitem [ref=f7e373]:
+              - link "Computer Science & Engineering" [ref=f7e374] [cursor=pointer]:
+                - /url: /departments/cse
+            - listitem [ref=f7e378]:
+              - link "CSE (Artificial Intelligence & Machine Learning)" [ref=f7e379] [cursor=pointer]:
+                - /url: /departments/aiml
+            - listitem [ref=f7e383]:
+              - link "Electronics & Communication Engineering" [ref=f7e384] [cursor=pointer]:
+                - /url: /departments/ece
+            - listitem [ref=f7e388]:
+              - link "Electrical & Electronics Engineering" [ref=f7e389] [cursor=pointer]:
+                - /url: /departments/eee
+            - listitem [ref=f7e393]:
+              - link "Mechanical Engineering" [ref=f7e394] [cursor=pointer]:
+                - /url: /departments/mech
+            - listitem [ref=f7e398]:
+              - link "Civil Engineering" [ref=f7e399] [cursor=pointer]:
+                - /url: /departments/civil
+            - listitem [ref=f7e403]:
+              - link "Information Technology" [ref=f7e404] [cursor=pointer]:
+                - /url: /departments/it
+            - listitem [ref=f7e408]:
+              - link "Applied Science & Humanities (AS&H)" [ref=f7e409] [cursor=pointer]:
+                - /url: /departments/ash
+        - generic [ref=f7e413]:
+          - heading "Quick Links" [level=4] [ref=f7e414]
+          - list [ref=f7e415]:
+            - listitem [ref=f7e416]:
+              - link "Society & Founders" [ref=f7e417] [cursor=pointer]:
+                - /url: /about/society
+            - listitem [ref=f7e421]:
+              - link "Admissions 2026" [ref=f7e422] [cursor=pointer]:
+                - /url: /admissions/procedure
+            - listitem [ref=f7e426]:
+              - link "₹60L Founders Scholarship" [ref=f7e427] [cursor=pointer]:
+                - /url: /academics/scholarships
+            - listitem [ref=f7e431]:
+              - link "Placement Statistics" [ref=f7e432] [cursor=pointer]:
+                - /url: /placements/statistics
+            - listitem [ref=f7e436]:
+              - link "Examcell Notifications" [ref=f7e437] [cursor=pointer]:
+                - /url: /examination/notifications
+            - listitem [ref=f7e441]:
+              - link "Central Library (Bee-Hive)" [ref=f7e442] [cursor=pointer]:
+                - /url: /amenities/library
+            - listitem [ref=f7e446]:
+              - link "NAAC 'A' & NBA Approvals" [ref=f7e447] [cursor=pointer]:
+                - /url: /iqac/naac
+            - listitem [ref=f7e451]:
+              - link "Stakeholder Feedback" [ref=f7e452] [cursor=pointer]:
+                - /url: /feedback
+        - generic [ref=f7e456]:
+          - heading "Campus Portals (PRD)" [level=4] [ref=f7e457]
+          - generic [ref=f7e458]:
+            - button "Student Portal Attendance, exams & fee payments" [ref=f7e459] [cursor=pointer]:
+              - generic [ref=f7e460]: Student Portal
+              - generic [ref=f7e461]: Attendance, exams & fee payments
+            - button "Faculty Portal Spreadsheet validator & attendance" [ref=f7e462] [cursor=pointer]:
+              - generic [ref=f7e463]: Faculty Portal
+              - generic [ref=f7e464]: Spreadsheet validator & attendance
+            - button "HOD Management Dept roster & attendance audit" [ref=f7e465] [cursor=pointer]:
+              - generic [ref=f7e466]: HOD Management
+              - generic [ref=f7e467]: Dept roster & attendance audit
+            - button "Principal Suite College-wide audit trail & metrics" [ref=f7e468] [cursor=pointer]:
+              - generic [ref=f7e469]: Principal Suite
+              - generic [ref=f7e470]: College-wide audit trail & metrics
+          - generic [ref=f7e471]:
+            - generic [ref=f7e472]: "EAMCET CODE: TMLN"
+            - generic [ref=f7e473]: "Anti-Ragging Helpline: 9989706744"
+      - generic [ref=f7e474]:
+        - generic [ref=f7e475]: © 2026 Tirumala Engineering College, Narasaraopet. All rights reserved.Last Updated on 26-11-2025
+        - generic [ref=f7e476]: Permanently Affiliated to JNTUK • AICTE Approved • Autonomous • NAAC 'A' Grade

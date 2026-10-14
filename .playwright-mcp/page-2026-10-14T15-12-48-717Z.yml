@@ -1,0 +1,445 @@
+- generic [active] [ref=e1]:
+  - img "tirumala logo" [ref=e8]
+  - navigation [ref=e13]:
+    - text: 
+    - list [ref=e14]:
+      - listitem [ref=e15]:
+        - link "Home" [ref=e16] [cursor=pointer]:
+          - /url: /index.php
+      - listitem [ref=e17]:
+        - link "About TEC" [ref=e18] [cursor=pointer]:
+          - /url: "#"
+        - text:  
+      - listitem [ref=e19]:
+        - link "Administration" [ref=e20] [cursor=pointer]:
+          - /url: "#"
+        - text:  
+      - listitem [ref=e21]:
+        - link "Admissions" [ref=e22] [cursor=pointer]:
+          - /url: "#"
+        - text:  
+      - listitem [ref=e23]:
+        - link "Academics" [ref=e24] [cursor=pointer]:
+          - /url: "#"
+        - text:     
+      - listitem [ref=e25]:
+        - link "Examcell" [ref=e26] [cursor=pointer]:
+          - /url: "#"
+        - text:     
+      - listitem [ref=e27]:
+        - link "Placements" [ref=e28] [cursor=pointer]:
+          - /url: /tpc_dept.php
+        - text:  
+      - listitem [ref=e29]:
+        - link "NIRF" [ref=e30] [cursor=pointer]:
+          - /url: "#"
+        - text:  
+      - listitem [ref=e31]:
+        - link "IQAC" [ref=e32] [cursor=pointer]:
+          - /url: ../iqac_dept.php
+        - text:        
+      - listitem [ref=e33]:
+        - link "Amenities" [ref=e34] [cursor=pointer]:
+          - /url: "#"
+        - text:  
+      - listitem [ref=e35]:
+        - link "Gallery" [ref=e36] [cursor=pointer]:
+          - /url: /gallery.php
+      - listitem [ref=e37]:
+        - link "Feedback" [ref=e38] [cursor=pointer]:
+          - /url: "#"
+        - text:  
+      - listitem [ref=e39]:
+        - link "Campus Life" [ref=e40] [cursor=pointer]:
+          - /url: "#"
+        - text:  
+      - listitem [ref=e41]:
+        - link "Infrastructure" [ref=e42] [cursor=pointer]:
+          - /url: "#"
+        - text:  
+      - listitem [ref=e43]:
+        - link "Skill Development Center" [ref=e44] [cursor=pointer]:
+          - /url: "#"
+        - text:  
+      - listitem [ref=e45]:
+        - link "IIC" [ref=e46] [cursor=pointer]:
+          - /url: "#"
+        - text:  
+      - listitem [ref=e47]:
+        - link "Right to Information (RTI) Act – 2005" [ref=e48] [cursor=pointer]:
+          - /url: /satutary declaration.pdf
+      - listitem [ref=e49]:
+        - link "4th International conference" [ref=e50] [cursor=pointer]:
+          - /url: ic.php
+      - listitem [ref=e51]:
+        - link "AICTE Scholarship/Fellowship Schemes" [ref=e52] [cursor=pointer]:
+          - /url: https://www.aicte.gov.in/schemes/students-development-schemes
+  - generic [ref=e54]:
+    - list [ref=e55]:
+      - listitem [ref=e56] [cursor=pointer]
+      - listitem [ref=e57] [cursor=pointer]
+      - listitem [ref=e58] [cursor=pointer]
+      - listitem [ref=e59] [cursor=pointer]
+      - listitem [ref=e60] [cursor=pointer]
+      - listitem [ref=e61] [cursor=pointer]
+      - listitem [ref=e62] [cursor=pointer]
+    - img "Tirumala Engineering College slide image" [ref=e65]
+    - link " Previous" [ref=e66] [cursor=pointer]:
+      - /url: "#myCarousel"
+      - generic [ref=e67]: 
+      - generic [ref=e68]: Previous
+    - link " Next" [ref=e69] [cursor=pointer]:
+      - /url: "#myCarousel"
+      - generic [ref=e70]: 
+      - generic [ref=e71]: Next
+  - table [ref=e73]:
+    - rowgroup [ref=e74]:
+      - row [ref=e75]:
+        - columnheader [ref=e76]:
+          - 'heading "JNTUK Sponsored Five-Day Faculty Development Program (FDP) on \"Diffusion Models and Generative AI for Medical Imaging and Drug Discovery\" 06th to 10th July 2026. Registration Link : https://sites.google.com/jntuk.edu.in/fdp4cet-58" [level=4] [ref=e78]'
+      - row [ref=e79]:
+        - columnheader [ref=e80]:
+          - link [ref=e81] [cursor=pointer]:
+            - /url: placement_summary.php
+            - 'heading "Proud to Announce 192+ Placements in Various Multi National Companies till date : Congratulations to all the Students who are selected" [level=4] [ref=e83]'
+  - generic [ref=e86]:
+    - heading "Our Placements" [level=2] [ref=e89]
+    - generic [ref=e90]:
+      - generic [ref=e92]:
+        - generic [ref=e93]: "174"
+        - generic [ref=e94]: 2015-2016
+      - generic [ref=e96]:
+        - generic [ref=e97]: "195"
+        - generic [ref=e98]: 2016-2017
+      - generic [ref=e100]:
+        - generic [ref=e101]: "220"
+        - generic [ref=e102]: 2017-2018
+      - generic [ref=e104]:
+        - generic [ref=e105]: "426"
+        - generic [ref=e106]: 2018-2019
+      - generic [ref=e108]:
+        - generic [ref=e109]: "493"
+        - generic [ref=e110]: 2019-2020
+      - generic [ref=e112]:
+        - generic [ref=e113]: "603"
+        - generic [ref=e114]: 2020-2021
+      - generic [ref=e116]:
+        - generic [ref=e117]:
+          - text: "864"
+          - paragraph [ref=e118]: +
+        - generic [ref=e119]: 2021-2022
+      - generic [ref=e121]:
+        - generic [ref=e122]:
+          - text: "864"
+          - paragraph [ref=e123]: +
+        - generic [ref=e124]: 2022-2023
+      - generic [ref=e126]:
+        - generic [ref=e127]:
+          - text: "426"
+          - paragraph [ref=e128]: +
+        - generic [ref=e129]: 2023-2024
+      - generic [ref=e131]:
+        - generic [ref=e132]:
+          - text: "426"
+          - paragraph [ref=e133]: +
+        - generic [ref=e134]: 2024-2025
+      - generic [ref=e136]:
+        - generic [ref=e137]:
+          - text: "426"
+          - paragraph [ref=e138]: +
+        - generic [ref=e139]: 2025-2026....
+  - heading [level=3] [ref=e141]:
+    - text: Latest News & Updates
+    - link "(Facebook Page)" [ref=e142] [cursor=pointer]:
+      - /url: https://www.facebook.com/tecnrt.org/
+  - generic [ref=e143]:
+    - generic [ref=e144]:
+      - generic [ref=e145]:
+        - heading "Exam Updates" [level=3] [ref=e146]
+        - list [ref=e149]:
+          - listitem [ref=e150]:
+            - generic [ref=e152]:
+              - link:
+                - /url: http://www.tecnrt.ac.in
+      - generic [ref=e153]:
+        - heading "Other Info" [level=3] [ref=e154]
+        - list [ref=e157]:
+          - listitem [ref=e158]:
+            - generic [ref=e159]:
+              - img "Pariksha Pe Charcha 2025"
+              - heading "Let us join hands in celebrating the Utsav of examinations, \"Pariksha Pe Charcha 2025\" as envisioned by our Hon'ble Prime minister in order to make learning more joyful for our future nation builders. | Application Form || New" [level=6] [ref=e160]:
+                - text: Let us join hands in celebrating the Utsav of examinations, "Pariksha Pe Charcha 2025" as envisioned by our Hon'ble Prime minister in order to make learning more joyful for our future nation builders. |
+                - link "Application Form" [ref=e161] [cursor=pointer]:
+                  - /url: " https://innovateindia1.mygov.in/"
+                - text: "||"
+                - generic [ref=e162]: New
+          - listitem [ref=e163]:
+            - generic [ref=e164]:
+              - img "Notification for NRI Seats"
+              - heading "Notification for Admission into First Year B.Tech., (2021-2022) Category – B – NRI / NRI Sponsored Seats|| Application Form || New" [level=6] [ref=e165]:
+                - text: Notification for Admission into First Year B.Tech., (2021-2022) Category – B – NRI / NRI Sponsored Seats||
+                - link "Application Form" [ref=e166] [cursor=pointer]:
+                  - /url: documents/NRI Application.pdf
+                - text: "||"
+                - generic [ref=e167]: New
+          - listitem [ref=e168]:
+            - generic [ref=e169]:
+              - img "centre of excellance"
+          - listitem [ref=e170]:
+            - generic [ref=e171]:
+              - generic: new
+              - img "welcome to chief guests"
+          - listitem [ref=e173]:
+            - generic [ref=e174]:
+              - img "fest day1 invitation"
+          - listitem [ref=e175]:
+            - generic [ref=e176]:
+              - generic [ref=e177]: 05/01/2018
+              - img "vikas inaugaration"
+          - listitem [ref=e178]:
+            - generic [ref=e179]:
+              - generic [ref=e180]: 03/01/2018
+              - heading "Personality Developement Programme By Dr. Yandamuri Veerendranath New" [level=3] [ref=e181]:
+                - link "Personality Developement Programme By Dr. Yandamuri Veerendranath" [ref=e182] [cursor=pointer]:
+                  - /url: yandamuri_programme.php
+                - generic [ref=e183]: New
+          - listitem [ref=e184]:
+            - generic [ref=e185]:
+              - generic [ref=e186]: 13/12/2017
+              - heading "Congratulations to TEC Cricket Team for Winning the Cup in A.M Reddy Engg College New" [level=3] [ref=e187]:
+                - link "Congratulations to TEC Cricket Team for Winning the Cup in A.M Reddy Engg College" [ref=e188] [cursor=pointer]:
+                  - /url: "#"
+                - generic [ref=e189]: New
+          - listitem [ref=e190]:
+            - generic [ref=e191]:
+              - generic [ref=e192]: 06/10/2017
+              - heading "IEEE day celebrations New" [level=3] [ref=e193]:
+                - link "IEEE day celebrations" [ref=e194] [cursor=pointer]:
+                  - /url: ieee_day2017.php
+                - generic [ref=e195]: New
+      - generic [ref=e196]:
+        - heading "Placement Updates" [level=3] [ref=e197]
+        - list [ref=e200]:
+          - listitem [ref=e201]:
+            - generic [ref=e202]: HCL AWARD
+    - generic [ref=e208]:
+      - heading "Origin Of the COllege" [level=2] [ref=e209]
+      - generic [ref=e211]:
+        - paragraph [ref=e212]: Once, a dry and bleak area, Narasaraopet Division has transformed itself into a vast lush green vista; thanks to Nagarjuna Sagar waters. The green revolution has, in its turn, spawned the white as well as knowledge revolution. That explains the phenomenon of a phalanx of academic and technological institutes in and around Narasaraopet.
+        - paragraph [ref=e213]: You are welcome to Tirumala Engineering College. Though a late starter, the Institution has emerged into a front-runner in the field of technical education. It has become a preferred destination for merit students and career- conscious faculty. In a short span of 8 years, it has discovered itself into an engineering institute, par-excellence.
+        - paragraph [ref=e214]: Founded and funded in 2008 by Tirumala Milk Products Pvt. Ltd., an entrepreneurial marvel, the institute was set up on a 16 acre strip girdled by a lush green picturesque landscape. The pastoral environs provide a tranquil ambience for an unruffled pursuit of knowledge.
+        - paragraph [ref=e215]: The Tirumala Milk Products Pvt. Ltd is stewarded by five humble sons of the soil, moderately educated, but fired by a sprit of enterprise. In a short span of 15 years, the Dairy Group expanded its transactions to all the four Southern states and ushered into one of the Mega-Industrial Houses. With its varied milk products, its annual turnover has astonishingly shot up to Rs:1500 Crores. Foreign investors, too, have started showing keen interest in the Dairy. IIM Students have come down to study this marvel of rular initiative. Their business preoccupations notwithstanding, the dairy management had always been conscious that the tremendous breakthrough they had achieved was made possible by the cooperation of the humble dairy farmers who formed the backbone of their industry. This nagging sense of gratitude is what inspired them to set up an Engineering College in the vicinity of their origins with a view to promoting technical education for faster growth among their rural brethren.
+        - paragraph [ref=e216]: The management's vision of transforming the college into a center of excellence has come true in its short existence of 8 years. The growing strength of the college, EAMCET students' preference for this college, rush for management quota seats, lucrative placements--all these go to vindicate the popular esteem it enjoys. R&D guidance by experienced professors, placement training under veteran corporate trainers, campus interviews spread over the whole of final year, a well staffed and richly equipped English department to enrich communication skills, a galore of workshops and presentation seminars all through, and above all a disciplined academic ambience - are some of the features that the college can justly be proud of. The college has come to carve a special nich for itself in the university arena thanks to the combined efforts of its vibrant staff and dynamic principal.
+        - paragraph [ref=e217]: Right now, the college offers four year B.Tech of CIVIL, MECHANICAL, EEE, ECE, CSE
+    - generic [ref=e219]:
+      - heading "Vision and Mission of the Institute" [level=2] [ref=e222]
+      - generic [ref=e223]:
+        - generic [ref=e224]:
+          - heading "Vision" [level=3] [ref=e225]
+          - paragraph [ref=e226]: To be a world class leader in transforming lives through an innovative, rigorous and compassionate approach by imparting high quality academic excellence in technical education to uplift the living standards of the rural youth by promoting the cutting edge technologies, employability, higher education and research with socio-ethical, eco-friendly and entrepreneurial values.
+        - generic [ref=e227]:
+          - heading "Mission" [level=3] [ref=e228]
+          - paragraph [ref=e229]: To develop high quality technical personnel with a sound footing on basic engineering principles, innovative research capabilities and exemplary professional conduct to lead and to use technology for the progress of mankind, training and adepting them to changing technological environment by providing the high quality instruction, infra, faculty, effective teaching and learning methods imbibing socio-ethical, eco-friendly and entrepreneurial values as the inner strength for rural development
+        - generic [ref=e230]:
+          - heading "Quality Policy" [level=3] [ref=e231]
+          - paragraph [ref=e232]: We, at Tirumala Engineering College, Strongly believe that Quality is the essence of life. Hence, TEC will constantly strive to improve the quality of education and training imparted to its students by establishing state-of-the-art laboratories and modernizing them continually, upgrading the knowledge and skills of its staff periodically and developing strong linkages with industry.
+    - generic [ref=e233]:
+      - generic [ref=e234]:
+        - heading "Contact Us" [level=2] [ref=e237]
+        - generic [ref=e238]:
+          - generic [ref=e239]:
+            - heading "Contact Info" [level=3] [ref=e240]
+            - list [ref=e241]:
+              - listitem [ref=e242]: Jonnalagadda(Village), Narasaraopet(Mandal), Guntur(District), AndhraPradesh. PIN-522601
+              - listitem [ref=e243]: tecnrt@gmail.com, tecnrt.alumni@gmail.com
+              - listitem [ref=e244]:
+                - link "tecnrt.org" [ref=e245] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e246]: "EAMCET CODE: TMLN"
+          - table [ref=e248]:
+            - rowgroup [ref=e249]:
+              - row [ref=e250]:
+                - cell [ref=e251]:
+                  - strong [ref=e252]: Department
+                - cell [ref=e253]:
+                  - strong [ref=e254]: Office Phone
+                - cell [ref=e255]:
+                  - strong [ref=e256]: Hods/Incharges
+                - cell "Email Us" [ref=e257]
+              - row [ref=e258]:
+                - cell "Secretary" [ref=e259]
+                - cell [ref=e260]
+                - cell [ref=e261]
+                - cell "sectec@tecnrt.org" [ref=e262]
+              - row [ref=e263]:
+                - cell "Principal" [ref=e264]
+                - cell "08647-218164" [ref=e265]
+                - cell "9248752999" [ref=e266]
+                - cell "principal@tecnrt.org" [ref=e267]
+              - row [ref=e268]:
+                - cell "Administrative Office" [ref=e269]
+                - cell "9133300228" [ref=e270]
+                - cell "9849803585" [ref=e271]
+                - cell "tec-ao@tecnrt.org" [ref=e272]
+              - row [ref=e273]:
+                - cell "Guntur City Office" [ref=e274]
+                - cell "9885510039" [ref=e275]
+                - cell "9248752999" [ref=e276]
+                - cell "tecnrt@gmail.com" [ref=e277]
+              - row [ref=e278]:
+                - cell "Security" [ref=e279]
+                - cell "9248752111" [ref=e280]
+                - cell [ref=e281]
+                - cell [ref=e282]
+              - row [ref=e283]:
+                - cell "Transport In-charge" [ref=e284]
+                - cell "9966552479" [ref=e285]
+                - cell "9390543208" [ref=e286]
+                - cell [ref=e287]
+              - row [ref=e288]:
+                - cell "Exam Section" [ref=e289]
+                - cell "9121214725" [ref=e290]
+                - cell "9705518818" [ref=e291]
+                - cell "tec-ce@tecnrt.org" [ref=e292]
+              - row [ref=e293]:
+                - cell "Admissions Enquiry" [ref=e294]
+                - cell "9133300228" [ref=e295]
+                - cell "8985298550" [ref=e296]
+                - cell [ref=e297]
+              - row [ref=e298]:
+                - cell "Scholarship Section" [ref=e299]
+                - cell "9133300228" [ref=e300]
+                - cell "9642612013" [ref=e301]
+                - cell [ref=e302]
+              - row [ref=e303]:
+                - cell "Department of AS&H" [ref=e304]
+                - cell "9248413456" [ref=e305]
+                - cell "9989706744" [ref=e306]
+                - cell "hod-sh@tecnrt.org" [ref=e307]
+              - row [ref=e308]:
+                - cell "Department of ECE" [ref=e309]
+                - cell "9248737444" [ref=e310]
+                - cell [ref=e311]:
+                  - paragraph [ref=e312]: "8985298550"
+                - cell "hod-ece@tecnrt.org" [ref=e313]
+              - row [ref=e314]:
+                - cell "Department of CSE(AI&ML)" [ref=e315]
+                - cell [ref=e316]
+                - cell "9666576488" [ref=e317]
+                - cell "hod-aiml@tecnrt.org" [ref=e318]
+              - row [ref=e319]:
+                - cell "Department of CSE" [ref=e320]
+                - cell "9290329777" [ref=e321]
+                - cell "9182933543" [ref=e322]
+                - cell "hod-cse@tecnrt.org" [ref=e323]
+              - row [ref=e324]:
+                - cell "Department of IT" [ref=e325]
+                - cell [ref=e326]
+                - cell "9490468680" [ref=e327]
+                - cell "hod-it@tecnrt.org" [ref=e328]
+              - row [ref=e329]:
+                - cell "Department of Mechanical" [ref=e330]
+                - cell [ref=e331]
+                - cell "9440256996" [ref=e332]
+                - cell "hod-mech@tecnrt.org" [ref=e333]
+              - row [ref=e334]:
+                - cell "Department of EEE" [ref=e335]
+                - cell [ref=e336]
+                - cell "9985578967" [ref=e337]
+                - cell "hod-eee@tecnrt.org" [ref=e338]
+              - row [ref=e339]:
+                - cell "Department of Civil" [ref=e340]
+                - cell [ref=e341]
+                - cell "6300438435" [ref=e342]
+                - cell "hod-civil@tecnrt.org" [ref=e343]
+              - row [ref=e344]:
+                - cell "Library" [ref=e345]
+                - cell [ref=e346]
+                - cell "9989343980" [ref=e347]
+                - cell "library@tecnrt.org" [ref=e348]
+              - row [ref=e349]:
+                - cell "Placement Officer" [ref=e350]
+                - cell "7731004567" [ref=e351]
+                - cell "8008322338" [ref=e352]
+                - cell "placements@tecnrt.org" [ref=e353]
+              - row [ref=e354]:
+                - cell "IQAC" [ref=e355]
+                - cell [ref=e356]:
+                  - paragraph [ref=e357]
+                - cell [ref=e358]:
+                  - paragraph [ref=e359]: "9248443456"
+                - cell "iqac@tecnrt.org" [ref=e360]
+              - row [ref=e361]:
+                - cell "NSS Officers" [ref=e362]
+                - cell "9052966526" [ref=e363]
+                - cell "9949311310" [ref=e364]
+                - cell "nsstec@tecnrt.org" [ref=e365]
+              - row [ref=e366]:
+                - cell "PD" [ref=e367]
+                - cell [ref=e368]
+                - cell "9441947476" [ref=e369]
+                - cell "pdtec@tecnrt.org" [ref=e370]
+              - row [ref=e371]:
+                - cell "IIC" [ref=e372]
+                - cell [ref=e373]
+                - cell "8074663124" [ref=e374]
+                - cell "iictec@tecnrt.org" [ref=e375]
+              - row [ref=e376]:
+                - cell "R&D" [ref=e377]
+                - cell "9441752543" [ref=e378]
+                - cell "8985298550" [ref=e379]
+                - cell "rnd@tecnrt.org" [ref=e380]
+              - row [ref=e381]:
+                - cell "Skill Development center" [ref=e382]
+                - cell [ref=e383]
+                - cell "9177979721" [ref=e384]
+                - cell "sdc@tecnrt.org" [ref=e385]
+              - row [ref=e386]:
+                - cell "career Guidenace" [ref=e387]
+                - cell [ref=e388]
+                - cell [ref=e389]
+                - cell "career_guidancetec@tecnrt.org" [ref=e390]
+              - row [ref=e391]:
+                - cell "Women Enpowerment" [ref=e392]
+                - cell [ref=e393]
+                - cell "9848132531" [ref=e394]
+                - cell "womenenpowertec@tecnrt.org" [ref=e395]
+              - row [ref=e396]:
+                - cell "EDC" [ref=e397]
+                - cell [ref=e398]
+                - cell [ref=e399]
+                - cell "edctec@tecnrt.org" [ref=e400]
+              - row [ref=e401]:
+                - cell "Alumini" [ref=e402]
+                - cell [ref=e403]
+                - cell "9705518818" [ref=e404]
+                - cell "aluminitec@tecnrt.org" [ref=e405]
+              - row [ref=e406]:
+                - cell "Reception" [ref=e407]
+                - cell [ref=e408]
+                - cell [ref=e409]
+                - cell "receptiontec@tecnrt.org" [ref=e410]
+              - row [ref=e411]:
+                - cell "Cultural" [ref=e412]
+                - cell [ref=e413]
+                - cell [ref=e414]
+                - cell "culturaltec@tecnrt.org" [ref=e415]
+              - row [ref=e416]:
+                - cell "Anti Ragging" [ref=e417]
+                - cell [ref=e418]
+                - cell "9989706744" [ref=e419]
+                - cell "antiraggingtec@tecnrt.org" [ref=e420]
+              - row [ref=e421]:
+                - cell "Office" [ref=e422]
+                - cell "08647-219585" [ref=e423]
+                - cell [ref=e424]
+                - cell "tec-office@tecnrt.org" [ref=e425]
+      - generic [ref=e428]:
+        - strong [ref=e429]: "Narasaraopeta Bus Station to Tirumala Engg College : 5 Km Narasaraopeta Railway Station to Tirumala Engg College : 5.5 Km Gannavaram Air Port to Tirumala Engg College : 111 Km State Bank of India, Narasaraopeta to Tirumala Engg College :4.5 Km Post Office, Narasaraopeta to Tirumala Engg College : 5.5 Km"
+        - iframe [ref=e430]
+    - contentinfo [ref=e431]:
+      - link "" [ref=e432] [cursor=pointer]:
+        - /url: "#"
+      - paragraph [ref=e436]:
+        - text: Copy Rights @ Tirumala Engineering College, Narsaraopet
+        - generic [ref=e437]: Last Updated on 26-11-2025
