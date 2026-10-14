@@ -177,7 +177,7 @@ export default function Navbar() {
       {/* Main Branding & Institutional Accreditation Logos Bar */}
       <div 
         style={{ 
-          padding: '0.75rem 1.25rem', 
+          padding: '0.65rem 1.25rem', 
           borderBottom: isHomePage ? 'none' : '1px solid #f1f5f9', 
           background: '#ffffff',
           width: '100%'
@@ -185,13 +185,14 @@ export default function Navbar() {
         className="tec-main-header-strip"
       >
         <div 
-          className="container" 
+          className="container-fluid" 
           style={{ 
+            maxWidth: '1580px',
+            margin: '0 auto',
             display: 'flex', 
             justifyContent: 'space-between', 
             alignItems: 'center', 
-            gap: '1.25rem',
-            flexWrap: 'wrap'
+            gap: '1rem'
           }}
         >
           {/* College Identity */}
@@ -218,7 +219,7 @@ export default function Navbar() {
               <div style={{ 
                 fontFamily: 'var(--font-heading)', 
                 fontWeight: 900, 
-                fontSize: 'clamp(0.95rem, 2.8vw, 1.35rem)', 
+                fontSize: 'clamp(0.92rem, 2vw, 1.25rem)', 
                 color: '#0e2154', 
                 letterSpacing: '-0.02em', 
                 lineHeight: 1.15,
@@ -227,7 +228,7 @@ export default function Navbar() {
                 TIRUMALA ENGINEERING COLLEGE
               </div>
               <div style={{ 
-                fontSize: 'clamp(0.62rem, 1.6vw, 0.72rem)', 
+                fontSize: 'clamp(0.6rem, 1.2vw, 0.72rem)', 
                 color: '#64748b', 
                 fontWeight: 700, 
                 display: 'flex', 
@@ -245,70 +246,95 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Four Institutional Logos & Mobile Toggle */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }} className="header-logos-wrapper">
-            {/* The Four Real Logos in a single row */}
-            <div 
-              className="tec-header-logos-container"
+          {/* Four Institutional Accreditation Logos (Centered) */}
+          <div 
+            className="tec-header-logos-container"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 'clamp(0.65rem, 1.6vw, 1.6rem)',
+              justifyContent: 'center',
+              flex: '1 1 auto'
+            }}
+          >
+            {/* 1. Tirumala Recognition / NAAC A+ Plaque (Replaced with images.jpg) */}
+            <img 
+              src="/college_assets/logos/images.jpg" 
+              alt="Tirumala Engineering College NAAC A+ Recognition" 
               style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 'clamp(0.65rem, 1.8vw, 1.75rem)',
-                justifyContent: 'center'
+                height: '46px',
+                width: 'auto',
+                maxWidth: '75px',
+                objectFit: 'contain',
+                display: 'block'
               }}
+            />
+
+            {/* 2. NAAC Logo (Replaced with NAAC_LOGO.png) */}
+            <img 
+              src="/college_assets/logos/NAAC_LOGO.png" 
+              alt="NAAC - National Assessment and Accreditation Council" 
+              style={{
+                height: '46px',
+                width: 'auto',
+                maxWidth: '55px',
+                objectFit: 'contain',
+                display: 'block'
+              }}
+            />
+
+            {/* 3. NBA Logo (Preserved) */}
+            <img 
+              src="/college_assets/logos/logo_nba.png" 
+              alt="NBA - National Board of Accreditation" 
+              style={{
+                height: '40px',
+                width: 'auto',
+                maxWidth: '65px',
+                objectFit: 'contain',
+                display: 'block'
+              }}
+            />
+
+            {/* 4. ISO 9001:2015 Logo (Preserved) */}
+            <img 
+              src="/college_assets/logos/logo_iso.png" 
+              alt="ISO 9001:2015 Certified Institution" 
+              style={{
+                height: '38px',
+                width: 'auto',
+                maxWidth: '48px',
+                objectFit: 'contain',
+                display: 'block'
+              }}
+            />
+          </div>
+
+          {/* Extreme Right: Restored Portal Login & Mobile Toggle */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexShrink: 0 }} className="header-actions">
+            <button 
+              onClick={() => handleOpenLogin('student')}
+              className="btn btn-outline-primary btn-sm portal-login-btn"
+              style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '0.4rem', 
+                fontWeight: 700, 
+                whiteSpace: 'nowrap', 
+                padding: '0.45rem 0.85rem', 
+                fontSize: '0.82rem',
+                color: '#0e2154',
+                borderColor: '#0e2154',
+                borderWidth: '1.5px',
+                borderRadius: '6px',
+                backgroundColor: 'transparent',
+                transition: 'all 0.15s ease'
+              }}
+              title="Access College Management Portals"
             >
-              {/* 1. Tirumala Recognition / NAAC A+ Plaque */}
-              <img 
-                src="/college_assets/logos/logo_recognition.png" 
-                alt="Tirumala Engineering College NAAC A+ Recognition" 
-                style={{
-                  height: '42px',
-                  width: 'auto',
-                  maxWidth: '125px',
-                  objectFit: 'contain',
-                  display: 'block'
-                }}
-              />
-
-              {/* 2. NAAC Logo */}
-              <img 
-                src="/college_assets/logos/logo_naac.png" 
-                alt="NAAC - National Assessment and Accreditation Council" 
-                style={{
-                  height: '42px',
-                  width: 'auto',
-                  maxWidth: '75px',
-                  objectFit: 'contain',
-                  display: 'block'
-                }}
-              />
-
-              {/* 3. NBA Logo */}
-              <img 
-                src="/college_assets/logos/logo_nba.png" 
-                alt="NBA - National Board of Accreditation" 
-                style={{
-                  height: '38px',
-                  width: 'auto',
-                  maxWidth: '75px',
-                  objectFit: 'contain',
-                  display: 'block'
-                }}
-              />
-
-              {/* 4. ISO 9001:2015 Logo */}
-              <img 
-                src="/college_assets/logos/logo_iso.png" 
-                alt="ISO 9001:2015 Certified Institution" 
-                style={{
-                  height: '36px',
-                  width: 'auto',
-                  maxWidth: '55px',
-                  objectFit: 'contain',
-                  display: 'block'
-                }}
-              />
-            </div>
+              <LogIn size={15} />
+              <span className="portal-btn-label">Portal Login</span>
+            </button>
 
             {/* Mobile menu toggle */}
             <button 
@@ -573,22 +599,29 @@ export default function Navbar() {
           .desktop-navbar-strip { display: none !important; }
           .mobile-nav-toggle { display: block !important; }
         }
-        @media (max-width: 860px) {
+        @media (max-width: 1040px) {
           .tec-main-header-strip { padding: 0.55rem 0.85rem !important; }
-          .header-logos-wrapper { width: 100%; justify-content: space-between !important; margin-top: 0.35rem; }
-          .tec-header-logos-container { justify-content: center; flex: 1; }
+          .tec-main-header-strip .container-fluid { flex-wrap: wrap !important; }
+          .tec-header-logos-container { 
+            order: 3; 
+            width: 100%; 
+            margin-top: 0.4rem; 
+            justify-content: center !important; 
+          }
         }
         @media (max-width: 600px) {
           .tec-header-logos-container img {
-            height: 30px !important;
+            height: 32px !important;
           }
           .tec-header-logos-container {
             gap: 0.65rem !important;
           }
         }
-        @media (max-width: 440px) {
+        @media (max-width: 480px) {
+          .portal-btn-label { display: none !important; }
+          .portal-login-btn { padding: 0.4rem 0.55rem !important; }
           .tec-header-logos-container img {
-            height: 25px !important;
+            height: 26px !important;
           }
           .tec-header-logos-container {
             gap: 0.45rem !important;
