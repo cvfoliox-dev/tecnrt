@@ -159,39 +159,57 @@ export default function Navbar() {
   return (
     <header style={{ position: 'sticky', top: 0, zIndex: 900, background: '#ffffff', boxShadow: '0 2px 10px rgba(0,0,0,0.06)' }}>
       {/* Top micro-bar: Verified College Contact Info */}
-      <div style={{ background: '#0e2154', color: '#e2e8f0', fontSize: '0.76rem', padding: '0.35rem 1.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
-        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
-              <MapPin size={12} style={{ color: '#f59e0b' }} />
+      <div style={{ background: '#0e2154', color: '#e2e8f0', fontSize: '0.78rem', padding: '0.4rem 1.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+        <div className="container" style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+              <MapPin size={13} style={{ color: '#f59e0b' }} />
               Jonnalagadda, Narasaraopet, Palnadu Dt, AP - 522601
             </span>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
-              <PhoneCall size={12} style={{ color: '#f59e0b' }} />
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+              <PhoneCall size={13} style={{ color: '#f59e0b' }} />
               08647 - 218164, 218255
-            </span>
-          </div>
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <span style={{ background: 'rgba(245, 158, 11, 0.25)', color: '#fbbf24', padding: '0.15rem 0.5rem', borderRadius: '4px', fontWeight: 800 }}>
-              EAPCET CODE: TMLN
-            </span>
-            <span style={{ color: '#93c5fd' }}>
-              NAAC 'A' Grade • NBA Accredited • UGC Autonomous
             </span>
           </div>
         </div>
       </div>
 
-      {/* Main Branding Header Bar */}
-      <div style={{ padding: '0.6rem 1rem', borderBottom: isHomePage ? 'none' : '1px solid #f1f5f9', background: '#ffffff' }}>
-        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem' }}>
+      {/* Main Branding & Institutional Accreditation Logos Bar */}
+      <div 
+        style={{ 
+          padding: '0.75rem 1.25rem', 
+          borderBottom: isHomePage ? 'none' : '1px solid #f1f5f9', 
+          background: '#ffffff',
+          width: '100%'
+        }}
+        className="tec-main-header-strip"
+      >
+        <div 
+          className="container" 
+          style={{ 
+            display: 'flex', 
+            justifyContent: 'space-between', 
+            alignItems: 'center', 
+            gap: '1.25rem',
+            flexWrap: 'wrap'
+          }}
+        >
           {/* College Identity */}
-          <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', textDecoration: 'none', minWidth: 0, flex: '1 1 auto' }}>
+          <Link 
+            to="/" 
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '0.75rem', 
+              textDecoration: 'none', 
+              minWidth: 0, 
+              flexShrink: 0 
+            }}
+          >
             <img 
               src="/college_assets/tec_crest.png" 
               alt="Tirumala Engineering College Emblem" 
-              style={{ width: '42px', height: '42px', objectFit: 'contain', flexShrink: 0 }}
+              style={{ width: '48px', height: '48px', objectFit: 'contain', flexShrink: 0 }}
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
               }}
@@ -200,18 +218,16 @@ export default function Navbar() {
               <div style={{ 
                 fontFamily: 'var(--font-heading)', 
                 fontWeight: 900, 
-                fontSize: 'clamp(0.82rem, 3.2vw, 1.3rem)', 
+                fontSize: 'clamp(0.95rem, 2.8vw, 1.35rem)', 
                 color: '#0e2154', 
                 letterSpacing: '-0.02em', 
                 lineHeight: 1.15,
-                whiteSpace: 'nowrap',
-                overflow: 'hidden',
-                textOverflow: 'ellipsis'
+                whiteSpace: 'nowrap'
               }}>
                 TIRUMALA ENGINEERING COLLEGE
               </div>
               <div style={{ 
-                fontSize: 'clamp(0.58rem, 1.8vw, 0.72rem)', 
+                fontSize: 'clamp(0.62rem, 1.6vw, 0.72rem)', 
                 color: '#64748b', 
                 fontWeight: 700, 
                 display: 'flex', 
@@ -229,26 +245,79 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Clean Portal Action & Mobile Toggle */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexShrink: 0 }} className="header-actions">
-            <button 
-              onClick={() => handleOpenLogin('student')}
-              className="btn btn-outline-primary btn-sm portal-login-btn"
-              style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontWeight: 700, whiteSpace: 'nowrap', padding: '0.4rem 0.65rem', fontSize: '0.8rem' }}
-              title="Access College Management Portals"
+          {/* Four Institutional Logos & Mobile Toggle */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }} className="header-logos-wrapper">
+            {/* The Four Real Logos in a single row */}
+            <div 
+              className="tec-header-logos-container"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 'clamp(0.65rem, 1.8vw, 1.75rem)',
+                justifyContent: 'center'
+              }}
             >
-              <LogIn size={14} />
-              <span className="portal-btn-label">Portal Login</span>
-            </button>
+              {/* 1. Tirumala Recognition / NAAC A+ Plaque */}
+              <img 
+                src="/college_assets/logos/logo_recognition.png" 
+                alt="Tirumala Engineering College NAAC A+ Recognition" 
+                style={{
+                  height: '42px',
+                  width: 'auto',
+                  maxWidth: '125px',
+                  objectFit: 'contain',
+                  display: 'block'
+                }}
+              />
+
+              {/* 2. NAAC Logo */}
+              <img 
+                src="/college_assets/logos/logo_naac.png" 
+                alt="NAAC - National Assessment and Accreditation Council" 
+                style={{
+                  height: '42px',
+                  width: 'auto',
+                  maxWidth: '75px',
+                  objectFit: 'contain',
+                  display: 'block'
+                }}
+              />
+
+              {/* 3. NBA Logo */}
+              <img 
+                src="/college_assets/logos/logo_nba.png" 
+                alt="NBA - National Board of Accreditation" 
+                style={{
+                  height: '38px',
+                  width: 'auto',
+                  maxWidth: '75px',
+                  objectFit: 'contain',
+                  display: 'block'
+                }}
+              />
+
+              {/* 4. ISO 9001:2015 Logo */}
+              <img 
+                src="/college_assets/logos/logo_iso.png" 
+                alt="ISO 9001:2015 Certified Institution" 
+                style={{
+                  height: '36px',
+                  width: 'auto',
+                  maxWidth: '55px',
+                  objectFit: 'contain',
+                  display: 'block'
+                }}
+              />
+            </div>
 
             {/* Mobile menu toggle */}
             <button 
               className="mobile-nav-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              style={{ display: 'none', background: 'none', border: 'none', color: '#0e2154', cursor: 'pointer', padding: '0.35rem' }}
+              style={{ display: 'none', background: 'none', border: 'none', color: '#0e2154', cursor: 'pointer', padding: '0.4rem' }}
               aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
@@ -504,9 +573,26 @@ export default function Navbar() {
           .desktop-navbar-strip { display: none !important; }
           .mobile-nav-toggle { display: block !important; }
         }
-        @media (max-width: 480px) {
-          .portal-btn-label { display: none !important; }
-          .portal-login-btn { padding: 0.4rem 0.55rem !important; }
+        @media (max-width: 860px) {
+          .tec-main-header-strip { padding: 0.55rem 0.85rem !important; }
+          .header-logos-wrapper { width: 100%; justify-content: space-between !important; margin-top: 0.35rem; }
+          .tec-header-logos-container { justify-content: center; flex: 1; }
+        }
+        @media (max-width: 600px) {
+          .tec-header-logos-container img {
+            height: 30px !important;
+          }
+          .tec-header-logos-container {
+            gap: 0.65rem !important;
+          }
+        }
+        @media (max-width: 440px) {
+          .tec-header-logos-container img {
+            height: 25px !important;
+          }
+          .tec-header-logos-container {
+            gap: 0.45rem !important;
+          }
         }
       `}</style>
     </header>
