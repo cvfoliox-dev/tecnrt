@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { COLLEGE_INFO } from '../../data/mockData';
 import { 
@@ -16,6 +17,7 @@ import {
 
 export default function PortalHeader() {
   const { currentUser, logout, quickSwitchRole, updatePassword, setActiveTab } = useAuth();
+  const navigate = useNavigate();
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -55,7 +57,7 @@ export default function PortalHeader() {
   };
 
   return (
-    <div style={{ background: '#ffffff', borderBottom: '1px solid #e2e8f0', position: 'sticky', top: '38px', zIndex: 850 }}>
+    <div style={{ background: '#ffffff', borderBottom: '1px solid #e2e8f0', position: 'sticky', top: 0, zIndex: 850 }}>
       {/* PRD 4.1 & 7.2 First-time Login Password Change Requirement Alert */}
       {currentUser.mustChangePassword && (
         <div style={{ background: '#fffbeb', borderBottom: '1px solid #fef3c7', padding: '0.6rem 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
@@ -169,7 +171,10 @@ export default function PortalHeader() {
 
           {/* Back to Public Site */}
           <button 
-            onClick={() => quickSwitchRole('public')}
+            onClick={() => {
+              quickSwitchRole('public');
+              navigate('/');
+            }}
             className="btn btn-outline btn-sm"
             title="Return to Public Website"
           >

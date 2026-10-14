@@ -2,35 +2,33 @@ import React from 'react';
 
 export default function HomePage() {
   return (
-    <div
+    <section 
+      className="tec-homepage-fullwidth-hero"
       style={{
-        flex: 1,
-        minHeight: '75vh',
-        backgroundColor: '#000000',
-        color: '#FFFFFF',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '3rem 1.5rem',
-        boxSizing: 'border-box'
+        width: '100%',
+        margin: 0,
+        padding: 0,
+        overflow: 'hidden',
+        lineHeight: 0,
+        backgroundColor: '#0a1633'
       }}
     >
-      <h1
+      <img
+        src="/campus_panorama.png"
+        alt="Tirumala Engineering College Campus Panorama"
         style={{
-          color: '#FFFFFF',
-          fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
-          fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
-          fontWeight: 'bold',
-          textTransform: 'uppercase',
-          letterSpacing: '0.15em',
+          width: '100%',
+          height: 'calc(100vh - 96px)',
+          minHeight: '480px',
+          maxHeight: '900px',
+          objectFit: 'cover',
+          objectPosition: 'center 45%',
+          display: 'block',
           margin: 0,
           padding: 0,
-          textAlign: 'center',
-          lineHeight: 1.1
+          border: 'none'
         }}
-      >
-        COMING SOON
-      </h1>
-    </div>
+      />
+    </section>
   );
 }

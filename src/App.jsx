@@ -53,18 +53,20 @@ export default function App() {
     }
   }, [location.pathname, currentUser.role, quickSwitchRole]);
 
+  const isHomePage = location.pathname === '/' || 
+    location.pathname === '/index.html' || 
+    location.pathname === '/index-2.html' || 
+    location.pathname === '/index.php';
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      {/* 1. Persistent Evaluator Role Switcher Bar */}
-      <RoleSwitcherBar />
-
-      {/* 2. Portal Views when a role is selected */}
+      {/* 1. Portal Views when a role is selected */}
       {currentUser.role === 'student' && <StudentDashboard />}
       {currentUser.role === 'faculty' && <FacultyDashboard />}
       {currentUser.role === 'hod' && <HODDashboard />}
       {currentUser.role === 'principal' && <PrincipalDashboard />}
 
-      {/* 3. Primary Public Website Routes */}
+      {/* 2. Primary Public Website Routes */}
       {currentUser.role === 'public' && (
         <>
           <Navbar />
@@ -191,7 +193,7 @@ export default function App() {
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </main>
-          <Footer />
+          {!isHomePage && <Footer />}
           <LoginModal />
         </>
       )}

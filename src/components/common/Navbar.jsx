@@ -151,9 +151,14 @@ export default function Navbar() {
     }
   ];
 
+  const isHomePage = location.pathname === '/' || 
+    location.pathname === '/index.html' || 
+    location.pathname === '/index-2.html' || 
+    location.pathname === '/index.php';
+
   return (
-    <header style={{ position: 'sticky', top: '38px', zIndex: 900, background: '#ffffff', boxShadow: '0 2px 10px rgba(0,0,0,0.06)' }}>
-      {/* Top micro-bar */}
+    <header style={{ position: 'sticky', top: 0, zIndex: 900, background: '#ffffff', boxShadow: '0 2px 10px rgba(0,0,0,0.06)' }}>
+      {/* Top micro-bar: Verified College Contact Info */}
       <div style={{ background: '#0e2154', color: '#e2e8f0', fontSize: '0.76rem', padding: '0.35rem 1.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
@@ -179,29 +184,40 @@ export default function Navbar() {
       </div>
 
       {/* Main Branding Header Bar */}
-      <div style={{ padding: '0.75rem 1.5rem', borderBottom: '1px solid #f1f5f9', background: '#ffffff' }}>
-        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div style={{ padding: '0.6rem 1rem', borderBottom: isHomePage ? 'none' : '1px solid #f1f5f9', background: '#ffffff' }}>
+        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem' }}>
           {/* College Identity */}
-          <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', textDecoration: 'none' }}>
-            <div style={{ 
-              width: '46px', 
-              height: '46px', 
-              borderRadius: '10px', 
-              background: 'linear-gradient(135deg, #0e2154 0%, #1d4ed8 100%)', 
-              display: 'flex', 
-              alignItems: 'center', 
-              justifyContent: 'center', 
-              color: '#ffffff',
-              boxShadow: '0 4px 10px rgba(14,33,84,0.3)',
-              border: '2px solid #f59e0b'
-            }}>
-              <GraduationCap size={26} />
-            </div>
-            <div>
-              <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 900, fontSize: '1.25rem', color: '#0e2154', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+          <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', textDecoration: 'none', minWidth: 0 }}>
+            <img 
+              src="/college_assets/tec_crest.png" 
+              alt="Tirumala Engineering College Emblem" 
+              style={{ width: '44px', height: '44px', objectFit: 'contain', flexShrink: 0 }}
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+              }}
+            />
+            <div style={{ minWidth: 0 }}>
+              <div style={{ 
+                fontFamily: 'var(--font-heading)', 
+                fontWeight: 900, 
+                fontSize: 'clamp(0.92rem, 3.2vw, 1.3rem)', 
+                color: '#0e2154', 
+                letterSpacing: '-0.02em', 
+                lineHeight: 1.15,
+                whiteSpace: 'normal'
+              }}>
                 TIRUMALA ENGINEERING COLLEGE
               </div>
-              <div style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.15rem' }}>
+              <div style={{ 
+                fontSize: 'clamp(0.62rem, 1.8vw, 0.72rem)', 
+                color: '#64748b', 
+                fontWeight: 700, 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '0.35rem', 
+                marginTop: '0.15rem',
+                flexWrap: 'wrap'
+              }}>
                 <span style={{ color: '#d97706' }}>NARASARAOPET</span>
                 <span>•</span>
                 <span>ESTD. 2008</span>
@@ -211,35 +227,35 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Quick Header Actions */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }} className="header-actions">
-            <Link to="/admissions/procedure" className="btn btn-accent btn-sm" style={{ fontWeight: 800 }}>
-              Admissions 2026
-            </Link>
-
+          {/* Clean Portal Action */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }} className="header-actions">
             <button 
               onClick={() => handleOpenLogin('student')}
               className="btn btn-outline-primary btn-sm"
-              style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontWeight: 700 }}
+              style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontWeight: 700, whiteSpace: 'nowrap', padding: '0.4rem 0.75rem' }}
+              title="Access College Management Portals"
             >
               <LogIn size={14} />
-              Portal Login
+              <span>Portal Login</span>
             </button>
 
-            {/* Mobile menu toggle */}
-            <button 
-              className="mobile-nav-toggle"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              style={{ display: 'none', background: 'none', border: 'none', color: '#0e2154', cursor: 'pointer', padding: '0.4rem' }}
-            >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            {/* Mobile menu toggle for inner pages */}
+            {!isHomePage && (
+              <button 
+                className="mobile-nav-toggle"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                style={{ display: 'none', background: 'none', border: 'none', color: '#0e2154', cursor: 'pointer', padding: '0.4rem' }}
+              >
+                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            )}
           </div>
         </div>
       </div>
 
-      {/* Main Desktop Dropdown Navigation Bar */}
-      <nav style={{ background: '#0e2154', borderBottom: '2px solid #f59e0b' }} className="desktop-navbar-strip">
+      {/* Main Desktop Dropdown Navigation Bar (Hidden on Homepage) */}
+      {!isHomePage && (
+        <nav style={{ background: '#0e2154', borderBottom: '2px solid #f59e0b' }} className="desktop-navbar-strip">
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
             <Link 
@@ -367,9 +383,10 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
+      )}
 
-      {/* Mobile Menu Drawer */}
-      {mobileMenuOpen && (
+      {/* Mobile Menu Drawer (Hidden on Homepage) */}
+      {!isHomePage && mobileMenuOpen && (
         <div style={{ background: '#ffffff', borderTop: '1px solid #e2e8f0', padding: '1rem', maxHeight: '80vh', overflowY: 'auto' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             <Link to="/" onClick={() => setMobileMenuOpen(false)} style={{ padding: '0.5rem', fontWeight: 700, color: '#0e2154', textDecoration: 'none' }}>
