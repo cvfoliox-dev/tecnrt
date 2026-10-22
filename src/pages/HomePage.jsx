@@ -312,7 +312,7 @@ export default function HomePage() {
         style={{
           width: '100%',
           backgroundColor: '#fbfbfd',
-          padding: 'clamp(4rem, 8vw, 6.5rem) 0',
+          padding: 'clamp(2.5rem, 4vw, 3.75rem) 0',
           borderTop: '1px solid #e2e8f0',
           borderBottom: '1px solid #e2e8f0',
           position: 'relative',
@@ -322,7 +322,7 @@ export default function HomePage() {
       >
         <div className="container">
           {/* Section Eyebrow & Heading */}
-          <div style={{ textAlign: 'center', marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
+          <div style={{ textAlign: 'center', marginBottom: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
             <div style={{ 
               display: 'inline-flex', 
               alignItems: 'center', 
@@ -394,7 +394,7 @@ export default function HomePage() {
               </div>
 
               {/* Elegant Thin Divider */}
-              <div style={{ height: '1px', backgroundColor: '#e2e8f0', margin: '2rem 0' }} />
+              <div className="tec-card-divider" />
 
               {/* Lower-Left: Institutional Vision */}
               <div className="tec-content-card">
@@ -443,7 +443,8 @@ export default function HomePage() {
                   borderRadius: '12px',
                   overflow: 'hidden',
                   backgroundColor: '#0a3d78',
-                  aspectRatio: '16/10'
+                  aspectRatio: '16/11',
+                  maxHeight: '260px'
                 }}>
                   <img 
                     src="/college_assets/Principal1.png"
@@ -459,7 +460,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Portrait Caption & Credentials */}
-                <div style={{ padding: '1.2rem 0.5rem 0.6rem 0.5rem' }}>
+                <div style={{ padding: '0.85rem 0.5rem 0.5rem 0.5rem' }}>
                   <h3 style={{
                     fontFamily: 'var(--font-heading)',
                     fontSize: '1.35rem',
@@ -531,7 +532,7 @@ export default function HomePage() {
               </div>
 
               {/* Elegant Thin Divider */}
-              <div style={{ height: '1px', backgroundColor: '#e2e8f0', margin: '2rem 0' }} />
+              <div className="tec-card-divider" />
 
               {/* Lower-Right: Message from the Principal */}
               <div className="tec-content-card">
@@ -649,7 +650,7 @@ export default function HomePage() {
         .tec-principal-grid {
           display: grid;
           grid-template-columns: 1.15fr 1fr 1.15fr;
-          gap: 2.75rem;
+          gap: clamp(1.25rem, 2.2vw, 2.25rem);
           align-items: center;
         }
 
@@ -662,6 +663,12 @@ export default function HomePage() {
           display: flex;
           flex-direction: column;
           justify-content: center;
+        }
+
+        .tec-card-divider {
+          height: 1px;
+          background-color: #e2e8f0;
+          margin: 1.25rem 0;
         }
 
         /* Hero Dynamic Gradient Overlay */
@@ -712,16 +719,20 @@ export default function HomePage() {
         }
 
         /* Responsive Breakpoints */
-        @media (max-width: 1080px) {
+        /* Maintain 3-column desktop layout; only collapse on tablet/mobile <= 860px */
+        @media (max-width: 860px) {
           .tec-principal-grid {
             grid-template-columns: 1fr;
-            gap: 2.5rem;
+            gap: 1.75rem;
           }
           .tec-principal-portrait-col {
             order: -1;
-            max-width: 500px;
+            max-width: 440px;
             margin: 0 auto;
             width: 100%;
+          }
+          .tec-card-divider {
+            margin: 1rem 0;
           }
         }
 
@@ -736,28 +747,29 @@ export default function HomePage() {
             display: none !important;
           }
           .tec-hero-desc-mobile {
-            display: none !important; /* Decreased matter: kept very simple on mobile view only per user instruction */
+            display: block !important;
           }
-          /* College photo prominently visible with building in frame and clean fit without dead space */
+          /* Campus hero with natural height, college building centered, and no empty ground gap */
           .tec-homepage-fullwidth-hero {
             min-height: auto !important;
-            height: clamp(300px, 43vh, 350px) !important;
+            height: auto !important;
           }
           .tec-hero-panorama-img {
-            transform: scale(1.68) !important;
-            transform-origin: 82% 52% !important;
+            object-fit: cover !important;
+            object-position: 72% 38% !important;
+            transform: none !important;
           }
           .tec-hero-gradient-overlay {
-            background: linear-gradient(180deg, rgba(5, 29, 59, 0.72) 0%, rgba(5, 29, 59, 0.12) 45%, rgba(5, 29, 59, 0.65) 100%) !important;
+            background: linear-gradient(180deg, rgba(5, 29, 59, 0.8) 0%, rgba(5, 29, 59, 0.35) 45%, rgba(5, 29, 59, 0.85) 100%) !important;
           }
           .tec-hero-content-wrapper {
-            padding-top: 1.15rem !important;
-            padding-bottom: 1.15rem !important;
+            padding-top: 1.5rem !important;
+            padding-bottom: 1.35rem !important;
           }
           .hero-anim-heading {
-            font-size: clamp(1.28rem, 5vw, 1.6rem) !important;
-            line-height: 1.18 !important;
-            margin-bottom: 0.85rem !important;
+            font-size: clamp(1.32rem, 5.2vw, 1.65rem) !important;
+            line-height: 1.2 !important;
+            margin-bottom: 0.65rem !important;
           }
         }
 

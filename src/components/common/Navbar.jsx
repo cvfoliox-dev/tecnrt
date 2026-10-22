@@ -903,13 +903,17 @@ export default function Navbar() {
           z-index: 999;
           box-shadow: -4px 0 25px rgba(0, 0, 0, 0.18);
           transform: translateX(100%);
-          transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+          visibility: hidden;
+          pointer-events: none;
+          transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.24s;
           overflow-y: auto;
           -webkit-overflow-scrolling: touch;
         }
 
         .tec-mobile-drawer.is-open {
           transform: translateX(0);
+          visibility: visible;
+          pointer-events: auto;
         }
 
         .tec-mobile-drawer-content {
@@ -932,6 +936,15 @@ export default function Navbar() {
         .tec-mobile-nav-link:hover, .tec-mobile-nav-link.active {
           background: #f1f5f9;
           color: #2563eb;
+        }
+
+        .tec-mobile-nav-link:focus-visible,
+        .tec-mobile-accordion-btn:focus-visible,
+        .tec-mobile-sublink:focus-visible,
+        .mobile-nav-toggle:focus-visible,
+        .portal-login-btn:focus-visible {
+          outline: 2px solid #f59e0b;
+          outline-offset: 2px;
         }
 
         .tec-mobile-accordion-group {
