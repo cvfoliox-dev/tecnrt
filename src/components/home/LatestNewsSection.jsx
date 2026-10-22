@@ -73,12 +73,12 @@ export default function LatestNewsSection() {
         backgroundColor: '#f8fafc',
         borderTop: '1px solid #e2e8f0',
         borderBottom: '1px solid #e2e8f0',
-        padding: 'clamp(3.5rem, 6vw, 5.5rem) 1.5rem',
+        padding: 'clamp(3.5rem, 6vw, 5.5rem) 0',
         position: 'relative'
       }}
       aria-label="Latest News and Updates"
     >
-      <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+      <div className="container">
         {/* Section Heading */}
         <div style={{ textAlign: 'center', marginBottom: 'clamp(2.5rem, 5vw, 3.5rem)' }}>
           <div

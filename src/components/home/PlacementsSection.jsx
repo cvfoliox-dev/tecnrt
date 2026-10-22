@@ -113,12 +113,12 @@ export default function PlacementsSection() {
     >
       {/* Main Content Container */}
       <div
+        className="container"
         style={{
           position: 'relative',
           zIndex: 2,
-          maxWidth: '1280px',
-          margin: '0 auto',
-          padding: 'clamp(3.5rem, 6vw, 5.5rem) 1.5rem'
+          paddingTop: 'clamp(3.5rem, 6vw, 5.5rem)',
+          paddingBottom: 'clamp(3.5rem, 6vw, 5.5rem)'
         }}
       >
         {/* Original Marquee Announcement Banner */}

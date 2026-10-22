@@ -30,7 +30,7 @@ export default function Footer() {
       }}
       aria-label="Website Footer"
     >
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1.5rem' }}>
+      <div className="container">
         
         {/* 4-Column Balanced Grid */}
         <div className="tec-footer-grid">

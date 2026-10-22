@@ -1,32 +1,60 @@
-import React, { useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { 
-  Building2, 
   LogIn, 
   Menu, 
   X, 
-  Award, 
-  BookOpen, 
-  GraduationCap, 
   MapPin, 
   PhoneCall, 
-  ChevronDown, 
-  ChevronRight,
-  Sparkles,
-  ExternalLink
+  ChevronDown 
 } from 'lucide-react';
 
 export default function Navbar() {
   const { setLoginModalOpen, setLoginModalRole } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [openAccordion, setOpenAccordion] = useState(null);
   const location = useLocation();
 
   const handleOpenLogin = (role = 'student') => {
     setLoginModalRole(role);
     setLoginModalOpen(true);
     setMobileMenuOpen(false);
+  };
+
+  // Close mobile drawer on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setOpenAccordion(null);
+  }, [location.pathname]);
+
+  // Lock background scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [mobileMenuOpen]);
+
+  // Close on Escape key press
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [mobileMenuOpen]);
+
+  const toggleAccordion = (title) => {
+    setOpenAccordion(prev => prev === title ? null : title);
   };
 
   const navMenus = [
@@ -157,199 +185,231 @@ export default function Navbar() {
     location.pathname === '/index.php';
 
   return (
-    <header style={{ position: 'sticky', top: 0, zIndex: 900, background: '#ffffff', boxShadow: '0 2px 10px rgba(0,0,0,0.06)' }}>
-      {/* Top micro-bar: Verified College Contact Info */}
-      <div style={{ background: '#0e2154', color: '#e2e8f0', fontSize: '0.78rem', padding: '0.4rem 1.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+    <header className="tec-site-header" style={{ position: 'sticky', top: 0, zIndex: 900, background: '#ffffff', boxShadow: '0 2px 10px rgba(0,0,0,0.06)' }}>
+      {/* 1. Desktop Top Micro-bar: Verified College Contact Info (Hidden on Mobile per requirement) */}
+      <div className="tec-top-contact-bar" style={{ background: '#0e2154', color: '#e2e8f0', fontSize: '0.78rem', padding: '0.4rem 0', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
-              <MapPin size={13} style={{ color: '#f59e0b' }} />
-              Jonnalagadda, Narasaraopet, Palnadu Dt, AP - 522601
+              <MapPin size={13} style={{ color: '#f59e0b', flexShrink: 0 }} />
+              <span>Jonnalagadda, Narasaraopet, Palnadu Dt, AP - 522601</span>
             </span>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
-              <PhoneCall size={13} style={{ color: '#f59e0b' }} />
-              08647 - 218164, 218255
+              <PhoneCall size={13} style={{ color: '#f59e0b', flexShrink: 0 }} />
+              <span>08647 – 218164, 218255</span>
             </span>
           </div>
         </div>
       </div>
 
-      {/* Main Branding & Institutional Accreditation Logos Bar */}
+      {/* 2. Main College Branding Header */}
       <div 
+        className="tec-main-header-strip"
         style={{ 
-          padding: '0.65rem 1.25rem', 
+          padding: '0.65rem 0', 
           borderBottom: isHomePage ? 'none' : '1px solid #f1f5f9', 
           background: '#ffffff',
           width: '100%'
         }}
-        className="tec-main-header-strip"
       >
         <div 
-          className="container-fluid" 
+          className="container"
           style={{ 
-            maxWidth: '1580px',
-            margin: '0 auto',
             display: 'flex', 
             justifyContent: 'space-between', 
             alignItems: 'center', 
-            gap: '1rem'
+            gap: '0.75rem'
           }}
         >
-          {/* College Identity */}
+          {/* College Identity (Crest + Name) */}
           <Link 
             to="/" 
+            className="tec-brand-link"
             style={{ 
               display: 'flex', 
               alignItems: 'center', 
-              gap: '0.75rem', 
+              gap: '0.65rem', 
               textDecoration: 'none', 
               minWidth: 0, 
-              flexShrink: 0 
+              flexShrink: 1
             }}
+            aria-label="Tirumala Engineering College Home"
           >
             <img 
               src="/college_assets/tec_crest.png" 
               alt="Tirumala Engineering College Emblem" 
-              style={{ width: '48px', height: '48px', objectFit: 'contain', flexShrink: 0 }}
+              className="tec-brand-crest"
+              style={{ width: '44px', height: '44px', objectFit: 'contain', flexShrink: 0 }}
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
               }}
             />
-            <div style={{ minWidth: 0, overflow: 'hidden' }}>
-              <div style={{ 
-                fontFamily: 'var(--font-heading)', 
-                fontWeight: 900, 
-                fontSize: 'clamp(0.92rem, 2vw, 1.25rem)', 
-                color: '#0e2154', 
-                letterSpacing: '-0.02em', 
-                lineHeight: 1.15,
-                whiteSpace: 'nowrap'
-              }}>
+            <div style={{ minWidth: 0, flexShrink: 1 }}>
+              <div 
+                className="tec-brand-title"
+                style={{ 
+                  fontFamily: 'var(--font-heading)', 
+                  fontWeight: 900, 
+                  fontSize: 'clamp(0.82rem, 1.8vw, 1.25rem)', 
+                  color: '#0e2154', 
+                  letterSpacing: '-0.02em', 
+                  lineHeight: 1.15
+                }}
+              >
                 TIRUMALA ENGINEERING COLLEGE
               </div>
-              <div style={{ 
-                fontSize: 'clamp(0.6rem, 1.2vw, 0.72rem)', 
-                color: '#64748b', 
-                fontWeight: 700, 
-                display: 'flex', 
-                alignItems: 'center', 
-                gap: '0.35rem', 
-                marginTop: '0.15rem',
-                whiteSpace: 'nowrap'
-              }}>
+              <div 
+                className="tec-brand-subtitle"
+                style={{ 
+                  fontSize: 'clamp(0.6rem, 1.1vw, 0.72rem)', 
+                  color: '#64748b', 
+                  fontWeight: 700, 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  gap: '0.35rem', 
+                  marginTop: '0.12rem',
+                  whiteSpace: 'nowrap'
+                }}
+              >
                 <span style={{ color: '#d97706' }}>NARASARAOPET</span>
                 <span>•</span>
-                <span>ESTD. 2008</span>
-                <span>•</span>
+                <span className="tec-estd-tag">ESTD. 2008</span>
+                <span className="tec-estd-tag">•</span>
                 <span style={{ color: '#15803d' }}>AUTONOMOUS</span>
               </div>
             </div>
           </Link>
 
-          {/* Four Institutional Accreditation Logos (Centered) */}
+          {/* Desktop Accreditation Logos (Centered) - Hidden on Mobile */}
           <div 
-            className="tec-header-logos-container"
+            className="tec-header-logos-desktop"
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: 'clamp(0.65rem, 1.6vw, 1.6rem)',
+              gap: 'clamp(0.6rem, 1.5vw, 1.5rem)',
               justifyContent: 'center',
               flex: '1 1 auto'
             }}
           >
-            {/* 1. Tirumala Recognition / NAAC A+ Plaque (Replaced with images.jpg) */}
+            {/* 1. Tirumala Recognition / NAAC A+ Plaque */}
             <img 
               src="/college_assets/logos/images.jpg" 
-              alt="Tirumala Engineering College NAAC A+ Recognition" 
-              style={{
-                height: '46px',
-                width: 'auto',
-                maxWidth: '75px',
-                objectFit: 'contain',
-                display: 'block'
-              }}
+              alt="NAAC A+ Recognition" 
+              style={{ height: '44px', width: 'auto', maxWidth: '72px', objectFit: 'contain', display: 'block' }}
             />
-
-            {/* 2. NAAC Logo (Replaced with NAAC_LOGO.png) */}
+            {/* 2. NAAC Logo */}
             <img 
               src="/college_assets/logos/NAAC_LOGO.png" 
-              alt="NAAC - National Assessment and Accreditation Council" 
-              style={{
-                height: '46px',
-                width: 'auto',
-                maxWidth: '55px',
-                objectFit: 'contain',
-                display: 'block'
-              }}
+              alt="NAAC" 
+              style={{ height: '44px', width: 'auto', maxWidth: '52px', objectFit: 'contain', display: 'block' }}
             />
-
-            {/* 3. NBA Logo (Preserved) */}
+            {/* 3. NBA Logo */}
             <img 
               src="/college_assets/logos/logo_nba.png" 
-              alt="NBA - National Board of Accreditation" 
-              style={{
-                height: '40px',
-                width: 'auto',
-                maxWidth: '65px',
-                objectFit: 'contain',
-                display: 'block'
-              }}
+              alt="NBA Accredited" 
+              style={{ height: '38px', width: 'auto', maxWidth: '62px', objectFit: 'contain', display: 'block' }}
             />
-
-            {/* 4. ISO 9001:2015 Logo (Preserved) */}
+            {/* 4. ISO 9001:2015 Logo */}
             <img 
               src="/college_assets/logos/logo_iso.png" 
-              alt="ISO 9001:2015 Certified Institution" 
-              style={{
-                height: '38px',
-                width: 'auto',
-                maxWidth: '48px',
-                objectFit: 'contain',
-                display: 'block'
-              }}
+              alt="ISO 9001:2015 Certified" 
+              style={{ height: '36px', width: 'auto', maxWidth: '46px', objectFit: 'contain', display: 'block' }}
             />
           </div>
 
-          {/* Extreme Right: Restored Portal Login & Mobile Toggle */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexShrink: 0 }} className="header-actions">
+          {/* Header Actions (Portal Login & Mobile Hamburger) */}
+          <div 
+            className="tec-header-actions"
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '0.5rem', 
+              flexShrink: 0 
+            }}
+          >
+            {/* Portal Login Button */}
             <button 
               onClick={() => handleOpenLogin('student')}
-              className="btn btn-outline-primary btn-sm portal-login-btn"
+              className="btn btn-outline-primary portal-login-btn"
               style={{ 
-                display: 'flex', 
+                display: 'inline-flex', 
                 alignItems: 'center', 
+                justifyContent: 'center',
                 gap: '0.4rem', 
                 fontWeight: 700, 
                 whiteSpace: 'nowrap', 
                 padding: '0.45rem 0.85rem', 
+                minHeight: '44px',
                 fontSize: '0.82rem',
                 color: '#0e2154',
                 borderColor: '#0e2154',
                 borderWidth: '1.5px',
-                borderRadius: '6px',
+                borderRadius: '8px',
                 backgroundColor: 'transparent',
                 transition: 'all 0.15s ease'
               }}
               title="Access College Management Portals"
+              aria-label="Student & Faculty Portal Login"
             >
-              <LogIn size={15} />
+              <LogIn size={16} style={{ flexShrink: 0 }} />
               <span className="portal-btn-label">Portal Login</span>
+              <span className="portal-btn-label-mobile">Portal</span>
             </button>
 
-            {/* Mobile menu toggle */}
+            {/* Mobile Hamburger Menu Toggle */}
             <button 
               className="mobile-nav-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              style={{ display: 'none', background: 'none', border: 'none', color: '#0a3d78', cursor: 'pointer', padding: '0.4rem' }}
-              aria-label="Toggle navigation menu"
+              style={{ 
+                display: 'none', 
+                background: '#f8fafc', 
+                border: '1.5px solid #cbd5e1', 
+                borderRadius: '8px',
+                color: '#0e2154', 
+                cursor: 'pointer', 
+                padding: '0.4rem',
+                minWidth: '44px',
+                minHeight: '44px',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="tec-mobile-menu-drawer"
             >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Main Desktop Dropdown Navigation Bar */}
+      {/* 3. Mobile Accreditation Strip (Compact 28px Bar Under Main Header - Hidden on Desktop) */}
+      <div className="tec-mobile-accreditation-strip" aria-label="College Accreditations">
+        <div className="tec-mobile-logos-track">
+          <img 
+            src="/college_assets/logos/images.jpg" 
+            alt="NAAC A+ Recognition" 
+            style={{ height: '22px', width: 'auto', maxWidth: '38px', objectFit: 'contain' }}
+          />
+          <img 
+            src="/college_assets/logos/NAAC_LOGO.png" 
+            alt="NAAC" 
+            style={{ height: '22px', width: 'auto', maxWidth: '30px', objectFit: 'contain' }}
+          />
+          <img 
+            src="/college_assets/logos/logo_nba.png" 
+            alt="NBA Accredited" 
+            style={{ height: '20px', width: 'auto', maxWidth: '38px', objectFit: 'contain' }}
+          />
+          <img 
+            src="/college_assets/logos/logo_iso.png" 
+            alt="ISO 9001:2015 Certified" 
+            style={{ height: '20px', width: 'auto', maxWidth: '28px', objectFit: 'contain' }}
+          />
+        </div>
+      </div>
+
+      {/* 4. Desktop Dropdown Navigation Bar (Full Width 1600px) */}
       <nav 
         style={{
           position: 'relative',
@@ -360,8 +420,9 @@ export default function Navbar() {
           boxShadow: '0 4px 14px rgba(0, 0, 0, 0.2)'
         }} 
         className="desktop-navbar-strip"
+        aria-label="Main Navigation"
       >
-        <div style={{ maxWidth: '1380px', margin: '0 auto', padding: '0 0.75rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 0.5rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'nowrap', gap: '0.15rem' }}>
             <Link 
               to="/" 
@@ -517,7 +578,7 @@ export default function Navbar() {
             <Link 
               to="/feedback" 
               style={{ 
-                color: location.pathname === '/feedback' ? '#d4a955' : '#ffffff', 
+                color: location.pathname === '/feedback' ? '#fbbf24' : '#ffffff', 
                 padding: '0.45rem 0.55rem', 
                 fontSize: '0.8rem', 
                 fontWeight: 600, 
@@ -533,7 +594,7 @@ export default function Navbar() {
             <Link 
               to="/contact" 
               style={{ 
-                color: location.pathname === '/contact' ? '#d4a955' : '#ffffff', 
+                color: location.pathname === '/contact' ? '#fbbf24' : '#ffffff', 
                 padding: '0.45rem 0.55rem', 
                 fontSize: '0.8rem', 
                 fontWeight: 600, 
@@ -549,95 +610,350 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu Drawer */}
+      {/* 5. Mobile Drawer Backdrop Scrim */}
       {mobileMenuOpen && (
-        <div style={{ 
-          position: 'absolute',
-          top: '100%',
-          left: 0,
-          right: 0,
-          background: '#ffffff', 
-          borderTop: '1px solid #e2e8f0', 
-          padding: '1rem', 
-          maxHeight: '80vh', 
-          overflowY: 'auto',
-          boxShadow: '0 15px 30px rgba(0,0,0,0.25)',
-          zIndex: 1000
-        }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            <Link to="/" onClick={() => setMobileMenuOpen(false)} style={{ padding: '0.5rem', fontWeight: 700, color: '#0a3d78', textDecoration: 'none' }}>
+        <div 
+          className="tec-mobile-backdrop"
+          onClick={() => setMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* 6. Polished Accessible Mobile Navigation Drawer */}
+      <div 
+        id="tec-mobile-menu-drawer"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation Menu"
+        className={`tec-mobile-drawer ${mobileMenuOpen ? 'is-open' : ''}`}
+      >
+        <div className="tec-mobile-drawer-content">
+          {/* Quick Header Inside Drawer */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: '0.75rem', borderBottom: '1px solid #e2e8f0', marginBottom: '0.5rem' }}>
+            <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#0e2154', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              Navigation Menu
+            </span>
+            <button 
+              onClick={() => setMobileMenuOpen(false)}
+              style={{ background: 'none', border: 'none', padding: '0.25rem', color: '#64748b', cursor: 'pointer', display: 'flex' }}
+              aria-label="Close menu"
+            >
+              <X size={20} />
+            </button>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+            <Link 
+              to="/" 
+              onClick={() => setMobileMenuOpen(false)} 
+              className={`tec-mobile-nav-link ${location.pathname === '/' ? 'active' : ''}`}
+            >
               Home
             </Link>
             
-            {navMenus.map((menu, mIdx) => (
-              <div key={mIdx} style={{ borderBottom: '1px solid #f1f5f9', paddingBottom: '0.4rem' }}>
-                <div style={{ fontWeight: 800, fontSize: '0.85rem', color: '#0a3d78', padding: '0.4rem 0.5rem' }}>
-                  {menu.title}
-                </div>
-                <div style={{ paddingLeft: '1rem', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
-                  {menu.dropdown.map((sub, sIdx) => (
-                    <Link
-                      key={sIdx}
-                      to={sub.path}
-                      onClick={() => setMobileMenuOpen(false)}
-                      style={{ padding: '0.35rem 0', fontSize: '0.8rem', color: '#475569', textDecoration: 'none' }}
-                    >
-                      {sub.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ))}
+            {/* Accordion Submenus */}
+            {navMenus.map((menu, mIdx) => {
+              const isAccordionOpen = openAccordion === menu.title;
+              const isMenuActive = location.pathname.startsWith(menu.path.split('/')[1] ? `/${menu.path.split('/')[1]}` : '---');
 
-            <Link to="/nirf" onClick={() => setMobileMenuOpen(false)} style={{ padding: '0.5rem', fontWeight: 700, color: '#0a3d78', textDecoration: 'none' }}>NIRF</Link>
-            <Link to="/gallery" onClick={() => setMobileMenuOpen(false)} style={{ padding: '0.5rem', fontWeight: 700, color: '#0a3d78', textDecoration: 'none' }}>Gallery</Link>
-            <Link to="/feedback" onClick={() => setMobileMenuOpen(false)} style={{ padding: '0.5rem', fontWeight: 700, color: '#0a3d78', textDecoration: 'none' }}>Feedback</Link>
-            <Link to="/contact" onClick={() => setMobileMenuOpen(false)} style={{ padding: '0.5rem', fontWeight: 700, color: '#0a3d78', textDecoration: 'none' }}>Contact</Link>
+              return (
+                <div key={mIdx} className="tec-mobile-accordion-group">
+                  <button 
+                    onClick={() => toggleAccordion(menu.title)}
+                    className={`tec-mobile-accordion-btn ${isMenuActive ? 'active' : ''}`}
+                    aria-expanded={isAccordionOpen}
+                    aria-controls={`sub-${mIdx}`}
+                  >
+                    <span>{menu.title}</span>
+                    <ChevronDown 
+                      size={16} 
+                      style={{ 
+                        transform: isAccordionOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                        transition: 'transform 0.2s ease',
+                        color: '#64748b'
+                      }} 
+                    />
+                  </button>
 
-            <div style={{ marginTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  {isAccordionOpen && (
+                    <div id={`sub-${mIdx}`} className="tec-mobile-accordion-panel">
+                      {menu.dropdown.map((sub, sIdx) => (
+                        <Link
+                          key={sIdx}
+                          to={sub.path}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className={`tec-mobile-sublink ${location.pathname === sub.path ? 'active' : ''}`}
+                        >
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+
+            <Link 
+              to="/nirf" 
+              onClick={() => setMobileMenuOpen(false)} 
+              className={`tec-mobile-nav-link ${location.pathname === '/nirf' ? 'active' : ''}`}
+            >
+              NIRF
+            </Link>
+            <Link 
+              to="/gallery" 
+              onClick={() => setMobileMenuOpen(false)} 
+              className={`tec-mobile-nav-link ${location.pathname === '/gallery' ? 'active' : ''}`}
+            >
+              Gallery
+            </Link>
+            <Link 
+              to="/feedback" 
+              onClick={() => setMobileMenuOpen(false)} 
+              className={`tec-mobile-nav-link ${location.pathname === '/feedback' ? 'active' : ''}`}
+            >
+              Feedback
+            </Link>
+            <Link 
+              to="/contact" 
+              onClick={() => setMobileMenuOpen(false)} 
+              className={`tec-mobile-nav-link ${location.pathname === '/contact' ? 'active' : ''}`}
+            >
+              Contact
+            </Link>
+
+            {/* Portal CTA at Drawer Base */}
+            <div style={{ marginTop: '0.85rem', paddingTop: '0.85rem', borderTop: '1px solid #e2e8f0' }}>
               <button 
                 onClick={() => handleOpenLogin('student')}
                 className="btn btn-primary"
-                style={{ width: '100%' }}
+                style={{ 
+                  width: '100%', 
+                  padding: '0.75rem 1rem', 
+                  fontSize: '0.88rem', 
+                  fontWeight: 700,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem'
+                }}
               >
                 <LogIn size={16} /> Open College Portal
               </button>
             </div>
           </div>
         </div>
-      )}
+      </div>
 
       <style>{`
+        /* Desktop vs Mobile Toggle Points */
+        .portal-btn-label-mobile { display: none; }
+        .tec-mobile-accreditation-strip { display: none; }
+        .tec-mobile-drawer { display: none; }
+        .tec-mobile-backdrop { display: none; }
+
+        @media (min-width: 1181px) {
+          .desktop-navbar-strip { display: block !important; }
+          .mobile-nav-toggle { display: none !important; }
+        }
+
         @media (max-width: 1180px) {
           .desktop-navbar-strip { display: none !important; }
-          .mobile-nav-toggle { display: block !important; }
+          .mobile-nav-toggle { display: flex !important; }
         }
-        @media (max-width: 1040px) {
-          .tec-main-header-strip { padding: 0.55rem 0.85rem !important; }
-          .tec-main-header-strip .container-fluid { flex-wrap: wrap !important; }
-          .tec-header-logos-container { 
-            order: 3; 
-            width: 100%; 
-            margin-top: 0.4rem; 
-            justify-content: center !important; 
+
+        /* Mobile Header Optimization (<= 992px) */
+        @media (max-width: 992px) {
+          .tec-top-contact-bar {
+            display: none !important;
+          }
+          .tec-main-header-strip {
+            padding: 0.45rem 0 !important;
+          }
+          .tec-brand-crest {
+            width: 38px !important;
+            height: 38px !important;
+          }
+          .tec-brand-title {
+            font-size: clamp(0.72rem, 3.1vw, 0.95rem) !important;
+            line-height: 1.15 !important;
+            white-space: normal !important;
+          }
+          .tec-header-logos-desktop {
+            display: none !important;
+          }
+          .tec-mobile-accreditation-strip {
+            display: flex !important;
+            align-items: center;
+            justifyContent: center;
+            background: #f8fafc;
+            border-top: 1px solid #f1f5f9;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 0.25rem 0.5rem;
+            width: 100%;
+          }
+          .tec-mobile-logos-track {
+            display: flex;
+            align-items: center;
+            justifyContent: center;
+            gap: clamp(0.75rem, 3.5vw, 1.5rem);
+            width: 100%;
           }
         }
-        @media (max-width: 600px) {
-          .tec-header-logos-container img {
+
+        @media (max-width: 580px) {
+          .portal-btn-label { display: none !important; }
+          .portal-btn-label-mobile { display: inline !important; }
+          .tec-estd-tag { display: none !important; }
+          .portal-login-btn {
+            padding: 0.4rem 0.65rem !important;
+            min-height: 42px !important;
+          }
+          .mobile-nav-toggle {
+            min-width: 42px !important;
+            min-height: 42px !important;
+            padding: 0.35rem !important;
+          }
+        }
+
+        @media (max-width: 380px) {
+          .tec-brand-crest {
+            width: 32px !important;
             height: 32px !important;
           }
-          .tec-header-logos-container {
-            gap: 0.65rem !important;
+          .tec-brand-title {
+            font-size: 0.72rem !important;
+            line-height: 1.12 !important;
+          }
+          .tec-brand-subtitle {
+            font-size: 0.58rem !important;
           }
         }
-        @media (max-width: 480px) {
-          .portal-btn-label { display: none !important; }
-          .portal-login-btn { padding: 0.4rem 0.55rem !important; }
-          .tec-header-logos-container img {
-            height: 26px !important;
+
+        @media (max-width: 350px) {
+          .portal-btn-label-mobile { display: none !important; }
+          .portal-login-btn {
+            padding: 0.4rem 0.45rem !important;
+            min-width: 40px !important;
           }
-          .tec-header-logos-container {
-            gap: 0.45rem !important;
+        }
+
+        /* Mobile Drawer & Backdrop */
+        .tec-mobile-backdrop {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(5, 29, 59, 0.45);
+          backdrop-filter: blur(2px);
+          -webkit-backdrop-filter: blur(2px);
+          z-index: 998;
+          display: block;
+          animation: tecBackdropFade 0.2s ease-out forwards;
+        }
+
+        .tec-mobile-drawer {
+          display: block;
+          position: fixed;
+          top: 0;
+          right: 0;
+          width: min(340px, 86vw);
+          height: 100vh;
+          background: #ffffff;
+          z-index: 999;
+          box-shadow: -4px 0 25px rgba(0, 0, 0, 0.18);
+          transform: translateX(100%);
+          transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .tec-mobile-drawer.is-open {
+          transform: translateX(0);
+        }
+
+        .tec-mobile-drawer-content {
+          padding: 1.25rem 1rem 2rem 1rem;
+          display: flex;
+          flex-direction: column;
+          min-height: 100%;
+        }
+
+        .tec-mobile-nav-link {
+          display: block;
+          padding: 0.65rem 0.75rem;
+          font-weight: 700;
+          font-size: 0.88rem;
+          color: #0e2154;
+          text-decoration: none;
+          border-radius: 6px;
+          transition: background 0.15s ease;
+        }
+        .tec-mobile-nav-link:hover, .tec-mobile-nav-link.active {
+          background: #f1f5f9;
+          color: #2563eb;
+        }
+
+        .tec-mobile-accordion-group {
+          border-bottom: 1px solid #f1f5f9;
+        }
+
+        .tec-mobile-accordion-btn {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0.65rem 0.75rem;
+          font-weight: 700;
+          font-size: 0.88rem;
+          color: #0e2154;
+          background: transparent;
+          border: none;
+          border-radius: 6px;
+          text-align: left;
+          cursor: pointer;
+        }
+        .tec-mobile-accordion-btn:hover, .tec-mobile-accordion-btn.active {
+          background: #f8fafc;
+        }
+
+        .tec-mobile-accordion-panel {
+          padding: 0.25rem 0 0.5rem 1rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.15rem;
+          background: #fbfbfd;
+          border-radius: 6px;
+          margin-bottom: 0.35rem;
+        }
+
+        .tec-mobile-sublink {
+          display: block;
+          padding: 0.45rem 0.6rem;
+          font-size: 0.82rem;
+          font-weight: 500;
+          color: #475569;
+          text-decoration: none;
+          border-radius: 4px;
+        }
+        .tec-mobile-sublink:hover, .tec-mobile-sublink.active {
+          color: #0e2154;
+          font-weight: 700;
+          background: #e2e8f0;
+        }
+
+        @keyframes tecBackdropFade {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .tec-mobile-drawer {
+            transition: none !important;
+          }
+          .tec-mobile-backdrop {
+            animation: none !important;
           }
         }
       `}</style>

@@ -23,7 +23,7 @@ export default function HomePage() {
 
   return (
     <div className="tec-homepage-root" style={{ width: '100%', overflowX: 'hidden' }}>
-      {/* 1. CAMPUS HERO WITH ANIMATED TEXT OVERLAY */}
+      {/* 1. CAMPUS HERO WITH NATURAL RESPONSIVE PROPORTIONS */}
       <section 
         className="tec-homepage-fullwidth-hero"
         style={{
@@ -33,194 +33,203 @@ export default function HomePage() {
           padding: 0,
           overflow: 'hidden',
           backgroundColor: '#001833',
-          lineHeight: 1
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          minHeight: 'clamp(460px, 60vh, 580px)'
         }}
         aria-label="Campus Hero"
       >
-        {/* Full-width panorama image (Compact, responsive height) */}
+        {/* Full-width panorama image */}
         <img
           src="/campus_panorama.png"
           alt="Tirumala Engineering College Campus Panorama"
+          className="tec-hero-panorama-img"
           style={{
+            position: 'absolute',
+            inset: 0,
             width: '100%',
-            height: 'clamp(420px, 54vh, 520px)',
-            minHeight: '390px',
-            maxHeight: '520px',
+            height: '100%',
             objectFit: 'cover',
-            objectPosition: 'center 42%',
+            objectPosition: 'center 40%',
             display: 'block',
             margin: 0,
             padding: 0,
-            border: 'none'
+            border: 'none',
+            zIndex: 1
           }}
         />
 
-        {/* Subtle, restrained gradient overlay specifically targeting the top-left sky area to preserve text contrast */}
+        {/* Dynamic gradient overlay to ensure readable contrast while keeping sunlight on the campus building */}
         <div 
+          className="tec-hero-gradient-overlay"
           style={{
             position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            background: 'linear-gradient(135deg, rgba(0, 24, 51, 0.64) 0%, rgba(0, 33, 71, 0.32) 48%, rgba(0, 33, 71, 0) 75%)',
+            inset: 0,
             pointerEvents: 'none',
             zIndex: 2
           }}
         />
 
-        {/* Hero Animated Text Overlay */}
+        {/* Hero Content in normal document flow inside unified 1600px container */}
         <div 
-          className="tec-hero-content-overlay"
+          className="container tec-hero-content-wrapper"
           style={{
-            position: 'absolute',
-            top: 'clamp(24px, 4.5vh, 44px)',
-            left: 'clamp(1.25rem, 5vw, 4.5rem)',
-            maxWidth: '640px',
+            position: 'relative',
             zIndex: 10,
-            color: '#ffffff',
-            paddingRight: '1rem'
+            paddingTop: 'clamp(2.5rem, 6vh, 4.5rem)',
+            paddingBottom: 'clamp(2.5rem, 6vh, 4.5rem)',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            width: '100%'
           }}
         >
-          {/* Eyebrow */}
-          <div 
-            className="hero-anim-eyebrow"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.45rem',
-              padding: '0.35rem 0.85rem',
-              borderRadius: '9999px',
-              backgroundColor: 'rgba(5, 29, 59, 0.85)',
-              border: '1px solid rgba(245, 158, 11, 0.5)',
-              backdropFilter: 'blur(6px)',
-              WebkitBackdropFilter: 'blur(6px)',
-              marginBottom: '0.85rem'
-            }}
-          >
-            <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: '#f59e0b', display: 'inline-block' }} />
-            <span style={{
-              fontSize: 'clamp(0.68rem, 1.4vw, 0.76rem)',
-              fontWeight: 800,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              color: '#fef3c7'
-            }}>
-              Tirumala Engineering College • Autonomous • EAPCET Code: TMLN
-            </span>
-          </div>
-
-          {/* Main Heading */}
-          <h1 
-            className="hero-anim-heading"
-            style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(1.75rem, 3.4vw, 2.75rem)',
-              fontWeight: 900,
-              lineHeight: 1.15,
-              letterSpacing: '-0.025em',
-              color: '#ffffff',
-              margin: '0 0 0.75rem 0',
-              textShadow: '0 2px 14px rgba(0, 0, 0, 0.75)'
-            }}
-          >
-            Engineering Education<br />
-            <span style={{ color: '#fbbf24' }}>with Discipline and Purpose</span>
-          </h1>
-
-          {/* Supporting Text */}
-          <p 
-            className="hero-anim-desc"
-            style={{
-              fontSize: 'clamp(0.85rem, 1.25vw, 0.96rem)',
-              lineHeight: 1.55,
-              color: '#f1f5f9',
-              margin: '0 0 1.2rem 0',
-              maxWidth: '540px',
-              fontWeight: 400,
-              textShadow: '0 1px 8px rgba(0, 0, 0, 0.65)'
-            }}
-          >
-            Affiliated with JNTUK and accredited by NAAC and NBA. We offer practical laboratory training, ₹60L annual merit scholarships, and focused placement preparation that secured 910 offers in 2025–2026.
-          </p>
-
-          {/* CTAs */}
-          <div 
-            className="hero-anim-actions"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              flexWrap: 'wrap',
-              gap: '0.85rem'
-            }}
-          >
-            {/* Primary CTA */}
-            <Link
-              to="/departments/cse"
-              className="tec-btn-primary"
+          <div style={{ maxWidth: '640px', color: '#ffffff' }}>
+            {/* Eyebrow */}
+            <div 
+              className="hero-anim-eyebrow"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '0.5rem',
-                backgroundColor: '#f59e0b',
-                color: '#051d3b',
-                fontWeight: 700,
-                fontSize: '0.92rem',
-                padding: '0.7rem 1.35rem',
-                borderRadius: '8px',
-                textDecoration: 'none',
-                boxShadow: '0 4px 16px rgba(245, 158, 11, 0.4)',
-                transition: 'all 0.2s ease'
-              }}
-            >
-              <span>Explore B.Tech Courses</span>
-              <ArrowRight size={16} />
-            </Link>
-
-            {/* Secondary CTA */}
-            <button
-              onClick={scrollToPrincipal}
-              className="tec-btn-secondary"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                backgroundColor: 'rgba(255, 255, 255, 0.12)',
-                color: '#ffffff',
-                fontWeight: 600,
-                fontSize: '0.92rem',
-                padding: '0.7rem 1.3rem',
-                borderRadius: '8px',
-                border: '1px solid rgba(255, 255, 255, 0.35)',
+                gap: '0.45rem',
+                padding: '0.35rem 0.85rem',
+                borderRadius: '9999px',
+                backgroundColor: 'rgba(5, 29, 59, 0.88)',
+                border: '1px solid rgba(245, 158, 11, 0.55)',
                 backdropFilter: 'blur(6px)',
                 WebkitBackdropFilter: 'blur(6px)',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease'
+                marginBottom: '0.85rem'
               }}
             >
-              <span>Principal's Message</span>
-              <ChevronDown size={16} />
-            </button>
+              <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: '#f59e0b', display: 'inline-block' }} />
+              <span style={{
+                fontSize: 'clamp(0.66rem, 1.3vw, 0.76rem)',
+                fontWeight: 800,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                color: '#fef3c7'
+              }}>
+                Tirumala Engineering College • Autonomous • EAPCET Code: TMLN
+              </span>
+            </div>
+
+            {/* Main Heading */}
+            <h1 
+              className="hero-anim-heading"
+              style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: 'clamp(1.7rem, 3.4vw, 2.75rem)',
+                fontWeight: 900,
+                lineHeight: 1.15,
+                letterSpacing: '-0.025em',
+                color: '#ffffff',
+                margin: '0 0 0.75rem 0',
+                textShadow: '0 2px 14px rgba(0, 0, 0, 0.8)'
+              }}
+            >
+              Engineering Education<br />
+              <span style={{ color: '#fbbf24' }}>with Discipline and Purpose</span>
+            </h1>
+
+            {/* Supporting Text */}
+            <p 
+              className="hero-anim-desc"
+              style={{
+                fontSize: 'clamp(0.85rem, 1.25vw, 0.96rem)',
+                lineHeight: 1.55,
+                color: '#f1f5f9',
+                margin: '0 0 1.25rem 0',
+                maxWidth: '540px',
+                fontWeight: 400,
+                textShadow: '0 1px 8px rgba(0, 0, 0, 0.7)'
+              }}
+            >
+              Affiliated with JNTUK and accredited by NAAC and NBA. We offer practical laboratory training, ₹60L annual merit scholarships, and focused placement preparation that secured 910 offers in 2025–2026.
+            </p>
+
+            {/* Hero CTAs */}
+            <div 
+              className="hero-anim-actions"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                flexWrap: 'wrap',
+                gap: '0.85rem'
+              }}
+            >
+              {/* Primary CTA */}
+              <Link
+                to="/departments/cse"
+                className="tec-btn-primary"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem',
+                  backgroundColor: '#f59e0b',
+                  color: '#051d3b',
+                  fontWeight: 700,
+                  fontSize: '0.92rem',
+                  padding: '0.7rem 1.35rem',
+                  minHeight: '44px',
+                  borderRadius: '8px',
+                  textDecoration: 'none',
+                  boxShadow: '0 4px 16px rgba(245, 158, 11, 0.4)',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                <span>Explore B.Tech Courses</span>
+                <ArrowRight size={16} />
+              </Link>
+
+              {/* Secondary CTA */}
+              <button
+                onClick={scrollToPrincipal}
+                className="tec-btn-secondary"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem',
+                  backgroundColor: 'rgba(255, 255, 255, 0.12)',
+                  color: '#ffffff',
+                  fontWeight: 600,
+                  fontSize: '0.92rem',
+                  padding: '0.7rem 1.3rem',
+                  minHeight: '44px',
+                  borderRadius: '8px',
+                  border: '1px solid rgba(255, 255, 255, 0.35)',
+                  backdropFilter: 'blur(6px)',
+                  WebkitBackdropFilter: 'blur(6px)',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                <span>Principal's Message</span>
+                <ChevronDown size={16} />
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* QUICK TASK BAR FOR STUDENTS & PARENTS */}
       <section
+        className="tec-quicklinks-section"
         style={{
           width: '100%',
           backgroundColor: '#051d3b',
           borderBottom: '1px solid #0d4a91',
-          padding: '1rem 1.5rem',
+          padding: '0.85rem 0',
           position: 'relative',
           zIndex: 5
         }}
         aria-label="Quick Task Navigation"
       >
         <div 
+          className="container tec-quicklinks-container"
           style={{ 
-            maxWidth: '1280px', 
-            margin: '0 auto',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -228,46 +237,22 @@ export default function HomePage() {
             gap: '0.75rem'
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#94a3b8', fontSize: '0.82rem', fontWeight: 600 }}>
+          <div className="tec-quicklinks-header" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#94a3b8', fontSize: '0.82rem', fontWeight: 600 }}>
             <span style={{ color: '#fbbf24', fontWeight: 800 }}>Quick Links:</span>
-            <span>Direct access for students, parents, and recruiters</span>
+            <span className="tec-quicklinks-desc">Direct access for students, parents, and recruiters</span>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
+          <div className="tec-quicklinks-grid">
             <Link
               to="/admissions/procedure"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.35rem',
-                backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                color: '#f8fafc',
-                fontSize: '0.82rem',
-                fontWeight: 600,
-                padding: '0.4rem 0.85rem',
-                borderRadius: '6px',
-                textDecoration: 'none',
-                border: '1px solid rgba(255, 255, 255, 0.12)'
-              }}
+              className="tec-quicklink-btn"
             >
               <span>Admissions 2026</span>
             </Link>
 
             <Link
               to="/departments/cse"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.35rem',
-                backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                color: '#f8fafc',
-                fontSize: '0.82rem',
-                fontWeight: 600,
-                padding: '0.4rem 0.85rem',
-                borderRadius: '6px',
-                textDecoration: 'none',
-                border: '1px solid rgba(255, 255, 255, 0.12)'
-              }}
+              className="tec-quicklink-btn"
             >
               <span>B.Tech Programs</span>
             </Link>
@@ -276,38 +261,14 @@ export default function HomePage() {
               href="http://www.tecnrt.ac.in/"
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.35rem',
-                backgroundColor: 'rgba(245, 158, 11, 0.18)',
-                color: '#fbbf24',
-                fontSize: '0.82rem',
-                fontWeight: 700,
-                padding: '0.4rem 0.85rem',
-                borderRadius: '6px',
-                textDecoration: 'none',
-                border: '1px solid rgba(245, 158, 11, 0.45)'
-              }}
+              className="tec-quicklink-btn tec-quicklink-btn-accent"
             >
               <span>Exam Portal (tecnrt.ac.in)</span>
             </a>
 
             <Link
               to="/placements/statistics"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.35rem',
-                backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                color: '#f8fafc',
-                fontSize: '0.82rem',
-                fontWeight: 600,
-                padding: '0.4rem 0.85rem',
-                borderRadius: '6px',
-                textDecoration: 'none',
-                border: '1px solid rgba(255, 255, 255, 0.12)'
-              }}
+              className="tec-quicklink-btn"
             >
               <span>Placement Records</span>
             </Link>
@@ -321,7 +282,7 @@ export default function HomePage() {
         style={{
           width: '100%',
           backgroundColor: '#fbfbfd',
-          padding: 'clamp(4rem, 8vw, 6.5rem) 1.5rem',
+          padding: 'clamp(4rem, 8vw, 6.5rem) 0',
           borderTop: '1px solid #e2e8f0',
           borderBottom: '1px solid #e2e8f0',
           position: 'relative',
@@ -329,7 +290,7 @@ export default function HomePage() {
         }}
         aria-label="Principal's Message"
       >
-        <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+        <div className="container">
           {/* Section Eyebrow & Heading */}
           <div style={{ textAlign: 'center', marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
             <div style={{ 
@@ -673,6 +634,53 @@ export default function HomePage() {
           justify-content: center;
         }
 
+        /* Hero Dynamic Gradient Overlay */
+        .tec-hero-gradient-overlay {
+          background: linear-gradient(135deg, rgba(5, 29, 59, 0.9) 0%, rgba(5, 29, 59, 0.65) 48%, rgba(5, 29, 59, 0.12) 80%);
+        }
+
+        /* Quick Links Grid */
+        .tec-quicklinks-grid {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+        }
+
+        .tec-quicklink-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.35rem;
+          background-color: rgba(255, 255, 255, 0.08);
+          color: #f8fafc;
+          font-size: 0.82rem;
+          font-weight: 600;
+          padding: 0.45rem 0.85rem;
+          min-height: 40px;
+          border-radius: 6px;
+          text-decoration: none;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          transition: all 0.15s ease;
+          white-space: nowrap;
+        }
+        .tec-quicklink-btn:hover {
+          background-color: rgba(255, 255, 255, 0.16);
+          border-color: rgba(255, 255, 255, 0.3);
+          color: #ffffff;
+        }
+
+        .tec-quicklink-btn-accent {
+          background-color: rgba(245, 158, 11, 0.18) !important;
+          color: #fbbf24 !important;
+          font-weight: 700 !important;
+          border: 1px solid rgba(245, 158, 11, 0.45) !important;
+        }
+        .tec-quicklink-btn-accent:hover {
+          background-color: rgba(245, 158, 11, 0.28) !important;
+          border-color: #fbbf24 !important;
+        }
+
         /* Responsive Breakpoints */
         @media (max-width: 1080px) {
           .tec-principal-grid {
@@ -687,28 +695,47 @@ export default function HomePage() {
           }
         }
 
-        @media (max-width: 640px) {
-          .tec-homepage-fullwidth-hero img {
-            height: clamp(390px, 58dvh, 460px) !important;
-            min-height: 380px !important;
-            object-position: center 38% !important;
+        @media (max-width: 768px) {
+          .tec-hero-gradient-overlay {
+            background: linear-gradient(180deg, rgba(5, 29, 59, 0.88) 0%, rgba(5, 29, 59, 0.68) 55%, rgba(5, 29, 59, 0.84) 100%) !important;
           }
-          .tec-hero-content-overlay {
-            top: 1.25rem !important;
-            left: 1rem !important;
-            right: 1rem !important;
-            max-width: 100% !important;
-            padding-right: 0 !important;
+          .tec-hero-content-wrapper {
+            padding-top: clamp(2rem, 4vh, 3rem) !important;
+            padding-bottom: clamp(2rem, 4vh, 3rem) !important;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .tec-quicklinks-container {
+            flex-direction: column !important;
+            align-items: stretch !important;
+          }
+          .tec-quicklinks-header {
+            justify-content: space-between !important;
+          }
+          .tec-quicklinks-grid {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 0.5rem !important;
+            width: 100% !important;
+          }
+          .tec-quicklink-btn {
+            width: 100% !important;
+            text-align: center !important;
+            padding: 0.5rem 0.4rem !important;
+            font-size: 0.78rem !important;
+            white-space: normal !important;
           }
           .hero-anim-actions {
             gap: 0.6rem !important;
           }
           .tec-btn-primary, .tec-btn-secondary {
-            padding: 0.6rem 1rem !important;
+            padding: 0.65rem 1rem !important;
             font-size: 0.85rem !important;
           }
         }
-        @media (max-width: 420px) {
+
+        @media (max-width: 440px) {
           .hero-anim-eyebrow {
             white-space: normal !important;
           }
