@@ -186,9 +186,9 @@ export default function Navbar() {
 
   return (
     <header className="tec-site-header" style={{ position: 'sticky', top: 0, zIndex: 900, background: '#ffffff', boxShadow: '0 2px 10px rgba(0,0,0,0.06)' }}>
-      {/* 1. Desktop Top Micro-bar: Verified College Contact Info (Hidden on Mobile per requirement) */}
-      <div className="tec-top-contact-bar" style={{ background: '#0e2154', color: '#e2e8f0', fontSize: '0.78rem', padding: '0.4rem 0', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
-        <div className="container" style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
+      {/* 1. Desktop Top Micro-bar: Verified College Contact Info & EAPCET Badge (as in user screenshot) */}
+      <div className="tec-top-contact-bar" style={{ background: '#0e2154', color: '#e2e8f0', fontSize: '0.78rem', padding: '0.35rem 0', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
               <MapPin size={13} style={{ color: '#f59e0b', flexShrink: 0 }} />
@@ -197,6 +197,26 @@ export default function Navbar() {
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
               <PhoneCall size={13} style={{ color: '#f59e0b', flexShrink: 0 }} />
               <span>08647 – 218164, 218255</span>
+            </span>
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', flexWrap: 'wrap' }}>
+            <span 
+              style={{
+                display: 'inline-block',
+                backgroundColor: '#b45309',
+                color: '#ffffff',
+                fontWeight: 800,
+                fontSize: '0.72rem',
+                letterSpacing: '0.04em',
+                padding: '0.18rem 0.55rem',
+                borderRadius: '4px'
+              }}
+            >
+              EAPCET CODE: TMLN
+            </span>
+            <span style={{ color: '#e0f0fe', fontSize: '0.75rem', fontWeight: 600 }}>
+              NAAC 'A' Grade • NBA Accredited • UGC Autonomous
             </span>
           </div>
         </div>
@@ -436,9 +456,11 @@ export default function Navbar() {
           position: 'relative',
           width: '100%',
           zIndex: 850,
-          background: '#0e2154',
-          borderBottom: '2px solid #f59e0b',
-          boxShadow: '0 4px 14px rgba(0, 0, 0, 0.2)'
+          background: 'rgba(14, 33, 84, 0.72)',
+          backdropFilter: 'blur(8px)',
+          WebkitBackdropFilter: 'blur(8px)',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.12)',
+          boxShadow: '0 4px 14px rgba(0, 0, 0, 0.15)'
         }} 
         className="desktop-navbar-strip"
         aria-label="Main Navigation"
@@ -453,11 +475,11 @@ export default function Navbar() {
                 fontSize: '0.8rem', 
                 fontWeight: 700, 
                 textDecoration: 'none',
-                background: location.pathname === '/' ? 'rgba(255,255,255,0.14)' : 'transparent',
+                background: 'transparent',
                 borderRadius: '6px',
                 display: 'block',
                 whiteSpace: 'nowrap',
-                textShadow: isHomePage ? '0 1px 2px rgba(0,0,0,0.6)' : 'none'
+                transition: 'color 0.15s ease'
               }}
             >
               Home
@@ -498,11 +520,10 @@ export default function Navbar() {
                       display: 'flex',
                       alignItems: 'center',
                       gap: '0.2rem',
-                      background: isMenuOpen ? 'rgba(255,255,255,0.18)' : 'transparent',
+                      background: 'transparent',
                       borderRadius: '6px',
                       transition: 'all 0.15s ease',
-                      whiteSpace: 'nowrap',
-                      textShadow: isHomePage ? '0 1px 2px rgba(0,0,0,0.6)' : 'none'
+                      whiteSpace: 'nowrap'
                     }}
                   >
                     <span>{menu.title}</span>
@@ -572,9 +593,10 @@ export default function Navbar() {
                 fontSize: '0.8rem', 
                 fontWeight: 600, 
                 textDecoration: 'none',
+                background: 'transparent',
                 borderRadius: '6px',
                 whiteSpace: 'nowrap',
-                textShadow: isHomePage ? '0 1px 2px rgba(0,0,0,0.6)' : 'none'
+                transition: 'color 0.15s ease'
               }}
             >
               NIRF
@@ -588,9 +610,10 @@ export default function Navbar() {
                 fontSize: '0.8rem', 
                 fontWeight: 600, 
                 textDecoration: 'none',
+                background: 'transparent',
                 borderRadius: '6px',
                 whiteSpace: 'nowrap',
-                textShadow: isHomePage ? '0 1px 2px rgba(0,0,0,0.6)' : 'none'
+                transition: 'color 0.15s ease'
               }}
             >
               Gallery
@@ -604,9 +627,10 @@ export default function Navbar() {
                 fontSize: '0.8rem', 
                 fontWeight: 600, 
                 textDecoration: 'none',
+                background: 'transparent',
                 borderRadius: '6px',
                 whiteSpace: 'nowrap',
-                textShadow: isHomePage ? '0 1px 2px rgba(0,0,0,0.6)' : 'none'
+                transition: 'color 0.15s ease'
               }}
             >
               Feedback
@@ -620,9 +644,10 @@ export default function Navbar() {
                 fontSize: '0.8rem', 
                 fontWeight: 600, 
                 textDecoration: 'none',
+                background: 'transparent',
                 borderRadius: '6px',
                 whiteSpace: 'nowrap',
-                textShadow: isHomePage ? '0 1px 2px rgba(0,0,0,0.6)' : 'none'
+                transition: 'color 0.15s ease'
               }}
             >
               Contact
@@ -778,21 +803,29 @@ export default function Navbar() {
           .mobile-nav-toggle { display: none !important; }
         }
 
+        .desktop-navbar-strip a {
+          background: transparent !important;
+          transition: color 0.15s ease !important;
+        }
+        .desktop-navbar-strip a:hover {
+          background: transparent !important;
+          color: #fbbf24 !important;
+        }
+
         @media (min-width: 993px) {
           .tec-branding-container {
-            display: grid !important;
-            grid-template-columns: 1fr auto 1fr !important;
+            display: flex !important;
+            justify-content: space-between !important;
             align-items: center !important;
           }
           .tec-brand-link {
-            justify-self: start !important;
+            flex-shrink: 0 !important;
           }
           .tec-header-logos-desktop {
-            justify-self: center !important;
-            margin: 0 auto !important;
+            display: none !important;
           }
           .tec-header-actions {
-            justify-self: end !important;
+            flex-shrink: 0 !important;
           }
         }
 
