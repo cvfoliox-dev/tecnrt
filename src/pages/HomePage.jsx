@@ -24,7 +24,7 @@ export default function HomePage() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Mobile-only dynamic campus hero scroll zoom effect
+  // Mobile-only dynamic campus hero scroll zoom and pan effect
   useEffect(() => {
     // Respect accessibility settings
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -32,35 +32,45 @@ export default function HomePage() {
 
     let ticking = false;
 
-    const updateMobileZoom = () => {
+    const updateMobileZoomAndPan = () => {
       ticking = false;
       const img = heroImgRef.current;
       if (!img) return;
 
-      // Mobile only: <= 768px. On tablet and desktop, ensure no zoom style persists
+      // Mobile only: <= 768px. On tablet and desktop, ensure no zoom or pan style persists
       if (window.innerWidth > 768) {
         img.style.removeProperty('--mobile-hero-zoom');
+        img.style.removeProperty('--mobile-hero-pan-x');
+        img.style.removeProperty('--mobile-hero-pan-y');
         return;
       }
 
-      const scrollY = window.scrollY || window.pageYOffset || 0;
-      // Over the first 340px of scrolling down, gradually pull back from close-up building (1.25) to wide campus (1.00)
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
+      // Over the hero scroll distance (~340px), smoothly transition:
+      // - zoom from close building view (1.30) down to full campus reveal (1.04)
+      // - pan horizontally across the college facade and grounds (-18px to +18px)
+      // - pan vertically (6px down to 0px)
       const maxScrollDistance = 340;
       const progress = Math.min(Math.max(scrollY / maxScrollDistance, 0), 1);
-      const currentZoom = (1.25 - progress * 0.25).toFixed(3);
+      
+      const currentZoom = (1.30 - progress * 0.26).toFixed(3);
+      const currentPanX = (-18 + progress * 36).toFixed(2);
+      const currentPanY = ((1 - progress) * 6).toFixed(2);
 
       img.style.setProperty('--mobile-hero-zoom', currentZoom);
+      img.style.setProperty('--mobile-hero-pan-x', `${currentPanX}px`);
+      img.style.setProperty('--mobile-hero-pan-y', `${currentPanY}px`);
     };
 
     const handleScrollOrResize = () => {
       if (!ticking) {
         ticking = true;
-        window.requestAnimationFrame(updateMobileZoom);
+        window.requestAnimationFrame(updateMobileZoomAndPan);
       }
     };
 
     // Initialize on mount
-    updateMobileZoom();
+    updateMobileZoomAndPan();
 
     window.addEventListener('scroll', handleScrollOrResize, { passive: true });
     window.addEventListener('resize', handleScrollOrResize, { passive: true });
@@ -877,9 +887,8 @@ export default function HomePage() {
             object-fit: cover !important;
             object-position: 38% 30% !important;
             transform-origin: 38% 42% !important;
-            transform: scale(var(--mobile-hero-zoom, 1.25)) !important;
+            transform: translate3d(var(--mobile-hero-pan-x, -18px), var(--mobile-hero-pan-y, 6px), 0) scale(var(--mobile-hero-zoom, 1.30)) !important;
             will-change: transform;
-            transition: transform 0.08s ease-out;
           }
           .tec-hero-gradient-overlay {
             background: linear-gradient(180deg, rgba(5, 29, 59, 0.78) 0%, rgba(5, 29, 59, 0.32) 42%, rgba(5, 29, 59, 0.05) 75%) !important;
