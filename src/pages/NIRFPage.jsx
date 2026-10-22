@@ -23,7 +23,7 @@ export default function NIRFPage() {
             National Institutional Ranking Framework (NIRF)
           </h1>
           <p style={{ color: '#cbd5e1', fontSize: '1.05rem', maxWidth: '750px', marginTop: '0.5rem' }}>
-            Ministry of Education, Government of India — Official Institutional Data Disclosures.
+            Ministry of Education, Government of India: Official Institutional Data Disclosures.
           </p>
         </div>
       </div>

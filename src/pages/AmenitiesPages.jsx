@@ -61,7 +61,7 @@ export default function AmenitiesPages() {
             Campus Amenities & Student Life
           </h1>
           <p style={{ color: '#cbd5e1', fontSize: '1.05rem', maxWidth: '750px', marginTop: '0.5rem' }}>
-            16-acre vibrant green ecosystem providing premier infrastructure, recreation, library resources, and holistic development.
+            A 16-acre campus supporting classroom learning, laboratory work, hostel living, and student activities.
           </p>
         </div>
       </div>
@@ -128,13 +128,13 @@ export default function AmenitiesPages() {
                 <div style={{ borderBottom: '2px solid #f1f5f9', paddingBottom: '1rem', marginBottom: '1.75rem' }}>
                   <span style={{ color: '#2563eb', fontWeight: 700, fontSize: '0.8rem', textTransform: 'uppercase' }}>KNOWLEDGE REPOSITORY</span>
                   <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', fontWeight: 800, color: '#0e2154' }}>
-                    Central Library — "Bee-Hive of Knowledge"
+                    Central Library: "Bee-Hive of Knowledge"
                   </h2>
                 </div>
 
                 <div style={{ background: '#f8fafc', padding: '1.5rem', borderRadius: '12px', borderLeft: '4px solid #2563eb', marginBottom: '2rem', lineHeight: 1.7, color: '#334155' }}>
                   <p style={{ margin: 0 }}>
-                    As a centre of intense intellectual inquiry, the central library envisions becoming a vibrant learning centre providing knowledge support to research scholars, faculty, and students. Headed by <strong>Sk. Moulla (Library In-Charge)</strong>, the library operates on an open-access system with automated OPAC search terminals.
+                    The central library provides reference books, technical journals, digital learning materials, and quiet study halls for students and faculty. Headed by <strong>Sk. Moulla (Library In-Charge)</strong>, the library operates on an open-access system with automated OPAC search terminals.
                   </p>
                 </div>
 
@@ -404,13 +404,13 @@ export default function AmenitiesPages() {
                 <div style={{ borderBottom: '2px solid #f1f5f9', paddingBottom: '1rem', marginBottom: '1.75rem' }}>
                   <span style={{ color: '#d97706', fontWeight: 700, fontSize: '0.8rem', textTransform: 'uppercase' }}>ANNUAL NATIONAL CONCLAVE</span>
                   <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', fontWeight: 800, color: '#0e2154' }}>
-                    Prayaga — Annual National Tech & Cultural Symposium
+                    Prayaga: Annual National Tech & Cultural Symposium
                   </h2>
                 </div>
 
                 <div style={{ background: '#fef3c7', padding: '1.5rem', borderRadius: '12px', borderLeft: '4px solid #f59e0b', marginBottom: '2rem', color: '#92400e', lineHeight: 1.7 }}>
                   <p style={{ margin: 0 }}>
-                    <strong>Prayaga</strong> is TEC's marquee annual national symposium bringing together over 3,000+ engineering delegates from South India. Features robotics warfare, project expos, hackathons, and vibrant evening cultural concerts.
+                    <strong>Prayaga</strong> is TEC's annual national symposium bringing together over 3,000 engineering participants from South India. The event features technical competitions, project exhibitions, coding sprints, and evening cultural programs.
                   </p>
                 </div>
 

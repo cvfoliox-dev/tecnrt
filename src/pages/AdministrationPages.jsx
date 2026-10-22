@@ -225,7 +225,7 @@ export default function AdministrationPages() {
                 <div style={{ borderBottom: '2px solid #f1f5f9', paddingBottom: '1rem', marginBottom: '1.75rem' }}>
                   <span style={{ color: '#d97706', fontWeight: 700, fontSize: '0.8rem', textTransform: 'uppercase' }}>STATUTORY COMPLIANCE</span>
                   <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', fontWeight: 800, color: '#0e2154' }}>
-                    Nodal Officer & Right to Information (RTI) Act – 2005
+                    Nodal Officer & Right to Information (RTI) Act 2005
                   </h2>
                 </div>
 
@@ -340,7 +340,7 @@ export default function AdministrationPages() {
                 </div>
 
                 <p style={{ color: '#475569', lineHeight: 1.7, marginBottom: '2rem' }}>
-                  The R&D Centre fosters innovation, patent filings, SCI/Scopus journal publications, and funded projects from agencies like AICTE (MODROBS, RPS) and DST. Faculty and students are supported with research grants, conference travel aid, and software tools.
+                  The R&D Centre supports research initiatives, patent filings, journal publications, and projects funded by agencies such as AICTE and DST. Faculty and students receive support for research papers, conference presentations, and software tools.
                 </p>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem', marginBottom: '2.5rem' }}>
@@ -385,7 +385,7 @@ export default function AdministrationPages() {
                 </div>
 
                 <p style={{ color: '#475569', lineHeight: 1.7, marginBottom: '2rem' }}>
-                  The Industry Institute Interaction Cell bridges academic learning with corporate realities. IIIC facilitates student industrial visits, 6-month capstone internships, guest lectures by Fortune 500 technologists, and joint consultancy projects.
+                  The Industry Institute Interaction Cell connects academic study with practical industry requirements. IIIC arranges student industrial visits, 6-month capstone internships, guest lectures by industry engineers, and joint technical projects.
                 </p>
 
                 <div style={{ background: '#f8fafc', padding: '1.5rem', borderRadius: '12px', border: '1px solid #e2e8f0' }}>

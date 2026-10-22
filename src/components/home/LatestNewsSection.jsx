@@ -87,15 +87,15 @@ export default function LatestNewsSection() {
               alignItems: 'center',
               gap: '0.45rem',
               color: '#d97706',
-              fontSize: '0.8rem',
+              fontSize: '0.82rem',
               fontWeight: 800,
-              letterSpacing: '0.12em',
+              letterSpacing: '0.08em',
               textTransform: 'uppercase',
               marginBottom: '0.5rem'
             }}
           >
             <Bell size={15} />
-            <span>CAMPUS BULLETINS & ANNOUNCEMENTS</span>
+            <span>News and Announcements</span>
           </div>
 
           <h2
@@ -103,7 +103,7 @@ export default function LatestNewsSection() {
               fontFamily: 'var(--font-heading)',
               fontSize: 'clamp(1.85rem, 3.6vw, 2.6rem)',
               fontWeight: 800,
-              color: '#0e2154',
+              color: '#0a3d78',
               letterSpacing: '-0.02em',
               margin: '0 0 0.4rem 0',
               display: 'flex',
@@ -119,9 +119,9 @@ export default function LatestNewsSection() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                fontSize: 'clamp(1rem, 1.8vw, 1.2rem)',
+                fontSize: 'clamp(0.95rem, 1.8vw, 1.15rem)',
                 fontWeight: 700,
-                color: '#1d4ed8',
+                color: '#125bb2',
                 textDecoration: 'none',
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -148,14 +148,13 @@ export default function LatestNewsSection() {
         {/* 3-Column Grid */}
         <div className="tec-news-grid">
           
-          {/* COLUMN 1: Exam Updates */}
+          {/* COLUMN 1: Examination Notices */}
           <div className="tec-news-card">
             <div className="tec-news-card-header">
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <FileText size={18} style={{ color: '#fbbf24' }} />
-                <h3 className="tec-news-card-title">Exam Updates</h3>
+                <h3 className="tec-news-card-title">Examination Notices</h3>
               </div>
-              <span className="tec-pill-badge">Official</span>
             </div>
 
             <div className="tec-news-card-body" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -172,9 +171,9 @@ export default function LatestNewsSection() {
                       overflow: 'hidden',
                       border: '1px solid #cbd5e1',
                       transition: 'all 0.25s ease',
-                      boxShadow: '0 4px 12px rgba(14, 33, 84, 0.08)',
-                      backgroundColor: '#fff7ed',
-                      height: '210px',
+                      boxShadow: '0 4px 12px rgba(10, 61, 120, 0.08)',
+                      backgroundColor: '#fbfbfd',
+                      height: '185px',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center'
@@ -202,18 +201,18 @@ export default function LatestNewsSection() {
                 {/* Information Callout */}
                 <div
                   style={{
-                    backgroundColor: '#eff6ff',
-                    border: '1px solid #bfdbfe',
+                    backgroundColor: '#f0f7ff',
+                    border: '1px solid #bae6fd',
                     borderRadius: '8px',
                     padding: '1rem',
                     marginBottom: '1rem'
                   }}
                 >
-                  <div style={{ fontWeight: 800, fontSize: '0.88rem', color: '#1e3a8a', marginBottom: '0.35rem' }}>
-                    Autonomous & JNTUK Results Portal
+                  <div style={{ fontWeight: 800, fontSize: '0.88rem', color: '#0a3d78', marginBottom: '0.35rem' }}>
+                    Autonomous & JNTUK Examination Portal
                   </div>
-                  <p style={{ fontSize: '0.82rem', color: '#3b82f6', lineHeight: 1.5, margin: 0, fontWeight: 500 }}>
-                    Access end-semester examination timetables, regular / supplementary notification schedules, student hall tickets, and verified semester grade reports.
+                  <p style={{ fontSize: '0.82rem', color: '#1e3a8a', lineHeight: 1.55, margin: 0, fontWeight: 500 }}>
+                    Access end-semester examination timetables, regular and supplementary notification schedules, student hall tickets, and verified semester grade reports.
                   </p>
                 </div>
               </div>
@@ -230,18 +229,19 @@ export default function LatestNewsSection() {
                     alignItems: 'center',
                     justifyContent: 'center',
                     gap: '0.45rem',
-                    backgroundColor: '#0e2154',
+                    backgroundColor: '#0a3d78',
                     color: '#ffffff',
                     fontWeight: 700,
                     fontSize: '0.88rem',
-                    padding: '0.65rem 1rem',
+                    padding: '0.75rem 1rem',
                     borderRadius: '8px',
                     textDecoration: 'none',
                     textAlign: 'center',
+                    boxShadow: '0 4px 12px rgba(10, 61, 120, 0.22)',
                     transition: 'all 0.2s ease'
                   }}
                 >
-                  <span>Launch Exam Portal (tecnrt.ac.in)</span>
+                  <span>Open Exam Portal (tecnrt.ac.in)</span>
                   <ExternalLink size={15} />
                 </a>
 
@@ -266,16 +266,13 @@ export default function LatestNewsSection() {
             </div>
           </div>
 
-          {/* COLUMN 2: Other Info */}
+          {/* COLUMN 2: College Notices */}
           <div className="tec-news-card">
             <div className="tec-news-card-header">
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <Bell size={18} style={{ color: '#fbbf24' }} />
-                <h3 className="tec-news-card-title">Other Info</h3>
+                <h3 className="tec-news-card-title">College Notices</h3>
               </div>
-              <span className="tec-pill-badge" style={{ backgroundColor: '#fef3c7', color: '#92400e' }}>
-                Announcements
-              </span>
             </div>
 
             {/* Scrollable list of 9 original notices with original wording and dates */}
@@ -314,7 +311,7 @@ export default function LatestNewsSection() {
                         gap: '0.3rem',
                         fontSize: '0.78rem',
                         fontWeight: 700,
-                        color: '#1d4ed8',
+                        color: '#0a3d78',
                         textDecoration: 'none'
                       }}
                     >
@@ -344,7 +341,7 @@ export default function LatestNewsSection() {
                     />
                   </div>
                   <h4 style={{ fontSize: '0.85rem', fontWeight: 600, color: '#1e293b', lineHeight: 1.5, margin: '0 0 0.5rem 0' }}>
-                    Notification for Admission into First Year B.Tech., (2021-2022) Category – B – NRI / NRI Sponsored Seats
+                    Notification for Admission into First Year B.Tech. (2021-2022) Category B: NRI / NRI Sponsored Seats
                   </h4>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.4rem' }}>
                     <a
@@ -357,7 +354,7 @@ export default function LatestNewsSection() {
                         gap: '0.3rem',
                         fontSize: '0.78rem',
                         fontWeight: 700,
-                        color: '#1d4ed8',
+                        color: '#0a3d78',
                         textDecoration: 'none'
                       }}
                     >
@@ -432,7 +429,7 @@ export default function LatestNewsSection() {
                       }}
                     />
                     <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#475569', marginTop: '0.4rem' }}>
-                      College Fest — Day 1 Invitation
+                      College Fest: Day 1 Invitation
                     </div>
                   </div>
                 </li>
@@ -475,7 +472,7 @@ export default function LatestNewsSection() {
                   <h4 style={{ fontSize: '0.88rem', fontWeight: 700, margin: 0, lineHeight: 1.4 }}>
                     <Link
                       to="/gallery"
-                      style={{ color: '#0e2154', textDecoration: 'none' }}
+                      style={{ color: '#0a3d78', textDecoration: 'none' }}
                       className="tec-link-hover"
                     >
                       Personality Developement Programme By Dr. Yandamuri Veerendranath
@@ -493,7 +490,7 @@ export default function LatestNewsSection() {
                     <span className="tec-badge-new">New</span>
                   </div>
                   <h4 style={{ fontSize: '0.88rem', fontWeight: 700, margin: 0, lineHeight: 1.4 }}>
-                    <span style={{ color: '#0e2154' }}>
+                    <span style={{ color: '#0a3d78' }}>
                       Congratulations to TEC Cricket Team for Winning the Cup in A.M Reddy Engg College
                     </span>
                   </h4>
@@ -511,7 +508,7 @@ export default function LatestNewsSection() {
                   <h4 style={{ fontSize: '0.88rem', fontWeight: 700, margin: 0, lineHeight: 1.4 }}>
                     <Link
                       to="/gallery"
-                      style={{ color: '#0e2154', textDecoration: 'none' }}
+                      style={{ color: '#0a3d78', textDecoration: 'none' }}
                       className="tec-link-hover"
                     >
                       IEEE day celebrations
@@ -523,16 +520,13 @@ export default function LatestNewsSection() {
             </div>
           </div>
 
-          {/* COLUMN 3: Placement Updates */}
+          {/* COLUMN 3: Placement Spotlights */}
           <div className="tec-news-card">
             <div className="tec-news-card-header">
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <Award size={18} style={{ color: '#fbbf24' }} />
-                <h3 className="tec-news-card-title">Placement Updates</h3>
+                <h3 className="tec-news-card-title">Placement Spotlights</h3>
               </div>
-              <span className="tec-pill-badge" style={{ backgroundColor: '#dcfce7', color: '#166534' }}>
-                HCL Award
-              </span>
             </div>
 
             <div
@@ -544,8 +538,8 @@ export default function LatestNewsSection() {
               <div>
                 {/* HCL Award Label Header */}
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
-                  <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#d97706', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                    ★ HCL AWARD & RECRUITMENT SPOTLIGHT
+                  <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#d97706', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+                    HCL Award and Recent Selections
                   </div>
                   <div style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 600 }}>
                     {activePlacementIdx + 1} of {PLACEMENT_IMAGES.length}
@@ -557,15 +551,15 @@ export default function LatestNewsSection() {
                   style={{
                     position: 'relative',
                     width: '100%',
-                    height: '240px',
+                    height: '215px',
                     borderRadius: '10px',
                     overflow: 'hidden',
-                    backgroundColor: '#0a1633',
+                    backgroundColor: '#051d3b',
                     border: '1px solid #cbd5e1',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    boxShadow: '0 4px 14px rgba(0, 0, 0, 0.08)'
+                    boxShadow: '0 4px 14px rgba(10, 61, 120, 0.15)'
                   }}
                 >
                   <img
@@ -590,21 +584,22 @@ export default function LatestNewsSection() {
                       left: '8px',
                       top: '50%',
                       transform: 'translateY(-50%)',
-                      width: '32px',
-                      height: '32px',
+                      width: '38px',
+                      height: '38px',
                       borderRadius: '50%',
-                      backgroundColor: 'rgba(14, 33, 84, 0.75)',
+                      backgroundColor: 'rgba(10, 61, 120, 0.9)',
                       color: '#ffffff',
-                      border: '1px solid rgba(255, 255, 255, 0.4)',
+                      border: '1.5px solid rgba(251, 191, 36, 0.7)',
                       cursor: 'pointer',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       backdropFilter: 'blur(4px)',
-                      transition: 'all 0.2s ease'
+                      transition: 'all 0.2s ease',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.3)'
                     }}
                   >
-                    <ChevronLeft size={18} />
+                    <ChevronLeft size={20} />
                   </button>
 
                   <button
@@ -615,31 +610,32 @@ export default function LatestNewsSection() {
                       right: '8px',
                       top: '50%',
                       transform: 'translateY(-50%)',
-                      width: '32px',
-                      height: '32px',
+                      width: '38px',
+                      height: '38px',
                       borderRadius: '50%',
-                      backgroundColor: 'rgba(14, 33, 84, 0.75)',
+                      backgroundColor: 'rgba(10, 61, 120, 0.9)',
                       color: '#ffffff',
-                      border: '1px solid rgba(255, 255, 255, 0.4)',
+                      border: '1.5px solid rgba(251, 191, 36, 0.7)',
                       cursor: 'pointer',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       backdropFilter: 'blur(4px)',
-                      transition: 'all 0.2s ease'
+                      transition: 'all 0.2s ease',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.3)'
                     }}
                   >
-                    <ChevronRight size={18} />
+                    <ChevronRight size={20} />
                   </button>
                 </div>
 
                 {/* Caption of Active Slide */}
                 <div style={{ textAlign: 'center', marginTop: '0.75rem', marginBottom: '0.85rem' }}>
-                  <div style={{ fontSize: '0.85rem', fontWeight: 800, color: '#0e2154' }}>
+                  <div style={{ fontSize: '0.85rem', fontWeight: 800, color: '#0a3d78' }}>
                     {PLACEMENT_IMAGES[activePlacementIdx].label}
                   </div>
                   <div style={{ fontSize: '0.74rem', color: '#64748b' }}>
-                    Official Corporate Recruitment & Partner Citation
+                    Recruitment drives and institutional citations
                   </div>
                 </div>
 
@@ -663,8 +659,8 @@ export default function LatestNewsSection() {
                         padding: 0,
                         backgroundColor: '#ffffff',
                         cursor: 'pointer',
-                        width: '42px',
-                        height: '42px',
+                        width: '38px',
+                        height: '38px',
                         overflow: 'hidden',
                         flexShrink: 0,
                         opacity: activePlacementIdx === idx ? 1 : 0.65,
@@ -682,30 +678,34 @@ export default function LatestNewsSection() {
                 </div>
               </div>
 
-              {/* Bottom Placement Hub Link */}
-              <div style={{ marginTop: '1rem', borderTop: '1px solid #f1f5f9', paddingTop: '0.75rem' }}>
+              {/* Bottom Placement Hub Link - High Visibility Solid Button */}
+              <div style={{ marginTop: '1rem', borderTop: '1px solid #e2e8f0', paddingTop: '0.85rem' }}>
                 <Link
                   to="/placements/gallery"
                   style={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    gap: '0.45rem',
-                    backgroundColor: '#f8fafc',
-                    color: '#0e2154',
-                    border: '1.5px solid #0e2154',
+                    gap: '0.6rem',
+                    backgroundColor: '#0a3d78',
+                    color: '#ffffff',
+                    border: '1px solid #0d4a91',
                     fontWeight: 700,
-                    fontSize: '0.85rem',
-                    padding: '0.6rem 1rem',
+                    fontSize: '0.9rem',
+                    padding: '0.8rem 1.25rem',
                     borderRadius: '8px',
                     textDecoration: 'none',
                     textAlign: 'center',
-                    transition: 'all 0.2s ease'
+                    boxShadow: '0 4px 16px rgba(10, 61, 120, 0.3)',
+                    transition: 'all 0.2s ease',
+                    letterSpacing: '0.01em'
                   }}
-                  className="tec-btn-outline-hover"
+                  className="tec-btn-solid-primary"
+                  title="Explore all 28 verified campus recruitment drives and citations"
                 >
-                  <span>Explore Full Placement Gallery (28 Records)</span>
-                  <span>→</span>
+                  <Award size={16} style={{ color: '#fbbf24', flexShrink: 0 }} />
+                  <span>View Full Placement Gallery (28 Records)</span>
+                  <ChevronRight size={16} style={{ color: '#fbbf24', flexShrink: 0 }} />
                 </Link>
               </div>
             </div>
@@ -727,26 +727,26 @@ export default function LatestNewsSection() {
           background-color: #ffffff;
           border-radius: 14px;
           border: 1px solid #e2e8f0;
-          box-shadow: 0 4px 20px rgba(14, 33, 84, 0.05);
+          box-shadow: 0 4px 20px rgba(10, 61, 120, 0.08);
           display: flex;
           flex-direction: column;
           overflow: hidden;
-          height: 520px;
+          height: 560px;
           transition: box-shadow 0.25s ease, transform 0.25s ease;
         }
 
         .tec-news-card:hover {
-          box-shadow: 0 8px 30px rgba(14, 33, 84, 0.09);
+          box-shadow: 0 8px 30px rgba(10, 61, 120, 0.14);
         }
 
         .tec-news-card-header {
-          background-color: #0e2154;
+          background-color: #0a3d78;
           color: #ffffff;
           padding: 0.9rem 1.25rem;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          border-bottom: 2px solid #f59e0b;
+          border-bottom: 3px solid #f59e0b;
         }
 
         .tec-news-card-title {
@@ -811,7 +811,7 @@ export default function LatestNewsSection() {
         }
 
         .tec-badge-new {
-          background-color: #ef4444;
+          background-color: #dc2626;
           color: #ffffff;
           font-size: 0.68rem;
           font-weight: 800;
@@ -830,7 +830,7 @@ export default function LatestNewsSection() {
 
         .tec-exam-banner:hover {
           transform: translateY(-2px);
-          box-shadow: 0 6px 18px rgba(14, 33, 84, 0.14) !important;
+          box-shadow: 0 6px 18px rgba(10, 61, 120, 0.18) !important;
         }
 
         .tec-link-hover:hover {
@@ -838,9 +838,10 @@ export default function LatestNewsSection() {
           text-decoration: underline !important;
         }
 
-        .tec-btn-outline-hover:hover {
-          background-color: #0e2154 !important;
-          color: #ffffff !important;
+        .tec-btn-solid-primary:hover {
+          background-color: #0d4a91 !important;
+          box-shadow: 0 6px 18px rgba(10, 61, 120, 0.38) !important;
+          transform: translateY(-1px);
         }
 
         /* Responsive Breakpoints */
@@ -851,7 +852,10 @@ export default function LatestNewsSection() {
           }
           .tec-news-card {
             height: auto;
-            max-height: 540px;
+            max-height: none;
+          }
+          .tec-scroll-container {
+            max-height: 480px;
           }
         }
       `}</style>

@@ -33,6 +33,17 @@ export default function LoginModal() {
     }
   }, [loginModalRole, loginModalOpen]);
 
+  // Apple HIG Modality - Dismiss on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && loginModalOpen) {
+        setLoginModalOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [loginModalOpen, setLoginModalOpen]);
+
   const applyDemoCredentials = (role) => {
     setError('');
     setShowForgotNotice(false);
@@ -83,40 +94,71 @@ export default function LoginModal() {
   if (!loginModalOpen) return null;
 
   return (
-    <div className="modal-backdrop">
-      <div className="modal-dialog" style={{ maxWidth: '520px' }}>
+    <div 
+      className="modal-backdrop"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) setLoginModalOpen(false);
+      }}
+    >
+      <div 
+        className="modal-dialog" 
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="login-modal-title"
+        style={{ maxWidth: '520px' }}
+      >
         {/* Header */}
-        <div className="modal-header" style={{ background: '#0e2154', color: '#ffffff' }}>
+        <div className="modal-header" style={{ background: '#0a3d78', color: '#ffffff' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <ShieldCheck size={20} style={{ color: '#f59e0b' }} />
+              <ShieldCheck size={20} style={{ color: '#fbbf24' }} />
             </div>
             <div>
-              <h3 style={{ fontSize: '1.05rem', color: '#ffffff' }}>Tirumala Portal Authentication</h3>
-              <div style={{ fontSize: '0.72rem', color: '#93c5fd' }}>
+              <h3 id="login-modal-title" style={{ fontSize: '1.05rem', color: '#ffffff', margin: 0 }}>Tirumala Portal Authentication</h3>
+              <div style={{ fontSize: '0.72rem', color: '#fbbf24', marginTop: '0.15rem' }}>
                 Secure Institutional Access (EAPCET: {COLLEGE_INFO.eamcetCode})
               </div>
             </div>
           </div>
           <button 
             onClick={() => setLoginModalOpen(false)}
-            style={{ background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer' }}
+            aria-label="Close portal authentication dialog"
+            style={{ 
+              background: 'none', 
+              border: 'none', 
+              color: '#cbd5e1', 
+              cursor: 'pointer',
+              padding: '0.4rem',
+              borderRadius: '6px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transition: 'color 0.15s ease'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.color = '#ffffff'}
+            onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}
           >
             <X size={20} />
           </button>
         </div>
 
         {/* Role Tabs */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', background: '#f8fafc', borderBottom: '1px solid #e2e8f0', padding: '0.35rem 0.5rem' }}>
+        <div 
+          role="tablist"
+          aria-label="Portal User Roles"
+          style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', background: '#f8fafc', borderBottom: '1px solid #e2e8f0', padding: '0.35rem 0.5rem' }}
+        >
           <button
             type="button"
+            role="tab"
+            aria-selected={activeTab === 'student'}
             onClick={() => handleTabChange('student')}
             style={{
               padding: '0.65rem 0.25rem',
               fontSize: '0.78rem',
               fontWeight: activeTab === 'student' ? 700 : 500,
               background: activeTab === 'student' ? '#ffffff' : 'transparent',
-              color: activeTab === 'student' ? '#1d4ed8' : '#64748b',
+              color: activeTab === 'student' ? '#0a3d78' : '#64748b',
               borderRadius: '6px',
               border: activeTab === 'student' ? '1px solid #cbd5e1' : 'none',
               boxShadow: activeTab === 'student' ? 'var(--shadow-sm)' : 'none',
@@ -132,6 +174,8 @@ export default function LoginModal() {
 
           <button
             type="button"
+            role="tab"
+            aria-selected={activeTab === 'faculty'}
             onClick={() => handleTabChange('faculty')}
             style={{
               padding: '0.65rem 0.25rem',
@@ -154,13 +198,15 @@ export default function LoginModal() {
 
           <button
             type="button"
+            role="tab"
+            aria-selected={activeTab === 'hod'}
             onClick={() => handleTabChange('hod')}
             style={{
               padding: '0.65rem 0.25rem',
               fontSize: '0.78rem',
               fontWeight: activeTab === 'hod' ? 700 : 500,
               background: activeTab === 'hod' ? '#ffffff' : 'transparent',
-              color: activeTab === 'hod' ? '#7e22ce' : '#64748b',
+              color: activeTab === 'hod' ? '#0a3d78' : '#64748b',
               borderRadius: '6px',
               border: activeTab === 'hod' ? '1px solid #cbd5e1' : 'none',
               boxShadow: activeTab === 'hod' ? 'var(--shadow-sm)' : 'none',
@@ -176,13 +222,15 @@ export default function LoginModal() {
 
           <button
             type="button"
+            role="tab"
+            aria-selected={activeTab === 'principal'}
             onClick={() => handleTabChange('principal')}
             style={{
               padding: '0.65rem 0.25rem',
               fontSize: '0.78rem',
               fontWeight: activeTab === 'principal' ? 700 : 500,
               background: activeTab === 'principal' ? '#ffffff' : 'transparent',
-              color: activeTab === 'principal' ? '#b45309' : '#64748b',
+              color: activeTab === 'principal' ? '#8c1515' : '#64748b',
               borderRadius: '6px',
               border: activeTab === 'principal' ? '1px solid #cbd5e1' : 'none',
               boxShadow: activeTab === 'principal' ? 'var(--shadow-sm)' : 'none',
@@ -201,7 +249,7 @@ export default function LoginModal() {
         <form onSubmit={handleSubmit}>
           <div className="modal-body" style={{ padding: '1.5rem' }}>
             {/* PRD Role Specific Guidance */}
-            <div style={{ background: '#eff6ff', border: '1px solid #bfdbfe', padding: '0.75rem 1rem', borderRadius: '8px', marginBottom: '1.25rem', fontSize: '0.8rem', color: '#1e40af' }}>
+            <div style={{ background: '#f0f5fa', border: '1px solid #cbd5e1', padding: '0.75rem 1rem', borderRadius: '8px', marginBottom: '1.25rem', fontSize: '0.8rem', color: '#0a3d78' }}>
               {activeTab === 'student' && (
                 <div>
                   <strong>PRD 4.1 Notice:</strong> Student login identifier is your 10-digit College Roll Number. Initial password is set to Roll Number (first login requires updating password).
@@ -251,7 +299,7 @@ export default function LoginModal() {
                 <button 
                   type="button" 
                   onClick={() => setShowForgotNotice(!showForgotNotice)}
-                  style={{ background: 'none', border: 'none', color: '#2563eb', fontSize: '0.78rem', cursor: 'pointer' }}
+                  style={{ background: 'none', border: 'none', color: '#0a3d78', fontSize: '0.78rem', cursor: 'pointer', fontWeight: 600 }}
                 >
                   Forgot Password?
                 </button>

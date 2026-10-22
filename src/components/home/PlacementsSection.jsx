@@ -18,7 +18,7 @@ const PLACEMENT_STATS = [
 
 export default function PlacementsSection() {
   const sectionRef = useRef(null);
-  const [counts, setCounts] = useState(PLACEMENT_STATS.map(() => 0));
+  const [counts, setCounts] = useState(PLACEMENT_STATS.map(item => item.count));
   const hasAnimatedRef = useRef(false);
 
   useEffect(() => {
@@ -91,7 +91,7 @@ export default function PlacementsSection() {
       }}
       aria-label="Campus Placements Statistics"
     >
-      {/* Dark overlay with subtle deep-navy gradient to preserve text contrast */}
+      {/* Dark overlay with authentic Royal Navy gradient to preserve text contrast */}
       <div
         style={{
           position: 'absolute',
@@ -99,7 +99,7 @@ export default function PlacementsSection() {
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'linear-gradient(180deg, rgba(10, 22, 51, 0.92) 0%, rgba(14, 33, 84, 0.94) 100%)',
+          background: 'linear-gradient(180deg, rgba(5, 29, 59, 0.94) 0%, rgba(10, 61, 120, 0.96) 100%)',
           zIndex: 1
         }}
       />
@@ -118,7 +118,7 @@ export default function PlacementsSection() {
         <div
           style={{
             backgroundColor: 'rgba(255, 255, 255, 0.08)',
-            border: '1px solid rgba(245, 158, 11, 0.35)',
+            border: '1px solid rgba(245, 158, 11, 0.45)',
             borderRadius: '9999px',
             padding: '0.6rem 1.25rem',
             marginBottom: 'clamp(2rem, 4vw, 3rem)',
@@ -136,7 +136,7 @@ export default function PlacementsSection() {
               alignItems: 'center',
               gap: '0.35rem',
               backgroundColor: '#f59e0b',
-              color: '#0e2154',
+              color: '#051d3b',
               padding: '0.2rem 0.65rem',
               borderRadius: '9999px',
               fontSize: '0.72rem',
@@ -147,7 +147,7 @@ export default function PlacementsSection() {
             }}
           >
             <Award size={13} />
-            <span>Official Record</span>
+            <span>Placement Update</span>
           </div>
 
           <div style={{ flex: 1, overflow: 'hidden', whiteSpace: 'nowrap' }}>
@@ -176,15 +176,15 @@ export default function PlacementsSection() {
               alignItems: 'center',
               gap: '0.45rem',
               color: '#fbbf24',
-              fontSize: '0.8rem',
+              fontSize: '0.82rem',
               fontWeight: 800,
-              letterSpacing: '0.14em',
+              letterSpacing: '0.08em',
               textTransform: 'uppercase',
               marginBottom: '0.5rem'
             }}
           >
             <TrendingUp size={16} />
-            <span>CAREER TRAJECTORY & RECRUITING MILESTONES</span>
+            <span>Placements</span>
           </div>
 
           <h2
@@ -197,7 +197,7 @@ export default function PlacementsSection() {
               margin: '0 0 0.8rem 0'
             }}
           >
-            Our Placements
+            Campus Placements
           </h2>
 
           <div
@@ -219,7 +219,7 @@ export default function PlacementsSection() {
               lineHeight: 1.6
             }}
           >
-            Consistent year-on-year growth reflecting high corporate trust, technical mastery, and rigorous campus recruitment training.
+            Year-wise placement records of Tirumala Engineering College students across leading multinational and engineering companies.
           </p>
         </div>
 
@@ -241,7 +241,7 @@ export default function PlacementsSection() {
                 style={{
                   backgroundColor: 'rgba(255, 255, 255, 0.06)',
                   border: isLatest
-                    ? '1.5px solid rgba(245, 158, 11, 0.45)'
+                    ? '1.5px solid rgba(245, 158, 11, 0.55)'
                     : '1px solid rgba(255, 255, 255, 0.12)',
                   borderRadius: '14px',
                   padding: '1.5rem 1rem',
@@ -249,7 +249,7 @@ export default function PlacementsSection() {
                   backdropFilter: 'blur(6px)',
                   WebkitBackdropFilter: 'blur(6px)',
                   boxShadow: isLatest
-                    ? '0 8px 24px rgba(245, 158, 11, 0.12)'
+                    ? '0 8px 24px rgba(245, 158, 11, 0.18)'
                     : '0 4px 16px rgba(0, 0, 0, 0.2)',
                   transition: 'transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease',
                   display: 'flex',
@@ -264,7 +264,7 @@ export default function PlacementsSection() {
                     fontSize: '0.85rem',
                     fontWeight: 700,
                     letterSpacing: '0.06em',
-                    color: isLatest ? '#fbbf24' : '#93c5fd',
+                    color: isLatest ? '#fbbf24' : '#cbd5e1',
                     marginBottom: '0.5rem',
                     textTransform: 'uppercase'
                   }}
@@ -297,7 +297,7 @@ export default function PlacementsSection() {
                     style={{
                       fontSize: '1.25rem',
                       fontWeight: 700,
-                      color: '#f59e0b'
+                      color: '#fbbf24'
                     }}
                   >
                     +
@@ -307,15 +307,15 @@ export default function PlacementsSection() {
                 {/* Counter Sub-label */}
                 <div
                   style={{
-                    fontSize: '0.72rem',
-                    fontWeight: 600,
+                    fontSize: '0.74rem',
+                    fontWeight: 700,
                     color: '#94a3b8',
-                    letterSpacing: '0.08em',
+                    letterSpacing: '0.06em',
                     textTransform: 'uppercase',
                     marginTop: '0.35rem'
                   }}
                 >
-                  Selections / Offers
+                  Offers
                 </div>
               </div>
             );
@@ -332,7 +332,7 @@ export default function PlacementsSection() {
               alignItems: 'center',
               gap: '0.5rem',
               backgroundColor: '#f59e0b',
-              color: '#0e2154',
+              color: '#051d3b',
               fontWeight: 700,
               fontSize: '0.92rem',
               padding: '0.75rem 1.6rem',
@@ -342,7 +342,7 @@ export default function PlacementsSection() {
               transition: 'all 0.2s ease'
             }}
           >
-            <span>Explore Placement Cell & Recruiting Partners</span>
+            <span>View Placement Cell and Recruiter List</span>
             <ArrowRight size={16} />
           </Link>
         </div>
@@ -353,7 +353,7 @@ export default function PlacementsSection() {
         .tec-counter-card:hover {
           transform: translateY(-4px);
           background-color: rgba(255, 255, 255, 0.1) !important;
-          border-color: rgba(245, 158, 11, 0.6) !important;
+          border-color: rgba(192, 151, 72, 0.6) !important;
         }
 
         @keyframes marqueeScroll {

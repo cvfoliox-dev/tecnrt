@@ -72,7 +72,11 @@ export default function FeedbackPage() {
       <div className="container" style={{ maxWidth: '1000px', margin: '2.5rem auto 0', padding: '0 1.5rem' }}>
         <div style={{ background: '#ffffff', borderRadius: '16px', padding: '2.5rem', border: '1px solid #e2e8f0', boxShadow: '0 4px 20px rgba(0,0,0,0.03)' }}>
           {/* Stakeholder Selector Tabs */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', borderBottom: '2px solid #f1f5f9', paddingBottom: '1rem', marginBottom: '2rem' }}>
+          <div 
+            role="tablist"
+            aria-label="Stakeholder feedback categories"
+            style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', borderBottom: '2px solid #f1f5f9', paddingBottom: '1rem', marginBottom: '2rem' }}
+          >
             {[
               { id: 'student', label: "Student's Feedback" },
               { id: 'teacher', label: "Teacher / Faculty Feedback" },
@@ -82,6 +86,8 @@ export default function FeedbackPage() {
             ].map((tab) => (
               <button
                 key={tab.id}
+                role="tab"
+                aria-selected={activeForm === tab.id}
                 onClick={() => setActiveForm(tab.id)}
                 style={{
                   background: activeForm === tab.id ? '#0e2154' : '#f8fafc',
@@ -109,10 +115,11 @@ export default function FeedbackPage() {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem', marginBottom: '1.25rem' }}>
               <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.4rem' }}>
+                <label htmlFor="feedback-name" style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.4rem' }}>
                   Full Name *
                 </label>
                 <input 
+                  id="feedback-name"
                   type="text" 
                   required
                   placeholder="Your full name"
@@ -123,10 +130,11 @@ export default function FeedbackPage() {
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.4rem' }}>
+                <label htmlFor="feedback-email" style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.4rem' }}>
                   Email Address *
                 </label>
                 <input 
+                  id="feedback-email"
                   type="email" 
                   required
                   placeholder="name@domain.com"
@@ -139,10 +147,11 @@ export default function FeedbackPage() {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem', marginBottom: '1.5rem' }}>
               <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.4rem' }}>
+                <label htmlFor="feedback-branch" style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.4rem' }}>
                   Department / Branch
                 </label>
                 <select 
+                  id="feedback-branch"
                   value={formData.branch}
                   onChange={(e) => setFormData({ ...formData, branch: e.target.value })}
                   style={{ width: '100%', padding: '0.65rem 0.85rem', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '0.9rem' }}
@@ -158,10 +167,11 @@ export default function FeedbackPage() {
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.4rem' }}>
+                <label htmlFor="feedback-regulation" style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.4rem' }}>
                   Academic Regulation
                 </label>
                 <select 
+                  id="feedback-regulation"
                   style={{ width: '100%', padding: '0.65rem 0.85rem', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '0.9rem' }}
                 >
                   <option value="R23">R23 Autonomous Regulations</option>

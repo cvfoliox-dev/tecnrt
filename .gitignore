@@ -1,5 +1,22 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production build
+dist/
+dist-ssr/
+
+# Environment files and credentials
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.local
+
 # Logs
-logs
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -7,18 +24,28 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
+# Editor & OS temporary files
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# Testing artifacts and test session recordings
+.playwright-mcp/
+test-results/
+playwright-report/
+*_review.png
+*_vibrant.png
+*_perfect.png
+*_fixed.png
+*_spotlight.png
+homepage_royal_sun.png
+desktop_full_vibrant.png
+mobile_news_section*.png
+fullpage_*.png
+news_section_*.png

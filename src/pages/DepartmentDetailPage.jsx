@@ -123,7 +123,11 @@ export default function DepartmentDetailPage() {
             boxShadow: '0 4px 20px rgba(0,0,0,0.03)'
           }}>
             {/* Top Interactive Tabs */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', borderBottom: '2px solid #f1f5f9', paddingBottom: '1rem', marginBottom: '2rem' }}>
+            <div 
+              role="tablist"
+              aria-label="Department sections"
+              style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', borderBottom: '2px solid #f1f5f9', paddingBottom: '1rem', marginBottom: '2rem' }}
+            >
               {[
                 { id: 'about', label: 'Vision & Mission' },
                 { id: 'hod', label: 'HOD Profile' },
@@ -133,6 +137,8 @@ export default function DepartmentDetailPage() {
               ].map((tab) => (
                 <button
                   key={tab.id}
+                  role="tab"
+                  aria-selected={activeTab === tab.id}
                   onClick={() => setActiveTab(tab.id)}
                   style={{
                     background: activeTab === tab.id ? '#0e2154' : '#f8fafc',
@@ -183,7 +189,7 @@ export default function DepartmentDetailPage() {
                     <div style={{ padding: '1rem', background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '10px', display: 'flex', gap: '0.75rem' }}>
                       <CheckCircle2 size={18} style={{ color: '#16a34a', flexShrink: 0, marginTop: '2px' }} />
                       <div style={{ fontSize: '0.88rem', color: '#475569', lineHeight: 1.6 }}>
-                        <strong>PEO 1 (Technical Proficiency):</strong> Graduates demonstrate solid analytical and technical foundations to architect, design, and deploy cutting-edge engineering solutions.
+                        <strong>PEO 1 (Technical Proficiency):</strong> Graduates demonstrate solid analytical and technical foundations to architect, design, and deploy practical engineering solutions.
                       </div>
                     </div>
                     <div style={{ padding: '1rem', background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '10px', display: 'flex', gap: '0.75rem' }}>
@@ -253,10 +259,10 @@ export default function DepartmentDetailPage() {
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
                   <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0e2154', margin: 0 }}>
-                    Faculty Members — Department of {currentDept.code.toUpperCase()}
+                    Faculty Members: Department of {currentDept.code.toUpperCase()}
                   </h3>
                   <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600 }}>
-                    Outcome-Based Teaching Staff
+                    Faculty Roster
                   </span>
                 </div>
 

@@ -211,9 +211,9 @@ export default function AcademicPages() {
             {currentSection === 'scholarships' && (
               <div>
                 <div style={{ borderBottom: '2px solid #f1f5f9', paddingBottom: '1rem', marginBottom: '1.75rem' }}>
-                  <span style={{ color: '#d97706', fontWeight: 700, fontSize: '0.8rem', textTransform: 'uppercase' }}>PHILANTHROPIC BENCHMARK</span>
+                  <span style={{ color: '#d97706', fontWeight: 700, fontSize: '0.8rem', textTransform: 'uppercase' }}>STUDENT SCHOLARSHIPS</span>
                   <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', fontWeight: 800, color: '#0e2154' }}>
-                    Founders Merit Scholarships — ₹60 Lakhs Corpus
+                    Founders Merit Scholarships (₹60 Lakhs Annual Corpus)
                   </h2>
                 </div>
 
@@ -222,7 +222,7 @@ export default function AcademicPages() {
                     Annual ₹60,00,000 Cash Merit Award Scheme
                   </h4>
                   <p style={{ margin: 0 }}>
-                    Instituted in 2008 by the founders of <strong>Tirumala Milk Products Pvt. Ltd.</strong> under the Venkata Ramana Charitable Trust. An annual corpus of ₹60 Lakhs is awarded directly to the <strong>Top 10 academic achievers</strong> of every B.Tech department, fostering healthy academic competition and relieving rural parents of financial burdens.
+                    Instituted in 2008 by the founders of <strong>Tirumala Milk Products Pvt. Ltd.</strong> under the Venkata Ramana Charitable Trust. An annual corpus of ₹60 Lakhs is awarded directly to the <strong>Top 10 academic achievers</strong> of every B.Tech department, encouraging strong academic performance and assisting families with educational costs.
                   </p>
                 </div>
 
@@ -269,7 +269,7 @@ export default function AcademicPages() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                   <div style={{ padding: '1.25rem', borderRadius: '10px', background: '#f8fafc', border: '1px solid #e2e8f0' }}>
                     <div style={{ fontWeight: 800, color: '#0e2154', fontSize: '1.05rem', marginBottom: '0.3rem' }}>
-                      Jagananna Vidya Deevena (JVD) — Full Tuition Reimbursement
+                      Jagananna Vidya Deevena (JVD): Full Tuition Reimbursement
                     </div>
                     <p style={{ fontSize: '0.85rem', color: '#64748b', lineHeight: 1.6, margin: 0 }}>
                       100% full tuition fee reimbursement credited directly to eligible students' mothers' accounts by the Government of Andhra Pradesh for SC, ST, BC, EBC, Minority, and Kapu students.

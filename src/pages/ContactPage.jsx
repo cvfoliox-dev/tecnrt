@@ -189,10 +189,11 @@ export default function ContactPage() {
 
           <form onSubmit={handleSendMessage} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
             <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
+              <label htmlFor="contact-name" style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
                 Your Name *
               </label>
               <input 
+                id="contact-name"
                 type="text" 
                 required 
                 placeholder="Full Name"
@@ -203,10 +204,11 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
+              <label htmlFor="contact-email" style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
                 Email Address *
               </label>
               <input 
+                id="contact-email"
                 type="email" 
                 required 
                 placeholder="name@example.com"
@@ -217,10 +219,11 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
+              <label htmlFor="contact-phone" style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
                 Phone Number *
               </label>
               <input 
+                id="contact-phone"
                 type="tel" 
                 required 
                 placeholder="10-digit mobile number"
@@ -231,10 +234,11 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
+              <label htmlFor="contact-subject" style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
                 Subject of Enquiry
               </label>
               <select 
+                id="contact-subject"
                 value={formState.subject}
                 onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
                 style={{ width: '100%', padding: '0.65rem 0.85rem', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '0.9rem' }}
@@ -249,10 +253,11 @@ export default function ContactPage() {
             </div>
 
             <div style={{ gridColumn: '1 / -1' }}>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
+              <label htmlFor="contact-message" style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
                 Message
               </label>
               <textarea 
+                id="contact-message"
                 rows="3" 
                 placeholder="Write your message or inquiry here..."
                 value={formState.message}

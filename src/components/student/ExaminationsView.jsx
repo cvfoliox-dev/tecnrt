@@ -159,7 +159,7 @@ export default function ExaminationsView() {
                     TIRUMALA ENGINEERING COLLEGE, NARASARAOPET (COLLEGE CODE: TMLN)
                   </div>
                   <div style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '0.2rem' }}>
-                    HALL TICKET FOR B.TECH IV YEAR I SEMESTER REGULAR EXAMINATIONS — NOVEMBER 2026
+                    HALL TICKET FOR B.TECH IV YEAR I SEMESTER REGULAR EXAMINATIONS: NOVEMBER 2026
                   </div>
                 </div>
 

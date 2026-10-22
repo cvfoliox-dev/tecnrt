@@ -19,7 +19,7 @@ export default function Footer() {
     <footer 
       className="tec-main-footer"
       style={{ 
-        backgroundColor: '#09142b', 
+        backgroundColor: '#051d3b', 
         color: '#cbd5e1', 
         paddingTop: '4rem', 
         paddingBottom: '2rem', 
@@ -85,21 +85,21 @@ export default function Footer() {
                   display: 'inline-flex', 
                   alignItems: 'center', 
                   gap: '0.45rem', 
-                  backgroundColor: 'rgba(245, 158, 11, 0.12)', 
-                  border: '1px solid rgba(245, 158, 11, 0.4)', 
+                  backgroundColor: 'rgba(245, 158, 11, 0.15)', 
+                  border: '1px solid rgba(245, 158, 11, 0.45)', 
                   padding: '0.4rem 0.75rem', 
                   borderRadius: '6px', 
                   width: 'fit-content' 
                 }}
               >
-                <Award size={14} style={{ color: '#f59e0b' }} />
+                <Award size={14} style={{ color: '#fbbf24' }} />
                 <span style={{ fontSize: '0.78rem', color: '#fbbf24', fontWeight: 800, letterSpacing: '0.04em' }}>
                   EAPCET / EAMCET CODE: TMLN
                 </span>
               </div>
 
               <div style={{ fontSize: '0.76rem', color: '#cbd5e1', lineHeight: 1.45 }}>
-                <span style={{ color: '#93c5fd', fontWeight: 700 }}>Autonomous</span> • NAAC 'A+' Grade • NBA Accredited • ISO 9001:2015
+                <span style={{ color: '#fbbf24', fontWeight: 700 }}>Autonomous</span> • NAAC 'A+' Grade • NBA Accredited • ISO 9001:2015
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@ export default function Footer() {
                     to={`/departments/${dept.code}`} 
                     className="tec-footer-link"
                   >
-                    <ChevronRight size={13} style={{ color: '#3b82f6', flexShrink: 0 }} />
+                    <ChevronRight size={13} style={{ color: '#f59e0b', flexShrink: 0 }} />
                     <span>{dept.name}</span>
                   </Link>
                 </li>
@@ -251,7 +251,7 @@ export default function Footer() {
                   borderRadius: '8px' 
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#fbbf24', fontWeight: 700, fontSize: '0.78rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#d4a955', fontWeight: 700, fontSize: '0.78rem' }}>
                   <ShieldCheck size={14} />
                   <span>Anti-Ragging Helpline</span>
                 </div>
@@ -274,7 +274,7 @@ export default function Footer() {
                     display: 'inline-flex', 
                     alignItems: 'center', 
                     gap: '0.35rem', 
-                    color: '#f59e0b', 
+                    color: '#d4a955', 
                     fontSize: '0.8rem', 
                     fontWeight: 700, 
                     textDecoration: 'none' 
@@ -352,7 +352,6 @@ export default function Footer() {
         }
 
         .tec-footer-link {
-          color: '#94a3b8';
           color: #94a3b8;
           display: inline-flex;
           align-items: center;

@@ -220,7 +220,7 @@ export default function Navbar() {
                 fontFamily: 'var(--font-heading)', 
                 fontWeight: 900, 
                 fontSize: 'clamp(0.92rem, 2vw, 1.25rem)', 
-                color: '#0e2154', 
+                color: '#0a3d78', 
                 letterSpacing: '-0.02em', 
                 lineHeight: 1.15,
                 whiteSpace: 'nowrap'
@@ -241,7 +241,7 @@ export default function Navbar() {
                 <span>•</span>
                 <span>ESTD. 2008</span>
                 <span>•</span>
-                <span style={{ color: '#16a34a' }}>AUTONOMOUS</span>
+                <span style={{ color: '#15803d' }}>AUTONOMOUS</span>
               </div>
             </div>
           </Link>
@@ -323,8 +323,8 @@ export default function Navbar() {
                 whiteSpace: 'nowrap', 
                 padding: '0.45rem 0.85rem', 
                 fontSize: '0.82rem',
-                color: '#0e2154',
-                borderColor: '#0e2154',
+                color: '#0a3d78',
+                borderColor: '#0a3d78',
                 borderWidth: '1.5px',
                 borderRadius: '6px',
                 backgroundColor: 'transparent',
@@ -340,7 +340,7 @@ export default function Navbar() {
             <button 
               className="mobile-nav-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              style={{ display: 'none', background: 'none', border: 'none', color: '#0e2154', cursor: 'pointer', padding: '0.4rem' }}
+              style={{ display: 'none', background: 'none', border: 'none', color: '#0a3d78', cursor: 'pointer', padding: '0.4rem' }}
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -358,11 +358,11 @@ export default function Navbar() {
           right: 0,
           width: '100%',
           zIndex: 850,
-          background: isHomePage ? 'rgba(8, 20, 50, 0.52)' : '#0e2154',
+          background: isHomePage ? 'rgba(10, 61, 120, 0.68)' : '#0a3d78',
           backdropFilter: isHomePage ? 'blur(10px)' : 'none',
           WebkitBackdropFilter: isHomePage ? 'blur(10px)' : 'none',
-          borderBottom: isHomePage ? '1px solid rgba(255, 255, 255, 0.16)' : '2px solid #f59e0b',
-          boxShadow: isHomePage ? '0 8px 24px rgba(0, 0, 0, 0.15)' : 'none'
+          borderBottom: isHomePage ? '1px solid rgba(245, 158, 11, 0.4)' : '2px solid #f59e0b',
+          boxShadow: isHomePage ? '0 8px 24px rgba(0, 0, 0, 0.2)' : 'none'
         }} 
         className="desktop-navbar-strip"
       >
@@ -396,9 +396,22 @@ export default function Navbar() {
                   style={{ position: 'relative' }}
                   onMouseEnter={() => setOpenDropdown(menu.title)}
                   onMouseLeave={() => setOpenDropdown(null)}
+                  onFocus={() => setOpenDropdown(menu.title)}
+                  onBlur={(e) => {
+                    if (!e.currentTarget.contains(e.relatedTarget)) {
+                      setOpenDropdown(null);
+                    }
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Escape') {
+                      setOpenDropdown(null);
+                    }
+                  }}
                 >
                   <Link
                     to={menu.path}
+                    aria-haspopup="true"
+                    aria-expanded={isMenuOpen}
                     style={{
                       color: isMenuActive ? '#fbbf24' : '#ffffff',
                       padding: '0.45rem 0.55rem',
@@ -421,23 +434,28 @@ export default function Navbar() {
 
                   {/* Dropdown Menu Container */}
                   {isMenuOpen && (
-                    <div style={{
-                      position: 'absolute',
-                      top: '100%',
-                      left: 0,
-                      background: '#ffffff',
-                      minWidth: '260px',
-                      borderRadius: '0 0 10px 10px',
-                      boxShadow: '0 15px 35px rgba(0,0,0,0.25), 0 0 1px rgba(0,0,0,0.1)',
-                      border: '1px solid #e2e8f0',
-                      borderTop: '3px solid #f59e0b',
-                      zIndex: 1000,
-                      padding: '0.4rem 0'
-                    }}>
+                    <div 
+                      role="menu"
+                      aria-label={`${menu.title} Submenu`}
+                      style={{
+                        position: 'absolute',
+                        top: '100%',
+                        left: 0,
+                        background: '#ffffff',
+                        minWidth: '260px',
+                        borderRadius: '0 0 10px 10px',
+                        boxShadow: '0 15px 35px rgba(0,0,0,0.25), 0 0 1px rgba(0,0,0,0.1)',
+                        border: '1px solid #e2e8f0',
+                        borderTop: '3px solid #f59e0b',
+                        zIndex: 1000,
+                        padding: '0.4rem 0'
+                      }}
+                    >
                       {menu.dropdown.map((sub, sIdx) => (
                         <Link
                           key={sIdx}
                           to={sub.path}
+                          role="menuitem"
                           onClick={() => setOpenDropdown(null)}
                           style={{
                             display: 'block',
@@ -504,7 +522,7 @@ export default function Navbar() {
             <Link 
               to="/feedback" 
               style={{ 
-                color: location.pathname === '/feedback' ? '#fbbf24' : '#ffffff', 
+                color: location.pathname === '/feedback' ? '#d4a955' : '#ffffff', 
                 padding: '0.45rem 0.55rem', 
                 fontSize: '0.8rem', 
                 fontWeight: 600, 
@@ -520,7 +538,7 @@ export default function Navbar() {
             <Link 
               to="/contact" 
               style={{ 
-                color: location.pathname === '/contact' ? '#fbbf24' : '#ffffff', 
+                color: location.pathname === '/contact' ? '#d4a955' : '#ffffff', 
                 padding: '0.45rem 0.55rem', 
                 fontSize: '0.8rem', 
                 fontWeight: 600, 
@@ -552,13 +570,13 @@ export default function Navbar() {
           zIndex: 1000
         }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            <Link to="/" onClick={() => setMobileMenuOpen(false)} style={{ padding: '0.5rem', fontWeight: 700, color: '#0e2154', textDecoration: 'none' }}>
+            <Link to="/" onClick={() => setMobileMenuOpen(false)} style={{ padding: '0.5rem', fontWeight: 700, color: '#0a3d78', textDecoration: 'none' }}>
               Home
             </Link>
             
             {navMenus.map((menu, mIdx) => (
               <div key={mIdx} style={{ borderBottom: '1px solid #f1f5f9', paddingBottom: '0.4rem' }}>
-                <div style={{ fontWeight: 800, fontSize: '0.85rem', color: '#0e2154', padding: '0.4rem 0.5rem' }}>
+                <div style={{ fontWeight: 800, fontSize: '0.85rem', color: '#0a3d78', padding: '0.4rem 0.5rem' }}>
                   {menu.title}
                 </div>
                 <div style={{ paddingLeft: '1rem', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
@@ -576,10 +594,10 @@ export default function Navbar() {
               </div>
             ))}
 
-            <Link to="/nirf" onClick={() => setMobileMenuOpen(false)} style={{ padding: '0.5rem', fontWeight: 700, color: '#0e2154', textDecoration: 'none' }}>NIRF</Link>
-            <Link to="/gallery" onClick={() => setMobileMenuOpen(false)} style={{ padding: '0.5rem', fontWeight: 700, color: '#0e2154', textDecoration: 'none' }}>Gallery</Link>
-            <Link to="/feedback" onClick={() => setMobileMenuOpen(false)} style={{ padding: '0.5rem', fontWeight: 700, color: '#0e2154', textDecoration: 'none' }}>Feedback</Link>
-            <Link to="/contact" onClick={() => setMobileMenuOpen(false)} style={{ padding: '0.5rem', fontWeight: 700, color: '#0e2154', textDecoration: 'none' }}>Contact</Link>
+            <Link to="/nirf" onClick={() => setMobileMenuOpen(false)} style={{ padding: '0.5rem', fontWeight: 700, color: '#0a3d78', textDecoration: 'none' }}>NIRF</Link>
+            <Link to="/gallery" onClick={() => setMobileMenuOpen(false)} style={{ padding: '0.5rem', fontWeight: 700, color: '#0a3d78', textDecoration: 'none' }}>Gallery</Link>
+            <Link to="/feedback" onClick={() => setMobileMenuOpen(false)} style={{ padding: '0.5rem', fontWeight: 700, color: '#0a3d78', textDecoration: 'none' }}>Feedback</Link>
+            <Link to="/contact" onClick={() => setMobileMenuOpen(false)} style={{ padding: '0.5rem', fontWeight: 700, color: '#0a3d78', textDecoration: 'none' }}>Contact</Link>
 
             <div style={{ marginTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <button 

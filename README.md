@@ -1,16 +1,93 @@
-# React + Vite
+# Tirumala Engineering College (TEC) - Autonomous Web Portal Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Official frontend web application and student/faculty management portal for **Tirumala Engineering College (Autonomous)**, Narasaraopet, Palnadu District, Andhra Pradesh.
 
-Currently, two official plugins are available:
+- **EAPCET / ECET / ICET Code:** `TMLN`
+- **Affiliation:** Permanently Affiliated to JNTU Kakinada
+- **Accreditation:** NAAC 'A' Grade, NBA Accredited, ISO 9001:2015 Certified, UGC Autonomous
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🛠️ Technology Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Framework:** React 19 + Vite 8
+- **Routing:** React Router v7 (with `React.lazy` route-level code splitting & Suspense)
+- **Styling:** Curated Institutional CSS Design System (Royal Navy & Warm Sun Gold tokens)
+- **Icons:** Lucide React
+- **Accessibility:** Apple Human Interface Guidelines (HIG) + WCAG 2.1 AA Compliant
+  - Keyboard `:focus-visible` outline indicators
+  - Accessible Skip to Main Content bypass link
+  - ARIA dialog, modal focus management, and tablist semantics
+  - `@media (prefers-reduced-motion: reduce)` support
+- **Copywriting Standard:** Humanizer Writing Standard (`humanzier.md`) — clean, human-centered academic prose free of AI clichés.
 
-## Expanding the Oxlint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or higher recommended)
+- npm or pnpm
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/cvfoliox-dev/tecnrt.git
+cd tecnrt
+
+# Install dependencies
+npm install
+```
+
+### Development Server
+
+```bash
+npm run dev
+```
+
+The application will be accessible at `http://localhost:5173`.
+
+### Production Build
+
+```bash
+npm run build
+```
+
+Build outputs are compiled into `dist/` with route-level code splitting and minified chunks.
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+---
+
+## 📁 Project Architecture
+
+```text
+├── .agents/skills/          # Installed design & copywriting skills (Apple Design, Higher-Ed UI)
+├── public/                  # Static institutional assets, logos, PDFs, panoramas
+├── src/
+│   ├── components/
+│   │   ├── common/          # Universal Navbar, Footer, PortalHeader, RoleSwitcher
+│   │   ├── home/            # Hero, PlacementsSection, LatestNewsSection
+│   │   ├── public/          # AboutSection, ContactSection, LoginModal
+│   │   ├── student/         # Student Portal Views (Attendance, Fees, Exams)
+│   │   ├── faculty/         # Faculty Portal Views
+│   │   ├── hod/             # HOD Administration Views
+│   │   └── principal/       # Principal Executive Suite
+│   ├── context/             # Global AuthContext & Role Switching
+│   ├── data/                # Verified College Audit & Mock Data
+│   ├── pages/               # Code-split page components (About, Academics, Admissions, etc.)
+│   ├── App.jsx              # Application root with Suspense boundaries & routes
+│   └── index.css            # Global design tokens, focus styles, responsive utilities
+```
+
+---
+
+## 📄 License & Ownership
+
+© Tirumala Engineering College, Narasaraopet. Managed by Venkata Ramana Charitable Trust. All rights reserved.

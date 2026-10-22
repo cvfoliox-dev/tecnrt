@@ -57,7 +57,7 @@ export default function PlacementPages() {
             Training & Placement Cell (T&P)
           </h1>
           <p style={{ color: '#cbd5e1', fontSize: '1.05rem', maxWidth: '750px', marginTop: '0.5rem' }}>
-            Transforming rural youth into corporate technocrats with record-breaking placements across global MNCs.
+            Preparing students for engineering and technical careers through structured training and on-campus recruitment.
           </p>
         </div>
       </div>
@@ -130,7 +130,7 @@ export default function PlacementPages() {
 
                 <div style={{ background: '#f8fafc', padding: '1.5rem', borderRadius: '12px', borderLeft: '4px solid #16a34a', marginBottom: '2rem', lineHeight: 1.7, color: '#334155' }}>
                   <p style={{ margin: 0 }}>
-                    The Training and Placement Department was established with the noble intention of transforming rural youth into efficient, loyal, and skilled corporate employees. This is the catalyst where the aspirations of hundreds of students who choose Engineering as their career option turn into rewarding reality.
+                    The Training and Placement Department helps students build analytical skills, develop professional habits, and prepare for campus recruitment drives across IT and core engineering companies.
                   </p>
                 </div>
 
@@ -173,7 +173,7 @@ export default function PlacementPages() {
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
                   <div style={{ padding: '1.5rem', background: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
-                    <div style={{ fontWeight: 800, color: '#0e2154', fontSize: '1.15rem' }}>Head — Training & Placements</div>
+                    <div style={{ fontWeight: 800, color: '#0e2154', fontSize: '1.15rem' }}>Head, Training & Placements</div>
                     <div style={{ color: '#2563eb', fontWeight: 700, fontSize: '0.85rem', marginBottom: '0.75rem' }}>Training & Placement Cell</div>
                     <div style={{ fontSize: '0.85rem', color: '#475569', lineHeight: 1.8 }}>
                       <div><strong>Phone:</strong> 7731004567 / 8008322338</div>

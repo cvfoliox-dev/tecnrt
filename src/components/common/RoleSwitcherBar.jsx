@@ -26,7 +26,7 @@ export default function RoleSwitcherBar() {
         </span>
         <span style={{ color: 'rgba(255,255,255,0.4)' }}>|</span>
         <span style={{ color: '#cbd5e1' }}>
-          {COLLEGE_INFO.shortName} Narasaraopet — Integrated Portal Reviewer Suite
+          {COLLEGE_INFO.shortName} Narasaraopet: Integrated Portal Reviewer Suite
         </span>
       </div>
 

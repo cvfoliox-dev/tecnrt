@@ -1,35 +1,73 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense, lazy } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
-import RoleSwitcherBar from './components/common/RoleSwitcherBar';
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 import LoginModal from './components/public/LoginModal';
 
-// Public Pages Suite
+// Primary Landing Page (Loaded Eagerly for Instant First Paint)
 import HomePage from './pages/HomePage';
-import AboutPages from './pages/AboutPages';
-import AdministrationPages from './pages/AdministrationPages';
-import AdmissionPages from './pages/AdmissionPages';
-import AcademicPages from './pages/AcademicPages';
-import DepartmentDetailPage from './pages/DepartmentDetailPage';
-import ExamcellPages from './pages/ExamcellPages';
-import PlacementPages from './pages/PlacementPages';
-import IQACPages from './pages/IQACPages';
-import AmenitiesPages from './pages/AmenitiesPages';
-import NIRFPage from './pages/NIRFPage';
-import GalleryPage from './pages/GalleryPage';
-import FeedbackPage from './pages/FeedbackPage';
-import ContactPage from './pages/ContactPage';
-import NotFoundPage from './pages/NotFoundPage';
 
-// Portal Dashboards (PRD Portals)
-import StudentDashboard from './components/student/StudentDashboard';
-import FacultyDashboard from './components/faculty/FacultyDashboard';
-import HODDashboard from './components/hod/HODDashboard';
-import PrincipalDashboard from './components/principal/PrincipalDashboard';
+// Public Subpages Suite (Code-Split / Lazy-Loaded on Route Demand)
+const AboutPages = lazy(() => import('./pages/AboutPages'));
+const AdministrationPages = lazy(() => import('./pages/AdministrationPages'));
+const AdmissionPages = lazy(() => import('./pages/AdmissionPages'));
+const AcademicPages = lazy(() => import('./pages/AcademicPages'));
+const DepartmentDetailPage = lazy(() => import('./pages/DepartmentDetailPage'));
+const ExamcellPages = lazy(() => import('./pages/ExamcellPages'));
+const PlacementPages = lazy(() => import('./pages/PlacementPages'));
+const IQACPages = lazy(() => import('./pages/IQACPages'));
+const AmenitiesPages = lazy(() => import('./pages/AmenitiesPages'));
+const NIRFPage = lazy(() => import('./pages/NIRFPage'));
+const GalleryPage = lazy(() => import('./pages/GalleryPage'));
+const FeedbackPage = lazy(() => import('./pages/FeedbackPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
+
+// Internal Portal Suites (Code-Split / Lazy-Loaded Only on Authentication)
+const StudentDashboard = lazy(() => import('./components/student/StudentDashboard'));
+const FacultyDashboard = lazy(() => import('./components/faculty/FacultyDashboard'));
+const HODDashboard = lazy(() => import('./components/hod/HODDashboard'));
+const PrincipalDashboard = lazy(() => import('./components/principal/PrincipalDashboard'));
 
 import { X, CheckCircle2, AlertCircle, Info } from 'lucide-react';
+
+function PageLoadingFallback() {
+  return (
+    <div 
+      style={{ 
+        minHeight: '55vh', 
+        display: 'flex', 
+        flexDirection: 'column', 
+        alignItems: 'center', 
+        justifyContent: 'center',
+        gap: '0.85rem',
+        padding: '3rem 1rem'
+      }}
+      aria-live="polite"
+      aria-label="Loading page content"
+    >
+      <div 
+        style={{
+          width: '36px',
+          height: '36px',
+          border: '3px solid #e2e8f0',
+          borderTopColor: '#0a3d78',
+          borderRadius: '50%',
+          animation: 'tecSpin 0.75s linear infinite'
+        }} 
+      />
+      <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#475569' }}>
+        Loading Tirumala Engineering College content...
+      </span>
+      <style>{`
+        @keyframes tecSpin {
+          to { transform: rotate(360deg); }
+        }
+      `}</style>
+    </div>
+  );
+}
 
 export default function App() {
   const { currentUser, quickSwitchRole, toasts, removeToast } = useAuth();
@@ -56,18 +94,24 @@ export default function App() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      {/* 1. Portal Views when a role is selected */}
-      {currentUser.role === 'student' && <StudentDashboard />}
-      {currentUser.role === 'faculty' && <FacultyDashboard />}
-      {currentUser.role === 'hod' && <HODDashboard />}
-      {currentUser.role === 'principal' && <PrincipalDashboard />}
+      {/* 1. Portal Views when a role is selected (Lazy Loaded) */}
+      <Suspense fallback={<PageLoadingFallback />}>
+        {currentUser.role === 'student' && <StudentDashboard />}
+        {currentUser.role === 'faculty' && <FacultyDashboard />}
+        {currentUser.role === 'hod' && <HODDashboard />}
+        {currentUser.role === 'principal' && <PrincipalDashboard />}
+      </Suspense>
 
       {/* 2. Primary Public Website Routes */}
       {currentUser.role === 'public' && (
         <>
+          <a href="#main-content" className="skip-link">
+            Skip to main content
+          </a>
           <Navbar />
-          <main style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-            <Routes>
+          <main id="main-content" tabIndex="-1" style={{ flex: 1, display: 'flex', flexDirection: 'column', outline: 'none' }}>
+            <Suspense fallback={<PageLoadingFallback />}>
+              <Routes>
               {/* Home */}
               <Route path="/" element={<HomePage />} />
               <Route path="/index.html" element={<Navigate to="/" replace />} />
@@ -188,8 +232,9 @@ export default function App() {
               {/* 404 Fallback */}
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
-          </main>
-          <Footer />
+          </Suspense>
+        </main>
+        <Footer />
           <LoginModal />
         </>
       )}

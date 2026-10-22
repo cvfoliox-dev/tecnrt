@@ -9,9 +9,9 @@ export const COLLEGE_AUDIT_DATA = {
     trust: "Venkata Ramana Charitable Trust",
     foundersGroup: "Tirumala Milk Products Pvt. Ltd.",
     status: "Autonomous Institution | Approved by AICTE | Permanently Affiliated to JNTUK Kakinada | NAAC 'A' Grade | NBA Accredited | UGC 2(f) & 12(B)",
-    tagline: "Empowering Rural Youth with World-Class Technical Education",
+    tagline: "Empowering Rural Youth with Quality Technical Education",
     meritScholarshipCorpus: "₹60,00,000 (Rupees Sixty Lakhs Annually Awarded to Top 10 Students of Each Branch)",
-    campusArea: "16+ Picturesque Lush Green Acres",
+    campusArea: "16-Acre Green Campus",
     location: {
       address: "Jonnalagadda Village, Narasaraopet Mandal, Palnadu District, Andhra Pradesh - 522601",
       busDistance: "5.0 Km from Narasaraopet Bus Station",
@@ -71,7 +71,7 @@ export const COLLEGE_AUDIT_DATA = {
       image: "/college_assets/Picture4nv.jpg",
       phone: "9440273798",
       email: "tecnrt@gmail.com",
-      message: "Technical education must blend cutting-edge engineering skills with strong social and environmental awareness. TEC stands as a beacon for aspiring technocrats."
+      message: "Technical education should blend practical engineering competence with social responsibility. TEC prepares students to build purposeful careers."
     }
   ],
 
@@ -82,7 +82,7 @@ export const COLLEGE_AUDIT_DATA = {
     image: "/principal.png",
     phone: "08647 - 218164 / 9248752999",
     email: "principal@tecnrt.org",
-    bio: "Dr. Y. V. Narayana is a distinguished academician and administrator who has guided Tirumala Engineering College from its inception to autonomous status, NAAC 'A' accreditation, and NBA recognition. His visionary leadership emphasizes outcome-based education, industry-ready skill sets, and vibrant campus life.",
+    bio: "Dr. Y. V. Narayana is an experienced educator and administrator who has guided Tirumala Engineering College from its founding to autonomous status, NAAC 'A' accreditation, and NBA recognition. His administration focuses on outcome-based education, laboratory practice, and student career readiness.",
     quote: "The only place where success comes before work is in the dictionary. At TEC, we instill in our students the perseverance to turn aspirations into reality.",
     message: "Welcome to Tirumala Engineering College! As an autonomous institution permanently affiliated to JNTUK and accredited by NAAC with 'A' Grade, our mission is to deliver comprehensive technical education that bridges classroom fundamentals with industrial applications. Our dedicated faculty, advanced laboratories, research cells, and proactive placement cell ensure that every student graduates with professional competence and ethical grounding."
   },
@@ -94,7 +94,7 @@ export const COLLEGE_AUDIT_DATA = {
   },
 
   bestPractices: [
-    { id: 1, title: "Patriotic Assembly", description: "The college instructional day starts with 'Vande Mataram' at 8:55 AM and concludes with 'Jana Gana Mana' at 4:30 PM, fostering national pride and discipline." },
+    { id: 1, title: "Patriotic Assembly", description: "The college instructional day starts with 'Vande Mataram' at 8:55 AM and concludes with 'Jana Gana Mana' at 4:30 PM, encouraging daily discipline and mutual respect." },
     { id: 2, title: "Founder's Merit Scholarships", description: "An annual corpus of ₹60,00,000 awarded directly to the top 10 academic achievers of each branch by the Venkata Ramana Charitable Trust." },
     { id: 3, title: "Focus & Discipline Policy", description: "Strict prohibition of mobile phone usage in academic zones during instructional hours to ensure undivided classroom focus." },
     { id: 4, title: "Student Safety First", description: "Discouraging two-wheelers for student commuting while providing an extensive college bus network across 6 regional transit routes." },
@@ -473,7 +473,7 @@ export const COLLEGE_AUDIT_DATA = {
 
   amenities: {
     library: {
-      title: "Central Library — Beehive of Knowledge",
+      title: "Central Library: Beehive of Knowledge",
       incharge: "Sk. Moulla (Library In-Charge)",
       volumes: "35,000+ Text & Reference Volumes",
       titles: "6,800+ Distinct Titles",
@@ -499,11 +499,11 @@ export const COLLEGE_AUDIT_DATA = {
     transport: {
       fleet: "35+ College Buses",
       corridors: [
-        "Corridor 1: Guntur City — Narasaraopet Campus via Perecherla, Medikonduru, Sattenapalle",
-        "Corridor 2: Chilakaluripet — Narasaraopet Campus via Purushothapatnam",
-        "Corridor 3: Vinukonda — Narasaraopet Campus via Vellaturu, Savalyapuram",
-        "Corridor 4: Addanki — Narasaraopet Campus via Muppalla, Rompicherla",
-        "Corridor 5: Piduguralla — Narasaraopet Campus",
+        "Corridor 1: Guntur to Narasaraopet Campus via Perecherla, Medikonduru, Sattenapalle",
+        "Corridor 2: Chilakaluripet to Narasaraopet Campus via Purushothapatnam",
+        "Corridor 3: Vinukonda to Narasaraopet Campus via Vellaturu, Savalyapuram",
+        "Corridor 4: Addanki to Narasaraopet Campus via Muppalla, Rompicherla",
+        "Corridor 5: Piduguralla to Narasaraopet Campus",
         "Corridor 6: Narasaraopet Town & Railway Station Local Shuttles"
       ],
       incharge: "Transport In-Charge (Phone: 9966552479 / 9390543208)"
@@ -525,7 +525,7 @@ export const COLLEGE_AUDIT_DATA = {
       programs: ["Full Stack Python Development", "Amazon Web Services (AWS) Cloud Foundations", "Embedded IoT & Arduino / Raspberry Pi", "Siemens Solid Edge 3D CAD Modeling", "Cybersecurity & Ethical Hacking"]
     },
     fest: {
-      title: "Prayaga — Annual National Level Tech & Cultural Symposium",
+      title: "Prayaga: Annual National Level Tech & Cultural Symposium",
       editions: ["Prayaga 2023", "Prayaga 2021", "Prayaga 2018", "Prayaga 2016", "Prayaga 2015", "Prayaga 2013", "Prayaga 2012"],
       events: ["Paper Presentations", "Technical Poster Design", "Project Expo & Working Models", "Codeathon & Debugging Sprint", "Robo Wars", "Short Film Contest", "Singing & Classical/Western Dance Battles"]
     }

@@ -48,7 +48,7 @@ export default function AdmissionPages() {
             Admissions 2026 - 2027
           </h1>
           <p style={{ color: '#cbd5e1', fontSize: '1.05rem', maxWidth: '750px', marginTop: '0.5rem' }}>
-            Join Andhra Pradesh's premier autonomous technical institution. AP EAPCET / ECET Counseling Code: <strong>TMLN</strong>.
+            Admissions information for undergraduate and postgraduate engineering programs. AP EAPCET / ECET Counseling Code: <strong>TMLN</strong>.
           </p>
         </div>
       </div>
@@ -258,7 +258,7 @@ export default function AdmissionPages() {
             {currentSection === 'fee-details' && (
               <div>
                 <div style={{ borderBottom: '2px solid #f1f5f9', paddingBottom: '1rem', marginBottom: '1.75rem' }}>
-                  <span style={{ color: '#2563eb', fontWeight: 700, fontSize: '0.8rem', textTransform: 'uppercase' }}>TRANSPARENT EXPENSE STRUCTURE</span>
+                  <span style={{ color: '#2563eb', fontWeight: 700, fontSize: '0.8rem', textTransform: 'uppercase' }}>TUITION & FEE DETAILS</span>
                   <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', fontWeight: 800, color: '#0e2154' }}>
                     Intake & Fee Structure (2025-2026)
                   </h2>

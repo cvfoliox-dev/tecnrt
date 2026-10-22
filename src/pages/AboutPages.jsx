@@ -70,7 +70,7 @@ export default function AboutPages() {
             About Tirumala Engineering College
           </h1>
           <p style={{ color: '#cbd5e1', fontSize: '1.05rem', maxWidth: '750px', marginTop: '0.5rem' }}>
-            Established in 2008 by the visionary founders of Tirumala Milk Products Pvt. Ltd. under Venkata Ramana Charitable Trust.
+            Established in 2008 by the founders of Tirumala Milk Products Pvt. Ltd. under Venkata Ramana Charitable Trust.
           </p>
         </div>
       </div>
@@ -147,12 +147,12 @@ export default function AboutPages() {
                     Why "Venkata Ramana Charitable Trust"?
                   </h4>
                   <p style={{ margin: 0 }}>
-                    As the management belongs to a rural and agricultural background, they experienced firsthand the economic difficulties faced by farmers. When their venture <strong>Tirumala Milk Products Pvt. Ltd.</strong> flourished into a mega industrial dairy house with an annual turnover exceeding <strong>₹1,500 Crores</strong>, they vowed to give back to the rural community. In 2008, they instituted the Venkata Ramana Charitable Trust to impart world-class engineering education in Narasaraopet and instituted an annual corpus of <strong>₹60 Lakhs</strong> as merit scholarships.
+                    After building <strong>Tirumala Milk Products Pvt. Ltd.</strong> into a major regional dairy enterprise, the founders created the Venkata Ramana Charitable Trust in 2008 to expand higher education opportunities in their native region. To support students from rural and agricultural backgrounds, the trust founded Tirumala Engineering College in Narasaraopet and instituted an annual merit scholarship corpus of <strong>₹60 Lakhs</strong> for top academic achievers.
                   </p>
                 </div>
 
                 <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#0e2154', marginBottom: '1.25rem' }}>
-                  The Five Founders — Sons of the Soil
+                  The Five Founders of the College
                 </h3>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
@@ -189,7 +189,7 @@ export default function AboutPages() {
             {currentSection === 'management' && (
               <div>
                 <div style={{ borderBottom: '2px solid #f1f5f9', paddingBottom: '1rem', marginBottom: '1.75rem' }}>
-                  <span style={{ color: '#d97706', fontWeight: 700, fontSize: '0.8rem', textTransform: 'uppercase' }}>LEADERSHIP DISCOURSE</span>
+                  <span style={{ color: '#d97706', fontWeight: 700, fontSize: '0.8rem', textTransform: 'uppercase' }}>MESSAGE FROM THE CHAIRMAN</span>
                   <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', fontWeight: 800, color: '#0e2154' }}>
                     Management's Message
                   </h2>
@@ -370,13 +370,13 @@ export default function AboutPages() {
                     </blockquote>
 
                     <h4 style={{ fontWeight: 800, color: '#0e2154', fontSize: '1.05rem', marginBottom: '0.5rem' }}>
-                      Principal's Message to Technocrats:
+                      Principal's Message to Students:
                     </h4>
                     <p style={{ color: '#475569', lineHeight: 1.8, fontSize: '0.95rem', marginBottom: '1rem' }}>
                       {principal.message}
                     </p>
                     <p style={{ color: '#475569', lineHeight: 1.8, fontSize: '0.95rem' }}>
-                      At TEC, we believe that education must transcend textbooks. Our campus buzzes with technical symposiums (Prayaga), Applied Robotics training in collaboration with European institutes, IEEE student branch activities, and round-the-clock digital library resources. We look forward to partnering with you on your journey towards technical leadership.
+                      At TEC, our academic work connects classroom instruction with practical laboratory experience. Our campus organizes annual technical symposiums (Prayaga), industrial robotics practice, IEEE student branch activities, and digital library resources to help students build solid technical foundations.
                     </p>
                   </div>
                 </div>
@@ -533,7 +533,7 @@ export default function AboutPages() {
             {currentSection === 'best-practices' && (
               <div>
                 <div style={{ borderBottom: '2px solid #f1f5f9', paddingBottom: '1rem', marginBottom: '1.75rem' }}>
-                  <span style={{ color: '#2563eb', fontWeight: 700, fontSize: '0.8rem', textTransform: 'uppercase' }}>STANDARDS OF ETHICS</span>
+                  <span style={{ color: '#2563eb', fontWeight: 700, fontSize: '0.8rem', textTransform: 'uppercase' }}>INSTITUTIONAL PRACTICES</span>
                   <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', fontWeight: 800, color: '#0e2154' }}>
                     Best Practices & Institutional Hallmarks
                   </h2>

@@ -78,7 +78,7 @@ export default function AboutSection() {
             </div>
 
             <p style={{ fontSize: '0.92rem', color: '#475569', lineHeight: 1.65, fontStyle: 'italic', marginBottom: '1.25rem' }}>
-              "At Tirumala Engineering College, we prioritize experiential technical education where student talent meets cutting-edge industry training. Our centralized Management Portal represents our dedication to modern governance—giving students transparent access to attendance and grades, empowering faculty with spreadsheet workflows, and equipping leadership with data-driven oversight."
+              "At Tirumala Engineering College, we prioritize practical technical education and dedicated career preparation. Our management portal provides students with clear access to attendance and grades, helps faculty organize course records, and gives department leadership reliable administrative oversight."
             </p>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#1e3a8a', fontSize: '0.85rem', fontWeight: 600 }}>
@@ -90,9 +90,9 @@ export default function AboutSection() {
           {/* Key Campus Infrastructure Highlights */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
             <div style={{ background: '#ffffff', padding: '1.25rem', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
-              <div style={{ fontWeight: 800, fontSize: '1.5rem', color: '#1d4ed8' }}>25+</div>
-              <div style={{ fontWeight: 700, fontSize: '0.85rem', color: '#0f172a' }}>Lush Campus Acres</div>
-              <div style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '0.2rem' }}>State-of-the-art academic blocks at Jonnalagadda</div>
+              <div style={{ fontWeight: 800, fontSize: '1.5rem', color: '#1d4ed8' }}>16</div>
+              <div style={{ fontWeight: 700, fontSize: '0.85rem', color: '#0f172a' }}>Campus Acres</div>
+              <div style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '0.2rem' }}>Academic and laboratory blocks at Jonnalagadda</div>
             </div>
 
             <div style={{ background: '#ffffff', padding: '1.25rem', borderRadius: '12px', border: '1px solid #e2e8f0' }}>

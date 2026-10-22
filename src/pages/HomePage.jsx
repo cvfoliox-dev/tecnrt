@@ -32,7 +32,7 @@ export default function HomePage() {
           margin: 0,
           padding: 0,
           overflow: 'hidden',
-          backgroundColor: '#0a1633',
+          backgroundColor: '#001833',
           lineHeight: 1
         }}
         aria-label="Campus Hero"
@@ -63,7 +63,7 @@ export default function HomePage() {
             left: 0,
             width: '100%',
             height: '100%',
-            background: 'linear-gradient(135deg, rgba(10, 22, 51, 0.46) 0%, rgba(10, 22, 51, 0.2) 42%, rgba(10, 22, 51, 0) 70%)',
+            background: 'linear-gradient(135deg, rgba(0, 33, 71, 0.52) 0%, rgba(0, 33, 71, 0.22) 42%, rgba(0, 33, 71, 0) 70%)',
             pointerEvents: 'none',
             zIndex: 2
           }}
@@ -91,8 +91,8 @@ export default function HomePage() {
               gap: '0.45rem',
               padding: '0.35rem 0.85rem',
               borderRadius: '9999px',
-              backgroundColor: 'rgba(8, 20, 50, 0.65)',
-              border: '1px solid rgba(245, 158, 11, 0.4)',
+              backgroundColor: 'rgba(5, 29, 59, 0.85)',
+              border: '1px solid rgba(245, 158, 11, 0.5)',
               backdropFilter: 'blur(6px)',
               WebkitBackdropFilter: 'blur(6px)',
               marginBottom: '0.85rem'
@@ -102,11 +102,11 @@ export default function HomePage() {
             <span style={{
               fontSize: 'clamp(0.68rem, 1.4vw, 0.76rem)',
               fontWeight: 800,
-              letterSpacing: '0.12em',
+              letterSpacing: '0.08em',
               textTransform: 'uppercase',
               color: '#fef3c7'
             }}>
-              WELCOME TO TIRUMALA ENGINEERING COLLEGE
+              Tirumala Engineering College • Autonomous • EAPCET Code: TMLN
             </span>
           </div>
 
@@ -117,15 +117,15 @@ export default function HomePage() {
               fontFamily: 'var(--font-heading)',
               fontSize: 'clamp(2rem, 4.2vw, 3.2rem)',
               fontWeight: 900,
-              lineHeight: 1.12,
+              lineHeight: 1.15,
               letterSpacing: '-0.03em',
               color: '#ffffff',
               margin: '0 0 0.85rem 0',
-              textShadow: '0 2px 14px rgba(0, 0, 0, 0.6)'
+              textShadow: '0 2px 14px rgba(0, 0, 0, 0.65)'
             }}
           >
-            Shaping Knowledge.<br />
-            <span style={{ color: '#fbbf24' }}>Building Futures.</span>
+            Engineering Education<br />
+            <span style={{ color: '#fbbf24' }}>with Discipline and Purpose</span>
           </h1>
 
           {/* Supporting Text */}
@@ -136,12 +136,12 @@ export default function HomePage() {
               lineHeight: 1.6,
               color: '#f1f5f9',
               margin: '0 0 1.35rem 0',
-              maxWidth: '540px',
+              maxWidth: '560px',
               fontWeight: 400,
               textShadow: '0 1px 8px rgba(0, 0, 0, 0.55)'
             }}
           >
-            Fostering technical innovation, ethical discipline, and outcome-based engineering education under UGC Autonomous status at Narasaraopet.
+            Affiliated with JNTUK and accredited by NAAC and NBA. We offer practical laboratory training, ₹60L annual merit scholarships, and focused placement preparation that secured 910 offers in 2025–2026.
           </p>
 
           {/* CTAs */}
@@ -163,17 +163,17 @@ export default function HomePage() {
                 alignItems: 'center',
                 gap: '0.5rem',
                 backgroundColor: '#f59e0b',
-                color: '#0e2154',
+                color: '#051d3b',
                 fontWeight: 700,
                 fontSize: '0.92rem',
                 padding: '0.7rem 1.35rem',
                 borderRadius: '8px',
                 textDecoration: 'none',
-                boxShadow: '0 4px 16px rgba(245, 158, 11, 0.35)',
+                boxShadow: '0 4px 16px rgba(245, 158, 11, 0.4)',
                 transition: 'all 0.2s ease'
               }}
             >
-              <span>Explore Departments</span>
+              <span>Explore B.Tech Courses</span>
               <ArrowRight size={16} />
             </Link>
 
@@ -205,19 +205,129 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. SOPHISTICATED EDITORIAL-STYLE PRINCIPAL'S SECTION */}
+      {/* QUICK TASK BAR FOR STUDENTS & PARENTS */}
+      <section
+        style={{
+          width: '100%',
+          backgroundColor: '#051d3b',
+          borderBottom: '1px solid #0d4a91',
+          padding: '1rem 1.5rem',
+          position: 'relative',
+          zIndex: 5
+        }}
+        aria-label="Quick Task Navigation"
+      >
+        <div 
+          style={{ 
+            maxWidth: '1280px', 
+            margin: '0 auto',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '0.75rem'
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#94a3b8', fontSize: '0.82rem', fontWeight: 600 }}>
+            <span style={{ color: '#fbbf24', fontWeight: 800 }}>Quick Links:</span>
+            <span>Direct access for students, parents, and recruiters</span>
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
+            <Link
+              to="/admissions/procedure"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.35rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                color: '#f8fafc',
+                fontSize: '0.82rem',
+                fontWeight: 600,
+                padding: '0.4rem 0.85rem',
+                borderRadius: '6px',
+                textDecoration: 'none',
+                border: '1px solid rgba(255, 255, 255, 0.12)'
+              }}
+            >
+              <span>Admissions 2026</span>
+            </Link>
+
+            <Link
+              to="/departments/cse"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.35rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                color: '#f8fafc',
+                fontSize: '0.82rem',
+                fontWeight: 600,
+                padding: '0.4rem 0.85rem',
+                borderRadius: '6px',
+                textDecoration: 'none',
+                border: '1px solid rgba(255, 255, 255, 0.12)'
+              }}
+            >
+              <span>B.Tech Programs</span>
+            </Link>
+
+            <a
+              href="http://www.tecnrt.ac.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.35rem',
+                backgroundColor: 'rgba(245, 158, 11, 0.18)',
+                color: '#fbbf24',
+                fontSize: '0.82rem',
+                fontWeight: 700,
+                padding: '0.4rem 0.85rem',
+                borderRadius: '6px',
+                textDecoration: 'none',
+                border: '1px solid rgba(245, 158, 11, 0.45)'
+              }}
+            >
+              <span>Exam Portal (tecnrt.ac.in)</span>
+            </a>
+
+            <Link
+              to="/placements/statistics"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.35rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                color: '#f8fafc',
+                fontSize: '0.82rem',
+                fontWeight: 600,
+                padding: '0.4rem 0.85rem',
+                borderRadius: '6px',
+                textDecoration: 'none',
+                border: '1px solid rgba(255, 255, 255, 0.12)'
+              }}
+            >
+              <span>Placement Records</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. EDITORIAL PRINCIPAL'S SECTION */}
       <section 
         id="principal-section"
         style={{
           width: '100%',
-          backgroundColor: '#f8fafc',
+          backgroundColor: '#fbfbfd',
           padding: 'clamp(4rem, 8vw, 6.5rem) 1.5rem',
           borderTop: '1px solid #e2e8f0',
           borderBottom: '1px solid #e2e8f0',
           position: 'relative',
           scrollMarginTop: '80px'
         }}
-        aria-label="Principal's Desk and Institutional Leadership"
+        aria-label="Principal's Message"
       >
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           {/* Section Eyebrow & Heading */}
@@ -227,24 +337,33 @@ export default function HomePage() {
               alignItems: 'center', 
               gap: '0.4rem',
               color: '#d97706', 
-              fontSize: '0.8rem', 
+              fontSize: '0.82rem', 
               fontWeight: 800, 
-              letterSpacing: '0.12em', 
+              letterSpacing: '0.08em', 
               textTransform: 'uppercase',
               marginBottom: '0.5rem'
             }}>
-              <span>INSTITUTIONAL LEADERSHIP & GUIDANCE</span>
+              <span>Principal's Message</span>
             </div>
             <h2 style={{
               fontFamily: 'var(--font-heading)',
               fontSize: 'clamp(1.75rem, 3.5vw, 2.6rem)',
               fontWeight: 800,
-              color: '#0e2154',
+              color: '#0a3d78',
               letterSpacing: '-0.02em',
-              margin: 0
+              margin: '0 0 0.5rem 0'
             }}>
               From the Principal's Desk
             </h2>
+            <p style={{
+              fontSize: '1rem',
+              color: '#475569',
+              maxWidth: '620px',
+              margin: '0 auto',
+              lineHeight: 1.5
+            }}>
+              Guiding students with academic discipline, practical industry skills, and ethical values.
+            </p>
             <div style={{ width: '48px', height: '3px', backgroundColor: '#f59e0b', margin: '0.9rem auto 0 auto', borderRadius: '2px' }} />
           </div>
 
@@ -260,8 +379,8 @@ export default function HomePage() {
                     width: '36px',
                     height: '36px',
                     borderRadius: '8px',
-                    backgroundColor: '#eef2ff',
-                    color: '#1e40af',
+                    backgroundColor: '#e0f0fe',
+                    color: '#0a3d78',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -271,15 +390,15 @@ export default function HomePage() {
                   </div>
                   <div>
                     <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#d97706', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block' }}>
-                      ACADEMIC LEADERSHIP
+                      ACADEMICS
                     </span>
-                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0e2154', margin: 0, lineHeight: 1.25 }}>
-                      Excellence in Pedagogy & Quality
+                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0a3d78', margin: 0, lineHeight: 1.25 }}>
+                      Teaching and Learning
                     </h3>
                   </div>
                 </div>
                 <p style={{ fontSize: '0.92rem', color: '#475569', lineHeight: 1.65, margin: 0 }}>
-                  Under the stewardship of the Principal, Tirumala Engineering College upholds rigorous teaching standards and outcome-based curriculum delivery. Continuous faculty development initiatives, sponsored research projects, and active participation in national symposiums ensure that classrooms stay aligned with contemporary technical education benchmarks.
+                  Dr. Y. V. Narayana oversees the academic standards at Tirumala Engineering College, focusing on practical laboratory coursework, autonomous curriculum updates aligned with industry demands, and continuous faculty development to ensure students understand core engineering concepts thoroughly.
                 </p>
               </div>
 
@@ -293,8 +412,8 @@ export default function HomePage() {
                     width: '36px',
                     height: '36px',
                     borderRadius: '8px',
-                    backgroundColor: '#ecfdf5',
-                    color: '#059669',
+                    backgroundColor: '#d1e7dd',
+                    color: '#0f5132',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -304,15 +423,15 @@ export default function HomePage() {
                   </div>
                   <div>
                     <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#d97706', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block' }}>
-                      INSTITUTIONAL VISION
+                      OUR MISSION
                     </span>
-                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0e2154', margin: 0, lineHeight: 1.25 }}>
-                      Value-Driven Engineering Education
+                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0a3d78', margin: 0, lineHeight: 1.25 }}>
+                      Our Educational Mission
                     </h3>
                   </div>
                 </div>
                 <p style={{ fontSize: '0.92rem', color: '#475569', lineHeight: 1.65, margin: 0 }}>
-                  Founded with the committed vision of delivering disciplined, accessible, and high-caliber technical education to the Palnadu region, the institution focuses on nurturing students from rural and semi-urban backgrounds into competent, ethical engineers prepared for challenging professional careers across national and global domains.
+                  Founded to bring quality engineering education to students across the Palnadu region, TEC pairs affordable college education with disciplined campus life, modern computing labs, and active faculty mentorship so graduates can build stable, rewarding technical careers.
                 </p>
               </div>
             </div>
@@ -323,7 +442,7 @@ export default function HomePage() {
                 backgroundColor: '#ffffff',
                 borderRadius: '16px',
                 padding: '0.85rem',
-                boxShadow: '0 10px 30px rgba(14, 33, 84, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05)',
+                boxShadow: '0 10px 30px rgba(10, 61, 120, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05)',
                 border: '1px solid #e2e8f0',
                 textAlign: 'center'
               }}>
@@ -332,7 +451,7 @@ export default function HomePage() {
                   position: 'relative',
                   borderRadius: '12px',
                   overflow: 'hidden',
-                  backgroundColor: '#0e2154',
+                  backgroundColor: '#0a3d78',
                   aspectRatio: '16/10'
                 }}>
                   <img 
@@ -354,7 +473,7 @@ export default function HomePage() {
                     fontFamily: 'var(--font-heading)',
                     fontSize: '1.35rem',
                     fontWeight: 800,
-                    color: '#0e2154',
+                    color: '#0a3d78',
                     margin: '0 0 0.25rem 0',
                     lineHeight: 1.2
                   }}>
@@ -374,10 +493,11 @@ export default function HomePage() {
                     alignItems: 'center',
                     gap: '0.35rem',
                     padding: '0.35rem 0.75rem',
-                    backgroundColor: '#f1f5f9',
+                    backgroundColor: '#f0f7ff',
+                    border: '1px solid #bae6fd',
                     borderRadius: '6px',
                     fontSize: '0.74rem',
-                    color: '#334155',
+                    color: '#0a3d78',
                     fontWeight: 700
                   }}>
                     <Award size={13} style={{ color: '#f59e0b' }} />
@@ -409,13 +529,13 @@ export default function HomePage() {
                     <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#d97706', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block' }}>
                       STUDENT DEVELOPMENT
                     </span>
-                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0e2154', margin: 0, lineHeight: 1.25 }}>
-                      Technical Mastery & Discipline
+                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0a3d78', margin: 0, lineHeight: 1.25 }}>
+                      Practical Training and Student Life
                     </h3>
                   </div>
                 </div>
                 <p style={{ fontSize: '0.92rem', color: '#475569', lineHeight: 1.65, margin: 0 }}>
-                  A holistic educational environment balances technical knowledge with structured discipline, problem-solving habits, and hands-on laboratory immersion. Through student chapters, dedicated skill development modules, and co-curricular pursuits, learners are guided to cultivate the self-reliance and technical agility demanded by modern engineering workplaces.
+                  Engineering education at TEC goes beyond textbooks. Students participate in hands-on technical workshops, department symposiums, sports, and soft-skills training designed to build real workplace readiness, team cooperation, and personal discipline.
                 </p>
               </div>
 
@@ -429,8 +549,8 @@ export default function HomePage() {
                     width: '36px',
                     height: '36px',
                     borderRadius: '8px',
-                    backgroundColor: '#eff6ff',
-                    color: '#1d4ed8',
+                    backgroundColor: '#f0f7ff',
+                    color: '#0a3d78',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -440,10 +560,10 @@ export default function HomePage() {
                   </div>
                   <div>
                     <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#d97706', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block' }}>
-                      MESSAGE FROM THE PRINCIPAL
+                      MESSAGE TO STUDENTS
                     </span>
-                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0e2154', margin: 0, lineHeight: 1.25 }}>
-                      A Word to Aspiring Engineers
+                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0a3d78', margin: 0, lineHeight: 1.25 }}>
+                      Advice to Students
                     </h3>
                   </div>
                 </div>
@@ -460,7 +580,7 @@ export default function HomePage() {
                   "The only place where success comes before work is in the dictionary."
                 </blockquote>
                 <p style={{ fontSize: '0.92rem', color: '#475569', lineHeight: 1.65, margin: 0 }}>
-                  Students are urged to recognize the value of continuous learning, responsible conduct, and persistent effort. By approaching each academic challenge with curiosity and commitment, young engineers build not only prosperous careers but also meaningful contributions to society and national progress.
+                  We advise our students to stay curious, attend classes regularly, and make full use of our campus labs and campus placement training. With consistent practice, honest effort, and respectful conduct, every student can achieve their career goals.
                 </p>
               </div>
             </div>
@@ -516,12 +636,12 @@ export default function HomePage() {
 
         /* Hover and Focus States for Hero CTAs */
         .tec-btn-primary:hover {
-          background-color: #d97706 !important;
+          background-color: #a97519 !important;
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45) !important;
+          box-shadow: 0 6px 20px rgba(192, 151, 72, 0.45) !important;
         }
         .tec-btn-primary:focus-visible {
-          outline: 3px solid #fbbf24;
+          outline: 3px solid #d4a955;
           outline-offset: 3px;
         }
         .tec-btn-secondary:hover {
