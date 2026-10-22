@@ -111,7 +111,7 @@ export default function HomePage() {
             >
               <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#f59e0b', display: 'inline-block', flexShrink: 0 }} />
               <span 
-                className="tec-hero-pill-text"
+                className="tec-hero-pill-text-desktop"
                 style={{
                   fontSize: 'clamp(0.66rem, 1.3vw, 0.78rem)',
                   fontWeight: 800,
@@ -121,6 +121,19 @@ export default function HomePage() {
                 }}
               >
                 TIRUMALA ENGINEERING COLLEGE • AUTONOMOUS • EAPCET CODE: TMLN
+              </span>
+              <span 
+                className="tec-hero-pill-text-mobile"
+                style={{
+                  display: 'none',
+                  fontSize: '0.7rem',
+                  fontWeight: 800,
+                  letterSpacing: '0.05em',
+                  textTransform: 'uppercase',
+                  color: '#ffffff'
+                }}
+              >
+                AUTONOMOUS • EAPCET: TMLN
               </span>
             </div>
 
@@ -757,69 +770,57 @@ export default function HomePage() {
         }
 
         @media (max-width: 768px) {
-          .tec-eyebrow-desktop {
+          /* Remove Quick Links on mobile as requested */
+          .tec-quicklinks-section {
             display: none !important;
           }
-          .tec-eyebrow-mobile {
+
+          .tec-hero-pill-text-desktop {
+            display: none !important;
+          }
+          .tec-hero-pill-text-mobile {
             display: inline !important;
           }
-          .tec-hero-desc-desktop {
-            display: none !important;
-          }
-          .tec-hero-desc-mobile {
-            display: block !important;
-          }
-          /* Campus hero with natural height, college building centered, and no empty ground gap */
+
+          /* Full viewport mobile hero: campus image settles prominently below text */
           .tec-homepage-fullwidth-hero {
-            min-height: auto !important;
-            height: auto !important;
+            height: calc(100vh - 96px) !important;
+            min-height: 560px !important;
+            justify-content: flex-start !important;
           }
           .tec-hero-panorama-img {
             object-fit: cover !important;
-            object-position: 72% 38% !important;
+            object-position: 35% 28% !important;
             transform: none !important;
           }
           .tec-hero-gradient-overlay {
-            background: linear-gradient(180deg, rgba(5, 29, 59, 0.8) 0%, rgba(5, 29, 59, 0.35) 45%, rgba(5, 29, 59, 0.85) 100%) !important;
+            background: linear-gradient(180deg, rgba(5, 29, 59, 0.76) 0%, rgba(5, 29, 59, 0.3) 42%, rgba(5, 29, 59, 0.05) 75%) !important;
           }
           .tec-hero-content-wrapper {
-            padding-top: 1.5rem !important;
-            padding-bottom: 1.35rem !important;
+            padding-top: 1.25rem !important;
+            padding-bottom: 1rem !important;
           }
           .hero-anim-heading {
-            font-size: clamp(1.32rem, 5.2vw, 1.65rem) !important;
+            font-size: clamp(1.35rem, 5.2vw, 1.65rem) !important;
             line-height: 1.2 !important;
-            margin-bottom: 0.65rem !important;
+            margin-bottom: 0.5rem !important;
           }
-        }
-
-        @media (max-width: 640px) {
-          .tec-quicklinks-container {
-            flex-direction: column !important;
-            align-items: stretch !important;
-          }
-          .tec-quicklinks-header {
-            justify-content: space-between !important;
-          }
-          .tec-quicklinks-grid {
-            display: grid !important;
-            grid-template-columns: repeat(2, 1fr) !important;
-            gap: 0.5rem !important;
-            width: 100% !important;
-          }
-          .tec-quicklink-btn {
-            width: 100% !important;
-            text-align: center !important;
-            padding: 0.5rem 0.4rem !important;
-            font-size: 0.78rem !important;
-            white-space: normal !important;
+          .hero-anim-desc {
+            font-size: 0.82rem !important;
+            line-height: 1.45 !important;
+            margin-bottom: 0.85rem !important;
           }
           .hero-anim-actions {
+            display: flex !important;
+            flex-direction: column !important;
             gap: 0.55rem !important;
+            width: 100% !important;
           }
           .tec-btn-primary, .tec-btn-secondary {
-            padding: 0.6rem 0.95rem !important;
-            font-size: 0.84rem !important;
+            width: 100% !important;
+            justify-content: center !important;
+            padding: 0.65rem 1rem !important;
+            font-size: 0.86rem !important;
             min-height: 42px !important;
           }
         }
@@ -827,16 +828,6 @@ export default function HomePage() {
         @media (max-width: 440px) {
           .hero-anim-eyebrow {
             white-space: normal !important;
-          }
-          .hero-anim-actions {
-            display: flex !important;
-            flex-direction: row !important;
-            flex-wrap: wrap !important;
-          }
-          .tec-btn-primary, .tec-btn-secondary {
-            flex: 1 1 auto !important;
-            min-width: 140px !important;
-            justify-content: center !important;
           }
         }
       `}</style>
