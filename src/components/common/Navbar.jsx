@@ -220,7 +220,7 @@ export default function Navbar() {
                 fontFamily: 'var(--font-heading)', 
                 fontWeight: 900, 
                 fontSize: 'clamp(0.92rem, 2vw, 1.25rem)', 
-                color: '#0a3d78', 
+                color: '#0e2154', 
                 letterSpacing: '-0.02em', 
                 lineHeight: 1.15,
                 whiteSpace: 'nowrap'
@@ -323,8 +323,8 @@ export default function Navbar() {
                 whiteSpace: 'nowrap', 
                 padding: '0.45rem 0.85rem', 
                 fontSize: '0.82rem',
-                color: '#0a3d78',
-                borderColor: '#0a3d78',
+                color: '#0e2154',
+                borderColor: '#0e2154',
                 borderWidth: '1.5px',
                 borderRadius: '6px',
                 backgroundColor: 'transparent',
@@ -358,11 +358,11 @@ export default function Navbar() {
           right: 0,
           width: '100%',
           zIndex: 850,
-          background: isHomePage ? 'rgba(10, 61, 120, 0.68)' : '#0a3d78',
-          backdropFilter: isHomePage ? 'blur(10px)' : 'none',
-          WebkitBackdropFilter: isHomePage ? 'blur(10px)' : 'none',
-          borderBottom: isHomePage ? '1px solid rgba(245, 158, 11, 0.4)' : '2px solid #f59e0b',
-          boxShadow: isHomePage ? '0 8px 24px rgba(0, 0, 0, 0.2)' : 'none'
+          background: isHomePage ? 'rgba(14, 33, 84, 0.95)' : '#0e2154',
+          backdropFilter: 'blur(10px)',
+          WebkitBackdropFilter: 'blur(10px)',
+          borderBottom: '2px solid #f59e0b',
+          boxShadow: '0 8px 24px rgba(0, 0, 0, 0.25)'
         }} 
         className="desktop-navbar-strip"
       >

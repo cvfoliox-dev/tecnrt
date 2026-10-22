@@ -82,28 +82,13 @@ export default function PlacementsSection() {
       style={{
         position: 'relative',
         width: '100%',
-        backgroundImage: 'url(/college_assets/full_image_3.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        backgroundAttachment: 'scroll',
+        backgroundColor: '#071739',
+        backgroundImage: 'radial-gradient(ellipse 80% 50% at 50% -10%, rgba(30, 64, 130, 0.35), transparent 70%), linear-gradient(180deg, #05142b 0%, #071739 50%, #0a1f46 100%)',
         color: '#ffffff',
         overflow: 'hidden'
       }}
       aria-label="Campus Placements Statistics"
     >
-      {/* Dark overlay with authentic Royal Navy gradient to preserve text contrast */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'linear-gradient(180deg, rgba(5, 29, 59, 0.94) 0%, rgba(10, 61, 120, 0.96) 100%)',
-          zIndex: 1
-        }}
-      />
-
       {/* Main Content Container */}
       <div
         style={{
@@ -117,16 +102,17 @@ export default function PlacementsSection() {
         {/* Original Marquee Announcement Banner */}
         <div
           style={{
-            backgroundColor: 'rgba(255, 255, 255, 0.08)',
-            border: '1px solid rgba(245, 158, 11, 0.45)',
+            backgroundColor: 'rgba(7, 23, 57, 0.85)',
+            border: '1.5px solid rgba(245, 158, 11, 0.55)',
             borderRadius: '9999px',
             padding: '0.6rem 1.25rem',
             marginBottom: 'clamp(2rem, 4vw, 3rem)',
             display: 'flex',
             alignItems: 'center',
             gap: '0.85rem',
-            backdropFilter: 'blur(8px)',
-            WebkitBackdropFilter: 'blur(8px)',
+            backdropFilter: 'blur(10px)',
+            WebkitBackdropFilter: 'blur(10px)',
+            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
             overflow: 'hidden'
           }}
         >
@@ -136,7 +122,7 @@ export default function PlacementsSection() {
               alignItems: 'center',
               gap: '0.35rem',
               backgroundColor: '#f59e0b',
-              color: '#051d3b',
+              color: '#071739',
               padding: '0.2rem 0.65rem',
               borderRadius: '9999px',
               fontSize: '0.72rem',
@@ -239,19 +225,19 @@ export default function PlacementsSection() {
                 key={stat.year}
                 className="tec-counter-card"
                 style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.06)',
+                  backgroundColor: isLatest ? 'rgba(14, 33, 84, 0.75)' : 'rgba(8, 23, 50, 0.65)',
                   border: isLatest
-                    ? '1.5px solid rgba(245, 158, 11, 0.55)'
+                    ? '1.5px solid rgba(245, 158, 11, 0.75)'
                     : '1px solid rgba(255, 255, 255, 0.12)',
                   borderRadius: '14px',
                   padding: '1.5rem 1rem',
                   textAlign: 'center',
-                  backdropFilter: 'blur(6px)',
-                  WebkitBackdropFilter: 'blur(6px)',
+                  backdropFilter: 'blur(8px)',
+                  WebkitBackdropFilter: 'blur(8px)',
                   boxShadow: isLatest
-                    ? '0 8px 24px rgba(245, 158, 11, 0.18)'
-                    : '0 4px 16px rgba(0, 0, 0, 0.2)',
-                  transition: 'transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease',
+                    ? '0 10px 25px -4px rgba(245, 158, 11, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+                    : '0 8px 20px -4px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
+                  transition: 'transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'center',
