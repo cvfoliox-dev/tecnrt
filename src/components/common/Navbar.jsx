@@ -213,7 +213,7 @@ export default function Navbar() {
         }}
       >
         <div 
-          className="container"
+          className="container tec-branding-container"
           style={{ 
             display: 'flex', 
             justifyContent: 'space-between', 
@@ -384,27 +384,48 @@ export default function Navbar() {
       </div>
 
       {/* 3. Mobile Accreditation Strip (Compact 28px Bar Under Main Header - Hidden on Desktop) */}
-      <div className="tec-mobile-accreditation-strip" aria-label="College Accreditations">
-        <div className="tec-mobile-logos-track">
+      <div 
+        className="tec-mobile-accreditation-strip" 
+        aria-label="College Accreditations"
+        style={{
+          width: '100%',
+          backgroundColor: '#f8fafc',
+          borderTop: '1px solid #f1f5f9',
+          borderBottom: '1px solid #e2e8f0',
+          padding: '0.3rem 0.5rem',
+          boxSizing: 'border-box'
+        }}
+      >
+        <div 
+          className="tec-mobile-logos-track"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            margin: '0 auto',
+            width: '100%',
+            gap: 'clamp(0.75rem, 3.5vw, 1.5rem)'
+          }}
+        >
           <img 
             src="/college_assets/logos/images.jpg" 
             alt="NAAC A+ Recognition" 
-            style={{ height: '22px', width: 'auto', maxWidth: '38px', objectFit: 'contain' }}
+            style={{ height: '22px', width: 'auto', maxWidth: '38px', objectFit: 'contain', display: 'block' }}
           />
           <img 
             src="/college_assets/logos/NAAC_LOGO.png" 
             alt="NAAC" 
-            style={{ height: '22px', width: 'auto', maxWidth: '30px', objectFit: 'contain' }}
+            style={{ height: '22px', width: 'auto', maxWidth: '30px', objectFit: 'contain', display: 'block' }}
           />
           <img 
             src="/college_assets/logos/logo_nba.png" 
             alt="NBA Accredited" 
-            style={{ height: '20px', width: 'auto', maxWidth: '38px', objectFit: 'contain' }}
+            style={{ height: '20px', width: 'auto', maxWidth: '38px', objectFit: 'contain', display: 'block' }}
           />
           <img 
             src="/college_assets/logos/logo_iso.png" 
             alt="ISO 9001:2015 Certified" 
-            style={{ height: '20px', width: 'auto', maxWidth: '28px', objectFit: 'contain' }}
+            style={{ height: '20px', width: 'auto', maxWidth: '28px', objectFit: 'contain', display: 'block' }}
           />
         </div>
       </div>
@@ -755,6 +776,24 @@ export default function Navbar() {
         @media (min-width: 1181px) {
           .desktop-navbar-strip { display: block !important; }
           .mobile-nav-toggle { display: none !important; }
+        }
+
+        @media (min-width: 993px) {
+          .tec-branding-container {
+            display: grid !important;
+            grid-template-columns: 1fr auto 1fr !important;
+            align-items: center !important;
+          }
+          .tec-brand-link {
+            justify-self: start !important;
+          }
+          .tec-header-logos-desktop {
+            justify-self: center !important;
+            margin: 0 auto !important;
+          }
+          .tec-header-actions {
+            justify-self: end !important;
+          }
         }
 
         @media (max-width: 1180px) {

@@ -103,14 +103,30 @@ export default function HomePage() {
               }}
             >
               <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: '#f59e0b', display: 'inline-block' }} />
-              <span style={{
-                fontSize: 'clamp(0.66rem, 1.3vw, 0.76rem)',
-                fontWeight: 800,
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-                color: '#fef3c7'
-              }}>
+              <span 
+                className="tec-eyebrow-desktop"
+                style={{
+                  fontSize: 'clamp(0.66rem, 1.3vw, 0.76rem)',
+                  fontWeight: 800,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  color: '#fef3c7'
+                }}
+              >
                 Tirumala Engineering College • Autonomous • EAPCET Code: TMLN
+              </span>
+              <span 
+                className="tec-eyebrow-mobile"
+                style={{
+                  display: 'none',
+                  fontSize: '0.72rem',
+                  fontWeight: 800,
+                  letterSpacing: '0.06em',
+                  textTransform: 'uppercase',
+                  color: '#fef3c7'
+                }}
+              >
+                Autonomous • EAPCET: TMLN
               </span>
             </div>
 
@@ -132,9 +148,9 @@ export default function HomePage() {
               <span style={{ color: '#fbbf24' }}>with Discipline and Purpose</span>
             </h1>
 
-            {/* Supporting Text */}
+            {/* Supporting Text: Full on desktop, simple crisp summary on mobile */}
             <p 
-              className="hero-anim-desc"
+              className="hero-anim-desc tec-hero-desc-desktop"
               style={{
                 fontSize: 'clamp(0.85rem, 1.25vw, 0.96rem)',
                 lineHeight: 1.55,
@@ -146,6 +162,20 @@ export default function HomePage() {
               }}
             >
               Affiliated with JNTUK and accredited by NAAC and NBA. We offer practical laboratory training, ₹60L annual merit scholarships, and focused placement preparation that secured 910 offers in 2025–2026.
+            </p>
+            <p 
+              className="hero-anim-desc tec-hero-desc-mobile"
+              style={{
+                display: 'none',
+                fontSize: '0.8rem',
+                lineHeight: 1.4,
+                color: '#fef3c7',
+                margin: '0 0 0.85rem 0',
+                fontWeight: 600,
+                textShadow: '0 1px 8px rgba(0, 0, 0, 0.85)'
+              }}
+            >
+              NAAC A+ & NBA Accredited Institution • 910 Placements
             </p>
 
             {/* Hero CTAs */}
@@ -696,12 +726,38 @@ export default function HomePage() {
         }
 
         @media (max-width: 768px) {
+          .tec-eyebrow-desktop {
+            display: none !important;
+          }
+          .tec-eyebrow-mobile {
+            display: inline !important;
+          }
+          .tec-hero-desc-desktop {
+            display: none !important;
+          }
+          .tec-hero-desc-mobile {
+            display: none !important; /* Decreased matter: kept very simple on mobile view only per user instruction */
+          }
+          /* College photo prominently visible with building in frame and clean fit without dead space */
+          .tec-homepage-fullwidth-hero {
+            min-height: auto !important;
+            height: clamp(300px, 43vh, 350px) !important;
+          }
+          .tec-hero-panorama-img {
+            transform: scale(1.68) !important;
+            transform-origin: 82% 52% !important;
+          }
           .tec-hero-gradient-overlay {
-            background: linear-gradient(180deg, rgba(5, 29, 59, 0.88) 0%, rgba(5, 29, 59, 0.68) 55%, rgba(5, 29, 59, 0.84) 100%) !important;
+            background: linear-gradient(180deg, rgba(5, 29, 59, 0.72) 0%, rgba(5, 29, 59, 0.12) 45%, rgba(5, 29, 59, 0.65) 100%) !important;
           }
           .tec-hero-content-wrapper {
-            padding-top: clamp(2rem, 4vh, 3rem) !important;
-            padding-bottom: clamp(2rem, 4vh, 3rem) !important;
+            padding-top: 1.15rem !important;
+            padding-bottom: 1.15rem !important;
+          }
+          .hero-anim-heading {
+            font-size: clamp(1.28rem, 5vw, 1.6rem) !important;
+            line-height: 1.18 !important;
+            margin-bottom: 0.85rem !important;
           }
         }
 
@@ -727,11 +783,12 @@ export default function HomePage() {
             white-space: normal !important;
           }
           .hero-anim-actions {
-            gap: 0.6rem !important;
+            gap: 0.55rem !important;
           }
           .tec-btn-primary, .tec-btn-secondary {
-            padding: 0.65rem 1rem !important;
-            font-size: 0.85rem !important;
+            padding: 0.6rem 0.95rem !important;
+            font-size: 0.84rem !important;
+            min-height: 42px !important;
           }
         }
 
@@ -739,8 +796,14 @@ export default function HomePage() {
           .hero-anim-eyebrow {
             white-space: normal !important;
           }
+          .hero-anim-actions {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: wrap !important;
+          }
           .tec-btn-primary, .tec-btn-secondary {
-            width: 100% !important;
+            flex: 1 1 auto !important;
+            min-width: 140px !important;
             justify-content: center !important;
           }
         }
