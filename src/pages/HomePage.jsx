@@ -26,18 +26,21 @@ export default function HomePage() {
 
   return (
     <div className="tec-homepage-root" style={{ width: '100%', overflowX: 'hidden' }}>
-      {/* 1. CAMPUS HERO FULL VIEWPORT (MATCHING USER REFERENCE DESIGN) */}
+      {/* 1. CAMPUS HERO WITH INTEGRATED RESPONSIVE CONTENT OVERLAY */}
       <section 
         className="tec-homepage-fullwidth-hero"
         style={{
           position: 'relative',
           width: '100%',
           height: 'calc(100vh - 135px)',
-          minHeight: '520px',
+          minHeight: '540px',
           margin: 0,
           padding: 0,
           overflow: 'hidden',
-          backgroundColor: '#0a1d37'
+          backgroundColor: '#0a1d37',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center'
         }}
         aria-label="Tirumala Engineering College Campus Panorama"
       >
@@ -46,6 +49,8 @@ export default function HomePage() {
           alt="Tirumala Engineering College Campus Panorama"
           className="tec-hero-panorama-img"
           style={{
+            position: 'absolute',
+            inset: 0,
             width: '100%',
             height: '100%',
             objectFit: 'cover',
@@ -53,9 +58,170 @@ export default function HomePage() {
             display: 'block',
             margin: 0,
             padding: 0,
-            border: 'none'
+            border: 'none',
+            zIndex: 1
           }}
         />
+
+        {/* Directional gradient overlay ensuring readability while keeping the building & sunlight sunny and clear */}
+        <div 
+          className="tec-hero-gradient-overlay"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(to right, rgba(5, 20, 45, 0.72) 0%, rgba(5, 20, 45, 0.45) 45%, rgba(5, 20, 45, 0.05) 85%)',
+            pointerEvents: 'none',
+            zIndex: 2
+          }}
+        />
+
+        {/* Hero Content rendered cleanly on both desktop and mobile */}
+        <div 
+          className="container tec-hero-content-wrapper"
+          style={{
+            position: 'relative',
+            zIndex: 10,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            paddingTop: 'clamp(1.5rem, 4vh, 3.5rem)',
+            paddingBottom: 'clamp(1.5rem, 4vh, 3.5rem)',
+            width: '100%',
+            boxSizing: 'border-box'
+          }}
+        >
+          <div style={{ maxWidth: '640px', color: '#ffffff' }}>
+            {/* Top Pill Badge */}
+            <div 
+              className="hero-anim-eyebrow"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.45rem',
+                padding: '0.35rem 0.85rem',
+                borderRadius: '9999px',
+                backgroundColor: 'rgba(5, 29, 59, 0.88)',
+                border: '1.5px solid rgba(245, 158, 11, 0.65)',
+                backdropFilter: 'blur(6px)',
+                WebkitBackdropFilter: 'blur(6px)',
+                marginBottom: '0.85rem',
+                maxWidth: '100%',
+                boxSizing: 'border-box'
+              }}
+            >
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#f59e0b', display: 'inline-block', flexShrink: 0 }} />
+              <span 
+                className="tec-hero-pill-text"
+                style={{
+                  fontSize: 'clamp(0.66rem, 1.3vw, 0.78rem)',
+                  fontWeight: 800,
+                  letterSpacing: '0.06em',
+                  textTransform: 'uppercase',
+                  color: '#ffffff'
+                }}
+              >
+                TIRUMALA ENGINEERING COLLEGE • AUTONOMOUS • EAPCET CODE: TMLN
+              </span>
+            </div>
+
+            {/* Main Heading */}
+            <h1 
+              className="hero-anim-heading"
+              style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: 'clamp(1.65rem, 3.8vw, 3rem)',
+                fontWeight: 900,
+                lineHeight: 1.15,
+                letterSpacing: '-0.025em',
+                color: '#ffffff',
+                margin: '0 0 0.85rem 0',
+                textShadow: '0 2px 14px rgba(0, 0, 0, 0.75)'
+              }}
+            >
+              Engineering Education<br />
+              <span style={{ color: '#fbbf24' }}>with Discipline and Purpose</span>
+            </h1>
+
+            {/* Supporting Description */}
+            <p 
+              className="hero-anim-desc"
+              style={{
+                fontSize: 'clamp(0.85rem, 1.25vw, 0.98rem)',
+                lineHeight: 1.55,
+                color: '#f8fafc',
+                margin: '0 0 1.35rem 0',
+                maxWidth: '560px',
+                fontWeight: 500,
+                textShadow: '0 1px 8px rgba(0, 0, 0, 0.7)'
+              }}
+            >
+              Affiliated with JNTUK and accredited by NAAC and NBA. We offer practical laboratory training, ₹60L annual merit scholarships, and focused placement preparation that secured 910 offers in 2025–2026.
+            </p>
+
+            {/* Hero CTAs */}
+            <div 
+              className="hero-anim-actions"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                flexWrap: 'wrap',
+                gap: '0.85rem'
+              }}
+            >
+              {/* Primary CTA */}
+              <Link
+                to="/departments/cse"
+                className="tec-btn-primary"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem',
+                  backgroundColor: '#f59e0b',
+                  color: '#051d3b',
+                  fontWeight: 700,
+                  fontSize: '0.92rem',
+                  padding: '0.7rem 1.4rem',
+                  minHeight: '44px',
+                  borderRadius: '8px',
+                  textDecoration: 'none',
+                  boxShadow: '0 4px 16px rgba(245, 158, 11, 0.45)',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                <span>Explore B.Tech Courses</span>
+                <ArrowRight size={17} />
+              </Link>
+
+              {/* Secondary CTA */}
+              <button
+                onClick={scrollToPrincipal}
+                className="tec-btn-secondary"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem',
+                  backgroundColor: 'rgba(255, 255, 255, 0.12)',
+                  color: '#ffffff',
+                  fontWeight: 600,
+                  fontSize: '0.92rem',
+                  padding: '0.7rem 1.35rem',
+                  minHeight: '44px',
+                  borderRadius: '8px',
+                  border: '1.5px solid rgba(255, 255, 255, 0.45)',
+                  backdropFilter: 'blur(6px)',
+                  WebkitBackdropFilter: 'blur(6px)',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                <span>Principal's Message</span>
+                <ChevronDown size={17} />
+              </button>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* QUICK TASK BAR FOR STUDENTS & PARENTS */}
