@@ -840,19 +840,66 @@ export default function Navbar() {
             display: none !important;
           }
           .tec-main-header-strip {
-            padding: 0.45rem 0 !important;
+            padding: 0.35rem 0 !important;
+          }
+          .tec-branding-container {
+            padding-left: clamp(0.5rem, 2.5vw, 0.85rem) !important;
+            padding-right: clamp(0.5rem, 2.5vw, 0.85rem) !important;
+            gap: 0.35rem !important;
+          }
+          .tec-brand-link {
+            min-width: 0 !important;
+            flex: 1 1 auto !important;
+            overflow: hidden !important;
+            gap: 0.45rem !important;
           }
           .tec-brand-crest {
-            width: 38px !important;
-            height: 38px !important;
+            width: 34px !important;
+            height: 34px !important;
+            flex-shrink: 0 !important;
           }
           .tec-brand-title {
-            font-size: clamp(0.72rem, 3.1vw, 0.95rem) !important;
+            font-size: clamp(0.72rem, 3.2vw, 0.92rem) !important;
             line-height: 1.15 !important;
             white-space: normal !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+          }
+          .tec-brand-subtitle {
+            font-size: clamp(0.52rem, 2.2vw, 0.65rem) !important;
+            margin-top: 0.1rem !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+            gap: 0.2rem !important;
+            max-width: 100% !important;
           }
           .tec-header-logos-desktop {
             display: none !important;
+          }
+          .tec-header-actions {
+            display: flex !important;
+            align-items: center !important;
+            gap: 0.35rem !important;
+            flex-shrink: 0 !important;
+          }
+          .portal-btn-label { display: none !important; }
+          .portal-btn-label-mobile { display: inline !important; }
+          .tec-estd-tag { display: none !important; }
+          .portal-login-btn {
+            padding: 0.35rem 0.55rem !important;
+            min-height: 38px !important;
+            font-size: 0.76rem !important;
+            gap: 0.25rem !important;
+            border-radius: 6px !important;
+            flex-shrink: 0 !important;
+          }
+          .mobile-nav-toggle {
+            min-width: 38px !important;
+            min-height: 38px !important;
+            padding: 0.3rem !important;
+            border-radius: 6px !important;
+            flex-shrink: 0 !important;
           }
           .tec-mobile-accreditation-strip {
             display: flex !important;
@@ -861,52 +908,45 @@ export default function Navbar() {
             background: #f8fafc;
             border-top: 1px solid #f1f5f9;
             border-bottom: 1px solid #e2e8f0;
-            padding: 0.25rem 0.5rem;
+            padding: 0.18rem 0.4rem !important;
+            min-height: 24px !important;
             width: 100%;
+            box-sizing: border-box !important;
           }
           .tec-mobile-logos-track {
             display: flex;
             align-items: center;
             justifyContent: center;
-            gap: clamp(0.75rem, 3.5vw, 1.5rem);
+            gap: clamp(0.6rem, 3.5vw, 1.25rem) !important;
             width: 100%;
           }
+          .tec-mobile-logos-track img {
+            height: 18px !important;
+            max-width: 32px !important;
+            object-fit: contain !important;
+          }
         }
 
-        @media (max-width: 580px) {
-          .portal-btn-label { display: none !important; }
-          .portal-btn-label-mobile { display: inline !important; }
-          .tec-estd-tag { display: none !important; }
+        @media (max-width: 370px) {
+          .portal-btn-label-mobile { display: none !important; }
           .portal-login-btn {
-            padding: 0.4rem 0.65rem !important;
-            min-height: 42px !important;
+            padding: 0.35rem !important;
+            min-width: 36px !important;
+            justify-content: center !important;
           }
           .mobile-nav-toggle {
-            min-width: 42px !important;
-            min-height: 42px !important;
-            padding: 0.35rem !important;
+            min-width: 36px !important;
+            min-height: 36px !important;
           }
-        }
-
-        @media (max-width: 380px) {
           .tec-brand-crest {
-            width: 32px !important;
-            height: 32px !important;
+            width: 30px !important;
+            height: 30px !important;
           }
           .tec-brand-title {
             font-size: 0.72rem !important;
-            line-height: 1.12 !important;
           }
           .tec-brand-subtitle {
-            font-size: 0.58rem !important;
-          }
-        }
-
-        @media (max-width: 350px) {
-          .portal-btn-label-mobile { display: none !important; }
-          .portal-login-btn {
-            padding: 0.4rem 0.45rem !important;
-            min-width: 40px !important;
+            font-size: 0.52rem !important;
           }
         }
 

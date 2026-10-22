@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   GraduationCap, 
@@ -13,6 +13,16 @@ import PlacementsSection from '../components/home/PlacementsSection';
 import LatestNewsSection from '../components/home/LatestNewsSection';
 
 export default function HomePage() {
+  const [heroAnimated, setHeroAnimated] = useState(false);
+
+  useEffect(() => {
+    // Reliably trigger entrance animations after load or reload
+    const timer = setTimeout(() => {
+      setHeroAnimated(true);
+    }, 280);
+    return () => clearTimeout(timer);
+  }, []);
+
   const scrollToPrincipal = (e) => {
     e.preventDefault();
     const elem = document.getElementById('principal-section');
@@ -28,7 +38,7 @@ export default function HomePage() {
     <div className="tec-homepage-root" style={{ width: '100%', overflowX: 'hidden' }}>
       {/* 1. CAMPUS HERO WITH INTEGRATED RESPONSIVE CONTENT OVERLAY */}
       <section 
-        className="tec-homepage-fullwidth-hero"
+        className={`tec-homepage-fullwidth-hero ${heroAnimated ? 'hero-animated' : ''}`}
         style={{
           position: 'relative',
           width: '100%',
@@ -621,17 +631,35 @@ export default function HomePage() {
           }
         }
 
-        .hero-anim-eyebrow {
-          animation: heroFadeRise 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
-        }
-        .hero-anim-heading {
-          animation: heroFadeRise 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
-        }
-        .hero-anim-desc {
-          animation: heroFadeRise 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
-        }
+        .hero-anim-eyebrow,
+        .hero-anim-heading,
+        .hero-anim-desc,
         .hero-anim-actions {
-          animation: heroFadeRise 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both;
+          opacity: 0;
+          transform: translateY(18px);
+          transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+          will-change: opacity, transform;
+        }
+
+        .hero-animated .hero-anim-eyebrow {
+          opacity: 1;
+          transform: translateY(0);
+          transition-delay: 0.08s;
+        }
+        .hero-animated .hero-anim-heading {
+          opacity: 1;
+          transform: translateY(0);
+          transition-delay: 0.2s;
+        }
+        .hero-animated .hero-anim-desc {
+          opacity: 1;
+          transform: translateY(0);
+          transition-delay: 0.32s;
+        }
+        .hero-animated .hero-anim-actions {
+          opacity: 1;
+          transform: translateY(0);
+          transition-delay: 0.44s;
         }
 
         /* Respect prefers-reduced-motion */
@@ -640,7 +668,7 @@ export default function HomePage() {
           .hero-anim-heading,
           .hero-anim-desc,
           .hero-anim-actions {
-            animation: none !important;
+            transition: none !important;
             opacity: 1 !important;
             transform: none !important;
           }
@@ -782,46 +810,64 @@ export default function HomePage() {
             display: inline !important;
           }
 
-          /* Full viewport mobile hero: campus image settles prominently below text */
+          /* Dynamic mobile hero: building settles prominently without excessive height or dead scroll */
           .tec-homepage-fullwidth-hero {
-            height: calc(100vh - 96px) !important;
-            min-height: 560px !important;
+            height: auto !important;
+            min-height: clamp(380px, 58dvh, 480px) !important;
+            max-height: 520px !important;
+            display: flex !important;
+            flex-direction: column !important;
             justify-content: flex-start !important;
+            padding: 0 !important;
           }
           .tec-hero-panorama-img {
+            position: absolute !important;
+            inset: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
             object-fit: cover !important;
-            object-position: 35% 28% !important;
+            object-position: 38% 30% !important;
             transform: none !important;
           }
           .tec-hero-gradient-overlay {
-            background: linear-gradient(180deg, rgba(5, 29, 59, 0.76) 0%, rgba(5, 29, 59, 0.3) 42%, rgba(5, 29, 59, 0.05) 75%) !important;
+            background: linear-gradient(180deg, rgba(5, 29, 59, 0.78) 0%, rgba(5, 29, 59, 0.32) 42%, rgba(5, 29, 59, 0.05) 75%) !important;
           }
           .tec-hero-content-wrapper {
-            padding-top: 1.25rem !important;
-            padding-bottom: 1rem !important;
+            padding-top: clamp(0.75rem, 2.2vh, 1.15rem) !important;
+            padding-bottom: clamp(0.75rem, 2.2vh, 1.15rem) !important;
+            padding-left: clamp(0.65rem, 3.5vw, 1rem) !important;
+            padding-right: clamp(0.65rem, 3.5vw, 1rem) !important;
+            box-sizing: border-box !important;
+          }
+          .hero-anim-eyebrow {
+            margin-bottom: 0.4rem !important;
+            padding: 0.22rem 0.6rem !important;
           }
           .hero-anim-heading {
-            font-size: clamp(1.35rem, 5.2vw, 1.65rem) !important;
-            line-height: 1.2 !important;
-            margin-bottom: 0.5rem !important;
+            font-size: clamp(1.22rem, 5vw, 1.5rem) !important;
+            line-height: 1.18 !important;
+            margin-bottom: 0.4rem !important;
           }
           .hero-anim-desc {
-            font-size: 0.82rem !important;
-            line-height: 1.45 !important;
-            margin-bottom: 0.85rem !important;
+            font-size: clamp(0.76rem, 2.6vw, 0.84rem) !important;
+            line-height: 1.38 !important;
+            margin-bottom: 0.7rem !important;
+            max-width: 480px !important;
           }
           .hero-anim-actions {
             display: flex !important;
-            flex-direction: column !important;
-            gap: 0.55rem !important;
+            flex-direction: row !important;
+            flex-wrap: wrap !important;
+            gap: 0.45rem !important;
             width: 100% !important;
           }
           .tec-btn-primary, .tec-btn-secondary {
-            width: 100% !important;
+            flex: 1 1 135px !important;
             justify-content: center !important;
-            padding: 0.65rem 1rem !important;
-            font-size: 0.86rem !important;
-            min-height: 42px !important;
+            padding: 0.5rem 0.75rem !important;
+            font-size: 0.8rem !important;
+            min-height: 38px !important;
+            border-radius: 7px !important;
           }
         }
 
