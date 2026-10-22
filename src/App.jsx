@@ -4,6 +4,8 @@ import { useAuth } from './context/AuthContext';
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 import LoginModal from './components/public/LoginModal';
+import TecLoadingScreen from './components/common/TecLoadingScreen';
+import TecLogoMotion from './components/common/TecLogoMotion';
 
 // Primary Landing Page (Loaded Eagerly for Instant First Paint)
 import HomePage from './pages/HomePage';
@@ -41,30 +43,18 @@ function PageLoadingFallback() {
         flexDirection: 'column', 
         alignItems: 'center', 
         justifyContent: 'center',
-        gap: '0.85rem',
         padding: '3rem 1rem'
       }}
       aria-live="polite"
       aria-label="Loading page content"
     >
-      <div 
-        style={{
-          width: '36px',
-          height: '36px',
-          border: '3px solid #e2e8f0',
-          borderTopColor: '#0a3d78',
-          borderRadius: '50%',
-          animation: 'tecSpin 0.75s linear infinite'
-        }} 
+      <TecLogoMotion
+        size={84}
+        variant="inline"
+        showCaption={true}
+        captionText="Tirumala Engineering College"
+        subCaption="Loading content..."
       />
-      <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#475569' }}>
-        Loading Tirumala Engineering College content...
-      </span>
-      <style>{`
-        @keyframes tecSpin {
-          to { transform: rotate(360deg); }
-        }
-      `}</style>
     </div>
   );
 }
@@ -94,6 +84,9 @@ export default function App() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      {/* Brand Intro Loading Screen (Plays once per browser session) */}
+      <TecLoadingScreen />
+
       {/* 1. Portal Views when a role is selected (Lazy Loaded) */}
       <Suspense fallback={<PageLoadingFallback />}>
         {currentUser.role === 'student' && <StudentDashboard />}

@@ -349,20 +349,15 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Main Desktop Dropdown Navigation Bar (Floating over campus hero on Homepage) */}
+      {/* Main Desktop Dropdown Navigation Bar */}
       <nav 
         style={{
-          position: isHomePage ? 'absolute' : 'relative',
-          top: isHomePage ? '100%' : 'auto',
-          left: 0,
-          right: 0,
+          position: 'relative',
           width: '100%',
           zIndex: 850,
-          background: isHomePage ? 'rgba(14, 33, 84, 0.95)' : '#0e2154',
-          backdropFilter: 'blur(10px)',
-          WebkitBackdropFilter: 'blur(10px)',
+          background: '#0e2154',
           borderBottom: '2px solid #f59e0b',
-          boxShadow: '0 8px 24px rgba(0, 0, 0, 0.25)'
+          boxShadow: '0 4px 14px rgba(0, 0, 0, 0.2)'
         }} 
         className="desktop-navbar-strip"
       >

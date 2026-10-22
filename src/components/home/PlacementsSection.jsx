@@ -18,51 +18,69 @@ const PLACEMENT_STATS = [
 
 export default function PlacementsSection() {
   const sectionRef = useRef(null);
-  const [counts, setCounts] = useState(PLACEMENT_STATS.map(item => item.count));
-  const hasAnimatedRef = useRef(false);
+  const [counts, setCounts] = useState(() => PLACEMENT_STATS.map(() => 0));
+  const isVisibleRef = useRef(false);
+  const rafIdRef = useRef(null);
 
   useEffect(() => {
-    // Check if user prefers reduced motion
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+
+    const startAnimation = () => {
+      if (rafIdRef.current) {
+        cancelAnimationFrame(rafIdRef.current);
+        rafIdRef.current = null;
+      }
+
+      if (prefersReducedMotion) {
+        setCounts(PLACEMENT_STATS.map(item => item.count));
+        return;
+      }
+
+      const duration = 1600;
+      const startTime = performance.now();
+
+      const animate = (currentTime) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+
+        if (progress < 1) {
+          setCounts(
+            PLACEMENT_STATS.map(item => Math.min(item.count, Math.round(item.count * ease)))
+          );
+          rafIdRef.current = requestAnimationFrame(animate);
+        } else {
+          setCounts(PLACEMENT_STATS.map(item => item.count));
+          rafIdRef.current = null;
+        }
+      };
+
+      rafIdRef.current = requestAnimationFrame(animate);
+    };
 
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
-        if (entry.isIntersecting && !hasAnimatedRef.current) {
-          hasAnimatedRef.current = true;
-
-          if (prefersReducedMotion) {
-            setCounts(PLACEMENT_STATS.map(item => item.count));
-            return;
+        if (entry.isIntersecting) {
+          if (!isVisibleRef.current) {
+            isVisibleRef.current = true;
+            startAnimation();
           }
-
-          const duration = 2000; // 2 seconds smooth easing
-          const startTime = performance.now();
-
-          const animate = (currentTime) => {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-
-            // Ease-out cubic curve: 1 - (1 - progress)^3
-            const ease = 1 - Math.pow(1 - progress, 3);
-
-            if (progress < 1) {
-              setCounts(
-                PLACEMENT_STATS.map(item => Math.min(item.count, Math.round(item.count * ease)))
-              );
-              requestAnimationFrame(animate);
-            } else {
-              // Ensure exact target numbers at completion
-              setCounts(PLACEMENT_STATS.map(item => item.count));
+        } else {
+          if (isVisibleRef.current) {
+            isVisibleRef.current = false;
+            if (rafIdRef.current) {
+              cancelAnimationFrame(rafIdRef.current);
+              rafIdRef.current = null;
             }
-          };
-
-          requestAnimationFrame(animate);
+            // Reset to 0 when scrolled out of view so replay is smooth upon re-entry
+            setCounts(PLACEMENT_STATS.map(() => 0));
+          }
         }
       },
       {
         threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: '0px 0px -40px 0px'
       }
     );
 
@@ -72,6 +90,10 @@ export default function PlacementsSection() {
 
     return () => {
       observer.disconnect();
+      if (rafIdRef.current) {
+        cancelAnimationFrame(rafIdRef.current);
+        rafIdRef.current = null;
+      }
     };
   }, []);
 

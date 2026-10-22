@@ -37,17 +37,17 @@ export default function HomePage() {
         }}
         aria-label="Campus Hero"
       >
-        {/* Full-width panorama image */}
+        {/* Full-width panorama image (Compact, responsive height) */}
         <img
           src="/campus_panorama.png"
           alt="Tirumala Engineering College Campus Panorama"
           style={{
             width: '100%',
-            height: 'calc(100vh - 96px)',
-            minHeight: '520px',
-            maxHeight: '900px',
+            height: 'clamp(420px, 54vh, 520px)',
+            minHeight: '390px',
+            maxHeight: '520px',
             objectFit: 'cover',
-            objectPosition: 'center 45%',
+            objectPosition: 'center 42%',
             display: 'block',
             margin: 0,
             padding: 0,
@@ -63,20 +63,20 @@ export default function HomePage() {
             left: 0,
             width: '100%',
             height: '100%',
-            background: 'linear-gradient(135deg, rgba(0, 33, 71, 0.52) 0%, rgba(0, 33, 71, 0.22) 42%, rgba(0, 33, 71, 0) 70%)',
+            background: 'linear-gradient(135deg, rgba(0, 24, 51, 0.64) 0%, rgba(0, 33, 71, 0.32) 48%, rgba(0, 33, 71, 0) 75%)',
             pointerEvents: 'none',
             zIndex: 2
           }}
         />
 
-        {/* Hero Animated Text Overlay (Positioned higher in the open sky area to clear all buildings) */}
+        {/* Hero Animated Text Overlay */}
         <div 
           className="tec-hero-content-overlay"
           style={{
             position: 'absolute',
-            top: 'clamp(50px, 8vh, 85px)',
-            left: 'clamp(1.5rem, 6vw, 5.5rem)',
-            maxWidth: '620px',
+            top: 'clamp(24px, 4.5vh, 44px)',
+            left: 'clamp(1.25rem, 5vw, 4.5rem)',
+            maxWidth: '640px',
             zIndex: 10,
             color: '#ffffff',
             paddingRight: '1rem'
@@ -115,13 +115,13 @@ export default function HomePage() {
             className="hero-anim-heading"
             style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(2rem, 4.2vw, 3.2rem)',
+              fontSize: 'clamp(1.75rem, 3.4vw, 2.75rem)',
               fontWeight: 900,
               lineHeight: 1.15,
-              letterSpacing: '-0.03em',
+              letterSpacing: '-0.025em',
               color: '#ffffff',
-              margin: '0 0 0.85rem 0',
-              textShadow: '0 2px 14px rgba(0, 0, 0, 0.65)'
+              margin: '0 0 0.75rem 0',
+              textShadow: '0 2px 14px rgba(0, 0, 0, 0.75)'
             }}
           >
             Engineering Education<br />
@@ -132,13 +132,13 @@ export default function HomePage() {
           <p 
             className="hero-anim-desc"
             style={{
-              fontSize: 'clamp(0.88rem, 1.5vw, 1.02rem)',
-              lineHeight: 1.6,
+              fontSize: 'clamp(0.85rem, 1.25vw, 0.96rem)',
+              lineHeight: 1.55,
               color: '#f1f5f9',
-              margin: '0 0 1.35rem 0',
-              maxWidth: '560px',
+              margin: '0 0 1.2rem 0',
+              maxWidth: '540px',
               fontWeight: 400,
-              textShadow: '0 1px 8px rgba(0, 0, 0, 0.55)'
+              textShadow: '0 1px 8px rgba(0, 0, 0, 0.65)'
             }}
           >
             Affiliated with JNTUK and accredited by NAAC and NBA. We offer practical laboratory training, ₹60L annual merit scholarships, and focused placement preparation that secured 910 offers in 2025–2026.
@@ -688,11 +688,33 @@ export default function HomePage() {
         }
 
         @media (max-width: 640px) {
+          .tec-homepage-fullwidth-hero img {
+            height: clamp(390px, 58dvh, 460px) !important;
+            min-height: 380px !important;
+            object-position: center 38% !important;
+          }
           .tec-hero-content-overlay {
-            top: clamp(65px, 11vh, 100px) !important;
-            left: 1.25rem !important;
-            right: 1.25rem !important;
+            top: 1.25rem !important;
+            left: 1rem !important;
+            right: 1rem !important;
             max-width: 100% !important;
+            padding-right: 0 !important;
+          }
+          .hero-anim-actions {
+            gap: 0.6rem !important;
+          }
+          .tec-btn-primary, .tec-btn-secondary {
+            padding: 0.6rem 1rem !important;
+            font-size: 0.85rem !important;
+          }
+        }
+        @media (max-width: 420px) {
+          .hero-anim-eyebrow {
+            white-space: normal !important;
+          }
+          .tec-btn-primary, .tec-btn-secondary {
+            width: 100% !important;
+            justify-content: center !important;
           }
         }
       `}</style>
