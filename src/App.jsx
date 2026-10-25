@@ -104,8 +104,9 @@ export default function App() {
           <Navbar />
           <main id="main-content" tabIndex="-1" style={{ flex: 1, display: 'flex', flexDirection: 'column', outline: 'none' }}>
             <Suspense fallback={<PageLoadingFallback />}>
-              <Routes>
-              {/* Home */}
+              <div key={location.pathname} className="tec-mobile-page-transition">
+                <Routes>
+                {/* Home */}
               <Route path="/" element={<HomePage />} />
               <Route path="/index.html" element={<Navigate to="/" replace />} />
               <Route path="/index-2.html" element={<Navigate to="/" replace />} />
@@ -225,7 +226,8 @@ export default function App() {
               {/* 404 Fallback */}
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
-          </Suspense>
+          </div>
+        </Suspense>
         </main>
         <Footer />
           <LoginModal />

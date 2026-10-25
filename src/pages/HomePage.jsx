@@ -14,70 +14,45 @@ import LatestNewsSection from '../components/home/LatestNewsSection';
 
 export default function HomePage() {
   const [heroAnimated, setHeroAnimated] = useState(false);
+  const [campusRevealed, setCampusRevealed] = useState(false);
   const heroImgRef = useRef(null);
 
   useEffect(() => {
-    // Reliably trigger entrance animations after load or reload
-    const timer = setTimeout(() => {
+    // 1. Text & CTA entrance animations
+    const textTimer = setTimeout(() => {
       setHeroAnimated(true);
     }, 280);
-    return () => clearTimeout(timer);
-  }, []);
 
-  // Mobile-only dynamic campus hero scroll zoom and pan effect
-  useEffect(() => {
-    // Respect accessibility settings
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) return;
+    // 2. Automatic mobile campus reveal animation
+    // On mobile phone load or reload, begins zoomed in on the white college building
+    // and smoothly, automatically pulls back to reveal the complete campus.
+    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+    if (prefersReducedMotion) {
+      setCampusRevealed(true);
+      return () => clearTimeout(textTimer);
+    }
 
-    let ticking = false;
-
-    const updateMobileZoomAndPan = () => {
-      ticking = false;
-      const img = heroImgRef.current;
-      if (!img) return;
-
-      // Mobile only: <= 768px. On tablet and desktop, ensure no zoom or pan style persists
-      if (window.innerWidth > 768) {
-        img.style.removeProperty('--mobile-hero-zoom');
-        img.style.removeProperty('--mobile-hero-pan-x');
-        img.style.removeProperty('--mobile-hero-pan-y');
-        return;
-      }
-
-      const scrollY = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
-      // Over the hero scroll distance (~340px), smoothly transition:
-      // - zoom from close building view (1.30) down to full campus reveal (1.04)
-      // - pan horizontally across the college facade and grounds (-18px to +18px)
-      // - pan vertically (6px down to 0px)
-      const maxScrollDistance = 340;
-      const progress = Math.min(Math.max(scrollY / maxScrollDistance, 0), 1);
-      
-      const currentZoom = (1.30 - progress * 0.26).toFixed(3);
-      const currentPanX = (-18 + progress * 36).toFixed(2);
-      const currentPanY = ((1 - progress) * 6).toFixed(2);
-
-      img.style.setProperty('--mobile-hero-zoom', currentZoom);
-      img.style.setProperty('--mobile-hero-pan-x', `${currentPanX}px`);
-      img.style.setProperty('--mobile-hero-pan-y', `${currentPanY}px`);
+    let revealTimer;
+    const triggerCampusReveal = () => {
+      // 350ms delay gives time for initial paint / brand loader fade before pulling back
+      revealTimer = setTimeout(() => {
+        setCampusRevealed(true);
+      }, 350);
     };
 
-    const handleScrollOrResize = () => {
-      if (!ticking) {
-        ticking = true;
-        window.requestAnimationFrame(updateMobileZoomAndPan);
-      }
-    };
-
-    // Initialize on mount
-    updateMobileZoomAndPan();
-
-    window.addEventListener('scroll', handleScrollOrResize, { passive: true });
-    window.addEventListener('resize', handleScrollOrResize, { passive: true });
+    const img = heroImgRef.current;
+    if (img && img.complete) {
+      triggerCampusReveal();
+    } else if (img) {
+      img.addEventListener('load', triggerCampusReveal, { once: true });
+    } else {
+      triggerCampusReveal();
+    }
 
     return () => {
-      window.removeEventListener('scroll', handleScrollOrResize);
-      window.removeEventListener('resize', handleScrollOrResize);
+      clearTimeout(textTimer);
+      if (revealTimer) clearTimeout(revealTimer);
+      if (img) img.removeEventListener('load', triggerCampusReveal);
     };
   }, []);
 
@@ -96,7 +71,7 @@ export default function HomePage() {
     <div className="tec-homepage-root" style={{ width: '100%', overflowX: 'hidden' }}>
       {/* 1. CAMPUS HERO WITH INTEGRATED RESPONSIVE CONTENT OVERLAY */}
       <section 
-        className={`tec-homepage-fullwidth-hero ${heroAnimated ? 'hero-animated' : ''}`}
+        className={`tec-homepage-fullwidth-hero ${heroAnimated ? 'hero-animated' : ''} ${campusRevealed ? 'campus-revealed' : ''}`}
         style={{
           position: 'relative',
           width: '100%',
@@ -887,8 +862,13 @@ export default function HomePage() {
             object-fit: cover !important;
             object-position: 38% 30% !important;
             transform-origin: 38% 42% !important;
-            transform: translate3d(var(--mobile-hero-pan-x, -18px), var(--mobile-hero-pan-y, 6px), 0) scale(var(--mobile-hero-zoom, 1.30)) !important;
+            transform: translate3d(-16px, 6px, 0) scale(1.28) !important;
             will-change: transform;
+            transition: transform 2.2s cubic-bezier(0.22, 1, 0.36, 1) !important;
+          }
+
+          .campus-revealed .tec-hero-panorama-img {
+            transform: translate3d(0, 0, 0) scale(1.0) !important;
           }
           .tec-hero-gradient-overlay {
             background: linear-gradient(180deg, rgba(5, 29, 59, 0.78) 0%, rgba(5, 29, 59, 0.32) 42%, rgba(5, 29, 59, 0.05) 75%) !important;
@@ -939,9 +919,11 @@ export default function HomePage() {
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .tec-hero-panorama-img {
+          .tec-hero-panorama-img,
+          .campus-revealed .tec-hero-panorama-img {
             transform: none !important;
             transition: none !important;
+            animation: none !important;
           }
         }
       `}</style>

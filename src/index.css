@@ -606,6 +606,40 @@ input, select, textarea {
   .role-switcher-banner { flex-direction: column; align-items: flex-start; }
 }
 
+/* ==========================================================================
+   Mobile-Only Smooth Page Entrance Animation
+   Applied across all routes (Home, Departments, Academics, Admissions, etc.)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .tec-mobile-page-transition {
+    animation: tecMobilePageFadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  @keyframes tecMobilePageFadeIn {
+    0% {
+      opacity: 0.15;
+      transform: translateY(6px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  .tec-mobile-page-transition {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+}
+
 /* Apple HIG Accessibility - Reduce Motion Media Query */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -616,5 +650,11 @@ input, select, textarea {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  .tec-mobile-page-transition {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
 }
+
 
