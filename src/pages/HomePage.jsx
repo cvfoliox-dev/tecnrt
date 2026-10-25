@@ -860,15 +860,15 @@ export default function HomePage() {
             width: 100% !important;
             height: 100% !important;
             object-fit: cover !important;
-            object-position: 38% 30% !important;
-            transform-origin: 38% 42% !important;
-            transform: translate3d(-16px, 6px, 0) scale(1.28) !important;
+            object-position: 36% 40% !important;
+            transform-origin: 38% 50% !important;
+            transform: translate3d(0, 38px, 0) scale(1.52) !important;
             will-change: transform;
             transition: transform 2.2s cubic-bezier(0.22, 1, 0.36, 1) !important;
           }
 
           .campus-revealed .tec-hero-panorama-img {
-            transform: translate3d(0, 0, 0) scale(1.0) !important;
+            transform: translate3d(0, 56px, 0) scale(1.35) !important;
           }
           .tec-hero-gradient-overlay {
             background: linear-gradient(180deg, rgba(5, 29, 59, 0.78) 0%, rgba(5, 29, 59, 0.32) 42%, rgba(5, 29, 59, 0.05) 75%) !important;
