@@ -14,7 +14,9 @@ import LatestNewsSection from '../components/home/LatestNewsSection';
 
 export default function HomePage() {
   const [heroAnimated, setHeroAnimated] = useState(false);
-  const [campusRevealed, setCampusRevealed] = useState(false);
+  const [campusRevealed, setCampusRevealed] = useState(() => 
+    typeof window !== 'undefined' && Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)
+  );
   const heroImgRef = useRef(null);
 
   useEffect(() => {
@@ -28,7 +30,6 @@ export default function HomePage() {
     // and smoothly, automatically pulls back to reveal the complete campus.
     const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
     if (prefersReducedMotion) {
-      setCampusRevealed(true);
       return () => clearTimeout(textTimer);
     }
 
@@ -87,6 +88,15 @@ export default function HomePage() {
         }}
         aria-label="Tirumala Engineering College Campus Panorama"
       >
+        {/* Ambient background blur layer for mobile portrait composition */}
+        <img
+          src="/campus_panorama.png"
+          alt=""
+          aria-hidden="true"
+          className="tec-hero-panorama-bg"
+        />
+
+        {/* Primary campus panorama image */}
         <img
           ref={heroImgRef}
           src="/campus_panorama.png"
@@ -758,6 +768,11 @@ export default function HomePage() {
           background: linear-gradient(135deg, rgba(5, 29, 59, 0.9) 0%, rgba(5, 29, 59, 0.65) 48%, rgba(5, 29, 59, 0.12) 80%);
         }
 
+        /* Ambient mobile background layer hidden on desktop */
+        .tec-hero-panorama-bg {
+          display: none;
+        }
+
         /* Quick Links Grid */
         .tec-quicklinks-grid {
           display: flex;
@@ -844,34 +859,69 @@ export default function HomePage() {
             display: inline !important;
           }
 
-          /* Dynamic mobile hero: building settles prominently without excessive height or dead scroll */
-          .tec-homepage-fullwidth-hero {
-            height: auto !important;
-            min-height: clamp(380px, 58dvh, 480px) !important;
-            max-height: 520px !important;
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: flex-start !important;
-            padding: 0 !important;
-          }
-          .tec-hero-panorama-img {
+          /* Ambient background layer: synchronized subtle pullback to unify the entire scene */
+          .tec-hero-panorama-bg {
+            display: block !important;
             position: absolute !important;
             inset: 0 !important;
             width: 100% !important;
             height: 100% !important;
             object-fit: cover !important;
-            object-position: 36% 40% !important;
-            transform-origin: 38% 50% !important;
-            transform: translate3d(0, 38px, 0) scale(1.52) !important;
+            object-position: 45.3% 35% !important;
+            filter: blur(10px) brightness(0.72) saturate(1.1) !important;
+            transform-origin: 45.3% 70% !important;
+            transform: scale(1.22) !important;
+            transition: transform 2.4s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+            z-index: 1 !important;
+            pointer-events: none !important;
+          }
+          .campus-revealed .tec-hero-panorama-bg {
+            transform: scale(1.06) !important;
+          }
+
+          /* Dynamic mobile hero: displays the complete college panorama in natural aspect ratio */
+          .tec-homepage-fullwidth-hero {
+            height: auto !important;
+            min-height: clamp(420px, calc(240px + 45.3vw), 530px) !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: flex-start !important;
+            padding: 0 !important;
+            overflow: hidden !important;
+          }
+
+          /* Sharp foreground panorama: starts with exact reference image composition (close-up building + courts) and pulls back to full panorama */
+          .tec-hero-panorama-img {
+            position: absolute !important;
+            top: auto !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100% !important;
+            height: auto !important;
+            aspect-ratio: 1864 / 844 !important;
+            object-fit: fill !important;
+            z-index: 2 !important;
+            transform-origin: 45.3% 90% !important;
+            transform: scale(2.30) !important;
             will-change: transform;
-            transition: transform 2.2s cubic-bezier(0.22, 1, 0.36, 1) !important;
+            transition: transform 2.4s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 12%, rgba(0,0,0,0.8) 32%, black 48%, black 100%) !important;
+            mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 12%, rgba(0,0,0,0.8) 32%, black 48%, black 100%) !important;
           }
 
           .campus-revealed .tec-hero-panorama-img {
-            transform: translate3d(0, 56px, 0) scale(1.35) !important;
+            transform: scale(1.0) !important;
           }
+
+          /* Seamless gradient overlay ensuring text contrast without layer seam */
           .tec-hero-gradient-overlay {
-            background: linear-gradient(180deg, rgba(5, 29, 59, 0.78) 0%, rgba(5, 29, 59, 0.32) 42%, rgba(5, 29, 59, 0.05) 75%) !important;
+            z-index: 3 !important;
+            background: linear-gradient(180deg, 
+              rgba(5, 29, 59, 0.82) 0%, 
+              rgba(5, 29, 59, 0.45) 38%, 
+              rgba(5, 29, 59, 0.10) 68%, 
+              transparent 88%) !important;
           }
           .tec-hero-content-wrapper {
             padding-top: clamp(0.75rem, 2.2vh, 1.15rem) !important;
@@ -920,7 +970,9 @@ export default function HomePage() {
 
         @media (prefers-reduced-motion: reduce) {
           .tec-hero-panorama-img,
-          .campus-revealed .tec-hero-panorama-img {
+          .campus-revealed .tec-hero-panorama-img,
+          .tec-hero-panorama-bg,
+          .campus-revealed .tec-hero-panorama-bg {
             transform: none !important;
             transition: none !important;
             animation: none !important;
