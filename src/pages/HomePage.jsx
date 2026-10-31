@@ -1,14 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  GraduationCap, 
-  Compass, 
-  Building2, 
-  Quote, 
-  ArrowRight, 
-  ChevronDown, 
-  Award
-} from 'lucide-react';
+import { Award } from 'lucide-react';
 import PlacementsSection from '../components/home/PlacementsSection';
 import LatestNewsSection from '../components/home/LatestNewsSection';
 
@@ -145,53 +137,7 @@ export default function HomePage() {
           }}
         >
           <div style={{ maxWidth: '640px', color: '#ffffff' }}>
-            {/* Top Pill Badge */}
-            <div 
-              className="hero-anim-eyebrow"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.45rem',
-                padding: '0.35rem 0.85rem',
-                borderRadius: '9999px',
-                backgroundColor: 'rgba(5, 29, 59, 0.88)',
-                border: '1.5px solid rgba(245, 158, 11, 0.65)',
-                backdropFilter: 'blur(6px)',
-                WebkitBackdropFilter: 'blur(6px)',
-                marginBottom: '0.85rem',
-                maxWidth: '100%',
-                boxSizing: 'border-box'
-              }}
-            >
-              <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#f59e0b', display: 'inline-block', flexShrink: 0 }} />
-              <span 
-                className="tec-hero-pill-text-desktop"
-                style={{
-                  fontSize: 'clamp(0.66rem, 1.3vw, 0.78rem)',
-                  fontWeight: 800,
-                  letterSpacing: '0.06em',
-                  textTransform: 'uppercase',
-                  color: '#ffffff'
-                }}
-              >
-                TIRUMALA ENGINEERING COLLEGE • AUTONOMOUS • EAPCET CODE: TMLN
-              </span>
-              <span 
-                className="tec-hero-pill-text-mobile"
-                style={{
-                  display: 'none',
-                  fontSize: '0.7rem',
-                  fontWeight: 800,
-                  letterSpacing: '0.05em',
-                  textTransform: 'uppercase',
-                  color: '#ffffff'
-                }}
-              >
-                AUTONOMOUS • EAPCET: TMLN
-              </span>
-            </div>
-
-            {/* Main Heading */}
+            {/* Main Heading - Unified in one style without colored accent words */}
             <h1 
               className="hero-anim-heading"
               style={{
@@ -206,7 +152,7 @@ export default function HomePage() {
               }}
             >
               Engineering Education<br />
-              <span style={{ color: '#fbbf24' }}>with Discipline and Purpose</span>
+              with Discipline and Purpose
             </h1>
 
             {/* Supporting Description */}
@@ -215,7 +161,7 @@ export default function HomePage() {
               style={{
                 fontSize: 'clamp(0.85rem, 1.25vw, 0.98rem)',
                 lineHeight: 1.55,
-                color: '#f8fafc',
+                color: '#faf9f6',
                 margin: '0 0 1.35rem 0',
                 maxWidth: '560px',
                 fontWeight: 500,
@@ -243,7 +189,6 @@ export default function HomePage() {
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  gap: '0.5rem',
                   backgroundColor: '#f59e0b',
                   color: '#051d3b',
                   fontWeight: 700,
@@ -252,12 +197,11 @@ export default function HomePage() {
                   minHeight: '44px',
                   borderRadius: '8px',
                   textDecoration: 'none',
-                  boxShadow: '0 4px 16px rgba(245, 158, 11, 0.45)',
+                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.25)',
                   transition: 'all 0.2s ease'
                 }}
               >
                 <span>Explore B.Tech Courses</span>
-                <ArrowRight size={17} />
               </Link>
 
               {/* Secondary CTA */}
@@ -268,23 +212,20 @@ export default function HomePage() {
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  gap: '0.5rem',
-                  backgroundColor: 'rgba(255, 255, 255, 0.12)',
+                  backgroundColor: '#0a1d37',
                   color: '#ffffff',
                   fontWeight: 600,
                   fontSize: '0.92rem',
                   padding: '0.7rem 1.35rem',
                   minHeight: '44px',
                   borderRadius: '8px',
-                  border: '1.5px solid rgba(255, 255, 255, 0.45)',
-                  backdropFilter: 'blur(6px)',
-                  WebkitBackdropFilter: 'blur(6px)',
+                  border: '1px solid #e5e2dc',
                   cursor: 'pointer',
+                  boxShadow: '0 2px 6px rgba(0, 0, 0, 0.2)',
                   transition: 'all 0.2s ease'
                 }}
               >
                 <span>Principal's Message</span>
-                <ChevronDown size={17} />
               </button>
             </div>
           </div>
@@ -314,7 +255,7 @@ export default function HomePage() {
             gap: '0.75rem'
           }}
         >
-          <div className="tec-quicklinks-header" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#94a3b8', fontSize: '0.82rem', fontWeight: 600 }}>
+          <div className="tec-quicklinks-header" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#9e9a91', fontSize: '0.82rem', fontWeight: 600 }}>
             <span style={{ color: '#fbbf24', fontWeight: 800 }}>Quick Links:</span>
             <span className="tec-quicklinks-desc">Direct access for students, parents, and recruiters</span>
           </div>
@@ -358,31 +299,18 @@ export default function HomePage() {
         id="principal-section"
         style={{
           width: '100%',
-          backgroundColor: '#fbfbfd',
+          backgroundColor: '#fbfaf8',
           padding: 'clamp(1.5rem, 3vh, 2.5rem) 0',
-          borderTop: '1px solid #e2e8f0',
-          borderBottom: '1px solid #e2e8f0',
+          borderTop: '1px solid #e5e2dc',
+          borderBottom: '1px solid #e5e2dc',
           position: 'relative',
           scrollMarginTop: '135px'
         }}
         aria-label="Principal's Message"
       >
         <div className="container">
-          {/* Section Eyebrow & Heading */}
-          <div style={{ textAlign: 'center', marginBottom: 'clamp(1rem, 2.2vh, 1.75rem)' }}>
-            <div style={{ 
-              display: 'inline-flex', 
-              alignItems: 'center', 
-              gap: '0.4rem',
-              color: '#d97706', 
-              fontSize: '0.82rem', 
-              fontWeight: 800, 
-              letterSpacing: '0.08em', 
-              textTransform: 'uppercase',
-              marginBottom: '0.5rem'
-            }}>
-              <span>Principal's Message</span>
-            </div>
+          {/* Section Heading - Clean without redundant eyebrow label */}
+          <div style={{ textAlign: 'center', marginBottom: 'clamp(1.25rem, 2.5vh, 2rem)' }}>
             <h2 style={{
               fontFamily: 'var(--font-heading)',
               fontSize: 'clamp(1.75rem, 3.5vw, 2.6rem)',
@@ -395,7 +323,7 @@ export default function HomePage() {
             </h2>
             <p style={{
               fontSize: '1rem',
-              color: '#475569',
+              color: '#524f49',
               maxWidth: '620px',
               margin: '0 auto',
               lineHeight: 1.5
@@ -405,70 +333,30 @@ export default function HomePage() {
             <div style={{ width: '48px', height: '3px', backgroundColor: '#f59e0b', margin: '0.9rem auto 0 auto', borderRadius: '2px' }} />
           </div>
 
-          {/* 3-Column Desktop / Responsive Layout with Centered Portrait */}
+          {/* 3-Column Desktop / Responsive Editorial Layout with Centered Portrait */}
           <div className="tec-principal-grid">
             
-            {/* COLUMN 1: Left Content (Upper-Left & Lower-Left) */}
+            {/* COLUMN 1: Left Editorial Content */}
             <div className="tec-principal-col">
-              {/* Upper-Left: Academic Leadership */}
+              {/* Teaching and Learning */}
               <div className="tec-content-card">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.75rem' }}>
-                  <div style={{
-                    width: '36px',
-                    height: '36px',
-                    borderRadius: '8px',
-                    backgroundColor: '#e0f0fe',
-                    color: '#0a3d78',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0
-                  }}>
-                    <GraduationCap size={20} />
-                  </div>
-                  <div>
-                    <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#d97706', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block' }}>
-                      ACADEMICS
-                    </span>
-                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0a3d78', margin: 0, lineHeight: 1.25 }}>
-                      Teaching and Learning
-                    </h3>
-                  </div>
-                </div>
-                <p style={{ fontSize: '0.92rem', color: '#475569', lineHeight: 1.65, margin: 0 }}>
+                <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0a3d78', margin: '0 0 0.45rem 0', lineHeight: 1.25 }}>
+                  Teaching and Learning
+                </h3>
+                <p style={{ fontSize: '0.92rem', color: '#524f49', lineHeight: 1.65, margin: 0 }}>
                   Dr. Y. V. Narayana oversees the academic standards at Tirumala Engineering College, focusing on practical laboratory coursework, autonomous curriculum updates aligned with industry demands, and continuous faculty development to ensure students understand core engineering concepts thoroughly.
                 </p>
               </div>
 
-              {/* Elegant Thin Divider */}
+              {/* Thin Neutral Divider */}
               <div className="tec-card-divider" />
 
-              {/* Lower-Left: Institutional Vision */}
+              {/* Our Educational Mission */}
               <div className="tec-content-card">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.75rem' }}>
-                  <div style={{
-                    width: '36px',
-                    height: '36px',
-                    borderRadius: '8px',
-                    backgroundColor: '#d1e7dd',
-                    color: '#0f5132',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0
-                  }}>
-                    <Building2 size={20} />
-                  </div>
-                  <div>
-                    <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#d97706', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block' }}>
-                      OUR MISSION
-                    </span>
-                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0a3d78', margin: 0, lineHeight: 1.25 }}>
-                      Our Educational Mission
-                    </h3>
-                  </div>
-                </div>
-                <p style={{ fontSize: '0.92rem', color: '#475569', lineHeight: 1.65, margin: 0 }}>
+                <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0a3d78', margin: '0 0 0.45rem 0', lineHeight: 1.25 }}>
+                  Our Educational Mission
+                </h3>
+                <p style={{ fontSize: '0.92rem', color: '#524f49', lineHeight: 1.65, margin: 0 }}>
                   Founded to bring quality engineering education to students across the Palnadu region, TEC pairs affordable college education with disciplined campus life, modern computing labs, and active faculty mentorship so graduates can build stable, rewarding technical careers.
                 </p>
               </div>
@@ -480,8 +368,8 @@ export default function HomePage() {
                 backgroundColor: '#ffffff',
                 borderRadius: '16px',
                 padding: '0.85rem',
-                boxShadow: '0 10px 30px rgba(10, 61, 120, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05)',
-                border: '1px solid #e2e8f0',
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
+                border: '1px solid #e5e2dc',
                 textAlign: 'center'
               }}>
                 {/* Portrait Image */}
@@ -521,7 +409,7 @@ export default function HomePage() {
                   <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#d97706', marginBottom: '0.45rem' }}>
                     Principal & Professor
                   </div>
-                  <div style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 600, lineHeight: 1.45, marginBottom: '0.85rem' }}>
+                  <div style={{ fontSize: '0.78rem', color: '#6e6a62', fontWeight: 600, lineHeight: 1.45, marginBottom: '0.85rem' }}>
                     M.Tech., Ph.D., MISTE, MIE, MCSI (UK)<br />
                     <span>28+ Years of Academic & Administrative Leadership</span>
                   </div>
@@ -551,7 +439,6 @@ export default function HomePage() {
                         display: 'inline-flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        gap: '0.4rem',
                         padding: '0.42rem 0.9rem',
                         backgroundColor: '#0a3d78',
                         color: '#fbbf24',
@@ -566,86 +453,45 @@ export default function HomePage() {
                       className="tec-principal-view-full-btn"
                     >
                       <span>Read Full Message & Profile</span>
-                      <ArrowRight size={13} />
                     </Link>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* COLUMN 3: Right Content (Upper-Right & Lower-Right) */}
+            {/* COLUMN 3: Right Editorial Content */}
             <div className="tec-principal-col">
-              {/* Upper-Right: Student Development */}
+              {/* Practical Training and Student Life */}
               <div className="tec-content-card">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.75rem' }}>
-                  <div style={{
-                    width: '36px',
-                    height: '36px',
-                    borderRadius: '8px',
-                    backgroundColor: '#fffbeb',
-                    color: '#b45309',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0
-                  }}>
-                    <Compass size={20} />
-                  </div>
-                  <div>
-                    <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#d97706', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block' }}>
-                      STUDENT DEVELOPMENT
-                    </span>
-                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0a3d78', margin: 0, lineHeight: 1.25 }}>
-                      Practical Training and Student Life
-                    </h3>
-                  </div>
-                </div>
-                <p style={{ fontSize: '0.92rem', color: '#475569', lineHeight: 1.65, margin: 0 }}>
+                <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0a3d78', margin: '0 0 0.45rem 0', lineHeight: 1.25 }}>
+                  Practical Training and Student Life
+                </h3>
+                <p style={{ fontSize: '0.92rem', color: '#524f49', lineHeight: 1.65, margin: 0 }}>
                   Engineering education at TEC goes beyond textbooks. Students participate in hands-on technical workshops, department symposiums, sports, and soft-skills training designed to build real workplace readiness, team cooperation, and personal discipline.
                 </p>
               </div>
 
-              {/* Elegant Thin Divider */}
+              {/* Thin Neutral Divider */}
               <div className="tec-card-divider" />
 
-              {/* Lower-Right: Message from the Principal */}
+              {/* Advice to Students */}
               <div className="tec-content-card">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.75rem' }}>
-                  <div style={{
-                    width: '36px',
-                    height: '36px',
-                    borderRadius: '8px',
-                    backgroundColor: '#f0f7ff',
-                    color: '#0a3d78',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0
-                  }}>
-                    <Quote size={20} />
-                  </div>
-                  <div>
-                    <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#d97706', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block' }}>
-                      MESSAGE TO STUDENTS
-                    </span>
-                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0a3d78', margin: 0, lineHeight: 1.25 }}>
-                      Advice to Students
-                    </h3>
-                  </div>
-                </div>
+                <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0a3d78', margin: '0 0 0.45rem 0', lineHeight: 1.25 }}>
+                  Advice to Students
+                </h3>
                 <blockquote style={{
                   margin: '0 0 0.65rem 0',
                   paddingLeft: '0.85rem',
                   borderLeft: '3px solid #f59e0b',
                   fontStyle: 'italic',
                   fontSize: '0.92rem',
-                  color: '#1e293b',
+                  color: '#211f1c',
                   fontWeight: 600,
                   lineHeight: 1.55
                 }}>
                   "The only place where success comes before work is in the dictionary."
                 </blockquote>
-                <p style={{ fontSize: '0.92rem', color: '#475569', lineHeight: 1.65, margin: 0 }}>
+                <p style={{ fontSize: '0.92rem', color: '#524f49', lineHeight: 1.65, margin: 0 }}>
                   We advise our students to stay curious, attend classes regularly, and make full use of our campus labs and campus placement training. With consistent practice, honest effort, and respectful conduct, every student can achieve their career goals.
                 </p>
               </div>
@@ -718,20 +564,21 @@ export default function HomePage() {
           }
         }
 
-        /* Hover and Focus States for Hero CTAs */
+        /* Hover and Focus States for Hero CTAs - Neutral shadows only */
         .tec-btn-primary:hover {
-          background-color: #a97519 !important;
+          background-color: #d97706 !important;
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(192, 151, 72, 0.45) !important;
+          box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
         }
         .tec-btn-primary:focus-visible {
-          outline: 3px solid #d4a955;
+          outline: 3px solid #f59e0b;
           outline-offset: 3px;
         }
         .tec-btn-secondary:hover {
-          background-color: rgba(255, 255, 255, 0.22) !important;
-          border-color: rgba(255, 255, 255, 0.6) !important;
+          background-color: #12284c !important;
+          border-color: #ffffff !important;
           transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28) !important;
         }
         .tec-btn-secondary:focus-visible {
           outline: 3px solid #ffffff;
@@ -759,7 +606,7 @@ export default function HomePage() {
 
         .tec-card-divider {
           height: 1px;
-          background-color: #e2e8f0;
+          background-color: #e5e2dc;
           margin: 1.25rem 0;
         }
 
@@ -787,14 +634,14 @@ export default function HomePage() {
           justify-content: center;
           gap: 0.35rem;
           background-color: rgba(255, 255, 255, 0.08);
-          color: #f8fafc;
+          color: #faf9f6;
           font-size: 0.82rem;
           font-weight: 600;
           padding: 0.45rem 0.85rem;
           min-height: 40px;
           border-radius: 6px;
           text-decoration: none;
-          border: 1px solid rgba(255, 255, 255, 0.12);
+          border: 1px solid rgba(255, 255, 255, 0.14);
           transition: all 0.15s ease;
           white-space: nowrap;
         }
@@ -813,7 +660,7 @@ export default function HomePage() {
         .tec-principal-view-full-btn:hover {
           background-color: #0e2154 !important;
           color: #ffffff !important;
-          box-shadow: 0 4px 12px rgba(10, 61, 120, 0.25);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
           transform: translateY(-1px);
         }
 
@@ -859,7 +706,7 @@ export default function HomePage() {
             display: inline !important;
           }
 
-          /* Ambient background layer: synchronized subtle pullback to unify the entire scene */
+          /* Ambient background layer: synchronized subtle pullback to unify the entire scene without blur filter */
           .tec-hero-panorama-bg {
             display: block !important;
             position: absolute !important;
@@ -868,7 +715,7 @@ export default function HomePage() {
             height: 100% !important;
             object-fit: cover !important;
             object-position: 45.3% 35% !important;
-            filter: blur(10px) brightness(0.72) saturate(1.1) !important;
+            brightness: 0.6 !important;
             transform-origin: 45.3% 70% !important;
             transform: scale(1.22) !important;
             transition: transform 2.4s cubic-bezier(0.25, 0.1, 0.25, 1) !important;

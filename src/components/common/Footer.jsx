@@ -7,9 +7,7 @@ import {
   Mail, 
   ShieldCheck, 
   Award, 
-  ChevronRight,
-  Clock,
-  ArrowRight
+  Clock 
 } from 'lucide-react';
 
 export default function Footer() {
@@ -20,7 +18,7 @@ export default function Footer() {
       className="tec-main-footer"
       style={{ 
         backgroundColor: '#051d3b', 
-        color: '#cbd5e1', 
+        color: '#d4cfc5', 
         paddingTop: '4rem', 
         paddingBottom: '2rem', 
         borderTop: '4px solid #f59e0b',
@@ -68,13 +66,13 @@ export default function Footer() {
                 }}>
                   ENGINEERING COLLEGE
                 </div>
-                <div style={{ fontSize: '0.68rem', color: '#94a3b8', fontWeight: 600 }}>
+                <div style={{ fontSize: '0.68rem', color: '#9e9a91', fontWeight: 600 }}>
                   NARASARAOPET • AUTONOMOUS
                 </div>
               </div>
             </div>
 
-            <p style={{ fontSize: '0.84rem', color: '#94a3b8', lineHeight: 1.65, marginBottom: '1.25rem' }}>
+            <p style={{ fontSize: '0.84rem', color: '#9e9a91', lineHeight: 1.65, marginBottom: '1.25rem' }}>
               Established in 2008 by the founders of Tirumala Milk Products Pvt. Ltd. under Venkata Ramana Charitable Trust. An autonomous institution committed to technical excellence and rural youth empowerment.
             </p>
 
@@ -98,7 +96,7 @@ export default function Footer() {
                 </span>
               </div>
 
-              <div style={{ fontSize: '0.76rem', color: '#cbd5e1', lineHeight: 1.45 }}>
+              <div style={{ fontSize: '0.76rem', color: '#d4cfc5', lineHeight: 1.45 }}>
                 <span style={{ color: '#fbbf24', fontWeight: 700 }}>Autonomous</span> • NAAC 'A+' Grade • NBA Accredited • ISO 9001:2015
               </div>
             </div>
@@ -116,7 +114,6 @@ export default function Footer() {
                     to={`/departments/${dept.code}`} 
                     className="tec-footer-link"
                   >
-                    <ChevronRight size={13} style={{ color: '#f59e0b', flexShrink: 0 }} />
                     <span>{dept.name}</span>
                   </Link>
                 </li>
@@ -132,61 +129,51 @@ export default function Footer() {
             <ul className="tec-footer-links">
               <li>
                 <Link to="/about/society" className="tec-footer-link">
-                  <ChevronRight size={13} style={{ color: '#f59e0b', flexShrink: 0 }} />
                   <span>Society & Founders</span>
                 </Link>
               </li>
               <li>
                 <Link to="/admissions/procedure" className="tec-footer-link">
-                  <ChevronRight size={13} style={{ color: '#f59e0b', flexShrink: 0 }} />
                   <span>Admissions 2026</span>
                 </Link>
               </li>
               <li>
                 <Link to="/academics/scholarships" className="tec-footer-link">
-                  <ChevronRight size={13} style={{ color: '#f59e0b', flexShrink: 0 }} />
                   <span>₹60L Merit Scholarships</span>
                 </Link>
               </li>
               <li>
                 <Link to="/placements/statistics" className="tec-footer-link">
-                  <ChevronRight size={13} style={{ color: '#f59e0b', flexShrink: 0 }} />
                   <span>Placement Statistics</span>
                 </Link>
               </li>
               <li>
                 <Link to="/examination/notifications" className="tec-footer-link">
-                  <ChevronRight size={13} style={{ color: '#f59e0b', flexShrink: 0 }} />
                   <span>Exam Cell Notifications</span>
                 </Link>
               </li>
               <li>
                 <Link to="/amenities/library" className="tec-footer-link">
-                  <ChevronRight size={13} style={{ color: '#f59e0b', flexShrink: 0 }} />
                   <span>Central Library (Bee-Hive)</span>
                 </Link>
               </li>
               <li>
                 <Link to="/iqac/about" className="tec-footer-link">
-                  <ChevronRight size={13} style={{ color: '#f59e0b', flexShrink: 0 }} />
                   <span>IQAC & Accreditations</span>
                 </Link>
               </li>
               <li>
                 <Link to="/nirf" className="tec-footer-link">
-                  <ChevronRight size={13} style={{ color: '#f59e0b', flexShrink: 0 }} />
                   <span>NIRF Disclosures</span>
                 </Link>
               </li>
               <li>
                 <Link to="/gallery" className="tec-footer-link">
-                  <ChevronRight size={13} style={{ color: '#f59e0b', flexShrink: 0 }} />
                   <span>Campus Photo Gallery</span>
                 </Link>
               </li>
               <li>
                 <Link to="/feedback" className="tec-footer-link">
-                  <ChevronRight size={13} style={{ color: '#f59e0b', flexShrink: 0 }} />
                   <span>Stakeholder Feedback</span>
                 </Link>
               </li>
@@ -203,7 +190,7 @@ export default function Footer() {
               {/* Campus Address */}
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.55rem' }}>
                 <MapPin size={16} style={{ color: '#f59e0b', flexShrink: 0, marginTop: '3px' }} />
-                <span style={{ color: '#cbd5e1', lineHeight: 1.55 }}>
+                <span style={{ color: '#d4cfc5', lineHeight: 1.55 }}>
                   Jonnalagadda (V), Narasaraopet (M), Palnadu District, Andhra Pradesh - 522601
                 </span>
               </div>
@@ -213,7 +200,7 @@ export default function Footer() {
                 <Phone size={15} style={{ color: '#f59e0b', flexShrink: 0 }} />
                 <a 
                   href="tel:08647218164" 
-                  style={{ color: '#cbd5e1', textDecoration: 'none' }}
+                  style={{ color: '#d4cfc5', textDecoration: 'none' }}
                   className="tec-footer-contact-link"
                 >
                   08647 - 218164, 218255
@@ -226,14 +213,14 @@ export default function Footer() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
                   <a 
                     href="mailto:tecnrt@gmail.com" 
-                    style={{ color: '#cbd5e1', textDecoration: 'none' }}
+                    style={{ color: '#d4cfc5', textDecoration: 'none' }}
                     className="tec-footer-contact-link"
                   >
                     tecnrt@gmail.com
                   </a>
                   <a 
                     href="mailto:principal@tecnrt.org" 
-                    style={{ color: '#cbd5e1', textDecoration: 'none' }}
+                    style={{ color: '#d4cfc5', textDecoration: 'none' }}
                     className="tec-footer-contact-link"
                   >
                     principal@tecnrt.org
@@ -261,7 +248,7 @@ export default function Footer() {
               </div>
 
               {/* Working Hours */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.76rem', color: '#94a3b8', marginTop: '0.2rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.76rem', color: '#9e9a91', marginTop: '0.2rem' }}>
                 <Clock size={13} />
                 <span>Mon – Sat: 9:00 AM – 4:45 PM</span>
               </div>
@@ -282,7 +269,6 @@ export default function Footer() {
                   className="tec-footer-contact-link"
                 >
                   <span>View Route Map & Transport Details</span>
-                  <ArrowRight size={13} />
                 </Link>
               </div>
             </div>
@@ -302,13 +288,13 @@ export default function Footer() {
             flexWrap: 'wrap', 
             gap: '1rem', 
             fontSize: '0.8rem', 
-            color: '#94a3b8' 
+            color: '#9e9a91' 
           }}
         >
           <div>
             © {new Date().getFullYear()} Tirumala Engineering College, Narasaraopet. All rights reserved.
           </div>
-          <div style={{ color: '#cbd5e1', fontSize: '0.78rem' }}>
+          <div style={{ color: '#d4cfc5', fontSize: '0.78rem' }}>
             Permanently Affiliated to JNTUK • Approved by AICTE • UGC Autonomous • NAAC 'A+' Grade
           </div>
         </div>
@@ -352,7 +338,7 @@ export default function Footer() {
         }
 
         .tec-footer-link {
-          color: #94a3b8;
+          color: #9e9a91;
           display: inline-flex;
           align-items: center;
           gap: 0.4rem;

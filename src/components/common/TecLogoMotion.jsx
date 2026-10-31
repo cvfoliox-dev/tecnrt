@@ -180,7 +180,7 @@ export default function TecLogoMotion({
               letterSpacing: '0.04em',
               margin: 0,
               textTransform: 'uppercase',
-              fontFamily: "'Outfit', var(--font-heading, sans-serif)"
+              fontFamily: "var(--font-heading)"
             }}
           >
             {captionText}
@@ -189,12 +189,12 @@ export default function TecLogoMotion({
             <p
               style={{
                 fontSize: isInline ? '0.75rem' : '0.825rem',
-                color: '#64748B',
+                color: '#6e6a62',
                 fontWeight: 600,
                 letterSpacing: '0.08em',
                 margin: '0.35rem 0 0 0',
                 textTransform: 'uppercase',
-                fontFamily: "'Plus Jakarta Sans', var(--font-body, sans-serif)"
+                fontFamily: "var(--font-body)"
               }}
             >
               {subCaption}

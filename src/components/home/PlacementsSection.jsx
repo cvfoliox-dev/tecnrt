@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { TrendingUp, Award, ArrowRight } from 'lucide-react';
 
 const PLACEMENT_STATS = [
   { year: '2015–2016', count: 174 },
@@ -104,8 +103,8 @@ export default function PlacementsSection() {
       style={{
         position: 'relative',
         width: '100%',
-        backgroundColor: '#071739',
-        backgroundImage: 'radial-gradient(ellipse 80% 50% at 50% -10%, rgba(30, 64, 130, 0.35), transparent 70%), linear-gradient(180deg, #05142b 0%, #071739 50%, #0a1f46 100%)',
+        backgroundColor: '#0a1d37',
+        borderTop: '1px solid #142847',
         color: '#ffffff',
         overflow: 'hidden'
       }}
@@ -124,17 +123,15 @@ export default function PlacementsSection() {
         {/* Original Marquee Announcement Banner */}
         <div
           style={{
-            backgroundColor: 'rgba(7, 23, 57, 0.85)',
-            border: '1.5px solid rgba(245, 158, 11, 0.55)',
+            backgroundColor: '#08172e',
+            border: '1px solid #1c355e',
             borderRadius: '9999px',
             padding: '0.6rem 1.25rem',
             marginBottom: 'clamp(2rem, 4vw, 3rem)',
             display: 'flex',
             alignItems: 'center',
             gap: '0.85rem',
-            backdropFilter: 'blur(10px)',
-            WebkitBackdropFilter: 'blur(10px)',
-            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
+            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
             overflow: 'hidden'
           }}
         >
@@ -142,7 +139,6 @@ export default function PlacementsSection() {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.35rem',
               backgroundColor: '#f59e0b',
               color: '#071739',
               padding: '0.2rem 0.65rem',
@@ -154,7 +150,6 @@ export default function PlacementsSection() {
               flexShrink: 0
             }}
           >
-            <Award size={13} />
             <span>Placement Update</span>
           </div>
 
@@ -176,25 +171,8 @@ export default function PlacementsSection() {
           </div>
         </div>
 
-        {/* Section Heading */}
-        <div style={{ textAlign: 'center', marginBottom: 'clamp(2.5rem, 5vw, 3.75rem)' }}>
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.45rem',
-              color: '#fbbf24',
-              fontSize: '0.82rem',
-              fontWeight: 800,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              marginBottom: '0.5rem'
-            }}
-          >
-            <TrendingUp size={16} />
-            <span>Placements</span>
-          </div>
-
+        {/* Section Heading - Clean & Authoritative without redundant eyebrow label */}
+        <div style={{ textAlign: 'center', marginBottom: 'clamp(2.5rem, 5vw, 3.5rem)' }}>
           <h2
             style={{
               fontFamily: 'var(--font-heading)',
@@ -220,7 +198,7 @@ export default function PlacementsSection() {
 
           <p
             style={{
-              color: '#cbd5e1',
+              color: '#d4cfc5',
               fontSize: 'clamp(0.9rem, 1.5vw, 1.02rem)',
               maxWidth: '680px',
               margin: '0 auto',
@@ -247,19 +225,15 @@ export default function PlacementsSection() {
                 key={stat.year}
                 className="tec-counter-card"
                 style={{
-                  backgroundColor: isLatest ? 'rgba(14, 33, 84, 0.75)' : 'rgba(8, 23, 50, 0.65)',
+                  backgroundColor: isLatest ? '#0e2154' : '#08172e',
                   border: isLatest
-                    ? '1.5px solid rgba(245, 158, 11, 0.75)'
-                    : '1px solid rgba(255, 255, 255, 0.12)',
-                  borderRadius: '14px',
+                    ? '1.5px solid #f59e0b'
+                    : '1px solid #1c355e',
+                  borderRadius: '12px',
                   padding: '1.5rem 1rem',
                   textAlign: 'center',
-                  backdropFilter: 'blur(8px)',
-                  WebkitBackdropFilter: 'blur(8px)',
-                  boxShadow: isLatest
-                    ? '0 10px 25px -4px rgba(245, 158, 11, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
-                    : '0 8px 20px -4px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
-                  transition: 'transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease',
+                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
+                  transition: 'transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'center',
@@ -272,7 +246,7 @@ export default function PlacementsSection() {
                     fontSize: '0.85rem',
                     fontWeight: 700,
                     letterSpacing: '0.06em',
-                    color: isLatest ? '#fbbf24' : '#cbd5e1',
+                    color: isLatest ? '#fbbf24' : '#d4cfc5',
                     marginBottom: '0.5rem',
                     textTransform: 'uppercase'
                   }}
@@ -317,7 +291,7 @@ export default function PlacementsSection() {
                   style={{
                     fontSize: '0.74rem',
                     fontWeight: 700,
-                    color: '#94a3b8',
+                    color: '#9e9a91',
                     letterSpacing: '0.06em',
                     textTransform: 'uppercase',
                     marginTop: '0.35rem'
@@ -330,7 +304,7 @@ export default function PlacementsSection() {
           })}
         </div>
 
-        {/* Bottom Placement CTA */}
+        {/* Bottom Placement CTA - Neutral shadow, clean typography */}
         <div style={{ textAlign: 'center', marginTop: 'clamp(2rem, 4vw, 3rem)' }}>
           <Link
             to="/placements/overview"
@@ -338,7 +312,7 @@ export default function PlacementsSection() {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.5rem',
+              justifyContent: 'center',
               backgroundColor: '#f59e0b',
               color: '#051d3b',
               fontWeight: 700,
@@ -346,12 +320,11 @@ export default function PlacementsSection() {
               padding: '0.75rem 1.6rem',
               borderRadius: '8px',
               textDecoration: 'none',
-              boxShadow: '0 4px 16px rgba(245, 158, 11, 0.35)',
+              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.25)',
               transition: 'all 0.2s ease'
             }}
           >
             <span>View Placement Cell and Recruiter List</span>
-            <ArrowRight size={16} />
           </Link>
         </div>
       </div>
@@ -359,9 +332,10 @@ export default function PlacementsSection() {
       {/* Scoped CSS for Marquee & Card Hover */}
       <style>{`
         .tec-counter-card:hover {
-          transform: translateY(-4px);
-          background-color: rgba(255, 255, 255, 0.1) !important;
-          border-color: rgba(192, 151, 72, 0.6) !important;
+          transform: translateY(-3px);
+          background-color: #0e2154 !important;
+          border-color: #f59e0b !important;
+          box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
         }
 
         @keyframes marqueeScroll {

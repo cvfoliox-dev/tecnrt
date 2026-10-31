@@ -2,11 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { 
-  LogIn, 
   Menu, 
   X, 
-  MapPin, 
-  PhoneCall, 
   ChevronDown 
 } from 'lucide-react';
 
@@ -186,18 +183,12 @@ export default function Navbar() {
 
   return (
     <header className="tec-site-header" style={{ position: 'sticky', top: 0, zIndex: 900, background: '#ffffff', boxShadow: '0 2px 10px rgba(0,0,0,0.06)' }}>
-      {/* 1. Desktop Top Micro-bar: Verified College Contact Info & EAPCET Badge (as in user screenshot) */}
-      <div className="tec-top-contact-bar" style={{ background: '#0e2154', color: '#e2e8f0', fontSize: '0.78rem', padding: '0.35rem 0', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+      {/* 1. Desktop Top Micro-bar: Verified College Contact Info & EAPCET Badge without decorative icons */}
+      <div className="tec-top-contact-bar" style={{ background: '#0e2154', color: '#e5e2dc', fontSize: '0.78rem', padding: '0.35rem 0', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
-              <MapPin size={13} style={{ color: '#f59e0b', flexShrink: 0 }} />
-              <span>Jonnalagadda, Narasaraopet, Palnadu Dt, AP - 522601</span>
-            </span>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
-              <PhoneCall size={13} style={{ color: '#f59e0b', flexShrink: 0 }} />
-              <span>08647 – 218164, 218255</span>
-            </span>
+            <span>Jonnalagadda, Narasaraopet, Palnadu Dt, AP - 522601</span>
+            <span>Ph: 08647 – 218164, 218255</span>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', flexWrap: 'wrap' }}>
@@ -355,10 +346,9 @@ export default function Navbar() {
                 display: 'inline-flex', 
                 alignItems: 'center', 
                 justifyContent: 'center',
-                gap: '0.4rem', 
                 fontWeight: 700, 
                 whiteSpace: 'nowrap', 
-                padding: '0.45rem 0.85rem', 
+                padding: '0.45rem 0.95rem', 
                 minHeight: '44px',
                 fontSize: '0.82rem',
                 color: '#0e2154',
@@ -371,7 +361,6 @@ export default function Navbar() {
               title="Access College Management Portals"
               aria-label="Student & Faculty Portal Login"
             >
-              <LogIn size={16} style={{ flexShrink: 0 }} />
               <span className="portal-btn-label">Portal Login</span>
               <span className="portal-btn-label-mobile">Portal</span>
             </button>
@@ -513,13 +502,11 @@ export default function Navbar() {
                     aria-expanded={isMenuOpen}
                     style={{
                       color: isMenuActive ? '#fbbf24' : '#ffffff',
-                      padding: '0.45rem 0.55rem',
+                      padding: '0.45rem 0.65rem',
                       fontSize: '0.8rem',
                       fontWeight: 600,
                       textDecoration: 'none',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.2rem',
+                      display: 'block',
                       background: 'transparent',
                       borderRadius: '6px',
                       transition: 'all 0.15s ease',
@@ -527,7 +514,6 @@ export default function Navbar() {
                     }}
                   >
                     <span>{menu.title}</span>
-                    <ChevronDown size={11} style={{ opacity: 0.85 }} />
                   </Link>
 
                   {/* Dropdown Menu Container */}
@@ -784,7 +770,7 @@ export default function Navbar() {
                   gap: '0.5rem'
                 }}
               >
-                <LogIn size={16} /> Open College Portal
+                Open College Portal
               </button>
             </div>
           </div>
@@ -957,9 +943,7 @@ export default function Navbar() {
           left: 0;
           right: 0;
           bottom: 0;
-          background: rgba(5, 29, 59, 0.45);
-          backdrop-filter: blur(2px);
-          -webkit-backdrop-filter: blur(2px);
+          background: rgba(5, 29, 59, 0.7);
           z-index: 998;
           display: block;
           animation: tecBackdropFade 0.2s ease-out forwards;

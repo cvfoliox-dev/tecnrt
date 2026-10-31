@@ -52,10 +52,10 @@ export default function DepartmentDetailPage() {
             </div>
 
             {/* Quick HOD Pill */}
-            <div style={{ background: 'rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255, 255, 255, 0.2)', padding: '1rem 1.25rem', borderRadius: '12px' }}>
+            <div style={{ background: '#0e2154', border: '1px solid #1e3a6d', padding: '1rem 1.25rem', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.25)' }}>
               <div style={{ fontSize: '0.75rem', color: '#fbbf24', fontWeight: 700, textTransform: 'uppercase' }}>HEAD OF DEPARTMENT</div>
               <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#ffffff', marginTop: '0.15rem' }}>{currentDept.hod.name}</div>
-              <div style={{ fontSize: '0.8rem', color: '#cbd5e1' }}>{currentDept.hod.qual}</div>
+              <div style={{ fontSize: '0.8rem', color: '#d4cfc5' }}>{currentDept.hod.qual}</div>
             </div>
           </div>
         </div>

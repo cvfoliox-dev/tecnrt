@@ -22,14 +22,11 @@ export default function HeroSection() {
   return (
     <section id="home" style={{ 
       position: 'relative', 
-      background: 'radial-gradient(120% 120% at 50% 10%, #0e2154 0%, #09142b 70%, #050b18 100%)', 
+      background: '#0A1D37', 
       color: '#ffffff', 
       padding: '4.5rem 1.5rem 5.5rem', 
       overflow: 'hidden' 
     }}>
-      {/* Decorative ambient background glows */}
-      <div style={{ position: 'absolute', top: '-15%', left: '10%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(37,99,235,0.2) 0%, transparent 70%)', filter: 'blur(50px)', pointerEvents: 'none' }}></div>
-      <div style={{ position: 'absolute', bottom: '-10%', right: '5%', width: '450px', height: '450px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(245,158,11,0.15) 0%, transparent 70%)', filter: 'blur(50px)', pointerEvents: 'none' }}></div>
 
       <div className="container" style={{ position: 'relative', zIndex: 10 }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'center' }}>
@@ -95,10 +92,9 @@ export default function HeroSection() {
           {/* Right Hero Visual Card */}
           <div>
             <div style={{ 
-              background: 'rgba(255, 255, 255, 0.05)', 
-              backdropFilter: 'blur(16px)', 
+              background: '#0e2154', 
               borderRadius: '24px', 
-              border: '1px solid rgba(255, 255, 255, 0.15)', 
+              border: '1px solid #1e3a6d', 
               padding: '2rem',
               boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
             }}>
