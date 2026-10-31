@@ -359,7 +359,7 @@ export default function Navbar() {
                 transition: 'all 0.15s ease'
               }}
               title="Access College Management Portals"
-              aria-label="Student & Faculty Portal Login"
+              aria-label="Student & HOD Portal Login"
             >
               <span className="portal-btn-label">Portal Login</span>
               <span className="portal-btn-label-mobile">Portal</span>
@@ -803,15 +803,39 @@ export default function Navbar() {
             display: flex !important;
             justify-content: space-between !important;
             align-items: center !important;
+            gap: 1rem !important;
           }
           .tec-brand-link {
             flex-shrink: 0 !important;
           }
           .tec-header-logos-desktop {
-            display: none !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: clamp(0.6rem, 1.4vw, 1.5rem) !important;
+            flex: 1 1 auto !important;
+          }
+          .tec-header-logos-desktop img {
+            height: clamp(34px, 3.2vw, 44px) !important;
+            width: auto !important;
+            object-fit: contain !important;
+            display: block !important;
+            transition: transform 0.2s ease !important;
+          }
+          .tec-header-logos-desktop img:hover {
+            transform: scale(1.05) !important;
           }
           .tec-header-actions {
             flex-shrink: 0 !important;
+          }
+        }
+
+        @media (min-width: 993px) and (max-width: 1200px) {
+          .tec-header-logos-desktop {
+            gap: 0.75rem !important;
+          }
+          .tec-header-logos-desktop img {
+            height: 36px !important;
           }
         }
 

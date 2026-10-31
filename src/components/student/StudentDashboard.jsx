@@ -3,7 +3,6 @@ import { useAuth } from '../../context/AuthContext';
 import PortalHeader from '../common/PortalHeader';
 import StudentOverview from './StudentOverview';
 import StudentProfile from './StudentProfile';
-import SemesterSubjects from './SemesterSubjects';
 import AttendanceView from './AttendanceView';
 import ExaminationsView from './ExaminationsView';
 import FeesPaymentView from './FeesPaymentView';
@@ -11,7 +10,6 @@ import StudentSettings from './StudentSettings';
 import { 
   LayoutDashboard, 
   User, 
-  BookOpen, 
   Percent, 
   FileText, 
   CreditCard, 
@@ -23,8 +21,7 @@ export default function StudentDashboard() {
 
   const navItems = [
     { id: 'overview', label: 'Overview', icon: LayoutDashboard },
-    { id: 'profile', label: 'Student Profile', icon: User },
-    { id: 'subjects', label: 'Semester & Subjects', icon: BookOpen },
+    { id: 'profile', label: 'My Profile', icon: User },
     { id: 'attendance', label: 'Attendance', icon: Percent },
     { id: 'exams', label: 'Examinations & Supplies', icon: FileText },
     { id: 'fees', label: 'Fees & Payment', icon: CreditCard },
@@ -80,7 +77,6 @@ export default function StudentDashboard() {
         <main style={{ flex: 1, minWidth: 0 }}>
           {activeTab === 'overview' && <StudentOverview />}
           {activeTab === 'profile' && <StudentProfile />}
-          {activeTab === 'subjects' && <SemesterSubjects />}
           {activeTab === 'attendance' && <AttendanceView />}
           {activeTab === 'exams' && <ExaminationsView />}
           {activeTab === 'fees' && <FeesPaymentView />}

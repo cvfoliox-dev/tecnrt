@@ -5,32 +5,7 @@ import { ShieldCheck, CheckCircle2, XCircle, Clock, FileText, UserPlus } from 'l
 export default function HODAcademicAdministration({ onOpenAddStudent }) {
   const { auditLogs, logAction, showToast } = useAuth();
 
-  const [correctionRequests, setCorrectionRequests] = useState([
-    {
-      id: "REQ-2026-081",
-      submittedBy: "Sri Ch. Mahesh Babu (Faculty)",
-      date: "2026-09-28 14:10",
-      rollNumber: "21TML0503",
-      studentName: "B. Yaswanth Kumar",
-      subject: "CS711PE - Full Stack Web Dev",
-      oldValue: "28 / 38 Classes (73.6%)",
-      requestedValue: "30 / 38 Classes (78.9%)",
-      reason: "Student submitted authenticated Medical Duty certificate for viral fever during mid-terms",
-      status: "Pending Approval"
-    },
-    {
-      id: "REQ-2026-079",
-      submittedBy: "Prof. K. Vijaya Lakshmi (Faculty)",
-      date: "2026-09-25 11:30",
-      rollNumber: "21TML0501",
-      studentName: "M. Sai Vardhan",
-      subject: "CS701PC - Cloud Computing",
-      oldValue: "42 / 48 Classes (87.5%)",
-      requestedValue: "44 / 48 Classes (91.7%)",
-      reason: "Attended Smart India Hackathon zonal round representing Tirumala Engineering College",
-      status: "Approved by HOD"
-    }
-  ]);
+  const [correctionRequests, setCorrectionRequests] = useState([]);
 
   const handleApprove = (req) => {
     setCorrectionRequests(prev => prev.map(r => r.id === req.id ? { ...r, status: "Approved by HOD" } : r));
@@ -83,7 +58,16 @@ export default function HODAcademicAdministration({ onOpenAddStudent }) {
         </h3>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          {correctionRequests.map(req => {
+          {correctionRequests.length === 0 ? (
+            <div style={{ textAlign: 'center', padding: '2.5rem 1rem', background: '#f8fafc', borderRadius: '12px', border: '1px dashed #cbd5e1', color: '#64748b' }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 40, height: 40, borderRadius: '50%', background: '#e2e8f0', color: '#64748b', marginBottom: '0.5rem' }}>
+                <CheckCircle2 size={20} />
+              </div>
+              <p style={{ fontWeight: 600, color: '#334155', margin: 0 }}>No attendance correction requests</p>
+              <p style={{ fontSize: '0.82rem', color: '#94a3b8', margin: '0.25rem 0 0 0' }}>Faculty-submitted adjustment and condonation requests will appear here for HOD review and approval.</p>
+            </div>
+          ) : (
+            correctionRequests.map(req => {
             const isPending = req.status === "Pending Approval";
             return (
               <div key={req.id} style={{ background: '#f8fafc', padding: '1.25rem', borderRadius: '12px', border: isPending ? '1.5px solid #f59e0b' : '1px solid #e2e8f0' }}>
@@ -130,7 +114,7 @@ export default function HODAcademicAdministration({ onOpenAddStudent }) {
                 )}
               </div>
             );
-          })}
+          }))}
         </div>
       </div>
 

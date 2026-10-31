@@ -6,10 +6,24 @@ import { BookOpen, User, Percent, Award, CheckCircle2, ChevronRight, X, Clock } 
 export default function SemesterSubjects() {
   const { currentUser } = useAuth();
   const student = currentUser.profile || {};
-  const subjects = STUDENT_SUBJECTS[student.rollNumber] || STUDENT_SUBJECTS["21TML0501"];
+  const defaultSubjects = STUDENT_SUBJECTS[student.rollNumber] || STUDENT_SUBJECTS["21TML0501"] || [];
+  const subjects = (student.subjectAttendance && student.subjectAttendance.length > 0)
+    ? student.subjectAttendance.map((sub, idx) => {
+        const fallback = defaultSubjects.find(s => s.code?.toLowerCase() === sub.code?.toLowerCase() || s.name?.toLowerCase() === sub.name?.toLowerCase()) || defaultSubjects[idx] || {};
+        return {
+          ...fallback,
+          ...sub,
+          credits: fallback.credits || 3,
+          mid1Marks: fallback.mid1Marks || 26,
+          mid2Marks: fallback.mid2Marks || 27,
+          syllabusCompleted: fallback.syllabusCompleted || "85% Covered",
+          units: fallback.units || ["Unit 1: Fundamentals", "Unit 2: Implementation", "Unit 3: Advanced Concepts"]
+        };
+      })
+    : defaultSubjects;
   const [selectedSubject, setSelectedSubject] = useState(null);
 
-  const totalCredits = subjects.reduce((sum, s) => sum + s.credits, 0);
+  const totalCredits = subjects.reduce((sum, s) => sum + (s.credits || 3), 0);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>

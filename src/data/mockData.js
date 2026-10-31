@@ -182,232 +182,590 @@ export const DEPARTMENTS = [
   }
 ];
 
+export const PROFILE_STATUSES = {
+  COMPLETE: 'Complete',
+  INCOMPLETE: 'Incomplete'
+};
+
+export const ACCOUNT_STATUSES = {
+  PENDING: 'PENDING',
+  PROVISIONED: 'PROVISIONED',
+  ACTIVE: 'ACTIVE'
+};
+
+export const REQUIRED_PROFILE_FIELDS = [
+  'name',
+  'dob',
+  'gender',
+  'bloodGroup',
+  'phone',
+  'email',
+  'fatherName',
+  'fatherPhone',
+  'motherName',
+  'currentAddress',
+  'permanentAddress',
+  'admissionYear',
+  'admissionType'
+];
+
+export const isProfileComplete = (student) => {
+  if (!student) return false;
+  for (const key of REQUIRED_PROFILE_FIELDS) {
+    const val = student[key];
+    if (!val || typeof val !== 'string' || val.trim() === '' || val === 'Not Specified') {
+      return false;
+    }
+  }
+  const phoneDigits = (student.phone || '').replace(/\D/g, '');
+  if (phoneDigits.length < 10) return false;
+
+  const fatherPhoneDigits = (student.fatherPhone || '').replace(/\D/g, '');
+  if (fatherPhoneDigits.length < 10) return false;
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(student.email || '')) return false;
+
+  return true;
+};
+
+export const getProfileStatus = (student) => {
+  return isProfileComplete(student) ? PROFILE_STATUSES.COMPLETE : PROFILE_STATUSES.INCOMPLETE;
+};
+
+export const calculateProfileCompletion = (student) => {
+  if (!student) return 0;
+  const fields = [
+    student.name,
+    student.dob,
+    student.gender,
+    student.bloodGroup,
+    student.phone,
+    student.email,
+    student.fatherName,
+    student.fatherPhone,
+    student.motherName,
+    student.currentAddress,
+    student.permanentAddress,
+    student.admissionYear,
+    student.admissionType
+  ];
+  const filled = fields.filter(f => f && typeof f === 'string' && f.trim() !== '' && f !== 'Not Specified').length;
+  return Math.round((filled / fields.length) * 100);
+};
+
+// =========================================================================
+// CANONICAL ACADEMIC SEMESTER STRUCTURE & PROGRESSION (Shared Single Truth)
+// =========================================================================
+export const SEMESTER_STRUCTURE = [
+  { code: '1-1', label: '1-1', fullName: '1st Year I Semester (1-1)', year: '1st Year', yearCode: 'I Year', semesterNumber: 1 },
+  { code: '1-2', label: '1-2', fullName: '1st Year II Semester (1-2)', year: '1st Year', yearCode: 'I Year', semesterNumber: 2 },
+  { code: '2-1', label: '2-1', fullName: '2nd Year I Semester (2-1)', year: '2nd Year', yearCode: 'II Year', semesterNumber: 3 },
+  { code: '2-2', label: '2-2', fullName: '2nd Year II Semester (2-2)', year: '2nd Year', yearCode: 'II Year', semesterNumber: 4 },
+  { code: '3-1', label: '3-1', fullName: '3rd Year I Semester (3-1)', year: '3rd Year', yearCode: 'III Year', semesterNumber: 5 },
+  { code: '3-2', label: '3-2', fullName: '3rd Year II Semester (3-2)', year: '3rd Year', yearCode: 'III Year', semesterNumber: 6 },
+  { code: '4-1', label: '4-1', fullName: '4th Year I Semester (4-1)', year: '4th Year', yearCode: 'IV Year', semesterNumber: 7 },
+  { code: '4-2', label: '4-2', fullName: '4th Year II Semester (4-2)', year: '4th Year', yearCode: 'IV Year', semesterNumber: 8 }
+];
+
+export const SEMESTER_PROGRESSION = {
+  '1-1': { nextSem: '1-2', nextYear: '1st Year' },
+  '1-2': { nextSem: '2-1', nextYear: '2nd Year' },
+  '2-1': { nextSem: '2-2', nextYear: '2nd Year' },
+  '2-2': { nextSem: '3-1', nextYear: '3rd Year' },
+  '3-1': { nextSem: '3-2', nextYear: '3rd Year' },
+  '3-2': { nextSem: '4-1', nextYear: '4th Year' },
+  '4-1': { nextSem: '4-2', nextYear: '4th Year' },
+  '4-2': { nextSem: null, nextYear: 'Graduated / Programme Completed' }
+};
+
+export const normalizeSemesterCode = (sem) => {
+  if (!sem) return '1-1';
+  const s = String(sem).trim();
+  if (s === '1-1' || s.includes('1-1') || s.startsWith('I Sem') || s === '1' || s === 'I') return '1-1';
+  if (s === '1-2' || s.includes('1-2') || s.startsWith('II Sem') || s === '2' || s === 'II') return '1-2';
+  if (s === '2-1' || s.includes('2-1') || s.startsWith('III Sem') || s === '3' || s === 'III') return '2-1';
+  if (s === '2-2' || s.includes('2-2') || s.startsWith('IV Sem') || s === '4' || s === 'IV') return '2-2';
+  if (s === '3-1' || s.includes('3-1') || s.startsWith('V Sem') || s === '5' || s === 'V') return '3-1';
+  if (s === '3-2' || s.includes('3-2') || s.startsWith('VI Sem') || s === '6' || s === 'VI') return '3-2';
+  if (s === '4-1' || s.includes('4-1') || s.startsWith('VII Sem') || s === '7' || s === 'VII') return '4-1';
+  if (s === '4-2' || s.includes('4-2') || s.startsWith('VIII Sem') || s === '8' || s === 'VIII') return '4-2';
+  return s;
+};
+
+export const normalizeYear = (yr) => {
+  if (!yr) return '1st Year';
+  const y = String(yr).trim();
+  if (y.includes('1') || y.startsWith('I ') || y === 'I Year') return '1st Year';
+  if (y.includes('2') || y.startsWith('II ') || y === 'II Year') return '2nd Year';
+  if (y.includes('3') || y.startsWith('III ') || y === 'III Year') return '3rd Year';
+  if (y.includes('4') || y.startsWith('IV ') || y === 'IV Year') return '4th Year';
+  return yr;
+};
+
+export const getSemesterProgressionInfo = (currentSem) => {
+  const code = normalizeSemesterCode(currentSem);
+  const prog = SEMESTER_PROGRESSION[code];
+  return {
+    currentCode: code,
+    nextSem: prog?.nextSem || null,
+    nextYear: prog?.nextYear || null,
+    canPromote: !!prog?.nextSem
+  };
+};
+
+export const SAMPLE_MULTI_SEMESTER_ATTENDANCE = {
+  "1-1": {
+    conducted: 220,
+    attended: 200,
+    absent: 20,
+    percentage: "90.91",
+    monthlyAttendance: [
+      { month: "September 2023", classesConducted: 55, classesAttended: 51, classesAbsent: 4, attendancePercentage: "92.73" },
+      { month: "October 2023", classesConducted: 55, classesAttended: 50, classesAbsent: 5, attendancePercentage: "90.91" },
+      { month: "November 2023", classesConducted: 55, classesAttended: 50, classesAbsent: 5, attendancePercentage: "90.91" },
+      { month: "December 2023", classesConducted: 55, classesAttended: 49, classesAbsent: 6, attendancePercentage: "89.09" }
+    ]
+  },
+  "1-2": {
+    conducted: 230,
+    attended: 206,
+    absent: 24,
+    percentage: "89.57",
+    monthlyAttendance: [
+      { month: "February 2024", classesConducted: 58, classesAttended: 52, classesAbsent: 6, attendancePercentage: "89.66" },
+      { month: "March 2024", classesConducted: 60, classesAttended: 54, classesAbsent: 6, attendancePercentage: "90.00" },
+      { month: "April 2024", classesConducted: 56, classesAttended: 50, classesAbsent: 6, attendancePercentage: "89.29" },
+      { month: "May 2024", classesConducted: 56, classesAttended: 50, classesAbsent: 6, attendancePercentage: "89.29" }
+    ]
+  },
+  "2-1": {
+    conducted: 240,
+    attended: 218,
+    absent: 22,
+    percentage: "90.83",
+    monthlyAttendance: [
+      { month: "July 2024", classesConducted: 60, classesAttended: 55, classesAbsent: 5, attendancePercentage: "91.67" },
+      { month: "August 2024", classesConducted: 60, classesAttended: 55, classesAbsent: 5, attendancePercentage: "91.67" },
+      { month: "September 2024", classesConducted: 60, classesAttended: 54, classesAbsent: 6, attendancePercentage: "90.00" },
+      { month: "October 2024", classesConducted: 60, classesAttended: 54, classesAbsent: 6, attendancePercentage: "90.00" }
+    ]
+  },
+  "2-2": {
+    conducted: 235,
+    attended: 210,
+    absent: 25,
+    percentage: "89.36",
+    monthlyAttendance: [
+      { month: "January 2025", classesConducted: 58, classesAttended: 52, classesAbsent: 6, attendancePercentage: "89.66" },
+      { month: "February 2025", classesConducted: 58, classesAttended: 52, classesAbsent: 6, attendancePercentage: "89.66" },
+      { month: "March 2025", classesConducted: 60, classesAttended: 54, classesAbsent: 6, attendancePercentage: "90.00" },
+      { month: "April 2025", classesConducted: 59, classesAttended: 52, classesAbsent: 7, attendancePercentage: "88.14" }
+    ]
+  },
+  "3-1": {
+    conducted: 240,
+    attended: 212,
+    absent: 28,
+    percentage: "88.33",
+    monthlyAttendance: [
+      { month: "July 2025", classesConducted: 60, classesAttended: 54, classesAbsent: 6, attendancePercentage: "90.00" },
+      { month: "August 2025", classesConducted: 60, classesAttended: 53, classesAbsent: 7, attendancePercentage: "88.33" },
+      { month: "September 2025", classesConducted: 60, classesAttended: 53, classesAbsent: 7, attendancePercentage: "88.33" },
+      { month: "October 2025", classesConducted: 60, classesAttended: 52, classesAbsent: 8, attendancePercentage: "86.67" }
+    ]
+  },
+  "3-2": {
+    conducted: 230,
+    attended: 204,
+    absent: 26,
+    percentage: "88.70",
+    monthlyAttendance: [
+      { month: "January 2026", classesConducted: 55, classesAttended: 49, classesAbsent: 6, attendancePercentage: "89.09" },
+      { month: "February 2026", classesConducted: 55, classesAttended: 49, classesAbsent: 6, attendancePercentage: "89.09" },
+      { month: "March 2026", classesConducted: 60, classesAttended: 53, classesAbsent: 7, attendancePercentage: "88.33" },
+      { month: "April 2026", classesConducted: 60, classesAttended: 53, classesAbsent: 7, attendancePercentage: "88.33" }
+    ]
+  },
+  "4-1": {
+    conducted: 240,
+    attended: 212,
+    absent: 28,
+    percentage: "88.33",
+    monthlyAttendance: [
+      { month: "July 2026", classesConducted: 56, classesAttended: 50, classesAbsent: 6, attendancePercentage: "89.29" },
+      { month: "August 2026", classesConducted: 64, classesAttended: 58, classesAbsent: 6, attendancePercentage: "90.63" },
+      { month: "September 2026", classesConducted: 60, classesAttended: 52, classesAbsent: 8, attendancePercentage: "86.67" },
+      { month: "October 2026", classesConducted: 60, classesAttended: 52, classesAbsent: 8, attendancePercentage: "86.67" }
+    ]
+  }
+};
+
+export const getStudentSemesterAttendance = (student, semCode) => {
+  const code = normalizeSemesterCode(semCode);
+
+  // 1. Check if student has explicit multi-semester attendance records
+  if (student?.semesterAttendance?.[code]) {
+    const semData = student.semesterAttendance[code];
+    const monthly = semData.monthlyAttendance || [];
+    const conducted = semData.conducted ?? (monthly.length > 0 ? monthly.reduce((s, m) => s + (m.classesConducted || m.held || 0), 0) : 0);
+    const attended = semData.attended ?? (monthly.length > 0 ? monthly.reduce((s, m) => s + (m.classesAttended || m.attended || 0), 0) : 0);
+    const absent = semData.absent ?? Math.max(0, conducted - attended);
+    const percentage = conducted > 0 ? ((attended / conducted) * 100).toFixed(2) : "0.00";
+
+    return {
+      hasData: conducted > 0,
+      conducted,
+      attended,
+      absent,
+      percentage,
+      monthlyAttendance: monthly
+    };
+  }
+
+  // 2. If semCode matches student's active semester and has root data
+  const currentSem = normalizeSemesterCode(student?.semester || '1-1');
+  if (code === currentSem && (student?.monthlyAttendance?.length > 0 || student?.totalClassesHeld > 0)) {
+    const monthly = student.monthlyAttendance || [];
+    const conducted = monthly.length > 0
+      ? monthly.reduce((s, m) => s + (m.classesConducted || m.held || 0), 0)
+      : (student.totalClassesHeld || 0);
+    const attended = monthly.length > 0
+      ? monthly.reduce((s, m) => s + (m.classesAttended || m.attended || 0), 0)
+      : (student.totalClassesAttended || 0);
+    const absent = monthly.length > 0
+      ? monthly.reduce((s, m) => s + (m.classesAbsent || m.absent || 0), 0)
+      : (student.totalClassesAbsent ?? Math.max(0, conducted - attended));
+    const percentage = conducted > 0 ? ((attended / conducted) * 100).toFixed(2) : "0.00";
+
+    return {
+      hasData: conducted > 0,
+      conducted,
+      attended,
+      absent,
+      percentage,
+      monthlyAttendance: monthly
+    };
+  }
+
+  // 3. Clean empty state for un-commenced / empty semesters
+  return {
+    hasData: false,
+    conducted: 0,
+    attended: 0,
+    absent: 0,
+    percentage: "0.00",
+    monthlyAttendance: []
+  };
+};
+
 export const INITIAL_STUDENTS = [
   {
     id: "std-001",
     rollNumber: "21TML0501",
     name: "M. Sai Vardhan",
+    shortName: "Sai Vardhan",
+    course: "B.Tech",
     department: "CSE",
+    branch: "CSE",
     year: "IV Year",
     semester: "VII Semester",
     section: "A",
-    email: "21tml0501@tecnrt.org",
-    phone: "+91 98480 12345",
-    gender: "Male",
+    admissionNumber: "ADM-2021-0501",
     dob: "2003-08-14",
-    fatherName: "M. Venkata Subbaiah",
-    address: "Plot 42, Arundelpet, Guntur, AP",
+    gender: "Male",
     bloodGroup: "O+",
-    admissionType: "Convener Quota (EAPCET Rank: 18420)",
+    phone: "+91 98480 12345",
+    email: "21tml0501@tecnrt.org",
+    fatherPhone: "+91 94401 23456",
+    fatherEmail: "venkatasubbaiah.m@gmail.com",
+    currentAddress: "Plot 42, Arundelpet, Guntur, AP - 522002",
+    permanentAddress: "Plot 42, Arundelpet, Guntur, AP - 522002",
+    fatherName: "M. Venkata Subbaiah",
+    fatherOccupation: "Agriculture / Enterprise",
+    motherName: "M. Lakshmi Devi",
+    motherOccupation: "Homemaker",
+    guardianName: "",
+    guardianContact: "",
+    admissionYear: "2021",
+    admissionDate: "2021-09-15",
+    admissionType: "Convener Quota (EAPCET)",
+    admissionQuota: "Convener Quota (Rank: 18420)",
+    casteCategory: "BC-A",
+    scholarshipStatus: "Eligible",
+    feeReimbursementStatus: "Full (JVD)",
+    profileStatus: PROFILE_STATUSES.COMPLETE,
+    profileCompletion: 100,
     cgpa: 8.64,
     sgpaLast: 8.90,
     attendanceOverall: 88.5,
     status: "Active",
     accountSetup: true,
+    accountStatus: "ACTIVE",
+    tempPassword: "TEC#0501@2026",
+    mustChangePassword: false,
+    provisionedAt: "2026-10-31 10:00",
     totalClassesHeld: 240,
     totalClassesAttended: 212,
     totalClassesAbsent: 28,
+    monthlyAttendance: [
+      {
+        month: "July 2026",
+        classesConducted: 56,
+        classesAttended: 50,
+        classesAbsent: 6,
+        attendancePercentage: 89.29
+      },
+      {
+        month: "August 2026",
+        classesConducted: 64,
+        classesAttended: 58,
+        classesAbsent: 6,
+        attendancePercentage: 90.63
+      },
+      {
+        month: "September 2026",
+        classesConducted: 60,
+        classesAttended: 52,
+        classesAbsent: 8,
+        attendancePercentage: 86.67
+      },
+      {
+        month: "October 2026",
+        classesConducted: 60,
+        classesAttended: 52,
+        classesAbsent: 8,
+        attendancePercentage: 86.67
+      }
+    ],
     feeStatus: "Partial",
     feeDue: 15000,
-    totalFee: 65000
+    totalFee: 65000,
+    semesterAttendance: { ...SAMPLE_MULTI_SEMESTER_ATTENDANCE }
   },
   {
     id: "std-002",
     rollNumber: "21TML0502",
-    name: "K. Pravallika",
+    name: "K. Ananya",
+    shortName: "Ananya",
+    course: "B.Tech",
     department: "CSE",
+    branch: "CSE",
     year: "IV Year",
     semester: "VII Semester",
     section: "A",
-    email: "21tml0502@tecnrt.org",
-    phone: "+91 97010 45678",
+    admissionNumber: "ADM-2021-0502",
+    dob: "2003-11-20",
     gender: "Female",
-    dob: "2003-11-22",
-    fatherName: "K. Srinivasa Murthy",
-    address: "D.No 5-21, Prakash Nagar, Narasaraopet, AP",
     bloodGroup: "B+",
-    admissionType: "Convener Quota (EAPCET Rank: 15300)",
-    cgpa: 9.12,
-    sgpaLast: 9.40,
-    attendanceOverall: 94.2,
+    phone: "+91 97011 44556",
+    email: "21tml0502@tecnrt.org",
+    fatherPhone: "+91 98492 55667",
+    fatherEmail: "subbarao.k@gmail.com",
+    currentAddress: "D.No 4-12, Main Road, Narasaraopet, Palnadu Dt - 522601",
+    permanentAddress: "D.No 4-12, Main Road, Narasaraopet, Palnadu Dt - 522601",
+    fatherName: "K. Subba Rao",
+    fatherOccupation: "Government Employee",
+    motherName: "K. Parvathi",
+    motherOccupation: "School Teacher",
+    guardianName: "",
+    guardianContact: "",
+    admissionYear: "2021",
+    admissionDate: "2021-09-18",
+    admissionType: "Convener Quota (EAPCET)",
+    admissionQuota: "Convener Quota (Rank: 12150)",
+    casteCategory: "OC",
+    scholarshipStatus: "Applied",
+    feeReimbursementStatus: "Pending Verification",
+    profileStatus: PROFILE_STATUSES.COMPLETE,
+    profileCompletion: 100,
+    cgpa: 8.85,
+    sgpaLast: 9.10,
+    attendanceOverall: 92.0,
     status: "Active",
     accountSetup: true,
+    accountStatus: "PROVISIONED",
+    tempPassword: "TEC#0502@2026",
+    mustChangePassword: true,
+    provisionedAt: "2026-10-31 10:00",
     totalClassesHeld: 240,
-    totalClassesAttended: 226,
-    totalClassesAbsent: 14,
+    totalClassesAttended: 221,
+    totalClassesAbsent: 19,
+    monthlyAttendance: [
+      {
+        month: "July 2026",
+        classesConducted: 56,
+        classesAttended: 52,
+        classesAbsent: 4,
+        attendancePercentage: 92.86
+      },
+      {
+        month: "August 2026",
+        classesConducted: 64,
+        classesAttended: 60,
+        classesAbsent: 4,
+        attendancePercentage: 93.75
+      },
+      {
+        month: "September 2026",
+        classesConducted: 60,
+        classesAttended: 55,
+        classesAbsent: 5,
+        attendancePercentage: 91.67
+      },
+      {
+        month: "October 2026",
+        classesConducted: 60,
+        classesAttended: 54,
+        classesAbsent: 6,
+        attendancePercentage: 90.00
+      }
+    ],
     feeStatus: "Paid",
     feeDue: 0,
-    totalFee: 65000
+    totalFee: 65000,
+    semesterAttendance: { ...SAMPLE_MULTI_SEMESTER_ATTENDANCE }
   },
   {
     id: "std-003",
     rollNumber: "21TML0503",
-    name: "B. Yaswanth Kumar",
+    name: "B. Karthik",
+    shortName: "Karthik",
+    course: "B.Tech",
     department: "CSE",
+    branch: "CSE",
     year: "IV Year",
     semester: "VII Semester",
     section: "A",
-    email: "21tml0503@tecnrt.org",
-    phone: "+91 99890 33445",
+    admissionNumber: "ADM-2021-0503",
+    dob: "2003-05-12",
     gender: "Male",
-    dob: "2003-05-19",
-    fatherName: "B. Anjaneyulu",
-    address: "Main Road, Vinukonda, Palnadu Dist, AP",
     bloodGroup: "A+",
-    admissionType: "Convener Quota (EAPCET Rank: 24100)",
-    cgpa: 7.42,
-    sgpaLast: 7.10,
-    attendanceOverall: 71.3,
-    status: "Active (Condonation Alert)",
+    phone: "+91 99890 22113",
+    email: "21tml0503@tecnrt.org",
+    fatherPhone: "+91 94412 88990",
+    fatherEmail: "ramana.b@gmail.com",
+    currentAddress: "Flat 202, Sri Sai Towers, Chilakaluripet, AP - 522616",
+    permanentAddress: "Flat 202, Sri Sai Towers, Chilakaluripet, AP - 522616",
+    fatherName: "B. Venkata Ramana",
+    fatherOccupation: "Private Sector Executive",
+    motherName: "B. Satyavathi",
+    motherOccupation: "",
+    guardianName: "",
+    guardianContact: "",
+    admissionYear: "2021",
+    admissionDate: "2021-09-22",
+    admissionType: "Management Quota",
+    admissionQuota: "Management Quota",
+    casteCategory: "BC-D",
+    scholarshipStatus: "Not Eligible",
+    feeReimbursementStatus: "Self Financed",
+    profileStatus: PROFILE_STATUSES.COMPLETE,
+    profileCompletion: 100,
+    cgpa: 7.92,
+    sgpaLast: 8.05,
+    attendanceOverall: 78.5,
+    status: "Active",
     accountSetup: true,
+    accountStatus: "PROVISIONED",
+    tempPassword: "TEC#0503@2026",
+    mustChangePassword: true,
+    provisionedAt: "2026-10-31 10:00",
     totalClassesHeld: 240,
-    totalClassesAttended: 171,
-    totalClassesAbsent: 69,
-    feeStatus: "Pending",
-    feeDue: 35000,
-    totalFee: 65000
+    totalClassesAttended: 188,
+    totalClassesAbsent: 52,
+    monthlyAttendance: [
+      {
+        month: "July 2026",
+        classesConducted: 56,
+        classesAttended: 46,
+        classesAbsent: 10,
+        attendancePercentage: 82.14
+      },
+      {
+        month: "August 2026",
+        classesConducted: 64,
+        classesAttended: 50,
+        classesAbsent: 14,
+        attendancePercentage: 78.13
+      },
+      {
+        month: "September 2026",
+        classesConducted: 60,
+        classesAttended: 46,
+        classesAbsent: 14,
+        attendancePercentage: 76.67
+      },
+      {
+        month: "October 2026",
+        classesConducted: 60,
+        classesAttended: 46,
+        classesAbsent: 14,
+        attendancePercentage: 76.67
+      }
+    ],
+    feeStatus: "Partial",
+    feeDue: 25000,
+    totalFee: 85000,
+    semesterAttendance: { ...SAMPLE_MULTI_SEMESTER_ATTENDANCE }
   },
   {
     id: "std-004",
     rollNumber: "21TML0504",
-    name: "G. Haritha",
+    name: "T. Sandeep",
+    shortName: "",
+    course: "B.Tech",
     department: "CSE",
+    branch: "CSE",
     year: "IV Year",
     semester: "VII Semester",
-    section: "A",
-    email: "21tml0504@tecnrt.org",
-    phone: "+91 94411 98765",
-    gender: "Female",
-    dob: "2003-09-02",
-    fatherName: "G. Raghava Rao",
-    address: "Sai Baba Colony, Chilakaluripet, AP",
-    bloodGroup: "AB+",
-    admissionType: "Management Quota",
-    cgpa: 8.25,
-    sgpaLast: 8.40,
-    attendanceOverall: 84.6,
-    status: "Active",
-    accountSetup: true,
-    totalClassesHeld: 240,
-    totalClassesAttended: 203,
-    totalClassesAbsent: 37,
-    feeStatus: "Paid",
-    feeDue: 0,
-    totalFee: 75000
-  },
-  {
-    id: "std-005",
-    rollNumber: "21TML0505",
-    name: "P. Tarun Teja",
-    department: "CSE",
-    year: "IV Year",
-    semester: "VII Semester",
-    section: "A",
-    email: "21tml0505@tecnrt.org",
-    phone: "+91 96180 77665",
-    gender: "Male",
-    dob: "2003-01-30",
-    fatherName: "P. Mallikarjuna Rao",
-    address: "Brodipet 3rd Line, Guntur, AP",
-    bloodGroup: "O+",
-    admissionType: "Convener Quota (EAPCET Rank: 19800)",
-    cgpa: 6.95,
-    sgpaLast: 6.80,
-    attendanceOverall: 64.2,
-    status: "Detained Warning (<65%)",
-    accountSetup: true,
-    totalClassesHeld: 240,
-    totalClassesAttended: 154,
-    totalClassesAbsent: 86,
-    feeStatus: "Pending",
-    feeDue: 45000,
-    totalFee: 65000
-  },
-  {
-    id: "std-006",
-    rollNumber: "22TML0512",
-    name: "V. Lakshmi Prasanna",
-    department: "CSE",
-    year: "III Year",
-    semester: "V Semester",
     section: "B",
-    email: "22tml0512@tecnrt.org",
-    phone: "+91 95530 11223",
-    gender: "Female",
-    dob: "2004-03-12",
-    fatherName: "V. Samba Siva Rao",
-    address: "RTC Colony, Narasaraopet, AP",
-    bloodGroup: "A+",
-    admissionType: "Convener Quota (EAPCET Rank: 14200)",
-    cgpa: 8.85,
-    sgpaLast: 9.05,
-    attendanceOverall: 91.0,
-    status: "Active",
-    accountSetup: true,
-    totalClassesHeld: 210,
-    totalClassesAttended: 191,
-    totalClassesAbsent: 19,
-    feeStatus: "Paid",
-    feeDue: 0,
-    totalFee: 65000
-  },
-  {
-    id: "std-007",
-    rollNumber: "22TML4201",
-    name: "D. Siva Rama Krishna",
-    department: "AIML",
-    year: "III Year",
-    semester: "V Semester",
-    section: "A",
-    email: "22tml4201@tecnrt.org",
-    phone: "+91 91770 44556",
+    admissionNumber: "ADM-2021-0504",
+    dob: "",
     gender: "Male",
-    dob: "2004-06-25",
-    fatherName: "D. Tirupathi Rao",
-    address: "Sattenapalli Road, Narasaraopet, AP",
-    bloodGroup: "B+",
-    admissionType: "Convener Quota (EAPCET Rank: 16800)",
-    cgpa: 8.52,
-    sgpaLast: 8.70,
-    attendanceOverall: 87.6,
+    bloodGroup: "Not Specified",
+    phone: "",
+    email: "21tml0504@tecnrt.org",
+    fatherPhone: "",
+    fatherEmail: "",
+    currentAddress: "",
+    permanentAddress: "",
+    fatherName: "",
+    fatherOccupation: "",
+    motherName: "",
+    motherOccupation: "",
+    guardianName: "",
+    guardianContact: "",
+    admissionYear: "2021",
+    admissionDate: "",
+    admissionType: "Convener Quota (EAPCET)",
+    admissionQuota: "Convener Quota",
+    casteCategory: "",
+    scholarshipStatus: "Pending Verification",
+    feeReimbursementStatus: "Pending Verification",
+    profileStatus: PROFILE_STATUSES.INCOMPLETE,
+    profileCompletion: 23,
+    cgpa: 7.50,
+    sgpaLast: 7.50,
+    attendanceOverall: 76.0,
     status: "Active",
-    accountSetup: true,
-    totalClassesHeld: 210,
-    totalClassesAttended: 184,
-    totalClassesAbsent: 26,
-    feeStatus: "Paid",
-    feeDue: 0,
-    totalFee: 65000
-  },
-  {
-    id: "std-008",
-    rollNumber: "21TML0401",
-    name: "N. Anitha",
-    department: "ECE",
-    year: "IV Year",
-    semester: "VII Semester",
-    section: "A",
-    email: "21tml0401@tecnrt.org",
-    phone: "+91 96420 88990",
-    gender: "Female",
-    dob: "2003-04-18",
-    fatherName: "N. Sambasiva Rao",
-    address: "Kothapet, Guntur, AP",
-    bloodGroup: "O+",
-    admissionType: "Convener Quota (EAPCET Rank: 17200)",
-    cgpa: 8.70,
-    sgpaLast: 8.80,
-    attendanceOverall: 89.2,
-    status: "Active",
-    accountSetup: true,
-    totalClassesHeld: 240,
-    totalClassesAttended: 214,
-    totalClassesAbsent: 26,
-    feeStatus: "Paid",
-    feeDue: 0,
-    totalFee: 65000
+    accountSetup: false,
+    accountStatus: "PENDING",
+    tempPassword: "TEC#0504@2026",
+    mustChangePassword: true,
+    provisionedAt: null,
+    totalClassesHeld: 0,
+    totalClassesAttended: 0,
+    totalClassesAbsent: 0,
+    monthlyAttendance: [],
+    feeStatus: "Pending",
+    feeDue: 65000,
+    totalFee: 65000,
+    semesterAttendance: {}
   }
 ];
+
+export const INITIAL_EXAM_TIMETABLES = [];
 
 export const STUDENT_SUBJECTS = {
   "21TML0501": [
@@ -492,60 +850,25 @@ export const STUDENT_SUBJECTS = {
   ]
 };
 
+// Populate subjects, exam and fees for other sample students
+["21TML0502", "21TML0503", "21TML0504"].forEach(roll => {
+  STUDENT_SUBJECTS[roll] = STUDENT_SUBJECTS["21TML0501"].map(s => ({ ...s }));
+});
+
 export const STUDENT_EXAMS = {
   "21TML0501": {
     currentSemester: "B.Tech IV-I Regular (JNTUK R20)",
-    examStatus: "Hall Ticket Released",
+    examStatus: "No Active Schedule",
     hallTicketNo: "21TML0501",
     centerName: "Tirumala Engineering College, Narasaraopet (Center Code: TMLN)",
-    schedule: [
-      {
-        date: "2026-11-16",
-        time: "10:00 AM - 01:00 PM",
-        code: "CS701PC",
-        subject: "Cloud Computing & Distributed Architecture",
-        hall: "Block-B 204",
-        status: "Upcoming"
-      },
-      {
-        date: "2026-11-18",
-        time: "10:00 AM - 01:00 PM",
-        code: "CS702PC",
-        subject: "Cryptography & Network Security",
-        hall: "Block-B 204",
-        status: "Upcoming"
-      },
-      {
-        date: "2026-11-21",
-        time: "10:00 AM - 01:00 PM",
-        code: "CS711PE",
-        subject: "Full Stack Web Development (MERN)",
-        hall: "Block-B 204",
-        status: "Upcoming"
-      },
-      {
-        date: "2026-11-24",
-        time: "10:00 AM - 01:00 PM",
-        code: "CS721PE",
-        subject: "Machine Learning Foundations",
-        hall: "Block-B 204",
-        status: "Upcoming"
-      }
-    ],
-    supplementaryRecords: [
-      {
-        semester: "III-II Supplementary (May 2026)",
-        code: "CS602PC",
-        subject: "Compiler Design",
-        status: "Cleared",
-        grade: "B",
-        credits: 3,
-        resultPublished: "2026-07-12"
-      }
-    ],
-    openSupplies: [] // Currently no active backlog
+    schedule: [],
+    supplementaryRecords: [],
+    openSupplies: []
   }
 };
+["21TML0502", "21TML0503", "21TML0504"].forEach(roll => {
+  STUDENT_EXAMS[roll] = { ...STUDENT_EXAMS["21TML0501"], hallTicketNo: roll };
+});
 
 export const STUDENT_FEES = {
   "21TML0501": {
@@ -656,96 +979,11 @@ export const FACULTY_MEMBERS = [
   }
 ];
 
-export const FACULTY_TIMETABLE = [
-  { day: "Monday", time: "09:30 - 10:20 AM", subject: "Full Stack Web Development", class: "IV CSE-A", room: "B-204" },
-  { day: "Monday", time: "11:20 - 12:10 PM", subject: "Web Technologies Tutorial", class: "III CSE-B", room: "B-102" },
-  { day: "Tuesday", time: "10:20 - 11:10 AM", subject: "Full Stack Web Development", class: "IV CSE-A", room: "B-204" },
-  { day: "Tuesday", time: "01:40 - 04:10 PM", subject: "Web Tech Lab Batch-1", class: "III CSE-B", room: "Computer Center 3" },
-  { day: "Wednesday", time: "09:30 - 10:20 AM", subject: "Full Stack Web Development", class: "IV CSE-A", room: "B-204" },
-  { day: "Thursday", time: "11:20 - 12:10 PM", subject: "Full Stack Web Development", class: "IV CSE-A", room: "B-204" },
-  { day: "Friday", time: "01:40 - 04:10 PM", subject: "Web Tech Lab Batch-2", class: "III CSE-B", room: "Computer Center 3" },
-  { day: "Saturday", time: "10:20 - 11:10 AM", subject: "Technical Seminar Mentoring", class: "IV CSE-A", room: "Seminar Hall 1" }
-];
+export const FACULTY_TIMETABLE = [];
 
-export const ATTENDANCE_UPLOAD_HISTORY = [
-  {
-    id: "UPL-8821",
-    fileName: "CSE_IV_Year_SecA_Aug2026_CS711PE.xlsx",
-    uploadDate: "2026-09-01 16:30",
-    uploadedBy: "Sri Ch. Mahesh Babu (TEC-FAC-042)",
-    academicPeriod: "August 2026",
-    class: "IV B.Tech CSE-A",
-    subject: "CS711PE - Full Stack Web Dev",
-    totalRows: 68,
-    validRows: 68,
-    rejectedRows: 0,
-    status: "Processed & Verified",
-    nature: "New Period Submission",
-    auditRef: "AUD-2026-9901"
-  },
-  {
-    id: "UPL-8610",
-    fileName: "CSE_IV_Year_SecA_Jul2026_CS711PE.csv",
-    uploadDate: "2026-08-01 14:15",
-    uploadedBy: "Sri Ch. Mahesh Babu (TEC-FAC-042)",
-    academicPeriod: "July 2026",
-    class: "IV B.Tech CSE-A",
-    subject: "CS711PE - Full Stack Web Dev",
-    totalRows: 68,
-    validRows: 67,
-    rejectedRows: 1,
-    status: "Processed with 1 Correction",
-    nature: "Replacement / Correction",
-    auditRef: "AUD-2026-8714"
-  }
-];
+export const ATTENDANCE_UPLOAD_HISTORY = [];
 
-export const AUDIT_LOGS = [
-  {
-    id: "AUD-2026-9901",
-    timestamp: "2026-09-01 16:30:24",
-    user: "Sri Ch. Mahesh Babu",
-    role: "Faculty (CSE)",
-    action: "ATTENDANCE_UPLOAD",
-    academicPeriod: "August 2026",
-    affectedClass: "IV B.Tech CSE - Section A",
-    details: "Uploaded monthly attendance spreadsheet for CS711PE (68 records processed, 0 errors)",
-    status: "Success"
-  },
-  {
-    id: "AUD-2026-9844",
-    timestamp: "2026-08-28 11:14:02",
-    user: "Dr. K. Srinivasa Rao",
-    role: "HOD (CSE)",
-    action: "CORRECTION_APPROVAL",
-    academicPeriod: "July 2026",
-    affectedClass: "IV B.Tech CSE - Section A (Roll: 21TML0503)",
-    details: "Approved attendance correction from 16 to 18 classes attended for Medical Leave certificate verification",
-    status: "Approved"
-  },
-  {
-    id: "AUD-2026-9712",
-    timestamp: "2026-08-20 10:05:40",
-    user: "Dr. V. Narayana",
-    role: "Principal",
-    action: "ACADEMIC_OVERSIGHT",
-    academicPeriod: "ODD Semester 2026-27",
-    affectedClass: "All Departments",
-    details: "Reviewed mid-term institutional attendance summary and generated JNTUK compliance report",
-    status: "Completed"
-  },
-  {
-    id: "AUD-2026-9502",
-    timestamp: "2026-08-10 14:22:15",
-    user: "Dr. K. Srinivasa Rao",
-    role: "HOD (CSE)",
-    action: "STUDENT_CREATION",
-    academicPeriod: "2026-2027",
-    affectedClass: "III B.Tech CSE - Section B",
-    details: "Authorized lateral entry enrollment for roll number 22TML05L01 (Transfer student)",
-    status: "Created"
-  }
-];
+export const AUDIT_LOGS = [];
 
 export const ANNOUNCEMENTS = [
   {

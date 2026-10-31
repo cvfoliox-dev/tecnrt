@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { COLLEGE_INFO } from '../../data/mockData';
+import { COLLEGE_INFO, DEPARTMENTS } from '../../data/mockData';
 import { 
   X, 
   GraduationCap, 
@@ -17,8 +18,10 @@ import {
 
 export default function LoginModal() {
   const { loginModalOpen, setLoginModalOpen, loginModalRole, setLoginModalRole, loginWithCredentials } = useAuth();
+  const navigate = useNavigate();
 
   const [activeTab, setActiveTab] = useState(loginModalRole || 'student');
+  const [hodBranch, setHodBranch] = useState('CSE');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -44,30 +47,25 @@ export default function LoginModal() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [loginModalOpen, setLoginModalOpen]);
 
-  const applyDemoCredentials = (role) => {
+  const applyDemoCredentials = (role, branch = hodBranch) => {
     setError('');
     setShowForgotNotice(false);
     setRequireMfa(false);
 
     if (role === 'student') {
       setUsername('21TML0501');
-      setPassword('21TML0501'); // Tests the first-time password change requirement!
-    } else if (role === 'faculty') {
-      setUsername('TEC-FAC-042');
-      setPassword('Faculty@2026');
+      setPassword('TEC#0501@2026'); // Temporary passkey issued during student provisioning
     } else if (role === 'hod') {
-      setUsername('hod.cse@tecnrt.org');
-      setPassword('HOD_CSE#2026');
-    } else if (role === 'principal') {
-      setUsername('principal@tecnrt.org');
-      setPassword('Principal#TMLN26');
+      const b = branch || 'CSE';
+      setUsername(`hod.${b.toLowerCase()}@tecnrt.org`);
+      setPassword(`HOD_${b.toUpperCase()}#2026`);
     }
   };
 
   const handleTabChange = (role) => {
     setActiveTab(role);
     setLoginModalRole(role);
-    applyDemoCredentials(role);
+    applyDemoCredentials(role, hodBranch);
   };
 
   const handleSubmit = (e) => {
@@ -84,11 +82,16 @@ export default function LoginModal() {
       return;
     }
 
-    loginWithCredentials({
+    const res = loginWithCredentials({
       role: activeTab,
       username,
-      password
+      password,
+      branch: hodBranch
     });
+
+    if (res?.success) {
+      navigate(`/portal/${activeTab}`);
+    }
   };
 
   if (!loginModalOpen) return null;
@@ -142,11 +145,11 @@ export default function LoginModal() {
           </button>
         </div>
 
-        {/* Role Tabs */}
+        {/* Role Tabs - Student & HOD Portals */}
         <div 
           role="tablist"
           aria-label="Portal User Roles"
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', background: '#f8fafc', borderBottom: '1px solid #e2e8f0', padding: '0.35rem 0.5rem' }}
+          style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', background: '#f8fafc', borderBottom: '1px solid #e2e8f0', padding: '0.35rem 0.5rem', gap: '0.5rem' }}
         >
           <button
             type="button"
@@ -154,46 +157,23 @@ export default function LoginModal() {
             aria-selected={activeTab === 'student'}
             onClick={() => handleTabChange('student')}
             style={{
-              padding: '0.65rem 0.25rem',
-              fontSize: '0.78rem',
+              padding: '0.75rem 0.5rem',
+              fontSize: '0.85rem',
               fontWeight: activeTab === 'student' ? 700 : 500,
               background: activeTab === 'student' ? '#ffffff' : 'transparent',
               color: activeTab === 'student' ? '#0a3d78' : '#64748b',
-              borderRadius: '6px',
+              borderRadius: '8px',
               border: activeTab === 'student' ? '1px solid #cbd5e1' : 'none',
               boxShadow: activeTab === 'student' ? 'var(--shadow-sm)' : 'none',
               display: 'flex',
-              flexDirection: 'column',
               alignItems: 'center',
-              gap: '0.25rem'
+              justifyContent: 'center',
+              gap: '0.5rem',
+              cursor: 'pointer'
             }}
           >
-            <GraduationCap size={16} />
-            <span>Student</span>
-          </button>
-
-          <button
-            type="button"
-            role="tab"
-            aria-selected={activeTab === 'faculty'}
-            onClick={() => handleTabChange('faculty')}
-            style={{
-              padding: '0.65rem 0.25rem',
-              fontSize: '0.78rem',
-              fontWeight: activeTab === 'faculty' ? 700 : 500,
-              background: activeTab === 'faculty' ? '#ffffff' : 'transparent',
-              color: activeTab === 'faculty' ? '#d97706' : '#64748b',
-              borderRadius: '6px',
-              border: activeTab === 'faculty' ? '1px solid #cbd5e1' : 'none',
-              boxShadow: activeTab === 'faculty' ? 'var(--shadow-sm)' : 'none',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '0.25rem'
-            }}
-          >
-            <Briefcase size={16} />
-            <span>Faculty</span>
+            <GraduationCap size={18} />
+            <span>Student Portal</span>
           </button>
 
           <button
@@ -202,72 +182,39 @@ export default function LoginModal() {
             aria-selected={activeTab === 'hod'}
             onClick={() => handleTabChange('hod')}
             style={{
-              padding: '0.65rem 0.25rem',
-              fontSize: '0.78rem',
+              padding: '0.75rem 0.5rem',
+              fontSize: '0.85rem',
               fontWeight: activeTab === 'hod' ? 700 : 500,
               background: activeTab === 'hod' ? '#ffffff' : 'transparent',
               color: activeTab === 'hod' ? '#0a3d78' : '#64748b',
-              borderRadius: '6px',
+              borderRadius: '8px',
               border: activeTab === 'hod' ? '1px solid #cbd5e1' : 'none',
               boxShadow: activeTab === 'hod' ? 'var(--shadow-sm)' : 'none',
               display: 'flex',
-              flexDirection: 'column',
               alignItems: 'center',
-              gap: '0.25rem'
+              justifyContent: 'center',
+              gap: '0.5rem',
+              cursor: 'pointer'
             }}
           >
-            <Building2 size={16} />
-            <span>HOD</span>
-          </button>
-
-          <button
-            type="button"
-            role="tab"
-            aria-selected={activeTab === 'principal'}
-            onClick={() => handleTabChange('principal')}
-            style={{
-              padding: '0.65rem 0.25rem',
-              fontSize: '0.78rem',
-              fontWeight: activeTab === 'principal' ? 700 : 500,
-              background: activeTab === 'principal' ? '#ffffff' : 'transparent',
-              color: activeTab === 'principal' ? '#8c1515' : '#64748b',
-              borderRadius: '6px',
-              border: activeTab === 'principal' ? '1px solid #cbd5e1' : 'none',
-              boxShadow: activeTab === 'principal' ? 'var(--shadow-sm)' : 'none',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '0.25rem'
-            }}
-          >
-            <UserCheck size={16} />
-            <span>Principal</span>
+            <Building2 size={18} />
+            <span>HOD Portal</span>
           </button>
         </div>
 
         {/* Form Body */}
         <form onSubmit={handleSubmit}>
           <div className="modal-body" style={{ padding: '1.5rem' }}>
-            {/* PRD Role Specific Guidance */}
+            {/* Role Specific Guidance */}
             <div style={{ background: '#f0f5fa', border: '1px solid #cbd5e1', padding: '0.75rem 1rem', borderRadius: '8px', marginBottom: '1.25rem', fontSize: '0.8rem', color: '#0a3d78' }}>
               {activeTab === 'student' && (
                 <div>
-                  <strong>PRD 4.1 Notice:</strong> Student login identifier is your 10-digit College Roll Number. Initial password is set to Roll Number (first login requires updating password).
-                </div>
-              )}
-              {activeTab === 'faculty' && (
-                <div>
-                  <strong>PRD 4.2 Notice:</strong> Faculty login uses official Staff Identifier (e.g., <code>TEC-FAC-042</code>). Supports spreadsheet uploads and attendance authorization.
+                  <strong>Student Access:</strong> Enter your 10-digit College Roll Number (e.g., <code>21TML0501</code>) and issued temporary password. First-time login requires setting a private password.
                 </div>
               )}
               {activeTab === 'hod' && (
                 <div>
-                  <strong>PRD 4.3 Notice:</strong> Head of Department portal for academic monitoring, subject allocations, and attendance oversight.
-                </div>
-              )}
-              {activeTab === 'principal' && (
-                <div>
-                  <strong>PRD 4.4 Notice:</strong> Institutional executive oversight across all 8 academic departments, student rosters, and audit trails.
+                  <strong>HOD Portal:</strong> Head of Department administration for Section-wise Student Management, Attendance Upload, and Faculty Workload.
                 </div>
               )}
             </div>
@@ -279,9 +226,37 @@ export default function LoginModal() {
               </div>
             )}
 
+            {activeTab === 'hod' && (
+              <div className="form-group">
+                <label className="form-label" style={{ fontWeight: 700, color: '#0a3d78' }}>
+                  Branch / Academic Department
+                </label>
+                <select
+                  className="form-select"
+                  value={hodBranch}
+                  onChange={(e) => {
+                    const b = e.target.value;
+                    setHodBranch(b);
+                    setUsername(`hod.${b.toLowerCase()}@tecnrt.org`);
+                    setPassword(`HOD_${b.toUpperCase()}#2026`);
+                  }}
+                  style={{ fontWeight: 600 }}
+                >
+                  {DEPARTMENTS.map(d => (
+                    <option key={d.id} value={d.id}>
+                      {d.id} — {d.name}
+                    </option>
+                  ))}
+                </select>
+                <div style={{ fontSize: '0.72rem', color: '#64748b', marginTop: '0.25rem' }}>
+                  HOD session and attendance management will be strictly assigned to this department.
+                </div>
+              </div>
+            )}
+
             <div className="form-group">
               <label className="form-label">
-                {activeTab === 'student' ? 'College Roll Number (Identifier)' : activeTab === 'faculty' ? 'Staff Identifier / Username' : 'Official Email / Administrator ID'}
+                {activeTab === 'student' ? 'College Roll Number (Identifier)' : 'HOD Email / Administrator ID'}
               </label>
               <input 
                 type="text" 
@@ -289,7 +264,7 @@ export default function LoginModal() {
                 required 
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder={activeTab === 'student' ? 'e.g., 21TML0501' : 'e.g., TEC-FAC-042'}
+                placeholder={activeTab === 'student' ? 'e.g., 21TML0501' : 'e.g., hod.cse@tecnrt.org'}
               />
             </div>
 
@@ -314,8 +289,8 @@ export default function LoginModal() {
               />
             </div>
 
-            {/* Simulated MFA Option for Faculty/Admin (PRD 4.2) */}
-            {(activeTab === 'faculty' || activeTab === 'hod' || activeTab === 'principal') && (
+            {/* Simulated MFA Option for Privileged Administration */}
+            {(activeTab === 'hod' || activeTab === 'principal') && (
               <div style={{ marginBottom: '1rem' }}>
                 <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.8rem', color: '#475569', cursor: 'pointer' }}>
                   <input 

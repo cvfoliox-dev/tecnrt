@@ -1,14 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Award } from 'lucide-react';
+import { ArrowRight, ChevronDown, Award } from 'lucide-react';
 import PlacementsSection from '../components/home/PlacementsSection';
 import LatestNewsSection from '../components/home/LatestNewsSection';
 
 export default function HomePage() {
   const [heroAnimated, setHeroAnimated] = useState(false);
-  const [campusRevealed, setCampusRevealed] = useState(() => 
-    typeof window !== 'undefined' && Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)
-  );
+  const [campusRevealed, setCampusRevealed] = useState(false);
   const heroImgRef = useRef(null);
 
   useEffect(() => {
@@ -88,7 +86,7 @@ export default function HomePage() {
           className="tec-hero-panorama-bg"
         />
 
-        {/* Primary campus panorama image */}
+        {/* Single primary campus panorama image */}
         <img
           ref={heroImgRef}
           src="/campus_panorama.png"
@@ -137,7 +135,51 @@ export default function HomePage() {
           }}
         >
           <div style={{ maxWidth: '640px', color: '#ffffff' }}>
-            {/* Main Heading - Unified in one style without colored accent words */}
+            {/* Top Pill Badge */}
+            <div 
+              className="hero-anim-eyebrow"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.45rem',
+                padding: '0.35rem 0.85rem',
+                backgroundColor: 'rgba(5, 29, 59, 0.65)',
+                border: '1px solid rgba(245, 158, 11, 0.55)',
+                borderRadius: '9999px',
+                marginBottom: '0.85rem',
+                boxShadow: '0 4px 14px rgba(0, 0, 0, 0.25)',
+                boxSizing: 'border-box'
+              }}
+            >
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#f59e0b', display: 'inline-block', flexShrink: 0 }} />
+              <span 
+                className="tec-hero-pill-text-desktop"
+                style={{
+                  fontSize: 'clamp(0.66rem, 1.3vw, 0.78rem)',
+                  fontWeight: 800,
+                  letterSpacing: '0.06em',
+                  textTransform: 'uppercase',
+                  color: '#ffffff'
+                }}
+              >
+                TIRUMALA ENGINEERING COLLEGE • AUTONOMOUS • EAPCET CODE: TMLN
+              </span>
+              <span 
+                className="tec-hero-pill-text-mobile"
+                style={{
+                  display: 'none',
+                  fontSize: '0.7rem',
+                  fontWeight: 800,
+                  letterSpacing: '0.05em',
+                  textTransform: 'uppercase',
+                  color: '#ffffff'
+                }}
+              >
+                AUTONOMOUS • EAPCET: TMLN
+              </span>
+            </div>
+
+            {/* Main Heading */}
             <h1 
               className="hero-anim-heading"
               style={{
@@ -152,7 +194,7 @@ export default function HomePage() {
               }}
             >
               Engineering Education<br />
-              with Discipline and Purpose
+              <span style={{ color: '#fbbf24' }}>with Discipline and Purpose</span>
             </h1>
 
             {/* Supporting Description */}
@@ -188,6 +230,7 @@ export default function HomePage() {
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
+                  gap: '0.5rem',
                   justifyContent: 'center',
                   backgroundColor: '#f59e0b',
                   color: '#051d3b',
@@ -202,6 +245,7 @@ export default function HomePage() {
                 }}
               >
                 <span>Explore B.Tech Courses</span>
+                <ArrowRight size={17} />
               </Link>
 
               {/* Secondary CTA */}
@@ -211,6 +255,7 @@ export default function HomePage() {
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
+                  gap: '0.45rem',
                   justifyContent: 'center',
                   backgroundColor: '#0a1d37',
                   color: '#ffffff',
@@ -226,6 +271,7 @@ export default function HomePage() {
                 }}
               >
                 <span>Principal's Message</span>
+                <ChevronDown size={17} />
               </button>
             </div>
           </div>
@@ -706,7 +752,7 @@ export default function HomePage() {
             display: inline !important;
           }
 
-          /* Ambient background layer: synchronized subtle pullback to unify the entire scene without blur filter */
+          /* Ambient background layer: synchronized subtle pullback to unify the entire scene */
           .tec-hero-panorama-bg {
             display: block !important;
             position: absolute !important;
@@ -715,7 +761,7 @@ export default function HomePage() {
             height: 100% !important;
             object-fit: cover !important;
             object-position: 45.3% 35% !important;
-            brightness: 0.6 !important;
+            filter: blur(10px) brightness(0.72) saturate(1.1) !important;
             transform-origin: 45.3% 70% !important;
             transform: scale(1.22) !important;
             transition: transform 2.4s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
@@ -728,12 +774,14 @@ export default function HomePage() {
 
           /* Dynamic mobile hero: displays the complete college panorama in natural aspect ratio */
           .tec-homepage-fullwidth-hero {
+            position: relative !important;
             height: auto !important;
             min-height: clamp(420px, calc(240px + 45.3vw), 530px) !important;
             display: flex !important;
             flex-direction: column !important;
             justify-content: flex-start !important;
             padding: 0 !important;
+            margin: 0 !important;
             overflow: hidden !important;
           }
 
@@ -763,12 +811,22 @@ export default function HomePage() {
 
           /* Seamless gradient overlay ensuring text contrast without layer seam */
           .tec-hero-gradient-overlay {
+            position: absolute !important;
+            inset: 0 !important;
             z-index: 3 !important;
+            pointer-events: none !important;
             background: linear-gradient(180deg, 
               rgba(5, 29, 59, 0.82) 0%, 
               rgba(5, 29, 59, 0.45) 38%, 
               rgba(5, 29, 59, 0.10) 68%, 
               transparent 88%) !important;
+          }
+
+          /* Ensure Principal's section does not overlap */
+          #principal-section {
+            position: relative !important;
+            z-index: 5 !important;
+            clear: both !important;
           }
           .tec-hero-content-wrapper {
             padding-top: clamp(0.75rem, 2.2vh, 1.15rem) !important;

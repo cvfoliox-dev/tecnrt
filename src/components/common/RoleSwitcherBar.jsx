@@ -54,15 +54,6 @@ export default function RoleSwitcherBar() {
         </button>
 
         <button
-          className={`role-tag-btn ${currentUser.role === 'faculty' ? 'active' : ''}`}
-          onClick={() => handleSwitch('faculty')}
-          title="Faculty Dashboard (Sri Ch. Mahesh Babu)"
-        >
-          <Briefcase size={13} />
-          Faculty (Mahesh Babu)
-        </button>
-
-        <button
           className={`role-tag-btn ${currentUser.role === 'hod' ? 'active' : ''}`}
           onClick={() => handleSwitch('hod')}
           title="HOD Dashboard (Dr. K. Srinivasa Rao)"

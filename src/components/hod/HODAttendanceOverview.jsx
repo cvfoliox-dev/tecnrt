@@ -4,16 +4,22 @@ import { STUDENT_SUBJECTS } from '../../data/mockData';
 import { Percent, Search, Filter, Eye, X, CheckCircle2, AlertTriangle, ShieldCheck } from 'lucide-react';
 
 export default function HODAttendanceOverview() {
-  const { students, showToast, logAction } = useAuth();
-  const cseStudents = students.filter(s => s.department === 'CSE');
+  const { currentUser, students, showToast, logAction } = useAuth();
+  const assignedBranch = currentUser?.profile?.department || 'CSE';
+  const deptStudents = students.filter(s => s.department === assignedBranch);
 
   const [selectedSubjectFilter, setSelectedSubjectFilter] = useState('OVERALL');
   const [selectedClassFilter, setSelectedClassFilter] = useState('ALL');
   const [searchRoll, setSearchRoll] = useState('');
   const [detailModalStudent, setDetailModalStudent] = useState(null);
 
+  const studentsWithAtt = deptStudents.filter(s => s.attendanceOverall !== undefined && s.attendanceOverall !== null);
+  const deptAvg = studentsWithAtt.length > 0
+    ? (studentsWithAtt.reduce((sum, s) => sum + (parseFloat(s.attendanceOverall) || 0), 0) / studentsWithAtt.length).toFixed(1) + '%'
+    : '—';
+
   // Filter students
-  const filtered = cseStudents.filter(s => {
+  const filtered = deptStudents.filter(s => {
     const matchesRoll = s.rollNumber.toLowerCase().includes(searchRoll.toLowerCase()) ||
                         s.name.toLowerCase().includes(searchRoll.toLowerCase());
     const matchesClass = selectedClassFilter === 'ALL' || s.section === selectedClassFilter;
@@ -30,7 +36,7 @@ export default function HODAttendanceOverview() {
             PRD 4.3 & 5.3 Simple Overview Architecture
           </span>
           <h2 style={{ fontSize: '1.4rem', color: '#0e2154' }}>
-            Department Attendance Monitoring Overview
+            {assignedBranch} Department Attendance Monitoring Overview
           </h2>
           <p style={{ fontSize: '0.82rem', color: '#64748b', marginTop: '0.2rem' }}>
             Simplified, uncluttered executive overview focused on student roll numbers and attendance percentages.
@@ -38,10 +44,12 @@ export default function HODAttendanceOverview() {
         </div>
 
         <div style={{ background: '#f8fafc', padding: '0.5rem 1rem', borderRadius: '8px', border: '1px solid #e2e8f0', textAlign: 'right' }}>
-          <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#059669' }}>
-            86.4%
+          <div style={{ fontSize: '1.25rem', fontWeight: 800, color: deptAvg !== '—' ? '#059669' : '#64748b' }}>
+            {deptAvg}
           </div>
-          <div style={{ fontSize: '0.72rem', color: '#64748b' }}>Department Aggregate</div>
+          <div style={{ fontSize: '0.72rem', color: '#64748b' }}>
+            {deptAvg !== '—' ? 'Department Aggregate' : 'No Attendance Data'}
+          </div>
         </div>
       </div>
 
@@ -68,9 +76,10 @@ export default function HODAttendanceOverview() {
               onChange={(e) => setSelectedClassFilter(e.target.value)}
               style={{ width: 'auto', fontSize: '0.82rem', padding: '0.45rem 0.8rem' }}
             >
-              <option value="ALL">All Sections (A & B)</option>
+              <option value="ALL">All Sections</option>
               <option value="A">Section A</option>
               <option value="B">Section B</option>
+              <option value="C">Section C</option>
             </select>
           </div>
 
@@ -106,7 +115,21 @@ export default function HODAttendanceOverview() {
             </tr>
           </thead>
           <tbody>
-            {filtered.map(student => {
+            {filtered.length === 0 ? (
+              <tr>
+                <td colSpan={7} style={{ textAlign: 'center', padding: '3rem 1rem', color: '#64748b' }}>
+                  <div style={{ fontWeight: 600, color: '#334155', fontSize: '0.95rem' }}>
+                    {deptStudents.length === 0 ? "No students registered yet" : "No students found matching current filters"}
+                  </div>
+                  <div style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '0.25rem' }}>
+                    {deptStudents.length === 0 
+                      ? `No student records found in Department of ${assignedBranch}.`
+                      : "Try clearing the search box or selecting 'All Sections'."}
+                  </div>
+                </td>
+              </tr>
+            ) : (
+              filtered.map(student => {
               const pct = student.attendanceOverall;
               const isDetained = pct < 65;
               const isCondonation = pct < 75 && pct >= 65;
@@ -152,7 +175,8 @@ export default function HODAttendanceOverview() {
                   </td>
                 </tr>
               );
-            })}
+            })
+          )}
           </tbody>
         </table>
       </div>
@@ -214,7 +238,7 @@ export default function HODAttendanceOverview() {
                     </tr>
                   </thead>
                   <tbody>
-                    {(STUDENT_SUBJECTS[detailModalStudent.rollNumber] || STUDENT_SUBJECTS["21TML0501"]).map(s => (
+                    {(detailModalStudent.subjectAttendance || STUDENT_SUBJECTS[detailModalStudent.rollNumber] || STUDENT_SUBJECTS["21TML0501"] || []).map(s => (
                       <tr key={s.code}>
                         <td><strong>{s.code}:</strong> {s.name}</td>
                         <td style={{ fontSize: '0.8rem', color: '#64748b' }}>{s.faculty}</td>

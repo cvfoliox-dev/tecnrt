@@ -1,5 +1,5 @@
 import React, { useEffect, Suspense, lazy } from 'react';
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
@@ -28,9 +28,7 @@ const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 // Internal Portal Suites (Code-Split / Lazy-Loaded Only on Authentication)
 const StudentDashboard = lazy(() => import('./components/student/StudentDashboard'));
-const FacultyDashboard = lazy(() => import('./components/faculty/FacultyDashboard'));
 const HODDashboard = lazy(() => import('./components/hod/HODDashboard'));
-const PrincipalDashboard = lazy(() => import('./components/principal/PrincipalDashboard'));
 
 import { X, CheckCircle2, AlertCircle, Info } from 'lucide-react';
 
@@ -62,6 +60,7 @@ function PageLoadingFallback() {
 export default function App() {
   const { currentUser, quickSwitchRole, toasts, removeToast } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Scroll to top on route change
   useEffect(() => {
@@ -70,17 +69,18 @@ export default function App() {
 
   // If path is a portal route, ensure appropriate role is active
   useEffect(() => {
-    if (location.pathname.startsWith('/portal/student') && currentUser.role !== 'student') {
+    if (location.pathname.startsWith('/portal/faculty')) {
+      // Faculty portal has been removed permanently - redirect to student portal
+      navigate('/portal/student', { replace: true });
       quickSwitchRole('student');
-    } else if (location.pathname.startsWith('/portal/faculty') && currentUser.role !== 'faculty') {
-      quickSwitchRole('faculty');
+    } else if (location.pathname.startsWith('/portal/student') && currentUser.role !== 'student') {
+      quickSwitchRole('student');
     } else if (location.pathname.startsWith('/portal/hod') && currentUser.role !== 'hod') {
       quickSwitchRole('hod');
-    } else if (location.pathname.startsWith('/portal/principal') && currentUser.role !== 'principal') {
-      quickSwitchRole('principal');
+    } else if (location.pathname.startsWith('/portal/principal')) {
+      navigate('/', { replace: true });
     }
-  }, [location.pathname, currentUser.role, quickSwitchRole]);
-
+  }, [location.pathname, currentUser.role]);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
@@ -90,9 +90,7 @@ export default function App() {
       {/* 1. Portal Views when a role is selected (Lazy Loaded) */}
       <Suspense fallback={<PageLoadingFallback />}>
         {currentUser.role === 'student' && <StudentDashboard />}
-        {currentUser.role === 'faculty' && <FacultyDashboard />}
         {currentUser.role === 'hod' && <HODDashboard />}
-        {currentUser.role === 'principal' && <PrincipalDashboard />}
       </Suspense>
 
       {/* 2. Primary Public Website Routes */}
@@ -219,9 +217,9 @@ export default function App() {
 
               {/* Portal routes accessible directly */}
               <Route path="/portal/student" element={<StudentDashboard />} />
-              <Route path="/portal/faculty" element={<FacultyDashboard />} />
+              <Route path="/portal/faculty" element={<Navigate to="/portal/student" replace />} />
               <Route path="/portal/hod" element={<HODDashboard />} />
-              <Route path="/portal/principal" element={<PrincipalDashboard />} />
+              <Route path="/portal/principal" element={<Navigate to="/" replace />} />
 
               {/* 404 Fallback */}
               <Route path="*" element={<NotFoundPage />} />

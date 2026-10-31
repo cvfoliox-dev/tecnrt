@@ -3,27 +3,33 @@ import { useAuth } from '../../context/AuthContext';
 import { Calendar, Download, Printer, TrendingUp, CheckCircle2 } from 'lucide-react';
 
 export default function HODMonthlyReports() {
-  const { showToast } = useAuth();
-  const [selectedMonth, setSelectedMonth] = useState('September 2026');
+  const { showToast, uploadHistory = [], currentUser } = useAuth();
+  const assignedBranch = currentUser?.profile?.department || 'CSE';
+  const [selectedMonth, setSelectedMonth] = useState('');
 
-  const monthlyStats = [
-    { month: "September 2026", held: 240, avgAtt: 86.4, condonationCount: 4, detainedCount: 1, complianceStatus: "Under Review" },
-    { month: "August 2026", held: 240, avgAtt: 87.8, condonationCount: 3, detainedCount: 0, complianceStatus: "Approved by Principal" },
-    { month: "July 2026", held: 240, avgAtt: 89.1, condonationCount: 2, detainedCount: 0, complianceStatus: "Approved by Principal" },
-  ];
+  const deptUploads = (uploadHistory || []).filter(u => !u.department || u.department === assignedBranch);
+
+  const monthlyStats = deptUploads.map(u => ({
+    month: u.academicPeriod || 'Academic Period',
+    held: u.classesHeld || u.totalClasses || '—',
+    avgAtt: u.avgAttendance != null ? u.avgAttendance : (u.records?.length ? Math.round(u.records.reduce((acc, r) => acc + (parseFloat(r.percentage) || 0), 0) / u.records.length) : '—'),
+    condonationCount: u.records ? u.records.filter(r => (parseFloat(r.percentage) || 0) < 75 && (parseFloat(r.percentage) || 0) >= 65).length : 0,
+    detainedCount: u.records ? u.records.filter(r => (parseFloat(r.percentage) || 0) < 65).length : 0,
+    complianceStatus: u.status || "Published"
+  }));
 
   const handleExport = () => {
     const csvContent = "Month,Classes Held,Dept Avg %,Condonation Risk,Detention Risk,Status\n" + 
-      monthlyStats.map(s => `"${s.month}",${s.held},${s.avgAtt}%,${s.condonationCount},${s.detainedCount},"${s.complianceStatus}"`).join("\n");
+      monthlyStats.map(s => `"${s.month}",${s.held},${s.avgAtt === '—' ? '—' : s.avgAtt + '%'},${s.condonationCount},${s.detainedCount},"${s.complianceStatus}"`).join("\n");
     const blob = new Blob([csvContent], { type: 'text/csv' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `CSE_Department_Monthly_Attendance_Report.csv`;
+    a.download = `${assignedBranch}_Department_Monthly_Attendance_Report.csv`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-    showToast("Department Monthly Report exported successfully!", "success");
+    showToast(`${assignedBranch} Department Monthly Report exported successfully!`, "success");
   };
 
   return (
@@ -68,13 +74,20 @@ export default function HODMonthlyReports() {
             </tr>
           </thead>
           <tbody>
-            {monthlyStats.map((st, i) => (
+            {monthlyStats.length === 0 ? (
+              <tr>
+                <td colSpan={7} style={{ textAlign: 'center', padding: '2rem', color: '#64748b' }}>
+                  No monthly statutory registers generated yet. Monthly reports will populate automatically upon attendance uploads.
+                </td>
+              </tr>
+            ) : (
+              monthlyStats.map((st, i) => (
               <tr key={i}>
                 <td><strong>{st.month}</strong></td>
-                <td>{st.held} Sessions</td>
+                <td>{st.held !== '—' ? `${st.held} Sessions` : '—'}</td>
                 <td>
                   <strong style={{ color: '#059669', fontSize: '0.95rem' }}>
-                    {st.avgAtt}%
+                    {st.avgAtt !== '—' ? `${st.avgAtt}%` : '—'}
                   </strong>
                 </td>
                 <td>
@@ -98,7 +111,8 @@ export default function HODMonthlyReports() {
                   </button>
                 </td>
               </tr>
-            ))}
+            ))
+          )}
           </tbody>
         </table>
       </div>

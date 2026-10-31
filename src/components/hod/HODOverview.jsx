@@ -13,14 +13,49 @@ import {
   Clock, 
   ArrowRight,
   ShieldCheck,
-  FileCheck 
+  FileCheck,
+  FileSpreadsheet,
+  GraduationCap,
+  UserCheck
 } from 'lucide-react';
 
 export default function HODOverview() {
-  const { currentUser, setActiveTab, uploadHistory, auditLogs } = useAuth();
-  const cseDept = DEPARTMENTS.find(d => d.id === 'CSE') || DEPARTMENTS[0];
+  const { currentUser, students = [], setActiveTab, uploadHistory = [], auditLogs = [] } = useAuth();
+  
+  // Requirement 2: HOD Branch strictly based on login context
+  const assignedBranch = currentUser?.profile?.department || 'CSE';
+  const deptObj = DEPARTMENTS.find(d => d.id === assignedBranch) || {
+    id: assignedBranch,
+    code: assignedBranch,
+    name: currentUser?.profile?.departmentName || `${assignedBranch} Department`,
+    hod: currentUser?.profile?.name || "Head of Department",
+    establishedYear: 2008
+  };
+
+  // Requirement 4: Real data derived from actual registered roster
+  const deptStudents = students.filter(s => s.department === assignedBranch);
+  const studentsWithAtt = deptStudents.filter(s => s.attendanceOverall !== undefined && s.attendanceOverall !== null);
+  const deptAvgAtt = studentsWithAtt.length > 0 
+    ? (studentsWithAtt.reduce((sum, s) => sum + (parseFloat(s.attendanceOverall) || 0), 0) / studentsWithAtt.length).toFixed(1) + '%'
+    : '—';
 
   const pendingApprovals = auditLogs.filter(l => l.action === 'CORRECTION_APPROVAL');
+
+  // Compute actual batch data
+  const batches = ['IV Year', 'III Year', 'II Year', 'I Year'].map(yr => {
+    const batchList = deptStudents.filter(s => s.year === yr);
+    const withAtt = batchList.filter(s => s.attendanceOverall !== undefined && s.attendanceOverall !== null);
+    const avg = withAtt.length > 0
+      ? (withAtt.reduce((sum, s) => sum + (parseFloat(s.attendanceOverall) || 0), 0) / withAtt.length).toFixed(1)
+      : null;
+    const condonation = batchList.filter(s => s.attendanceOverall >= 65 && s.attendanceOverall < 75).length;
+    return {
+      year: yr,
+      count: batchList.length,
+      avg,
+      condonation
+    };
+  });
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
@@ -45,75 +80,82 @@ export default function HODOverview() {
               Department Head Office
             </span>
             <span style={{ color: '#93c5fd', fontSize: '0.8rem' }}>
-              Dept Code: {cseDept.code} • Established {cseDept.establishedYear}
+              Dept Code: {deptObj.code} • Established {deptObj.establishedYear}
             </span>
           </div>
 
           <h2 style={{ fontSize: '1.6rem', color: '#ffffff', fontWeight: 800 }}>
-            {cseDept.name} Administration
+            {deptObj.name} Administration
           </h2>
           <p style={{ color: '#cbd5e1', fontSize: '0.88rem', marginTop: '0.2rem' }}>
-            Head of Department: <strong>{cseDept.hod}</strong> • Tirumala Engineering College, Narasaraopet
+            Head of Department: <strong>{currentUser?.profile?.name || deptObj.hod}</strong> • Tirumala Engineering College, Narasaraopet
           </p>
         </div>
 
         <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
           <button 
-            onClick={() => setActiveTab('attendance-overview')} 
+            onClick={() => setActiveTab('attendance-upload')} 
             className="btn btn-accent btn-sm"
           >
-            <Percent size={15} /> Student Attendance
+            <FileSpreadsheet size={15} /> Upload Attendance
           </button>
           <button 
-            onClick={() => setActiveTab('academic-admin')} 
+            onClick={() => setActiveTab('student-records')} 
             className="btn btn-sm"
             style={{ background: 'rgba(255,255,255,0.15)', color: '#ffffff', border: '1px solid rgba(255,255,255,0.25)' }}
           >
-            <FileCheck size={15} /> Correction Queue
+            <UserCheck size={15} /> Student Records
+          </button>
+          <button 
+            onClick={() => setActiveTab('students-classes')} 
+            className="btn btn-sm"
+            style={{ background: 'rgba(255,255,255,0.15)', color: '#ffffff', border: '1px solid rgba(255,255,255,0.25)' }}
+          >
+            <GraduationCap size={15} /> Student Directory
           </button>
         </div>
       </div>
 
-      {/* Metric Cards */}
+      {/* Metric Cards - Real Data & Clean Empty States */}
       <div className="grid-4">
         <StatCard 
           title="Total Department Students"
-          value={`${cseDept.studentsCount}`}
-          subtitle="4 Academic Batches (I-IV)"
+          value={`${deptStudents.length}`}
+          subtitle={deptStudents.length > 0 ? "Active Enrolled Roster" : "No students registered yet"}
           icon={Users}
           color="primary"
-          badgeText="Active Roster"
-          badgeType="primary"
+          badgeText={deptStudents.length > 0 ? "Active Roster" : "Empty"}
+          badgeType={deptStudents.length > 0 ? "primary" : "neutral"}
         />
 
         <StatCard 
           title="Faculty Strength"
-          value={`${cseDept.facultyCount}`}
-          subtitle="Professors & Asst. Profs"
+          value={FACULTY_MEMBERS.length ? `${FACULTY_MEMBERS.length}` : "—"}
+          subtitle="Department Faculty Roster"
           icon={BookOpen}
           color="purple"
-          badgeText="Full Strength"
+          badgeText="Active Staff"
           badgeType="primary"
         />
 
         <StatCard 
           title="Dept Avg Attendance"
-          value={`${cseDept.avgAttendance}%`}
-          subtitle="ODD Semester 2026-27"
+          value={deptAvgAtt}
+          subtitle={studentsWithAtt.length > 0 ? "From published registers" : "No attendance recorded yet"}
           icon={Percent}
           color="success"
-          badgeText="Above Benchmark"
-          badgeType="success"
+          badgeText={studentsWithAtt.length > 0 ? "Verified" : "Pending"}
+          badgeType={studentsWithAtt.length > 0 ? "success" : "neutral"}
         />
 
         <StatCard 
           title="Semester Pass Rate"
-          value={`${cseDept.passRate}%`}
-          subtitle="JNTUK University Results"
+          value="—"
+          subtitle="Awaiting Semester Results"
           icon={Award}
           color="accent"
-          badgeText="Top Ranked"
-          badgeType="success"
+          badgeText="Official"
+          badgeType="neutral"
         />
       </div>
 
@@ -124,7 +166,7 @@ export default function HODOverview() {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
             <div>
               <h3 style={{ fontSize: '1.1rem', color: '#0f172a' }}>Faculty Upload Compliance Tracker</h3>
-              <p style={{ fontSize: '0.78rem', color: '#64748b' }}>September 2026 Monthly Spreadsheet Submissions</p>
+              <p style={{ fontSize: '0.78rem', color: '#64748b' }}>Department Monthly Spreadsheet Submissions</p>
             </div>
             <button 
               onClick={() => setActiveTab('faculty-management')}
@@ -155,12 +197,12 @@ export default function HODOverview() {
           </div>
         </div>
 
-        {/* Batch-wise Attendance Overview */}
+        {/* Batch-wise Attendance Overview - Real Data / Clean Empty State */}
         <div className="card">
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
             <div>
               <h3 style={{ fontSize: '1.1rem', color: '#0f172a' }}>Class Batch Performance</h3>
-              <p style={{ fontSize: '0.78rem', color: '#64748b' }}>Sections across current academic years</p>
+              <p style={{ fontSize: '0.78rem', color: '#64748b' }}>Real section averages in {assignedBranch}</p>
             </div>
             <button 
               onClick={() => setActiveTab('students-classes')}
@@ -170,40 +212,36 @@ export default function HODOverview() {
             </button>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-            <div style={{ padding: '0.75rem', background: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '0.35rem' }}>
-                <span style={{ fontWeight: 700 }}>IV Year B.Tech CSE (Sec A & B)</span>
-                <span style={{ fontWeight: 800, color: '#059669' }}>88.5% Avg</span>
-              </div>
-              <div className="attendance-progress-bar">
-                <div className="attendance-progress-fill fill-safe" style={{ width: '88.5%' }}></div>
-              </div>
-              <div style={{ fontSize: '0.72rem', color: '#64748b', marginTop: '0.35rem' }}>133 Students • 4 Under Condonation Alert</div>
+          {deptStudents.length === 0 ? (
+            <div style={{ textAlign: 'center', padding: '2.5rem 1rem', color: '#64748b', background: '#f8fafc', borderRadius: '8px', border: '1px dashed #cbd5e1' }}>
+              <Users size={28} style={{ color: '#94a3b8', margin: '0 auto 0.5rem' }} />
+              <div style={{ fontWeight: 700, color: '#334155', fontSize: '0.95rem' }}>No students registered yet</div>
+              <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '0.25rem' }}>
+                Batch averages will display automatically once students are enrolled in {assignedBranch}.
+              </p>
             </div>
-
-            <div style={{ padding: '0.75rem', background: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '0.35rem' }}>
-                <span style={{ fontWeight: 700 }}>III Year B.Tech CSE (Sec A & B)</span>
-                <span style={{ fontWeight: 800, color: '#059669' }}>86.2% Avg</span>
-              </div>
-              <div className="attendance-progress-bar">
-                <div className="attendance-progress-fill fill-safe" style={{ width: '86.2%' }}></div>
-              </div>
-              <div style={{ fontSize: '0.72rem', color: '#64748b', marginTop: '0.35rem' }}>142 Students • 2 Under Condonation Alert</div>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+              {batches.filter(b => b.count > 0).map(b => (
+                <div key={b.year} style={{ padding: '0.75rem', background: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '0.35rem' }}>
+                    <span style={{ fontWeight: 700 }}>{b.year} B.Tech {assignedBranch}</span>
+                    <span style={{ fontWeight: 800, color: b.avg && parseFloat(b.avg) >= 75 ? '#059669' : '#d97706' }}>
+                      {b.avg ? `${b.avg}% Avg` : 'No attendance yet'}
+                    </span>
+                  </div>
+                  {b.avg && (
+                    <div className="attendance-progress-bar">
+                      <div className={`attendance-progress-fill ${parseFloat(b.avg) >= 75 ? 'fill-safe' : 'fill-warning'}`} style={{ width: `${b.avg}%` }}></div>
+                    </div>
+                  )}
+                  <div style={{ fontSize: '0.72rem', color: '#64748b', marginTop: '0.35rem' }}>
+                    {b.count} Student{b.count === 1 ? '' : 's'} enrolled • {b.condonation} Under Condonation Alert
+                  </div>
+                </div>
+              ))}
             </div>
-
-            <div style={{ padding: '0.75rem', background: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '0.35rem' }}>
-                <span style={{ fontWeight: 700 }}>II Year B.Tech CSE (Sec A, B & C)</span>
-                <span style={{ fontWeight: 800, color: '#059669' }}>85.0% Avg</span>
-              </div>
-              <div className="attendance-progress-bar">
-                <div className="attendance-progress-fill fill-safe" style={{ width: '85%' }}></div>
-              </div>
-              <div style={{ fontSize: '0.72rem', color: '#64748b', marginTop: '0.35rem' }}>210 Students • 6 Under Condonation Alert</div>
-            </div>
-          </div>
+          )}
         </div>
       </div>
 

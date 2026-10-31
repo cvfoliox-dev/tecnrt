@@ -40,9 +40,9 @@ export default function HODSettings() {
         </p>
 
         <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px', border: '1px solid #e2e8f0', display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.75rem', fontSize: '0.85rem', marginBottom: '1.5rem' }}>
-          <div>HOD Name: <strong>{profile.name}</strong></div>
-          <div>Department: <strong>{profile.departmentName || "Computer Science & Engineering"}</strong></div>
-          <div>Email: <strong>{profile.email || "hod.cse@tecnrt.org"}</strong></div>
+          <div>HOD Name: <strong>{profile.name || currentUser?.name || "Department Head"}</strong></div>
+          <div>Department: <strong>{profile.departmentName || profile.department || "Engineering"}</strong></div>
+          <div>Email: <strong>{profile.email || currentUser?.username || "hod@tecnrt.org"}</strong></div>
           <div>Designation: <strong>Professor & Head of Department</strong></div>
         </div>
 

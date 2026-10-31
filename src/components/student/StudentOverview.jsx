@@ -15,13 +15,13 @@ import {
 } from 'lucide-react';
 
 export default function StudentOverview() {
-  const { currentUser, setActiveTab } = useAuth();
-  const student = currentUser.profile || {};
-  const subjects = STUDENT_SUBJECTS[student.rollNumber] || STUDENT_SUBJECTS["21TML0501"];
+  const { currentUser, students, setActiveTab } = useAuth();
+  const student = students.find(s => s.rollNumber === currentUser.profile?.rollNumber) || currentUser.profile || {};
+  const subjects = student.subjectAttendance || STUDENT_SUBJECTS[student.rollNumber] || STUDENT_SUBJECTS["21TML0501"] || [];
   const exams = STUDENT_EXAMS[student.rollNumber] || STUDENT_EXAMS["21TML0501"];
   const fees = STUDENT_FEES[student.rollNumber] || STUDENT_FEES["21TML0501"];
 
-  const attendancePct = student.attendanceOverall || 88.5;
+  const attendancePct = student.attendanceOverall ?? 88.5;
   const isCondonation = attendancePct < 75 && attendancePct >= 65;
   const isDetained = attendancePct < 65;
 
@@ -148,10 +148,10 @@ export default function StudentOverview() {
               <p style={{ fontSize: '0.78rem', color: '#64748b' }}>Attendance & Mid Performance</p>
             </div>
             <button 
-              onClick={() => setActiveTab('subjects')}
+              onClick={() => setActiveTab('attendance')}
               style={{ background: 'none', border: 'none', color: '#2563eb', fontSize: '0.8rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.25rem', cursor: 'pointer' }}
             >
-              All Subjects <ArrowRight size={14} />
+              View Attendance <ArrowRight size={14} />
             </button>
           </div>
 
@@ -183,8 +183,8 @@ export default function StudentOverview() {
                 </div>
 
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.5rem', fontSize: '0.72rem', color: '#64748b' }}>
-                  <span>Faculty: {sub.faculty}</span>
-                  <span style={{ color: '#1d4ed8', fontWeight: 600 }}>Syllabus: {sub.syllabusCompleted}</span>
+                  <span>Faculty: {sub.faculty || "Department Faculty"}</span>
+                  <span style={{ color: '#1d4ed8', fontWeight: 600 }}>Syllabus: {sub.syllabusCompleted || "85% Covered"}</span>
                 </div>
               </div>
             ))}

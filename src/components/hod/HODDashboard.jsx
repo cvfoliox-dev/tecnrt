@@ -4,35 +4,30 @@ import PortalHeader from '../common/PortalHeader';
 import HODOverview from './HODOverview';
 import HODFacultyManagement from './HODFacultyManagement';
 import HODStudentsAndClasses from './HODStudentsAndClasses';
-import HODSubjectsAndAssignments from './HODSubjectsAndAssignments';
-import HODAttendanceOverview from './HODAttendanceOverview';
+import HODStudentRecords from './HODStudentRecords';
+import HODAttendanceUpload from './HODAttendanceUpload';
 import HODMonthlyReports from './HODMonthlyReports';
-import HODAcademicAdministration from './HODAcademicAdministration';
 import HODSettings from './HODSettings';
-import StudentCreationModal from '../faculty/StudentCreationModal';
 import { 
   Building2, 
   Users, 
   GraduationCap, 
-  BookOpen, 
-  Percent, 
-  Calendar, 
-  ShieldCheck, 
-  Settings 
+  Settings,
+  FileSpreadsheet,
+  FileText,
+  UserCheck
 } from 'lucide-react';
 
 export default function HODDashboard() {
   const { activeTab, setActiveTab } = useAuth();
-  const [addStudentOpen, setAddStudentOpen] = useState(false);
 
   const navItems = [
     { id: 'department-overview', label: 'Department Overview', icon: Building2 },
-    { id: 'faculty-management', label: 'Faculty Management', icon: Users },
-    { id: 'students-classes', label: 'Students & Classes', icon: GraduationCap },
-    { id: 'subjects-assignments', label: 'Subjects & Assignments', icon: BookOpen },
-    { id: 'attendance-overview', label: 'Attendance Overview (PRD)', icon: Percent },
-    { id: 'monthly-reports', label: 'Monthly Reports', icon: Calendar },
-    { id: 'academic-admin', label: 'Academic Administration', icon: ShieldCheck },
+    { id: 'student-records', label: 'Student Records', icon: UserCheck },
+    { id: 'students-classes', label: 'Section & Student Roster', icon: GraduationCap },
+    { id: 'attendance-upload', label: 'Attendance Upload & Publish', icon: FileSpreadsheet },
+    { id: 'faculty-management', label: 'Faculty Directory & Workload', icon: Users },
+    { id: 'monthly-reports', label: 'Monthly Reports', icon: FileText },
     { id: 'settings', label: 'Account Settings', icon: Settings },
   ];
 
@@ -62,7 +57,7 @@ export default function HODDashboard() {
                     gap: '0.75rem',
                     padding: '0.65rem 0.85rem',
                     borderRadius: '8px',
-                    fontSize: '0.85rem',
+                    fontSize: '0.84rem',
                     fontWeight: isActive ? 700 : 500,
                     background: isActive ? '#f3e8ff' : 'transparent',
                     color: isActive ? '#6b21a8' : '#475569',
@@ -84,21 +79,14 @@ export default function HODDashboard() {
         {/* Main Dashboard Content Area */}
         <main style={{ flex: 1, minWidth: 0 }}>
           {activeTab === 'department-overview' && <HODOverview />}
+          {activeTab === 'student-records' && <HODStudentRecords />}
+          {activeTab === 'students-classes' && <HODStudentsAndClasses />}
+          {activeTab === 'attendance-upload' && <HODAttendanceUpload />}
           {activeTab === 'faculty-management' && <HODFacultyManagement />}
-          {activeTab === 'students-classes' && <HODStudentsAndClasses onOpenAddStudent={() => setAddStudentOpen(true)} />}
-          {activeTab === 'subjects-assignments' && <HODSubjectsAndAssignments />}
-          {activeTab === 'attendance-overview' && <HODAttendanceOverview />}
           {activeTab === 'monthly-reports' && <HODMonthlyReports />}
-          {activeTab === 'academic-admin' && <HODAcademicAdministration onOpenAddStudent={() => setAddStudentOpen(true)} />}
           {activeTab === 'settings' && <HODSettings />}
         </main>
       </div>
-
-      <StudentCreationModal 
-        isOpen={addStudentOpen}
-        onClose={() => setAddStudentOpen(false)}
-        defaultDepartment="CSE"
-      />
 
       <style>{`
         @media (max-width: 900px) {

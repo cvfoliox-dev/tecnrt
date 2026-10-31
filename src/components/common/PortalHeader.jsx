@@ -45,12 +45,8 @@ export default function PortalHeader() {
     switch (role) {
       case 'student':
         return <span className="badge badge-primary">Student Portal</span>;
-      case 'faculty':
-        return <span className="badge badge-accent">Faculty Workspace</span>;
       case 'hod':
         return <span className="badge" style={{ background: '#f3e8ff', color: '#6b21a8' }}>HOD Administration</span>;
-      case 'principal':
-        return <span className="badge" style={{ background: '#fef3c7', color: '#92400e', border: '1px solid #f59e0b' }}>Principal Executive</span>;
       default:
         return null;
     }
@@ -64,7 +60,7 @@ export default function PortalHeader() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: '#92400e', fontSize: '0.82rem', fontWeight: 600 }}>
             <AlertTriangle size={18} style={{ color: '#d97706', flexShrink: 0 }} />
             <span>
-              <strong>Security Requirement (PRD 4.1):</strong> First-time login detected. You must change your temporary roll-number password to secure your portal account.
+              <strong>Security Requirement:</strong> First-time login detected. You must change your temporary access key to set a private password and secure your portal account.
             </span>
           </div>
           <button 
@@ -164,7 +160,11 @@ export default function PortalHeader() {
                 {currentUser.profile?.name || "Active User"}
               </div>
               <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
-                {currentUser.role === 'student' ? currentUser.profile?.rollNumber : currentUser.profile?.designation || currentUser.profile?.department}
+                {currentUser.role === 'hod'
+                  ? `HOD • ${currentUser.profile?.department || 'CSE'}`
+                  : (currentUser.role === 'student' 
+                      ? currentUser.profile?.rollNumber 
+                      : currentUser.profile?.designation || 'Administrator')}
               </div>
             </div>
           </div>
@@ -184,7 +184,10 @@ export default function PortalHeader() {
 
           {/* Logout */}
           <button 
-            onClick={logout}
+            onClick={() => {
+              logout();
+              navigate('/');
+            }}
             className="btn btn-outline-primary btn-sm"
             title="Sign out of current account"
             style={{ color: '#dc2626', borderColor: '#fca5a5' }}
